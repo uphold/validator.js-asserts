@@ -1,0 +1,61 @@
+{
+  "name": "validator.js-asserts",
+  "version": "0.0.0",
+  "description": "A set of extra asserts for validator.js.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "changelog": "./node_modules/.bin/github-changes -o seegno -r validator.js-asserts -a --only-pulls --use-commit-body --title 'Changelog' --date-format '/ YYYY-MM-DD'",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha 'test/**/*_test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seegno/validator.js-asserts"
+  },
+  "keywords": [
+    "validator.js",
+    "asserts",
+    "extra",
+    "extras",
+    "set"
+  ],
+  "contributors": [
+    {
+      "name": "Nuno Sousa",
+      "email": "nuno.sousa@seegno.com"
+    },
+    {
+      "name": "Rui Marinho",
+      "email": "rui.marinho@seegno.com"
+    },
+    {
+      "name": "Tiago Ribeiro",
+      "email": "tiago.ribeiro@seegno.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seegno/validator.js-asserts/issues"
+  },
+  "homepage": "http://seegno.github.io/validator.js-asserts/",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {
+    "bignumber.js": "^1.4.1",
+    "iso-3166-1-data": "0.0.2",
+    "lodash": "^2.4.1",
+    "provinces": "^0.2.0",
+    "require-dir": "^0.1.0",
+    "to-pascal-case": "0.0.2",
+    "validator": "^3.22.1",
+    "validator.js": "^1.0.1"
+  },
+  "devDependencies": {
+    "github-changes": "0.0.14",
+    "mocha": "^2.0.1",
+    "should": "^4.2.1"
+  }
+}
