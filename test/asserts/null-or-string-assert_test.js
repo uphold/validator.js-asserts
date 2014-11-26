@@ -66,6 +66,17 @@ describe('NullOrStringAssert', function() {
     }
   });
 
+  it('should expose `min` or `max` on the `assert` if testing boundaries of a string', function() {
+    try {
+      new Assert().NullOrString({ min: 1, max: 2 }).validate('foobar');
+
+      should.fail();
+    } catch(e) {
+      e.assert.min.should.equal(1);
+      e.assert.max.should.equal(2);
+    }
+  });
+
   it('should accept `null`', function() {
     new Assert().NullOrString().validate(null);
   });
