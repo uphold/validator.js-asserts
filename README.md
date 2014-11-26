@@ -26,6 +26,7 @@ The following set of extra asserts are provided by this package:
 * BigNumberLessThanOrEqualTo
 * Boolean
 * Date
+* Email
 * EqualKeys
 * Hash
 * Integer
