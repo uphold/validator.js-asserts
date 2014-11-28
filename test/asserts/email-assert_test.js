@@ -42,7 +42,6 @@ describe('EmailAssert', function() {
 
       should.fail();
     } catch (e) {
-      console.log(e);
       e.should.be.instanceOf(Violation);
     }
   });
