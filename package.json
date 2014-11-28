@@ -57,6 +57,7 @@
   "devDependencies": {
     "github-changes": "0.0.14",
     "mocha": "^2.0.1",
-    "should": "^4.2.1"
+    "should": "^4.2.1",
+    "sinon": "^1.12.1"
   }
 }
