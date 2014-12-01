@@ -28,10 +28,10 @@ describe('DateDiffGreaterThanAssert', function() {
     }
   });
 
-  it('should have a default option `unit` of `milliseconds`', function() {
+  it('should have a default option `absolute` of `false`', function() {
     var assert = new Assert().DateDiffGreaterThanAssert(1);
 
-    assert.options.unit.should.equal('milliseconds');
+    assert.options.absolute.should.be.false;
   });
 
   it('should have a default option `asFloat` of `false`', function() {
@@ -44,6 +44,12 @@ describe('DateDiffGreaterThanAssert', function() {
     var assert = new Assert().DateDiffGreaterThanAssert(1);
 
     (null === assert.options.fromDate).should.be.true;
+  });
+
+  it('should have a default option `unit` of `milliseconds`', function() {
+    var assert = new Assert().DateDiffGreaterThanAssert(1);
+
+    assert.options.unit.should.equal('milliseconds');
   });
 
   it('should throw an error if the input value is not a date', function() {
@@ -75,9 +81,35 @@ describe('DateDiffGreaterThanAssert', function() {
     clock.restore();
   });
 
+  it('should throw an error if the `absolute` diff between `now` and input date is equal to `threshold`', function() {
+    var clock = sinon.useFakeTimers(0, 'Date');
+
+    try {
+      new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-02'));
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().violation.threshold.should.equal(e.show().violation.diff);
+    }
+
+    clock.restore();
+  });
+
   it('should throw an error if the diff between `fromDate` and input date is equal to `threshold`', function() {
     try {
       new Assert().DateDiffGreaterThanAssert(0, { fromDate: new Date('1970-01-01') }).validate(new Date('1970-01-01'));
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().violation.threshold.should.equal(e.show().violation.diff);
+    }
+  });
+
+  it('should throw an error if the `absolute` diff between `fromDate` and input date is equal to `threshold`', function() {
+    try {
+      new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000, { absolute: true, fromDate: new Date('1970-01-01') }).validate(new Date('1970-01-02'));
 
       should.fail();
     } catch (e) {
@@ -103,7 +135,7 @@ describe('DateDiffGreaterThanAssert', function() {
 
   it('should throw an error if the diff between `fromDate` and input date is less than the `threshold`', function() {
     try {
-      new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000, { fromDate: new Date('1970-01-01') }).validate(new Date('1970-01-01'));
+      new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000, { fromDate: new Date('1970-01-01 00:00:00') }).validate(new Date('1970-01-01 10:00:00'));
 
       should.fail();
     } catch (e) {
@@ -126,7 +158,7 @@ describe('DateDiffGreaterThanAssert', function() {
     clock.restore();
   });
 
-  it('should expose `threshold`, `unit`, `asFloat`, `fromDate` and `diff` on the violation', function() {
+  it('should expose `absolute`, `asFloat`, `diff`, `fromDate`, `threshold` and `unit` on the violation', function() {
     var clock = sinon.useFakeTimers(0, 'Date');
 
     try {
@@ -135,16 +167,10 @@ describe('DateDiffGreaterThanAssert', function() {
       should.fail();
     } catch (e) {
       e.should.be.instanceOf(Violation);
-      e.show().violation.should.have.keys('threshold', 'unit', 'asFloat', 'fromDate', 'diff');
+      e.show().violation.should.have.keys('absolute', 'asFloat', 'diff', 'fromDate', 'threshold', 'unit');
     }
 
     clock.restore();
-  });
-
-  it('should accept option `unit`', function() {
-    var assert = new Assert().DateDiffGreaterThanAssert(24, { unit: 'hours' });
-
-    assert.options.unit.should.equal('hours');
   });
 
   it('should accept option `asFloat`', function() {
@@ -159,14 +185,10 @@ describe('DateDiffGreaterThanAssert', function() {
     assert.options.fromDate.should.eql(new Date('1970-01-01'));
   });
 
-  it('should use the `unit` option supplied', function() {
-    try {
-      new Assert().DateDiffGreaterThanAssert(2000, { unit: 'seconds', fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 10:00:05'));
+  it('should accept option `unit`', function() {
+    var assert = new Assert().DateDiffGreaterThanAssert(24, { unit: 'hours' });
 
-      should.fail();
-    } catch (e) {
-      e.should.be.instanceOf(Violation);
-    }
+    assert.options.unit.should.equal('hours');
   });
 
   it('should use the `asFloat` option supplied', function() {
@@ -180,8 +202,14 @@ describe('DateDiffGreaterThanAssert', function() {
     }
   });
 
-  it('should accept a date whose diff from `fromDate` is greater than the threshold', function() {
-    new Assert().DateDiffGreaterThanAssert(24, { unit: 'hours', asFloat: false, fromDate: new Date('1970-01-01 00:00:00') }).validate(new Date('1969-12-30 00:00:00'));
+  it('should use the `unit` option supplied', function() {
+    try {
+      new Assert().DateDiffGreaterThanAssert(2000, { unit: 'seconds', fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 10:00:05'));
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+    }
   });
 
   it('should accept a date whose diff from `now` is greater than the threshold', function() {
@@ -190,5 +218,21 @@ describe('DateDiffGreaterThanAssert', function() {
     new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000).validate(new Date('1969-12-30 00:00:00'));
 
     clock.restore();
+  });
+
+  it('should accept a date whose `absolute` diff from `now` is greater than the threshold', function() {
+    var clock = sinon.useFakeTimers(0, 'Date');
+
+    new Assert().DateDiffGreaterThanAssert(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-03 00:00:00'));
+
+    clock.restore();
+  });
+
+  it('should accept a date whose diff from `fromDate` is greater than the threshold', function() {
+    new Assert().DateDiffGreaterThanAssert(24, { unit: 'hours', asFloat: false, fromDate: new Date('1970-01-01 00:00:00') }).validate(new Date('1969-12-30 00:00:00'));
+  });
+
+  it('should accept a date whose `absolute` diff from `fromDate` is greater than the threshold', function() {
+    new Assert().DateDiffGreaterThanAssert(24, { absolute: true, asFloat: false, fromDate: new Date('1969-12-30 00:00:00'), unit: 'hours' }).validate(new Date('1970-01-01 00:00:00'));
   });
 });
