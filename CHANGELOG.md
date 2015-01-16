@@ -1,5 +1,8 @@
 ## Changelog
 
+### 0.0.4 / 2015-01-16
+- [#7](https://github.com/seegno/validator.js-asserts/pull/7) Update bignumber.js version (@fixe)
+
 ### 0.0.3 / 2014-12-01
 - [#6](https://github.com/seegno/validator.js-asserts/pull/6) Update asserts documentation (@ruimarinho)
 - [#5](https://github.com/seegno/validator.js-asserts/pull/5) Update github-changes@0.0.16 (@ruimarinho)
