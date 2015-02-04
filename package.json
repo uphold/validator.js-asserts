@@ -48,6 +48,7 @@
     "iso-3166-1-data": "0.0.2",
     "lodash": "^2.4.1",
     "moment": "^2.8.4",
+    "objectid": "3.1.0",
     "provinces": "^0.2.0",
     "require-dir": "^0.1.0",
     "to-pascal-case": "0.0.2",
