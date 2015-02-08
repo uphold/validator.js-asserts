@@ -35,6 +35,7 @@ The following set of extra asserts are provided by this package:
 * Ip
 * Iso3166Country
 * Json
+* MongoId
 * NotEmpty
 * NullOrString
 * PlainObject
@@ -130,6 +131,10 @@ Tests if the value is a valid ISO-3166 country by alpha-3 code, alpha-2 code or 
 ### Json
 
 Tests if the value is valid json.
+
+### MongoId
+
+Tests if the value is a valid MongoDB id object or string representation.
 
 ### NotEmpty
 
