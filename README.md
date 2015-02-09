@@ -36,6 +36,7 @@ The following set of extra asserts are provided by this package:
 * Iso3166Country
 * Json
 * NotEmpty
+* NotEqualTo
 * NullOrString
 * PlainObject
 * UsState
@@ -134,6 +135,12 @@ Tests if the value is valid json.
 ### NotEmpty
 
 Tests if the value is not an empty (empty object, empty array, empty string, etc).
+
+### NotEqualTo
+
+Tests if the value is not equal to the given reference.
+
+* `reference` (required)
 
 ### NullOrString
 
