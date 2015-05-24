@@ -26,6 +26,8 @@ describe('BooleanAssert', function() {
     choices.forEach(function(choice) {
       try {
         new Assert().Boolean().validate(choice);
+
+        should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
         /* jshint camelcase: false */

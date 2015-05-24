@@ -24,6 +24,8 @@ describe('Iso3166CountryAssert', function() {
     choices.forEach(function(choice) {
       try {
         new Assert().Iso3166Country().validate(choice);
+
+        should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
         /* jshint camelcase: false */
@@ -62,7 +64,11 @@ describe('Iso3166CountryAssert', function() {
     new Assert().Iso3166Country().validate('PT');
   });
 
-  it('should accept an ISO 3166-1 country name', function() {
+  it('should accept an ISO 3166-1 country name in short format', function() {
     new Assert().Iso3166Country().validate('Portugal');
+  });
+
+  it('should accept an ISO 3166-1 country name in uppercase format', function() {
+    new Assert().Iso3166Country().validate('PORTUGAL');
   });
 });

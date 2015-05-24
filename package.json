@@ -44,20 +44,20 @@
     "node": ">= 0.10"
   },
   "dependencies": {
-    "bignumber.js": "^2.0.0",
-    "iso-3166-1-data": "0.0.2",
-    "lodash": "^2.4.1",
-    "moment": "^2.8.4",
-    "provinces": "^0.2.0",
-    "require-dir": "^0.1.0",
-    "to-pascal-case": "0.0.2",
-    "validator": "^3.22.1",
-    "validator.js": "^1.0.1"
+    "bignumber.js": "^2.0.7",
+    "isoc": "0.0.1",
+    "lodash": "^3.9.1",
+    "moment": "^2.10.3",
+    "provinces": "^1.7.1",
+    "require-dir": "^0.3.0",
+    "validator": "^3.40.0",
+    "validator.js": "^1.1.1",
+    "world-countries": "^1.7.3"
   },
   "devDependencies": {
-    "github-changes": "0.0.16",
-    "mocha": "^2.0.1",
-    "should": "^4.2.1",
-    "sinon": "^1.12.1"
+    "github-changes": "^1.0.0",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
+    "sinon": "^1.14.1"
   }
 }
