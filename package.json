@@ -1,6 +1,6 @@
 {
   "name": "validator.js-asserts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A set of extra asserts for validator.js.",
   "main": "index.js",
   "directories": {
@@ -40,9 +40,6 @@
     "url": "https://github.com/seegno/validator.js-asserts/issues"
   },
   "homepage": "http://seegno.github.io/validator.js-asserts/",
-  "engines": {
-    "node": ">= 0.10"
-  },
   "dependencies": {
     "URIjs": "^1.15.1",
     "bignumber.js": "^2.0.7",

@@ -1,5 +1,10 @@
 ## Changelog
 
+### 0.0.5 / 2015-05-24
+- [#14](https://github.com/seegno/validator.js-asserts/pull/14) Use travis container infrastructure (@ruimarinho)
+- [#12](https://github.com/seegno/validator.js-asserts/pull/12) Add URI assert (@nunofgs)
+- [#13](https://github.com/seegno/validator.js-asserts/pull/13) Replace ISO 3166-1 country assert source (@ruimarinho)
+
 ### 0.0.4 / 2015-01-16
 - [#7](https://github.com/seegno/validator.js-asserts/pull/7) Update bignumber.js version (@fixe)
 
