@@ -11,7 +11,7 @@ A set of extra asserts for [validator.js](https://github.com/guillaumepotier/val
 
 Install the package via `npm`:
 
-```
+```sh
 $ npm install --save validator.js-asserts
 ```
 
@@ -25,6 +25,7 @@ The following set of extra asserts are provided by this package:
 * BigNumberLessThan
 * BigNumberLessThanOrEqualTo
 * Boolean
+* Country
 * Date
 * DateDiffGreaterThan
 * DateDiffLessThan
@@ -99,6 +100,11 @@ Tests if the difference between two dates is less than a given threshold.
 	* `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
 	* `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
 
+### Country
+
+Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names.
+The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
+
 ### Email
 
 Tests if the value is a valid email.
@@ -125,7 +131,8 @@ Tests if the value is a valid ip (v4 or v6).
 
 ### Iso3166Country
 
-Tests if the value is a valid ISO-3166 country by alpha-3 code, alpha-2 code or name.
+Tests if the value is a valid ISO-3166 country by alpha-3 code, alpha-2 code, short name or uppercase name.
+All officially-assigned, transitionally-assigned and user-assigned codes are considered valid.
 
 ### Json
 
@@ -184,7 +191,7 @@ if (true !== violation) {
 
 ## Tests
 
-```
+```sh
 $ npm test
 ```
 
