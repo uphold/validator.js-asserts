@@ -39,6 +39,7 @@ The following set of extra asserts are provided by this package:
 * NotEmpty
 * NullOrString
 * PlainObject
+* Uri
 * UsState
 * Uuid
 
@@ -151,6 +152,12 @@ Tests if the value is a `null` or `string`, optionally within some boundaries.
 ### PlainObject
 
 Tests if the value is a plain object.
+
+### Uri
+
+Tests if the value is a valid `uri` which must contain at least a protocol and a hostname.
+
+* `constraints` (optional) - additional uri parts to test for (e.g. `{ protocol: 'https' }`).
 
 ### UsState
 
