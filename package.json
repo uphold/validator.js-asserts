@@ -49,7 +49,7 @@
     "provinces": "^1.7.1",
     "require-dir": "^0.3.0",
     "validator": "^3.40.0",
-    "validator.js": "^1.1.1",
+    "validator.js": "^1.1.2",
     "world-countries": "^1.7.3"
   },
   "devDependencies": {
