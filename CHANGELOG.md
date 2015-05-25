@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.0.6 / 2015-05-25
+- [#16](https://github.com/seegno/validator.js-asserts/pull/16) Export object for validator.js extend method usage (@ruimarinho)
+- [#15](https://github.com/seegno/validator.js-asserts/pull/15) Add documentation for uri assert (@ruimarinho)
+
 ### 0.0.5 / 2015-05-24
 - [#14](https://github.com/seegno/validator.js-asserts/pull/14) Use travis container infrastructure (@ruimarinho)
 - [#12](https://github.com/seegno/validator.js-asserts/pull/12) Add URI assert (@nunofgs)
