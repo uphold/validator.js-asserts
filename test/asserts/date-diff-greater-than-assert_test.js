@@ -4,6 +4,7 @@
  */
 
 var Assert = require('validator.js').Assert;
+var Validator = require('validator.js').Validator;
 var Violation = require('validator.js').Violation;
 var assert = require('../../lib/asserts/date-diff-greater-than-assert');
 var sinon = require('sinon');
@@ -53,7 +54,7 @@ describe('DateDiffGreaterThanAssert', function() {
   });
 
   it('should throw an error if the input value is not a date', function() {
-    var choices = [[], {}, ''];
+    var choices = [[], {}];
 
     choices.forEach(function(choice) {
       try {
@@ -62,6 +63,9 @@ describe('DateDiffGreaterThanAssert', function() {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+        /* jshint camelcase: false */
+        e.violation.value.should.equal(Validator.errorCode.must_be_a_date_or_a_string);
+        /* jshint camelcase: true */
       }
     });
   });
