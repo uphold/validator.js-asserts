@@ -174,9 +174,7 @@ Tests if the value is a valid uuid.
 The following is an example for the extra ip assert:
 
 ```js
-require('validator.js-asserts');
-
-var Assert = require('validator.js').Assert;
+var Assert = require('validator.js').Assert.extend(require('validator.js-asserts'));
 var Validator = require('validator.js').Validator;
 var validator = new Validator();
 
