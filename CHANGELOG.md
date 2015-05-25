@@ -1,5 +1,8 @@
 ## Changelog
 
+### 0.0.7 / 2015-05-25
+- [#17](https://github.com/seegno/validator.js-asserts/pull/17) Add null or date assert (@nunofgs)
+
 ### 0.0.6 / 2015-05-25
 - [#16](https://github.com/seegno/validator.js-asserts/pull/16) Export object for validator.js extend method usage (@ruimarinho)
 - [#15](https://github.com/seegno/validator.js-asserts/pull/15) Add documentation for uri assert (@ruimarinho)

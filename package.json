@@ -1,6 +1,6 @@
 {
   "name": "validator.js-asserts",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A set of extra asserts for validator.js.",
   "main": "index.js",
   "directories": {
