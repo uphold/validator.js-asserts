@@ -29,7 +29,7 @@ describe('NullOrStringAssert', function() {
       } catch (e) {
         e.should.be.instanceOf(Violation);
         /* jshint camelcase: false */
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_null_or_a_string);
+        e.violation.value.should.equal(Validator.errorCode.must_be_null_or_a_string);
         /* jshint camelcase: true */
       }
     });
