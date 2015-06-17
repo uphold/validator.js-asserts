@@ -43,6 +43,7 @@
   "dependencies": {
     "URIjs": "^1.15.1",
     "bignumber.js": "^2.0.7",
+    "creditcard": "^0.1.2",
     "isoc": "0.0.1",
     "lodash": "^3.9.1",
     "moment": "^2.10.3",
