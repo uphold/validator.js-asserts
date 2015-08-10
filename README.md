@@ -26,6 +26,7 @@ The following set of extra asserts are provided by this package:
 * BigNumberLessThanOrEqualTo
 * Boolean
 * Country
+* CreditCard
 * Date
 * DateDiffGreaterThan
 * DateDiffLessThan
@@ -105,6 +106,10 @@ Tests if the difference between two dates is less than a given threshold.
 
 Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names.
 The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
+
+### CreditCard
+
+Tests if the value is a valid credit card number using the Luhn10 algorithm.
 
 ### Email
 
