@@ -41,22 +41,24 @@
   },
   "homepage": "http://seegno.github.io/validator.js-asserts/",
   "dependencies": {
-    "URIjs": "^1.15.1",
-    "bignumber.js": "^2.0.7",
-    "creditcard": "^0.1.2",
-    "isoc": "0.0.1",
-    "lodash": "^3.9.1",
-    "moment": "^2.10.3",
-    "provinces": "^1.7.1",
-    "require-dir": "^0.3.0",
-    "validator": "^3.40.0",
-    "validator.js": "^1.1.2",
-    "world-countries": "^1.7.3"
+    "lodash": "^3.10.1",
+    "validator.js": "^1.2.2"
   },
   "devDependencies": {
     "github-changes": "^1.0.0",
     "mocha": "^2.2.5",
-    "should": "^6.0.3",
-    "sinon": "^1.14.1"
+    "should": "^7.0.3",
+    "sinon": "^1.15.4"
+  },
+  "peerDependencies": {
+    "URIjs": "^1.15.1",
+    "bignumber.js": "^2.0.7",
+    "creditcard": "^0.1.2",
+    "isoc": "0.0.1",
+    "moment": "^2.10.3",
+    "provinces": "^1.7.1",
+    "require-dir": "^0.3.0",
+    "validator": "^3.40.0",
+    "world-countries": "^1.7.3"
   }
 }
