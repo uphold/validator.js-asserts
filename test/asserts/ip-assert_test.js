@@ -3,39 +3,50 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/ip-assert');
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import IpAssert from '../../src/asserts/ip-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `IpAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Ip: IpAssert
+});
 
 /**
  * Test `IpAssert`.
  */
 
-describe('IpAssert', function() {
-  before(function() {
-    Assert.prototype.Ip = assert;
-  });
+describe('IpAssert', () => {
+  it('should throw an error if the input value is not a valid string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a valid string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Ip().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should expose `assert` equal to `Ip`', function() {
+  it('should throw an error if the ip is invalid', () => {
+    try {
+      new Assert().Ip().validate('FOO');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.value.should.equal('FOO');
+    }
+  });
+
+  it('should expose `assert` equal to `Ip`', () => {
     try {
       new Assert().Ip().validate(123);
 
@@ -45,8 +56,8 @@ describe('IpAssert', function() {
     }
   });
 
-  it('should accept valid ips', function() {
-    ['1.3.3.7', '::1'].forEach(function(choice) {
+  it('should accept valid ips', () => {
+    ['1.3.3.7', '::1'].forEach((choice) => {
       new Assert().Ip().validate(choice);
     });
   });

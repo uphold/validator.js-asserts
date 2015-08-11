@@ -3,42 +3,42 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/uuid-assert');
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import UuidAssert from '../../src/asserts/uuid-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `UuidAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Uuid: UuidAssert
+});
 
 /**
  * Test `UuidAssert`.
  */
 
-describe('UuidAssert', function() {
-  before(function() {
-    Assert.prototype.Uuid = assert;
-  });
+describe('UuidAssert', () => {
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Uuid().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if the uuid `version` is specified but not supported', function() {
-    var versions = [1,2];
+  it('should throw an error if the uuid `version` is specified but not supported', () => {
+    const versions = [1, 2];
 
-    versions.forEach(function(version) {
+    versions.forEach((version) => {
       try {
         new Assert().Uuid(version);
 
@@ -49,7 +49,7 @@ describe('UuidAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `Uuid`', function() {
+  it('should expose `assert` equal to `Uuid`', () => {
     try {
       new Assert().Uuid().validate('foo');
 
@@ -59,7 +59,7 @@ describe('UuidAssert', function() {
     }
   });
 
-  it('should expose `version` on the violation', function() {
+  it('should expose `version` on the violation', () => {
     try {
       new Assert().Uuid(5).validate('foo');
 
@@ -69,15 +69,15 @@ describe('UuidAssert', function() {
     }
   });
 
-  it('should accept a v3 uuid', function() {
+  it('should accept a v3 uuid', () => {
     new Assert().Uuid(3).validate('6fa459ea-ee8a-3ca4-894e-db77e160355e');
   });
 
-  it('should accept a v4 uuid', function() {
+  it('should accept a v4 uuid', () => {
     new Assert().Uuid(4).validate('17dd5a7a-637c-436e-bb8a-5398f7ac0a76');
   });
 
-  it('should accept a v5 uuid', function() {
+  it('should accept a v5 uuid', () => {
     new Assert().Uuid(5).validate('74738ff5-5367-5958-9aee-98fffdcd1876');
   });
 });

@@ -1,0 +1,74 @@
+
+/**
+ * Module dependencies.
+ */
+
+import { Violation } from 'validator.js';
+import { assign } from 'lodash';
+import moment from 'moment';
+
+/**
+ * Export `DateDiffGreaterThanAssert`.
+ */
+
+export default function(threshold, options) {
+
+  /**
+   * Class name.
+   */
+
+  this.__class__ = 'DateDiffGreaterThan';
+
+  /**
+   * Check if `threshold` is defined.
+   */
+
+  if (typeof threshold === 'undefined') {
+    throw new Error('A threshold value is required.');
+  }
+
+  /**
+   * Threshold.
+   */
+
+  this.threshold = threshold;
+
+  /**
+   * Options.
+   */
+
+  this.options = assign(this, {
+    absolute: false,
+    asFloat: false,
+    fromDate: null,
+    unit: 'milliseconds'
+  }, options);
+
+  /**
+   * Validation algorithm.
+   */
+
+  this.validate = (value) => {
+    if (typeof value !== 'string' && Object.prototype.toString.call(value) !== '[object Date]') {
+      throw new Violation(this, value, { value: 'must_be_a_date_or_a_string' });
+    }
+
+    if (isNaN(Date.parse(value)) === true) {
+      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
+    }
+
+    let diff = moment(this.fromDate || Date.now()).diff(value, this.unit, this.asFloat);
+
+    if (this.absolute) {
+      diff = Math.abs(diff);
+    }
+
+    if (diff <= this.threshold) {
+      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit, diff });
+    }
+
+    return true;
+  };
+
+  return this;
+}

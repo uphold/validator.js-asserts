@@ -3,42 +3,41 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/email-assert');
-var fmt = require('util').format;
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import EmailAssert from '../../src/asserts/email-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `EmailAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Email: EmailAssert
+});
 
 /**
  * Test `EmailAssert`.
  */
 
-describe('EmailAssert', function() {
-  before(function() {
-    Assert.prototype.Email = assert;
-  });
+describe('EmailAssert', () => {
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Email().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if email is a string but is out of boundaries', function() {
+  it('should throw an error if email is a string but is out of boundaries', () => {
     try {
-      new Assert().Email().validate(fmt('%s@bar.com', new Array(248).join('-')));
+      new Assert().Email().validate(`${'-'.repeat(247)}@bar.com`);
 
       should.fail();
     } catch (e) {
@@ -46,7 +45,7 @@ describe('EmailAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `Email`', function() {
+  it('should expose `assert` equal to `Email`', () => {
     try {
       new Assert().Email().validate('foo');
 
@@ -56,13 +55,13 @@ describe('EmailAssert', function() {
     }
   });
 
-  it('should accept valid emails', function() {
+  it('should accept valid emails', () => {
     [
       'foo@bar.com',
       'føø@båz.com',
       'foo+bar@baz.com',
-      fmt('%s@bar.com', new Array(247).join('-'))
-    ].forEach(function(choice) {
+      `${'-'.repeat(245)}@bar.com`
+    ].forEach((choice) => {
       new Assert().Email().validate(choice);
     });
   });

@@ -3,39 +3,39 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/iso-3166-country-assert');
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import Iso3166CountryAssert from '../../src/asserts/iso-3166-country-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `Iso3166CountryAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Iso3166Country: Iso3166CountryAssert
+});
 
 /**
  * Test `Iso3166CountryAssert`.
  */
 
-describe('Iso3166CountryAssert', function() {
-  before(function() {
-    Assert.prototype.Iso3166Country = assert;
-  });
+describe('Iso3166CountryAssert', () => {
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Iso3166Country().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if country is invalid', function() {
+  it('should throw an error if country is invalid', () => {
     try {
       new Assert().Iso3166Country().validate('FOO');
 
@@ -46,7 +46,7 @@ describe('Iso3166CountryAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `Iso3166Country`', function() {
+  it('should expose `assert` equal to `Iso3166Country`', () => {
     try {
       new Assert().Iso3166Country().validate([]);
 
@@ -56,19 +56,19 @@ describe('Iso3166CountryAssert', function() {
     }
   });
 
-  it('should accept an ISO 3166-1 alpha-3 code', function() {
+  it('should accept an ISO 3166-1 alpha-3 code', () => {
     new Assert().Iso3166Country().validate('PRT');
   });
 
-  it('should accept an ISO 3166-1 alpha-2 code', function() {
+  it('should accept an ISO 3166-1 alpha-2 code', () => {
     new Assert().Iso3166Country().validate('PT');
   });
 
-  it('should accept an ISO 3166-1 country name in short format', function() {
+  it('should accept an ISO 3166-1 country name in short format', () => {
     new Assert().Iso3166Country().validate('Portugal');
   });
 
-  it('should accept an ISO 3166-1 country name in uppercase format', function() {
+  it('should accept an ISO 3166-1 country name in uppercase format', () => {
     new Assert().Iso3166Country().validate('PORTUGAL');
   });
 });

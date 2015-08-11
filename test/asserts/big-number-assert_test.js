@@ -3,24 +3,27 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/big-number-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import BigNumberAssert from '../../src/asserts/big-number-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `BigNumberAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  BigNumber: BigNumberAssert
+});
 
 /**
  * Test `BigNumberAssert`.
  */
 
-describe('BigNumberAssert', function() {
-  before(function() {
-    Assert.prototype.BigNumber = assert;
-  });
+describe('BigNumberAssert', () => {
+  it('should throw an error if the input value is not a big number', () => {
+    const choices = [[], {}, ''];
 
-  it('should throw an error if the input value is not a big number', function() {
-    var choices = [[], {}, ''];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().BigNumber().validate(choice);
 
@@ -31,7 +34,7 @@ describe('BigNumberAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `BigNumber`', function() {
+  it('should expose `assert` equal to `BigNumber`', () => {
     try {
       new Assert().BigNumber().validate();
 
@@ -41,7 +44,7 @@ describe('BigNumberAssert', function() {
     }
   });
 
-  it('should accept a big number', function() {
+  it('should accept a big number', () => {
     new Assert().BigNumber().validate(1.01);
   });
 });

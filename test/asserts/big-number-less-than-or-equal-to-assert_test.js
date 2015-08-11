@@ -3,22 +3,25 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var BigNumber = require('bignumber.js');
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/big-number-less-than-or-equal-to-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import BigNumber from 'bignumber.js';
+import BigNumberLessThanOrEqualToAssert from '../../src/asserts/big-number-less-than-or-equal-to-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `BigNumberLessThanOrEqualToAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  BigNumberLessThanOrEqualTo: BigNumberLessThanOrEqualToAssert
+});
 
 /**
  * Test `BigNumberLessThanOrEqualToAssert`.
  */
 
-describe('BigNumberLessThanOrEqualToAssert', function() {
-  before(function() {
-    Assert.prototype.BigNumberLessThanOrEqualTo = assert;
-  });
-
-  it('should throw an error if `threshold` is missing', function() {
+describe('BigNumberLessThanOrEqualToAssert', () => {
+  it('should throw an error if `threshold` is missing', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo();
 
@@ -28,7 +31,7 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should throw an error if `threshold` is not a number', function() {
+  it('should throw an error if `threshold` is not a number', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo({});
 
@@ -38,10 +41,10 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should throw an error if the input value is not a number', function() {
-    var choices = [[], {}, ''];
+  it('should throw an error if the input value is not a number', () => {
+    const choices = [[], {}, ''];
 
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().BigNumberLessThanOrEqualTo(10).validate(choice);
 
@@ -52,7 +55,7 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     });
   });
 
-  it('should throw an error if the input number is greater than the threshold', function() {
+  it('should throw an error if the input number is greater than the threshold', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo(10).validate(10.0000000001);
 
@@ -62,7 +65,7 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `BigNumberLessThanOrEqualTo`', function() {
+  it('should expose `assert` equal to `BigNumberLessThanOrEqualTo`', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo(10).validate(10.01);
 
@@ -72,7 +75,7 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `message` on the violation if the input value is not a number', function() {
+  it('should expose `message` on the violation if the input value is not a number', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo(10).validate({});
 
@@ -82,7 +85,7 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `threshold` on the violation', function() {
+  it('should expose `threshold` on the violation', () => {
     try {
       new Assert().BigNumberLessThanOrEqualTo(10).validate(10.01);
 
@@ -92,15 +95,15 @@ describe('BigNumberLessThanOrEqualToAssert', function() {
     }
   });
 
-  it('should accept a big number as a `threshold` value', function() {
+  it('should accept a big number as a `threshold` value', () => {
     new Assert().BigNumberLessThanOrEqualTo(new BigNumber(10)).validate(9.99999999);
   });
 
-  it('should accept a big number that is less than threshold', function() {
+  it('should accept a big number that is less than threshold', () => {
     new Assert().BigNumberLessThanOrEqualTo(10).validate(9.99999999);
   });
 
-  it('should accept a big number that is equal to threshold', function() {
+  it('should accept a big number that is equal to threshold', () => {
     new Assert().BigNumberLessThanOrEqualTo(10).validate(10);
   });
 });

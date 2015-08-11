@@ -3,24 +3,27 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/integer-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import IntegerAssert from '../../src/asserts/integer-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `IntegerAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Integer: IntegerAssert
+});
 
 /**
  * Test `IntegerAssert`.
  */
 
-describe('IntegerAssert', function() {
-  before(function() {
-    Assert.prototype.Integer = assert;
-  });
+describe('IntegerAssert', () => {
+  it('should throw an error if the input value is not a number', () => {
+    const choices = [{}, 'foo', '', [], 1.01, '2'];
 
-  it('should throw an error if the input value is not a number', function() {
-    var choices = [{}, 'foo', '', [], 1.01, '2'];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Integer().validate(choice);
 
@@ -31,7 +34,7 @@ describe('IntegerAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `Integer`', function() {
+  it('should expose `assert` equal to `Integer`', () => {
     try {
       new Assert().Integer().validate('foo');
 
@@ -41,7 +44,7 @@ describe('IntegerAssert', function() {
     }
   });
 
-  it('should accept an integer', function() {
+  it('should accept an integer', () => {
     new Assert().Integer().validate(1);
   });
 });

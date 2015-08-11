@@ -3,22 +3,25 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var BigNumber = require('bignumber.js');
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/big-number-less-than-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import BigNumber from 'bignumber.js';
+import BigNumberLessThanAssert from '../../src/asserts/big-number-less-than-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `BigNumberLessThanAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  BigNumberLessThan: BigNumberLessThanAssert
+});
 
 /**
  * Test `BigNumberLessThanAssert`.
  */
 
-describe('BigNumberLessThanAssert', function() {
-  before(function() {
-    Assert.prototype.BigNumberLessThan = assert;
-  });
-
-  it('should throw an error if `threshold` is missing', function() {
+describe('BigNumberLessThanAssert', () => {
+  it('should throw an error if `threshold` is missing', () => {
     try {
       new Assert().BigNumberLessThan();
 
@@ -28,7 +31,7 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should throw an error if `threshold` is not a number', function() {
+  it('should throw an error if `threshold` is not a number', () => {
     try {
       new Assert().BigNumberLessThan({});
 
@@ -38,10 +41,10 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should throw an error if the input value is not a number', function() {
-    var choices = [[], {}, ''];
+  it('should throw an error if the input value is not a number', () => {
+    const choices = [[], {}, ''];
 
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().BigNumberLessThan(10).validate(choice);
 
@@ -52,7 +55,7 @@ describe('BigNumberLessThanAssert', function() {
     });
   });
 
-  it('should throw an error if the input number is equal to threshold', function() {
+  it('should throw an error if the input number is equal to threshold', () => {
     try {
       new Assert().BigNumberLessThan(10).validate(10);
 
@@ -62,7 +65,7 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should throw an error if the input number is greater than the threshold', function() {
+  it('should throw an error if the input number is greater than the threshold', () => {
     try {
       new Assert().BigNumberLessThan(10).validate(10.01);
 
@@ -72,7 +75,7 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `BigNumberLessThan`', function() {
+  it('should expose `assert` equal to `BigNumberLessThan`', () => {
     try {
       new Assert().BigNumberLessThan(10).validate(10.01);
 
@@ -82,7 +85,7 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should expose `message` on the violation if the input value is not a number', function() {
+  it('should expose `message` on the violation if the input value is not a number', () => {
     try {
       new Assert().BigNumberLessThan(10).validate({});
 
@@ -92,7 +95,7 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should expose `threshold` on the violation', function() {
+  it('should expose `threshold` on the violation', () => {
     try {
       new Assert().BigNumberLessThan(10).validate(10.01);
 
@@ -102,11 +105,11 @@ describe('BigNumberLessThanAssert', function() {
     }
   });
 
-  it('should accept a big number as a `threshold` value', function() {
+  it('should accept a big number as a `threshold` value', () => {
     new Assert().BigNumberLessThan(new BigNumber(10)).validate(9.99999999);
   });
 
-  it('should accept a big number that is less than threshold', function() {
+  it('should accept a big number that is less than threshold', () => {
     new Assert().BigNumberLessThan(10).validate(9.99999999);
   });
 });

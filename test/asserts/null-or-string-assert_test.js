@@ -3,39 +3,39 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/null-or-string-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import NullOrStringAssert from '../../src/asserts/null-or-string-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `NullOrStringAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  NullOrString: NullOrStringAssert
+});
 
 /**
  * Test `NullOrStringAssert`.
  */
 
-describe('NullOrStringAssert', function() {
-  before(function() {
-    Assert.prototype.NullOrString = assert;
-  });
+describe('NullOrStringAssert', () => {
+  it('should throw an error if the input value is not a `null` or a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a `null` or a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().NullOrString().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
-        e.violation.value.should.equal(Validator.errorCode.must_be_null_or_a_string);
-        /* jshint camelcase: true */
+        e.violation.value.should.equal('must_be_null_or_a_string');
       }
     });
   });
 
-  it('should throw an error if input is a string but is out of boundaries', function() {
+  it('should throw an error if input is a string but is out of boundaries', () => {
     try {
       new Assert().NullOrString({ min: 10 }).validate('foo');
 
@@ -46,7 +46,7 @@ describe('NullOrStringAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `NullOrString`', function() {
+  it('should expose `assert` equal to `NullOrString`', () => {
     try {
       new Assert().NullOrString().validate({});
 
@@ -56,7 +56,7 @@ describe('NullOrStringAssert', function() {
     }
   });
 
-  it('should expose `min` or `max` on the violation if testing boundaries of a string', function() {
+  it('should expose `min` or `max` on the violation if testing boundaries of a string', () => {
     try {
       new Assert().NullOrString({ min: 5 }).validate('foo');
 
@@ -66,7 +66,7 @@ describe('NullOrStringAssert', function() {
     }
   });
 
-  it('should expose `min` or `max` on the `assert` if testing boundaries of a string', function() {
+  it('should expose `min` or `max` on the `assert` if testing boundaries of a string', () => {
     try {
       new Assert().NullOrString({ min: 1, max: 2 }).validate('foobar');
 
@@ -77,15 +77,15 @@ describe('NullOrStringAssert', function() {
     }
   });
 
-  it('should accept `null`', function() {
+  it('should accept `null`', () => {
     new Assert().NullOrString().validate(null);
   });
 
-  it('should accept a string within boundaries', function() {
+  it('should accept a string within boundaries', () => {
     new Assert().NullOrString({ max: 10 }).validate('foo');
   });
 
-  it('should accept a string', function() {
+  it('should accept a string', () => {
     new Assert().NullOrString().validate('foo');
   });
 });
