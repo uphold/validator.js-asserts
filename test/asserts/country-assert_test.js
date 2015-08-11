@@ -3,39 +3,39 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/country-assert');
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import CountryAssert from '../../src/asserts/country-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `CountryAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Country: CountryAssert
+});
 
 /**
  * Test `CountryAssert`.
  */
 
-describe('CountryAssert', function() {
-  before(function() {
-    Assert.prototype.Country = assert;
-  });
+describe('CountryAssert', () => {
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Country().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if country is invalid', function() {
+  it('should throw an error if country is invalid', () => {
     try {
       new Assert().Country().validate('FOO');
 
@@ -46,7 +46,7 @@ describe('CountryAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `Country`', function() {
+  it('should expose `assert` equal to `Country`', () => {
     try {
       new Assert().Country().validate([]);
 
@@ -56,31 +56,31 @@ describe('CountryAssert', function() {
     }
   });
 
-  it('should accept an `alpha-3` code', function() {
+  it('should accept an `alpha-3` code', () => {
     new Assert().Country().validate('PRT');
   });
 
-  it('should accept an `alpha-3` code belonging to a division', function() {
+  it('should accept an `alpha-3` code belonging to a division', () => {
     new Assert().Country().validate('SHN');
   });
 
-  it('should accept an `alpha-2` code', function() {
+  it('should accept an `alpha-2` code', () => {
     new Assert().Country().validate('PT');
   });
 
-  it('should accept an `alpha-2` code belonging to a division', function() {
+  it('should accept an `alpha-2` code belonging to a division', () => {
     new Assert().Country().validate('BQ');
   });
 
-  it('should accept a country `official` name', function() {
+  it('should accept a country `official` name', () => {
     new Assert().Country().validate('Portuguese Republic');
   });
 
-  it('should accept a country `common` name', function() {
+  it('should accept a country `common` name', () => {
     new Assert().Country().validate('Portugal');
   });
 
-  it('should accept a country `altSpelling` name', function() {
+  it('should accept a country `altSpelling` name', () => {
     new Assert().Country().validate('República Portuguesa');
   });
 });

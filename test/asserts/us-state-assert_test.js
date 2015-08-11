@@ -3,39 +3,39 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/us-state-assert');
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import UsStateAssert from '../../src/asserts/us-state-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `UsStateAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  UsState: UsStateAssert
+});
 
 /**
  * Test `UsStateAssert`.
  */
 
-describe('UsStateAssert', function() {
-  before(function() {
-    Assert.prototype.UsState = assert;
-  });
+describe('UsStateAssert', () => {
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().UsState().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if state is invalid', function() {
+  it('should throw an error if state is invalid', () => {
     try {
       new Assert().UsState().validate('FOO');
 
@@ -45,7 +45,7 @@ describe('UsStateAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `UsState`', function() {
+  it('should expose `assert` equal to `UsState`', () => {
     try {
       new Assert().UsState().validate('FOO');
 
@@ -55,7 +55,7 @@ describe('UsStateAssert', function() {
     }
   });
 
-  it('should accept a state code', function() {
+  it('should accept a state code', () => {
     new Assert().UsState().validate('CA');
   });
 });

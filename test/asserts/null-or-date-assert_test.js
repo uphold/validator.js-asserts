@@ -3,39 +3,50 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/null-or-date-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import NullOrDateAssert from '../../src/asserts/null-or-date-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `NullOrDateAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  NullOrDate: NullOrDateAssert
+});
 
 /**
  * Test `NullOrDateAssert`.
  */
 
-describe('NullOrDateAssert', function() {
-  before(function() {
-    Assert.prototype.NullOrDate = assert;
-  });
+describe('NullOrDateAssert', () => {
+  it('should throw an error if the input value is not a `null` or a date', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a `null` or a date', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().NullOrDate().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
-        e.violation.value.should.equal(Validator.errorCode.must_be_null_or_a_date);
-        /* jshint camelcase: true */
+        e.violation.value.should.equal('must_be_null_or_a_date');
       }
     });
   });
 
-  it('should expose `assert` equal to `NullOrDate`', function() {
+  it('should throw an error if the input value is not a valid date', () => {
+    try {
+      new Assert().NullOrDate().validate('2015-99-01');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().value.should.equal('2015-99-01');
+    }
+  });
+
+  it('should expose `assert` equal to `NullOrDate`', () => {
     try {
       new Assert().NullOrDate().validate({});
 
@@ -45,15 +56,15 @@ describe('NullOrDateAssert', function() {
     }
   });
 
-  it('should accept `null`', function() {
+  it('should accept `null`', () => {
     new Assert().NullOrDate().validate(null);
   });
 
-  it('should accept a date', function() {
+  it('should accept a date', () => {
     new Assert().NullOrDate().validate(new Date());
   });
 
-  it('should accept a string', function() {
+  it('should accept a string', () => {
     new Assert().NullOrDate().validate('2014-10-16');
   });
 });

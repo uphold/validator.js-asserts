@@ -3,26 +3,27 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/plain-object-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import PlainObjectAssert from '../../src/asserts/plain-object-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `PlainObjectAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  PlainObject: PlainObjectAssert
+});
 
 /**
  * Test `PlainObjectAssert`.
  */
 
-describe('PlainObjectAssert', function() {
-  before(function() {
-    Assert.prototype.PlainObject = assert;
-  });
+describe('PlainObjectAssert', () => {
+  it('should throw an error if the input value is not a plain object', () => {
+    const choices = [[], 123, new Array()];
 
-  it('should throw an error if the input value is not a plain object', function() {
-    /*jshint -W009 */
-    var choices = [[], 123, new Array()];
-    /*jshint +W009 */
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().PlainObject().validate(choice);
 
@@ -33,7 +34,7 @@ describe('PlainObjectAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `PlainObject`', function() {
+  it('should expose `assert` equal to `PlainObject`', () => {
     try {
       new Assert().PlainObject().validate('FOO');
 
@@ -43,7 +44,7 @@ describe('PlainObjectAssert', function() {
     }
   });
 
-  it('should accept a plain object', function() {
+  it('should accept a plain object', () => {
     new Assert().PlainObject().validate({ foo: 'bar' });
   });
 });

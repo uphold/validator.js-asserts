@@ -3,39 +3,35 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/credit-card-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import CreditCardAssert from '../../src/asserts/credit-card-assert';
+import should from 'should';
 
 /**
- * Test `CreditCardAssert`.
+ * Extend `Assert` with `CreditCardAssert`.
  */
 
-describe('CreditCardAssert', function() {
-  before(function() {
-    Assert.prototype.CreditCard = assert;
-  });
+const Assert = BaseAssert.extend({
+  CreditCard: CreditCardAssert
+});
 
-  it('should throw an error if the input value is not a string or a number', function() {
-    var inputs = [[], {}];
+describe('CreditCardAssert', () => {
+  it('should throw an error if the input value is not a string or a number', () => {
+    const choices = [[], {}];
 
-    inputs.forEach(function(input) {
+    choices.forEach((choice) => {
       try {
-        new Assert().CreditCard().validate(input);
+        new Assert().CreditCard().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal('must_be_a_string_or_a_number');
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if the input value is not a valid card number', function() {
+  it('should throw an error if the input value is not a valid card number', () => {
     try {
       new Assert().CreditCard().validate('foobar');
 
@@ -46,7 +42,7 @@ describe('CreditCardAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `CreditCard`', function() {
+  it('should expose `assert` equal to `CreditCard`', () => {
     try {
       new Assert().CreditCard().validate(123);
 
@@ -56,11 +52,11 @@ describe('CreditCardAssert', function() {
     }
   });
 
-  it('should accept a valid credit card number as string', function() {
+  it('should accept a valid credit card number as string', () => {
     new Assert().CreditCard().validate('4111111111111111');
   });
 
-  it('should accept a valid credit card number', function() {
+  it('should accept a valid credit card number', () => {
     new Assert().CreditCard().validate(4111111111111111);
   });
 });

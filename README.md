@@ -15,38 +15,37 @@ Install the package via `npm`:
 $ npm install --save validator.js-asserts
 ```
 
+Some asserts may require additional peer dependencies. Note that from [npm 3](https://github.com/npm/npm/blob/master/CHANGELOG.md#peerdependencies) forward, you must manually install them as they become necessary.
+
 ## Asserts
 
 The following set of extra asserts are provided by this package:
 
-* BigNumber
-* BigNumberGreaterThan
-* BigNumberGreaterThanOrEqualTo
-* BigNumberLessThan
-* BigNumberLessThanOrEqualTo
+* BigNumber (requires `bignumber.js`)
+* BigNumberGreaterThan (requires `bignumber.js`)
+* BigNumberGreaterThanOrEqualTo (requires `bignumber.js`)
+* BigNumberLessThan (requires `bignumber.js`)
+* BigNumberLessThanOrEqualTo (requires `bignumber.js`)
 * Boolean
-* Country
-* CreditCard
+* Country (requires `world-countries`)
+* CreditCard (requires `creditcard`)
 * Date
-* DateDiffGreaterThan
-* DateDiffLessThan
-* Email
+* DateDiffGreaterThan (requires `moment`)
+* DateDiffLessThan (requires `moment`)
+* Email (requires `validator`)
 * EqualKeys
 * Hash
 * Integer
 * Ip
-* Iso3166Country
+* Iso3166Country (requires `isoc`)
 * Json
 * NotEmpty
+* NullOrDate
 * NullOrString
 * PlainObject
-* Uri
-* UsState
+* Uri (requires `URIjs`)
+* UsState (requires `provinces`)
 * Uuid
-
-### Boolean
-
-Tests if the value is a boolean.
 
 ### BigNumber
 
@@ -76,6 +75,19 @@ Tests if a `BigNumber` is less than or equal to a given threshold.
 
 * `threshold` (required)
 
+### Boolean
+
+Tests if the value is a boolean.
+
+### Country
+
+Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names.
+The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
+
+### CreditCard
+
+Tests if the value is a valid credit card number using the Luhn10 algorithm.
+
 ### Date
 
 Tests if the value is a valid date.
@@ -101,15 +113,6 @@ Tests if the difference between two dates is less than a given threshold.
 	* `asFloat` - whether to return the difference rounded down or as float.
 	* `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
 	* `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
-
-### Country
-
-Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names.
-The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
-
-### CreditCard
-
-Tests if the value is a valid credit card number using the Luhn10 algorithm.
 
 ### Email
 
@@ -172,7 +175,7 @@ Tests if the value is a valid US state short code (e.g. `CA`).
 
 Tests if the value is a valid uuid.
 
-* `version` (optional) - the version to test the uuid for. Supported version are `3`, `4` and `5`. Defaults to test for all three if omitted.
+* `version` (optional) - the version to test the uuid for. Supported version are `3`, `4` and `5`. Defaults to test for `all` three if omitted.
 
 ## Usage
 
@@ -183,20 +186,20 @@ var Assert = require('validator.js').Assert.extend(require('validator.js-asserts
 var Validator = require('validator.js').Validator;
 var validator = new Validator();
 
+// Validate ip `1.3.3.7`.
 var violation = validator.validate('1.3.3.7', new Assert().Ip());
 
 if (true === violation) {
-  console.log('"1.3.3.7" is a valid IP');
+  console.log('"1.3.3.7" is a valid IP'); // => "1.3.3.7" is a valid IP
 }
 
+// Validate ip `foo`.
 violation = validator.validate('foo', new Assert().Ip());
 
 if (true !== violation) {
   console.log('"foo" is not a valid IP. Violation:', violation[0].show());
+  // => "foo" is not a valid IP. Violation: { assert: 'Ip', value: 'foo' }
 }
-
-// "1.3.3.7" is a valid IP
-// "foo" is not a valid IP. Violation: { assert: 'Ip', value: 'foo' }
 ```
 
 ## Tests

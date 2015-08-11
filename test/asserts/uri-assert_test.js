@@ -3,23 +3,24 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/uri-assert');
-var fmt = require('util').format;
-var should = require('should');
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+import UriAssert from '../../src/asserts/uri-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `UriAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Uri: UriAssert
+});
 
 /**
  * Test `UriAssert`.
  */
 
-describe('UriAssert', function() {
-  before(function() {
-    Assert.prototype.Uri = assert;
-  });
-
-  it('should throw an error if the constraint is invalid', function() {
+describe('UriAssert', () => {
+  it('should throw an error if the constraint is invalid', () => {
     try {
       new Assert().Uri({ foo: 'bar' });
 
@@ -30,26 +31,24 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should throw an error if the input value is not a string', function() {
-    var choices = [[], {}, 123];
+  it('should throw an error if the input value is not a string', () => {
+    const choices = [[], {}, 123];
 
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Uri().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
-        /* jshint camelcase: true */
       }
     });
   });
 
-  it('should throw an error if the uri does not contain a `hostname`', function() {
+  it('should throw an error if the uri does not contain a `hostname`', () => {
     try {
-      new Assert().Uri().validate(fmt('foo-%s-bar', new Array(248).join('-')));
+      new Assert().Uri().validate(`foo-${'-'.repeat(246)}-bar`);
 
       should.fail();
     } catch (e) {
@@ -57,7 +56,7 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should throw an error if the uri does not contain a `protocol`', function() {
+  it('should throw an error if the uri does not contain a `protocol`', () => {
     try {
       new Assert().Uri().validate('foobar.com');
 
@@ -67,9 +66,9 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should throw an error if the uri does not match the constraints', function() {
+  it('should throw an error if the uri does not match the constraints', () => {
     try {
-      new Assert().Uri({ protocol: 'http' }).validate(fmt('https://%s@bar.com', new Array(248).join('-')));
+      new Assert().Uri({ protocol: 'http' }).validate(`https://${'-'.repeat(246)}@bar.com`);
 
       should.fail();
     } catch (e) {
@@ -77,7 +76,7 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should expose `constraints` on the violation', function() {
+  it('should expose `constraints` on the violation', () => {
     try {
       new Assert().Uri({ protocol: 'http' }).validate('https://foobar.com');
 
@@ -87,7 +86,7 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `Uri`', function() {
+  it('should expose `assert` equal to `Uri`', () => {
     try {
       new Assert().Uri().validate('foo');
 
@@ -97,7 +96,11 @@ describe('UriAssert', function() {
     }
   });
 
-  it('should accept valid uris', function() {
+  it('should accept an uri that matches the constraints', () => {
+    new Assert().Uri({ protocol: 'https' }).validate('https://foobar.com');
+  });
+
+  it('should accept valid uris', () => {
     [
       'http://foobar.com',
       'http://føøbåz.com',
@@ -105,7 +108,7 @@ describe('UriAssert', function() {
       'https://foobar.com',
       'ftp://foobar.com',
       'biz://foobar.com'
-    ].forEach(function(choice) {
+    ].forEach((choice) => {
       new Assert().Uri().validate(choice);
     });
   });

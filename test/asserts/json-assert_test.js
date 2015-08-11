@@ -3,24 +3,27 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/json-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import JsonAssert from '../../src/asserts/json-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `JsonAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Json: JsonAssert
+});
 
 /**
  * Test `JsonAssert`.
  */
 
-describe('JsonAssert', function() {
-  before(function() {
-    Assert.prototype.Json = assert;
-  });
+describe('JsonAssert', () => {
+  it('should throw an error if the input value is not valid JSON', () => {
+    const choices = [[], '["foo":"bar"}'];
 
-  it('should throw an error if the input value is not valid JSON', function() {
-    var choices = [[], '["foo":"bar"}'];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Json().validate(choice);
 
@@ -31,7 +34,7 @@ describe('JsonAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `Json`', function() {
+  it('should expose `assert` equal to `Json`', () => {
     try {
       new Assert().Json().validate([]);
 
@@ -41,7 +44,7 @@ describe('JsonAssert', function() {
     }
   });
 
-  it('should accept valid JSON strings', function() {
+  it('should accept valid JSON strings', () => {
     [
       '"foo"',
       '10',
@@ -49,7 +52,7 @@ describe('JsonAssert', function() {
       123,
       Boolean(true),
       Number(10)
-    ].forEach(function(choice) {
+    ].forEach((choice) => {
       new Assert().Json().validate(choice);
     });
   });

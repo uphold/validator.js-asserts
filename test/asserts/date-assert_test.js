@@ -3,39 +3,39 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Validator = require('validator.js').Validator;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/date-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import DateAssert from '../../src/asserts/date-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `DateAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  Date: DateAssert
+});
 
 /**
  * Test `DateAssert`.
  */
 
-describe('DateAssert', function() {
-  before(function() {
-    Assert.prototype.Date = assert;
-  });
+describe('DateAssert', () => {
+  it('should throw an error if the input value is not a string or a date', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is not a string or a date', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().Date().validate(choice);
 
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        /* jshint camelcase: false */
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_date_or_a_string);
-        /* jshint camelcase: true */
+        e.violation.value.should.equal('must_be_a_date_or_a_string');
       }
     });
   });
 
-  it('should expose `assert` equal to `Date`', function() {
+  it('should expose `assert` equal to `Date`', () => {
     try {
       new Assert().Date().validate('foo');
 
@@ -45,11 +45,11 @@ describe('DateAssert', function() {
     }
   });
 
-  it('should accept a `Date`', function() {
+  it('should accept a `Date`', () => {
     new Assert().Date().validate(new Date());
   });
 
-  it('should accept a `string`', function() {
+  it('should accept a `string`', () => {
     new Assert().Date().validate('2014-10-16');
   });
 });

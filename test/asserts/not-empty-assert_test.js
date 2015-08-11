@@ -3,24 +3,27 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/not-empty-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import NotEmptyAssert from '../../src/asserts/not-empty-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `NotEmptyAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  NotEmpty: NotEmptyAssert
+});
 
 /**
  * Test `NotEmptyAssert`.
  */
 
-describe('NotEmptyAssert', function() {
-  before(function() {
-    Assert.prototype.NotEmpty = assert;
-  });
+describe('NotEmptyAssert', () => {
+  it('should throw an error if the input value is empty', () => {
+    const choices = [[], {}, 123];
 
-  it('should throw an error if the input value is empty', function() {
-    var choices = [[], {}, 123];
-
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().NotEmpty().validate(choice);
 
@@ -31,7 +34,7 @@ describe('NotEmptyAssert', function() {
     });
   });
 
-  it('should expose `assert` equal to `NotEmpty`', function() {
+  it('should expose `assert` equal to `NotEmpty`', () => {
     try {
       new Assert().NotEmpty().validate({});
 
@@ -41,10 +44,10 @@ describe('NotEmptyAssert', function() {
     }
   });
 
-  it('should accept not empty values', function() {
-    var choices = [['foo'], { foo: 'bar' }, 'foo'];
+  it('should accept not empty values', () => {
+    const choices = [['foo'], { foo: 'bar' }, 'foo'];
 
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       new Assert().NotEmpty().validate(choice);
     });
   });

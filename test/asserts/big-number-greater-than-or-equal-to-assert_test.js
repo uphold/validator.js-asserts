@@ -3,22 +3,25 @@
  * Module dependencies.
  */
 
-var Assert = require('validator.js').Assert;
-var BigNumber = require('bignumber.js');
-var Violation = require('validator.js').Violation;
-var assert = require('../../lib/asserts/big-number-greater-than-or-equal-to-assert');
-var should = require('should');
+import { Assert as BaseAssert, Violation } from 'validator.js';
+import BigNumber from 'bignumber.js';
+import BigNumberGreaterThanOrEqualToAssert from '../../src/asserts/big-number-greater-than-or-equal-to-assert';
+import should from 'should';
+
+/**
+ * Extend `Assert` with `BigNumberGreaterThanOrEqualToAssert`.
+ */
+
+const Assert = BaseAssert.extend({
+  BigNumberGreaterThanOrEqualTo: BigNumberGreaterThanOrEqualToAssert
+});
 
 /**
  * Test `BigNumberGreaterThanOrEqualToAssert`.
  */
 
-describe('BigNumberGreaterThanOrEqualToAssert', function() {
-  before(function() {
-    Assert.prototype.BigNumberGreaterThanOrEqualTo = assert;
-  });
-
-  it('should throw an error if `threshold` is missing', function() {
+describe('BigNumberGreaterThanOrEqualToAssert', () => {
+  it('should throw an error if `threshold` is missing', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo();
 
@@ -28,7 +31,7 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should throw an error if `threshold` is not a number', function() {
+  it('should throw an error if `threshold` is not a number', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo({});
 
@@ -38,10 +41,10 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should throw an error if the input value is not a number', function() {
-    var choices = [[], {}, ''];
+  it('should throw an error if the input value is not a number', () => {
+    const choices = [[], {}, ''];
 
-    choices.forEach(function(choice) {
+    choices.forEach((choice) => {
       try {
         new Assert().BigNumberGreaterThanOrEqualTo(10).validate(choice);
 
@@ -52,7 +55,7 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     });
   });
 
-  it('should throw an error if the input number is less than the threshold', function() {
+  it('should throw an error if the input number is less than the threshold', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo(10).validate(9.99999999);
 
@@ -62,7 +65,7 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `assert` equal to `BigNumberGreaterThanOrEqualTo`', function() {
+  it('should expose `assert` equal to `BigNumberGreaterThanOrEqualTo`', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo(1).validate(0.1);
 
@@ -72,7 +75,7 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `message` on the violation if the input value is not a number', function() {
+  it('should expose `message` on the violation if the input value is not a number', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo(10).validate({});
 
@@ -82,7 +85,7 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should expose `threshold` on the violation', function() {
+  it('should expose `threshold` on the violation', () => {
     try {
       new Assert().BigNumberGreaterThanOrEqualTo(10).validate(0.1);
 
@@ -92,15 +95,15 @@ describe('BigNumberGreaterThanOrEqualToAssert', function() {
     }
   });
 
-  it('should accept a big number as a `threshold` value', function() {
+  it('should accept a big number as a `threshold` value', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(new BigNumber(10)).validate(10.00000001);
   });
 
-  it('should accept a big number that is greater than threshold', function() {
+  it('should accept a big number that is greater than threshold', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(10).validate(10.00000001);
   });
 
-  it('should accept a big number that is equal to threshold', function() {
+  it('should accept a big number that is equal to threshold', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(10).validate(10);
   });
 });
