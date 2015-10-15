@@ -21,6 +21,7 @@ Some asserts may require additional peer dependencies. Note that from [npm 3](ht
 
 The following set of extra asserts are provided by this package:
 
+* BankIdentifierCode (*BIC*)
 * BigNumber (requires `bignumber.js`)
 * BigNumberGreaterThan (requires `bignumber.js`)
 * BigNumberGreaterThanOrEqualTo (requires `bignumber.js`)
@@ -46,6 +47,10 @@ The following set of extra asserts are provided by this package:
 * Uri (requires `URIjs`)
 * UsState (requires `provinces`)
 * Uuid
+
+### BankIdentifierCode (*BIC*)
+
+Tests if the value is a valid Bank Identifier Code (*BIC*) as defined in the [ISO-9362](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60390) standard.
 
 ### BigNumber
 
