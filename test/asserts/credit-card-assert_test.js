@@ -15,6 +15,10 @@ const Assert = BaseAssert.extend({
   CreditCard: CreditCardAssert
 });
 
+/**
+ * Test `CreditCardAssert`.
+ */
+
 describe('CreditCardAssert', () => {
   it('should throw an error if the input value is not a string or a number', () => {
     const choices = [[], {}];
