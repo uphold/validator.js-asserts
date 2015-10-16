@@ -28,6 +28,7 @@ describe('validator.js-asserts', () => {
       'EqualKeys',
       'Hash',
       'Integer',
+      'InternationalBankAccountNumber',
       'Ip',
       'Iso3166Country',
       'Json',

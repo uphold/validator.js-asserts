@@ -37,6 +37,7 @@ The following set of extra asserts are provided by this package:
 * EqualKeys
 * Hash
 * Integer
+* InternationalBankAccountNumber (*IBAN*, requires `iban`)
 * Ip
 * Iso3166Country (requires `isoc`)
 * Json
@@ -138,6 +139,10 @@ Tests if the value is a valid hash.
 ### Integer
 
 Tests if the value is an integer.
+
+### InternationalBankAccountNumber (*IBAN*)
+
+Tests if the value is a valid International Bank Account Number (*IBAN*) as defined in the [13616-1](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=41031) standard.
 
 ### Ip
 
