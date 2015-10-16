@@ -43,7 +43,7 @@ The following set of extra asserts are provided by this package:
 * NullOrDate
 * NullOrString
 * PlainObject
-* Uri (requires `URIjs`)
+* Uri (requires `urijs`)
 * UsState (requires `provinces`)
 * Uuid
 

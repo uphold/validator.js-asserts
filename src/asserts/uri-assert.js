@@ -5,7 +5,7 @@
 
 import { Validator, Violation } from 'validator.js';
 import { forEach, has } from 'lodash';
-import URI from 'URIjs';
+import URI from 'urijs';
 
 /**
 * Export `UriAssert`.

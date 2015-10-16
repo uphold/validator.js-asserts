@@ -61,12 +61,12 @@
     "provinces": "^1.7.1",
     "should": "^7.0.3",
     "sinon": "^1.15.4",
-    "URIjs": "^1.15.1",
+    "urijs": "^1.16.1",
     "validator": "^3.40.0",
     "world-countries": "^1.7.3"
   },
   "peerDependencies": {
-    "URIjs": ">=1 <2",
+    "urijs": ">=1 <2",
     "bignumber.js": ">=2 <3",
     "creditcard": ">=0.0.1 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
