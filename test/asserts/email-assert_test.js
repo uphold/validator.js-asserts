@@ -59,8 +59,7 @@ describe('EmailAssert', () => {
     [
       'foo@bar.com',
       'føø@båz.com',
-      'foo+bar@baz.com',
-      `${'-'.repeat(245)}@bar.com`
+      'foo+bar@baz.com'
     ].forEach((choice) => {
       new Assert().Email().validate(choice);
     });
