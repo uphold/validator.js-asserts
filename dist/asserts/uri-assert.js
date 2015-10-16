@@ -13,9 +13,9 @@ var _validatorJs = require('validator.js');
 
 var _lodash = require('lodash');
 
-var _URIjs = require('URIjs');
+var _urijs = require('urijs');
 
-var _URIjs2 = _interopRequireDefault(_URIjs);
+var _urijs2 = _interopRequireDefault(_urijs);
 
 /**
 * Export `UriAssert`.
@@ -41,7 +41,7 @@ exports['default'] = function (constraints) {
    */
 
   _lodash.forEach(this.constraints, function (constraint, key) {
-    if (!_lodash.has(_URIjs2['default'].prototype, key)) {
+    if (!_lodash.has(_urijs2['default'].prototype, key)) {
       throw new Error('Invalid constraint "' + key + '=' + constraint + '"');
     }
   });
@@ -55,7 +55,7 @@ exports['default'] = function (constraints) {
       throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
     }
 
-    var uri = new _URIjs2['default'](value);
+    var uri = new _urijs2['default'](value);
 
     // URIs must have at least a hostname and protocol.
     if (!uri.hostname() || !uri.protocol()) {

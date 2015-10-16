@@ -1,6 +1,6 @@
 {
   "name": "validator.js-asserts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A set of extra asserts for validator.js.",
   "license": "MIT",
   "contributors": [
@@ -36,7 +36,7 @@
   },
   "scripts": {
     "build": "rm -rf dist/* && ./node_modules/.bin/babel src/ --loose --out-dir dist/",
-    "changelog": "github_changelog_generator --no-issues",
+    "changelog": "github_changelog_generator --no-issues --header-label='# Changelog'",
     "cover": "./node_modules/.bin/babel-node node_modules/.bin/isparta cover --report html node_modules/.bin/_mocha -- $npm_package_options_mocha",
     "lint": "eslint src test",
     "prepublish": "npm test && npm run build",
