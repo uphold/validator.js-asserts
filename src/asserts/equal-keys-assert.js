@@ -4,7 +4,7 @@
  */
 
 import { Violation } from 'validator.js';
-import { difference, isPlainObject } from 'lodash';
+import { difference, isEmpty, isPlainObject } from 'lodash';
 
 /**
  * Export `EqualKeysAssert`.
@@ -31,6 +31,10 @@ export default function(keys) {
   this.validate = (value) => {
     if (!isPlainObject(value)) {
       throw new Violation(this, value, { value: 'must_be_a_plain_object' });
+    }
+
+    if (isEmpty(value)) {
+      throw new Violation(this, value, { difference: this.keys });
     }
 
     const diff = difference(Object.keys(value), this.keys);
