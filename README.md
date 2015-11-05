@@ -15,7 +15,13 @@ Install the package via `npm`:
 $ npm install --save validator.js-asserts
 ```
 
-Some asserts may require additional peer dependencies. Note that from [npm 3](https://github.com/npm/npm/blob/master/CHANGELOG.md#peerdependencies) forward, you must manually install them as they become necessary.
+### Peer dependencies
+
+Some asserts require manually installing some *peer dependencies*. Failing to do so will result in runtime errors, as packages are required dynamically.
+
+Peer dependencies are not listed on `package.json` because npm 2 considers them *mandatory peer dependencies* and, therefore, always installs them, while [npm 3](https://github.com/npm/npm/blob/master/CHANGELOG.md#peerdependencies) follows a more consensual approach of *optional peer dependencies*, not installing them by default but generating warning and confusing error messages instead.
+
+You should pin these package's peer dependencies to the ranges listed on the *optionalPeerDependencies* key of this package's manifest.
 
 ## Asserts
 
