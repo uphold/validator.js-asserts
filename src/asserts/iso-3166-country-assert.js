@@ -5,13 +5,18 @@
 
 import { Validator, Violation } from 'validator.js';
 import { find } from 'lodash';
-import countries from 'isoc';
 
 /**
  * Export `Iso3166CountryAssert`.
  */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const countries = require('isoc');
 
   /**
    * Class name.

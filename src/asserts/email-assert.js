@@ -4,13 +4,18 @@
 */
 
 import { Assert, Validator, Violation } from 'validator.js';
-import Asserts from 'validator';
 
 /**
 * Export `EmailAssert`.
 */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const validator = require('validator');
 
   /**
    * Class name.
@@ -27,7 +32,7 @@ export default function() {
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 
-    if (!Asserts.isEmail(value)) {
+    if (!validator.isEmail(value)) {
       throw new Violation(this, value);
     }
 

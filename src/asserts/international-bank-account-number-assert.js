@@ -4,13 +4,18 @@
  */
 
 import { Validator, Violation } from 'validator.js';
-import iban from 'iban';
 
 /**
  * Export `InternationalBankAccountNumberAssert`.
  */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const iban = require('iban');
 
   /**
    * Class name.

@@ -5,21 +5,26 @@
 
 import { Validator, Violation } from 'validator.js';
 import { find } from 'lodash';
-import besDivisions from 'world-countries/data/bes.divisions';
-import shnDivisions from 'world-countries/data/shn.divisions';
-import worldCountries from 'world-countries';
-
-/**
- * Countries data source.
- */
-
-const countries = worldCountries.concat(besDivisions, shnDivisions);
 
 /**
  * Export `CountryAssert`.
  */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const besDivisions = require('world-countries/data/bes.divisions');
+  const shnDivisions = require('world-countries/data/shn.divisions');
+  const worldCountries = require('world-countries');
+
+  /**
+   * Countries data source.
+   */
+
+  const countries = worldCountries.concat(besDivisions, shnDivisions);
 
   /**
    * Class name.
