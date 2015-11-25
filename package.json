@@ -53,7 +53,7 @@
     "bignumber.js": "^2.0.7",
     "creditcard": "^0.1.2",
     "eslint": "^1.6.0",
-    "eslint-plugin-babel": "^2.1.1",
+    "eslint-plugin-babel": "^3.0.0",
     "iban": "^0.0.5",
     "isoc": "0.0.1",
     "isparta": "^3.0.3",
