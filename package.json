@@ -60,7 +60,7 @@
     "mocha": "^2.2.5",
     "moment": "^2.10.3",
     "provinces": "^1.7.1",
-    "should": "^7.0.3",
+    "should": "^8.0.0",
     "sinon": "^1.15.4",
     "urijs": "^1.16.1",
     "validator": "^4.1.0",
