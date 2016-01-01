@@ -4,13 +4,18 @@
  */
 
 import { Violation } from 'validator.js';
-import BigNumber from 'bignumber.js';
 
 /**
  * Export `BigNumberGreaterThanAssert`.
  */
 
 export default function(threshold) {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const BigNumber = require('bignumber.js');
 
   /**
    * Class name.

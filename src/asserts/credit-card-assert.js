@@ -4,13 +4,18 @@
  */
 
 import { Violation } from 'validator.js';
-import creditcard from 'creditcard';
 
 /**
  * Export `CreditCardAssert`.
  */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const creditcard = require('creditcard');
 
   /**
    * Class name.

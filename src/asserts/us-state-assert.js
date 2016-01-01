@@ -5,13 +5,18 @@
 
 import { Validator, Violation } from 'validator.js';
 import { some } from 'lodash';
-import provinces from 'provinces';
 
 /**
  * Export `UsStateAssert`.
  */
 
 export default function() {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const provinces = require('provinces');
 
   /**
    * Class name.

@@ -5,13 +5,18 @@
 
 import { Violation } from 'validator.js';
 import { assign } from 'lodash';
-import moment from 'moment';
 
 /**
  * Export `DateDiffLessThanAssert`.
  */
 
 export default function(threshold, options) {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const moment = require('moment');
 
   /**
    * Class name.

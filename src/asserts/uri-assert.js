@@ -5,13 +5,18 @@
 
 import { Validator, Violation } from 'validator.js';
 import { forEach, has } from 'lodash';
-import URI from 'urijs';
 
 /**
 * Export `UriAssert`.
 */
 
 export default function(constraints) {
+
+  /**
+   * Optional peer dependencies.
+   */
+
+  const URI = require('urijs');
 
   /**
    * Class name.
