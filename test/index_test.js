@@ -37,7 +37,7 @@ describe('validator.js-asserts', () => {
       'NullOrString',
       'PlainObject',
       'Uri',
-      'UsState',
+      'UsSubdivision',
       'Uuid'
     ]);
   });
