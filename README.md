@@ -52,7 +52,7 @@ The following set of extra asserts are provided by this package:
 * NullOrString
 * PlainObject
 * Uri (requires `urijs`)
-* UsState (requires `provinces`)
+* UsSubdivision
 * Uuid
 
 ### BankIdentifierCode (*BIC*)
@@ -183,9 +183,13 @@ Tests if the value is a valid `uri` which must contain at least a protocol and a
 
 * `constraints` (optional) - additional uri parts to test for (e.g. `{ protocol: 'https' }`).
 
-### UsState
+### UsSubdivision
 
-Tests if the value is a valid US state short code (e.g. `CA`).
+Tests if the value is a valid US subdivision or not. By default, codes in the short ("alpha2", e.g. `CA`) or full form (e.g. `US-CA`) are allowed.
+All US subdivisions categories are supported: `districts` (1), `states` (50) and `outlying` territories (6).
+
+* `alpha2Only` (optional) - whether to restrict validation to the "alpha2" short code form only.
+* `categories` (optional) - a list of categories to restrict code validation to (e.g. `['states', 'outlying']`).
 
 ### Uuid
 
