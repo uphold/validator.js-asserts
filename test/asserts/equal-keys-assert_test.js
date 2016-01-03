@@ -35,6 +35,16 @@ describe('EqualKeysAssert', () => {
     });
   });
 
+  it('should throw an error if the given object is empty', () => {
+    try {
+      new Assert().EqualKeys(['foo']).validate({});
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+    }
+  });
+
   it('should throw an error if an object does not have the expected keys', () => {
     try {
       new Assert().EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
