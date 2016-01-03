@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `DateAssert`.
  */
 
-export default function() {
-
+export default function dateAssert() {
   /**
    * Class name.
    */

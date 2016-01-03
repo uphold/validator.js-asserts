@@ -15,8 +15,7 @@ const bic = /^[a-zA-Z]{6}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?$/;
  * Export `BankIdentifierCodeAssert`.
  */
 
-export default function() {
-
+export default function bankIdentifierCodeAssert() {
   /**
    * Class name.
    */
@@ -27,8 +26,9 @@ export default function() {
    * Validation algorithm.
    */
 
-  this.validate = value => {
+  this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

@@ -23,7 +23,7 @@ describe('InternationalBankAccountNumberAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}];
 
-    choices.forEach(choice => {
+    choices.forEach((choice) => {
       try {
         new Assert().InternationalBankAccountNumber().validate(choice);
 
@@ -51,7 +51,7 @@ describe('InternationalBankAccountNumberAssert', () => {
       new Assert().InternationalBankAccountNumber().validate(123);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('InternationalBankAccountNumber');
     }
   });

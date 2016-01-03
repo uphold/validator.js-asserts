@@ -1,3 +1,6 @@
-{
-  "esnext": true
-}
+disallowDanglingUnderscores: false
+
+plugins:
+  - jscs-config-seegno
+
+preset: seegno

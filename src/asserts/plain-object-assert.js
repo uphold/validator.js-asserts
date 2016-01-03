@@ -10,8 +10,7 @@ import { isPlainObject } from 'lodash';
  * Export `PlainObjectAssert`.
  */
 
-export default function() {
-
+export default function plainObjectAssert() {
   /**
    * Class name.
    */

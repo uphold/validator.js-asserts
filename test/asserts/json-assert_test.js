@@ -39,7 +39,7 @@ describe('JsonAssert', () => {
       new Assert().Json().validate([]);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('JSON');
     }
   });

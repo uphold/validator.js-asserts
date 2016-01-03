@@ -30,6 +30,8 @@ describe('UuidAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+
+        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
@@ -54,7 +56,7 @@ describe('UuidAssert', () => {
       new Assert().Uuid().validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Uuid');
     }
   });
@@ -64,7 +66,7 @@ describe('UuidAssert', () => {
       new Assert().Uuid(5).validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.version.should.equal(5);
     }
   });

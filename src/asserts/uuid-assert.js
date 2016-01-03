@@ -20,15 +20,14 @@ const uuid = {
  * Export `UuidAssert`.
  */
 
-export default function(version) {
-
+export default function uuidAssert(version) {
   /**
    * Class name.
    */
 
   this.__class__ = 'Uuid';
 
-  if (version && !~[3, 4, 5].indexOf(version)) {
+  if (version && [3, 4, 5].indexOf(version) === -1) {
     throw new Error('UUID version specified is not supported.');
   }
 
@@ -44,6 +43,7 @@ export default function(version) {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

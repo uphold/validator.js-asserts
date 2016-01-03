@@ -19,8 +19,7 @@ const hash = {
  * Export `HashAssert`.
  */
 
-export default function(algorithm) {
-
+export default function hashAssert(algorithm) {
   /**
    * Class name.
    */
@@ -47,6 +46,7 @@ export default function(algorithm) {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

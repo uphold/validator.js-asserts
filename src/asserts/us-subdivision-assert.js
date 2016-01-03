@@ -27,11 +27,10 @@ const keys = Object.keys(subdivisions);
  * Export `UsSubdivisionAssert`.
  */
 
-export default function({ categories: categories = keys, alpha2Only: alpha2Only = false } = {}) {
-
+export default function usSubdivisionAssert({ categories: categories = keys, alpha2Only: alpha2Only = false } = {}) {
   /**
-  * Class name.
-  */
+   * Class name.
+   */
 
   this.__class__ = 'UsSubdivision';
 
@@ -62,6 +61,7 @@ export default function({ categories: categories = keys, alpha2Only: alpha2Only 
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

@@ -41,6 +41,8 @@ describe('UriAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+
+        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
@@ -81,7 +83,7 @@ describe('UriAssert', () => {
       new Assert().Uri({ protocol: 'http' }).validate('https://foobar.com');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.constraints.should.eql({ protocol: 'http' });
     }
   });
@@ -91,7 +93,7 @@ describe('UriAssert', () => {
       new Assert().Uri().validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Uri');
     }
   });

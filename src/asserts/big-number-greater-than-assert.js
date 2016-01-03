@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `BigNumberGreaterThanAssert`.
  */
 
-export default function(threshold) {
-
+export default function bigNumberGreaterThanAssert(threshold) {
   /**
    * Optional peer dependencies.
    */

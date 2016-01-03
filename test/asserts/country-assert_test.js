@@ -30,6 +30,8 @@ describe('CountryAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+
+        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
@@ -51,7 +53,7 @@ describe('CountryAssert', () => {
       new Assert().Country().validate([]);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Country');
     }
   });

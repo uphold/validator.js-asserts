@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `BigNumberAssert`.
  */
 
-export default function() {
-
+export default function bigNumberAssert() {
   /**
    * Optional peer dependencies.
    */
@@ -29,7 +28,7 @@ export default function() {
 
   this.validate = (value) => {
     try {
-      new BigNumber(value);
+      new BigNumber(value); // eslint-disable-line no-new
     } catch (e) {
       throw new Violation(this, value);
     }

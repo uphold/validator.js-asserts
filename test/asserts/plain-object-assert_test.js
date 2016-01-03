@@ -21,7 +21,7 @@ const Assert = BaseAssert.extend({
 
 describe('PlainObjectAssert', () => {
   it('should throw an error if the input value is not a plain object', () => {
-    const choices = [[], 123, new Array()];
+    const choices = [[], 123];
 
     choices.forEach((choice) => {
       try {
@@ -39,7 +39,7 @@ describe('PlainObjectAssert', () => {
       new Assert().PlainObject().validate('FOO');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('PlainObject');
     }
   });

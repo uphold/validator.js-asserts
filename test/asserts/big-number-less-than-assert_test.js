@@ -80,7 +80,7 @@ describe('BigNumberLessThanAssert', () => {
       new Assert().BigNumberLessThan(10).validate(10.01);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('BigNumberLessThan');
     }
   });
@@ -90,7 +90,7 @@ describe('BigNumberLessThanAssert', () => {
       new Assert().BigNumberLessThan(10).validate({});
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.message.should.match(/not a number/);
     }
   });
@@ -100,7 +100,7 @@ describe('BigNumberLessThanAssert', () => {
       new Assert().BigNumberLessThan(10).validate(10.01);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.threshold.should.equal('10');
     }
   });
