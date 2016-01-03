@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `CreditCardAssert`.
  */
 
-export default function() {
-
+export default function creditCardAssert() {
   /**
    * Optional peer dependencies.
    */
@@ -28,6 +27,7 @@ export default function() {
    */
 
   this.validate = (value) => {
+    // jscs:disable requirePaddingNewlinesBeforeKeywords
     if (typeof value !== 'string' && typeof value !== 'number') {
       throw new Violation(this, value, { value: 'must_be_a_string_or_a_number' });
     }

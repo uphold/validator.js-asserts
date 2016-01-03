@@ -21,7 +21,7 @@ const Assert = BaseAssert.extend({
 
 describe('BooleanAssert', () => {
   it('should throw an error if the input value is not a boolean', () => {
-    const choices = [[], {}, 123, new Boolean(true), 'foo'];
+    const choices = [[], {}, 123, new Boolean(true), 'foo']; // eslint-disable-line no-new-wrappers
 
     choices.forEach((choice) => {
       try {
@@ -40,7 +40,7 @@ describe('BooleanAssert', () => {
       new Assert().Boolean().validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Boolean');
     }
   });

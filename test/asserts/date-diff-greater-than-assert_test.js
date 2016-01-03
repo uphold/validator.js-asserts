@@ -34,19 +34,19 @@ describe('DateDiffGreaterThanAssert', () => {
   it('should have a default option `absolute` of `false`', () => {
     const assert = new Assert().DateDiffGreaterThan(1);
 
-    assert.options.absolute.should.be.false;
+    assert.options.absolute.should.be.false();
   });
 
   it('should have a default option `asFloat` of `false`', () => {
     const assert = new Assert().DateDiffGreaterThan(1);
 
-    assert.options.asFloat.should.be.false;
+    assert.options.asFloat.should.be.false();
   });
 
   it('should have a default option `fromDate` of `null`', () => {
     const assert = new Assert().DateDiffGreaterThan(1);
 
-    (assert.options.fromDate === null).should.be.true;
+    (assert.options.fromDate === null).should.be.true();
   });
 
   it('should have a default option `unit` of `milliseconds`', () => {
@@ -191,7 +191,7 @@ describe('DateDiffGreaterThanAssert', () => {
   it('should accept option `asFloat`', () => {
     const assert = new Assert().DateDiffGreaterThan(0, { asFloat: true });
 
-    assert.options.asFloat.should.be.true;
+    assert.options.asFloat.should.be.true();
   });
 
   it('should accept option `fromDate`', () => {
@@ -208,7 +208,7 @@ describe('DateDiffGreaterThanAssert', () => {
 
   it('should use the `asFloat` option supplied', () => {
     try {
-      new Assert().DateDiffGreaterThan(5, { unit: 'minutes', asFloat: true, fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 10:04:51'));
+      new Assert().DateDiffGreaterThan(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00'), unit: 'minutes' }).validate(new Date('1970-01-01 10:04:51'));
 
       should.fail();
     } catch (e) {
@@ -219,7 +219,7 @@ describe('DateDiffGreaterThanAssert', () => {
 
   it('should use the `unit` option supplied', () => {
     try {
-      new Assert().DateDiffGreaterThan(2000, { unit: 'seconds', fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 10:00:05'));
+      new Assert().DateDiffGreaterThan(2000, { fromDate: new Date('1970-01-01 10:00:00'), unit: 'seconds' }).validate(new Date('1970-01-01 10:00:05'));
 
       should.fail();
     } catch (e) {
@@ -244,7 +244,7 @@ describe('DateDiffGreaterThanAssert', () => {
   });
 
   it('should accept a date whose diff from `fromDate` is greater than the threshold', () => {
-    new Assert().DateDiffGreaterThan(24, { unit: 'hours', asFloat: false, fromDate: new Date('1970-01-01 00:00:00') }).validate(new Date('1969-12-30 00:00:00'));
+    new Assert().DateDiffGreaterThan(24, { asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1969-12-30 00:00:00'));
   });
 
   it('should accept a date whose `absolute` diff from `fromDate` is greater than the threshold', () => {

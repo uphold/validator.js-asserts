@@ -39,7 +39,7 @@ describe('BigNumberAssert', () => {
       new Assert().BigNumber().validate();
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('BigNumber');
     }
   });

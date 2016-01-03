@@ -10,8 +10,7 @@ import { assign } from 'lodash';
  * Export `DateDiffGreaterThanAssert`.
  */
 
-export default function(threshold, options) {
-
+export default function dateDiffGreaterThanAssert(threshold, options) {
   /**
    * Optional peer dependencies.
    */
@@ -69,7 +68,7 @@ export default function(threshold, options) {
     }
 
     if (diff <= this.threshold) {
-      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit, diff });
+      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, diff, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
     }
 
     return true;

@@ -37,7 +37,7 @@ describe('EqualKeysAssert', () => {
 
   it('should throw an error if an object does not have the expected keys', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate({ foo: 'qux', bar: 'biz' });
+      new Assert().EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -50,22 +50,22 @@ describe('EqualKeysAssert', () => {
       new Assert().EqualKeys().validate(123);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('EqualKeys');
     }
   });
 
   it('should expose `difference` on the violation', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate({ foo: 'qux', bar: 'biz' });
+      new Assert().EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.difference.should.eql(['bar']);
     }
   });
 
   it('should accept an object with expected keys', () => {
-    new Assert().EqualKeys(['foo', 'bar']).validate({ foo: 'qux', bar: 'biz' });
+    new Assert().EqualKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
   });
 });

@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `JsonAssert`.
  */
 
-export default function() {
-
+export default function jsonAssert() {
   /**
    * Class name.
    */

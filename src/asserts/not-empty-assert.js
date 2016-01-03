@@ -10,8 +10,7 @@ import { isEmpty } from 'lodash';
  * Export `NotEmptyAssert`.
  */
 
-export default function() {
-
+export default function notEmptyAssert() {
   /**
    * Class name.
    */

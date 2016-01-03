@@ -51,7 +51,7 @@ describe('NullOrStringAssert', () => {
       new Assert().NullOrString().validate({});
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('NullOrString');
     }
   });
@@ -61,17 +61,17 @@ describe('NullOrStringAssert', () => {
       new Assert().NullOrString({ min: 5 }).validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.min.should.equal(5);
     }
   });
 
   it('should expose `min` or `max` on the `assert` if testing boundaries of a string', () => {
     try {
-      new Assert().NullOrString({ min: 1, max: 2 }).validate('foobar');
+      new Assert().NullOrString({ max: 2, min: 1 }).validate('foobar');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.assert.min.should.equal(1);
       e.assert.max.should.equal(2);
     }

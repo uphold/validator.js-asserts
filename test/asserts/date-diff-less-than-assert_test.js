@@ -34,19 +34,19 @@ describe('DateDiffLessThanAssert', () => {
   it('should have a default option `absolute` of `false`', () => {
     const assert = new Assert().DateDiffLessThan(1);
 
-    assert.options.absolute.should.be.false;
+    assert.options.absolute.should.be.false();
   });
 
   it('should have a default option `asFloat` of `false`', () => {
     const assert = new Assert().DateDiffLessThan(1);
 
-    assert.options.asFloat.should.be.false;
+    assert.options.asFloat.should.be.false();
   });
 
   it('should have a default option `fromDate` of `null`', () => {
     const assert = new Assert().DateDiffLessThan(1);
 
-    (assert.options.fromDate === null).should.be.true;
+    (assert.options.fromDate === null).should.be.true();
   });
 
   it('should have a default option `unit` of `milliseconds`', () => {
@@ -217,7 +217,7 @@ describe('DateDiffLessThanAssert', () => {
   it('should accept option `asFloat`', () => {
     const assert = new Assert().DateDiffLessThan(0, { asFloat: true });
 
-    assert.options.asFloat.should.be.true;
+    assert.options.asFloat.should.be.true();
   });
 
   it('should accept option `fromDate`', () => {
@@ -234,7 +234,7 @@ describe('DateDiffLessThanAssert', () => {
 
   it('should use the `asFloat` option supplied', () => {
     try {
-      new Assert().DateDiffLessThan(5, { unit: 'minutes', asFloat: true, fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 09:54:57'));
+      new Assert().DateDiffLessThan(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00'), unit: 'minutes' }).validate(new Date('1970-01-01 09:54:57'));
 
       should.fail();
     } catch (e) {
@@ -244,7 +244,7 @@ describe('DateDiffLessThanAssert', () => {
   });
 
   it('should use the `unit` option supplied', () => {
-    new Assert().DateDiffLessThan(2000, { unit: 'seconds', fromDate: new Date('1970-01-01 10:00:00') }).validate(new Date('1970-01-01 09:55:55'));
+    new Assert().DateDiffLessThan(2000, { fromDate: new Date('1970-01-01 10:00:00'), unit: 'seconds' }).validate(new Date('1970-01-01 09:55:55'));
   });
 
   it('should accept a date whose diff from `now` is less than the threshold', () => {
@@ -256,6 +256,6 @@ describe('DateDiffLessThanAssert', () => {
   });
 
   it('should accept a date whose diff from `fromDate` is less than the threshold', () => {
-    new Assert().DateDiffLessThan(24, { unit: 'hours', asFloat: false, fromDate: new Date('1970-01-01 09:00:00') }).validate(new Date('1970-01-01 00:00:00'));
+    new Assert().DateDiffLessThan(24, { asFloat: false, fromDate: new Date('1970-01-01 09:00:00'), unit: 'hours' }).validate(new Date('1970-01-01 00:00:00'));
   });
 });

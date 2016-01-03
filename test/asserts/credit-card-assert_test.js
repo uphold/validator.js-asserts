@@ -51,7 +51,7 @@ describe('CreditCardAssert', () => {
       new Assert().CreditCard().validate(123);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('CreditCard');
     }
   });

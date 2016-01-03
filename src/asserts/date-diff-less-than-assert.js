@@ -10,8 +10,7 @@ import { assign } from 'lodash';
  * Export `DateDiffLessThanAssert`.
  */
 
-export default function(threshold, options) {
-
+export default function dateDiffLessThanAssert(threshold, options) {
   /**
    * Optional peer dependencies.
    */

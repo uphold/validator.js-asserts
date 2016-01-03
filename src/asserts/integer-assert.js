@@ -15,8 +15,7 @@ const int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
  * Export `IntegerAssert`.
  */
 
-export default function() {
-
+export default function integerAssert() {
   /**
    * Class name.
    */
@@ -29,6 +28,7 @@ export default function() {
 
   this.validate = (value) => {
     if (typeof value !== 'number') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_number });
     }
 

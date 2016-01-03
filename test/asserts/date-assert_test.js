@@ -40,7 +40,7 @@ describe('DateAssert', () => {
       new Assert().Date().validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Date');
     }
   });

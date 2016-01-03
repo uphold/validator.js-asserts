@@ -10,8 +10,7 @@ import { difference, isPlainObject } from 'lodash';
  * Export `EqualKeysAssert`.
  */
 
-export default function(keys) {
-
+export default function equalKeysAssert(keys) {
   /**
    * Class name.
    */

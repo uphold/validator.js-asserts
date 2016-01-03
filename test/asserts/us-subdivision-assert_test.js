@@ -30,6 +30,8 @@ describe('UsSubdivisionAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+
+        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
@@ -45,12 +47,12 @@ describe('UsSubdivisionAssert', () => {
     }
   });
 
-  it ('should throw an error if category is unsupported', () => {
+  it('should throw an error if category is unsupported', () => {
     try {
       new Assert().UsSubdivision({ categories: ['foo', 'districts'] });
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.message.should.equal('Unsupported categories "foo" given');
     }
   });
@@ -60,7 +62,7 @@ describe('UsSubdivisionAssert', () => {
       new Assert().UsSubdivision({ alpha2Only: true }).validate('US-CA');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('UsSubdivision');
     }
   });
@@ -70,7 +72,7 @@ describe('UsSubdivisionAssert', () => {
       new Assert().UsSubdivision().validate('FOO');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('UsSubdivision');
     }
   });
@@ -80,7 +82,7 @@ describe('UsSubdivisionAssert', () => {
       new Assert().UsSubdivision({ categories: ['districts'] }).validate('AS');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('UsSubdivision');
     }
   });
@@ -90,7 +92,7 @@ describe('UsSubdivisionAssert', () => {
       new Assert().UsSubdivision({ categories: ['outlying'] }).validate('DC');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('UsSubdivision');
     }
   });
@@ -100,7 +102,7 @@ describe('UsSubdivisionAssert', () => {
       new Assert().UsSubdivision({ categories: ['states'] }).validate('AS');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('UsSubdivision');
     }
   });

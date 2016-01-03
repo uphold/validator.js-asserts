@@ -10,8 +10,7 @@ import { find } from 'lodash';
  * Export `Iso3166CountryAssert`.
  */
 
-export default function() {
-
+export default function iso3166CountryAssert() {
   /**
    * Optional peer dependencies.
    */
@@ -36,6 +35,7 @@ export default function() {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 
@@ -52,8 +52,7 @@ export default function() {
 
     if (!country) {
       country = find(countries, (item) => {
-        return item.name.short.toLocaleUpperCase() === name ||
-          item.name.uppercase.toLocaleUpperCase() === name;
+        return item.name.short.toLocaleUpperCase() === name || item.name.uppercase.toLocaleUpperCase() === name;
       });
     }
 

@@ -9,8 +9,7 @@ import { Violation } from 'validator.js';
  * Export `BooleanAssert`.
  */
 
-export default function() {
-
+export default function booleanAssert() {
   /**
    * Class name.
    */

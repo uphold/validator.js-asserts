@@ -9,8 +9,7 @@ import { Assert, Violation } from 'validator.js';
  * Export `NullOrStringAssert`.
  */
 
-export default function(boundaries) {
-
+export default function nullOrStringAssert(boundaries) {
   /**
    * Class name.
    */
@@ -31,6 +30,7 @@ export default function(boundaries) {
    */
 
   this.validate = (value) => {
+    // jscs: disable requirePaddingNewlinesBeforeKeywords
     if (value !== null && typeof value !== 'string') {
       throw new Violation(this, value, { value: 'must_be_null_or_a_string' });
     }
@@ -44,7 +44,7 @@ export default function(boundaries) {
     }
 
     try {
-      new Assert().Length({ min: this.min, max: this.max }).validate(value);
+      new Assert().Length({ max: this.max, min: this.min }).validate(value);
     } catch (e) {
       throw new Violation(this, value, e.violation);
     }

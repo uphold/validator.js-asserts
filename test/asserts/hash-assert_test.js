@@ -54,6 +54,8 @@ describe('HashAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
+
+        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
@@ -64,7 +66,7 @@ describe('HashAssert', () => {
       new Assert().Hash('sha1').validate(123);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Hash');
     }
   });
@@ -74,7 +76,7 @@ describe('HashAssert', () => {
       new Assert().Hash('sha1').validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().violation.algorithm.should.equal('sha1');
     }
   });

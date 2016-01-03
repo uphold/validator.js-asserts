@@ -7,11 +7,10 @@ import { Validator, Violation } from 'validator.js';
 import { forEach, has } from 'lodash';
 
 /**
-* Export `UriAssert`.
-*/
+ * Export `UriAssert`.
+ */
 
-export default function(constraints) {
-
+export default function uriAssert(constraints) {
   /**
    * Optional peer dependencies.
    */
@@ -46,6 +45,7 @@ export default function(constraints) {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

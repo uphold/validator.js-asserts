@@ -39,7 +39,7 @@ describe('NotEmptyAssert', () => {
       new Assert().NotEmpty().validate({});
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('NotEmpty');
     }
   });

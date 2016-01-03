@@ -39,7 +39,7 @@ describe('IntegerAssert', () => {
       new Assert().Integer().validate('foo');
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('Integer');
     }
   });

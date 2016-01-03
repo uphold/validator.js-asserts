@@ -23,7 +23,7 @@ describe('BankIdentifierCodeAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}];
 
-    choices.forEach(choice => {
+    choices.forEach((choice) => {
       try {
         new Assert().BankIdentifierCode().validate(choice);
 
@@ -51,7 +51,7 @@ describe('BankIdentifierCodeAssert', () => {
       new Assert().BankIdentifierCode().validate(123);
 
       should.fail();
-    } catch(e) {
+    } catch (e) {
       e.show().assert.should.equal('BankIdentifierCode');
     }
   });

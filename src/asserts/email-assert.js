@@ -6,11 +6,10 @@
 import { Assert, Validator, Violation } from 'validator.js';
 
 /**
-* Export `EmailAssert`.
-*/
+ * Export `EmailAssert`.
+ */
 
-export default function() {
-
+export default function emailAssert() {
   /**
    * Optional peer dependencies.
    */
@@ -29,6 +28,7 @@ export default function() {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 
