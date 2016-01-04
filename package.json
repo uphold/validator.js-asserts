@@ -48,6 +48,7 @@
     "validator.js": "^1.2.2"
   },
   "devDependencies": {
+    "abavalidator": "^2.0.1",
     "babel-cli": "^6.3.17",
     "babel-core": "^6.3.26",
     "babel-eslint": "^4.1.6",
@@ -73,6 +74,7 @@
   },
   "optionalPeerDependencies": {
     "urijs": ">=1 <2",
+    "abavalidator": ">=2 <3",
     "bignumber.js": ">=2 <3",
     "creditcard": ">=0.0.1 <1.0.0",
     "iban": ">=0.0.6 <1.0.0",
