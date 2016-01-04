@@ -27,33 +27,33 @@ You should pin these package's peer dependencies to the ranges listed on the *op
 
 The following set of extra asserts are provided by this package:
 
-* BankIdentifierCode (*BIC*)
-* BigNumber (requires `bignumber.js`)
-* BigNumberGreaterThan (requires `bignumber.js`)
-* BigNumberGreaterThanOrEqualTo (requires `bignumber.js`)
-* BigNumberLessThan (requires `bignumber.js`)
-* BigNumberLessThanOrEqualTo (requires `bignumber.js`)
-* Boolean
-* Country (requires `world-countries`)
-* CreditCard (requires `creditcard`)
-* Date
-* DateDiffGreaterThan (requires `moment`)
-* DateDiffLessThan (requires `moment`)
-* Email (requires `validator`)
-* EqualKeys
-* Hash
-* Integer
-* InternationalBankAccountNumber (*IBAN*, requires `iban`)
-* Ip
-* Iso3166Country (requires `isoc`)
-* Json
-* NotEmpty
-* NullOrDate
-* NullOrString
-* PlainObject
-* Uri (requires `urijs`)
-* UsSubdivision
-* Uuid
+* [BankIdentifierCode](#bankidentifiercode-bic) (*BIC*)
+* [BigNumber](#bignumber) (requires `bignumber.js`)
+* [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
+* [BigNumberGreaterThanOrEqualTo](#bignumbergreaterthanorequalto) (requires `bignumber.js`)
+* [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
+* [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
+* [Boolean](#boolean)
+* [Country](#country) (requires `world-countries`)
+* [CreditCard](#creditcard) (requires `creditcard`)
+* [Date](#date)
+* [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
+* [DateDiffLessThan](#datedifflessthan) (requires `moment`)
+* [Email](#email) (requires `validator`)
+* [EqualKeys](#equalkeys)
+* [Hash](#hash)
+* [Integer](#integer)
+* [InternationalBankAccountNumber](#internationalbankaccountnumber-iban) (*IBAN*, requires `iban`)
+* [Ip](#ip)
+* [Iso3166Country](#iso3166country) (requires `isoc`)
+* [Json](#json)
+* [NotEmpty](#notempty)
+* [NullOrDate](#nullordate)
+* [NullOrString](#nullorstring)
+* [PlainObject](#plainobject)
+* [Uri](#uri) (requires `urijs`)
+* [UsSubdivision](#ussubdivision)
+* [Uuid](#uuid)
 
 ### BankIdentifierCode (*BIC*)
 
@@ -132,9 +132,9 @@ Tests if the value is a valid email.
 
 ### EqualKeys
 
-Tests if the object has the exact given set of keys.
+Tests if the object has the exact given set of keys (missing or extra keys are not allowed).
 
-* `keys` (required) - the keys that the object being tested must equal.
+* `keys` (optional) - the keys that the object being tested must equal. If none are defined, no keys will be allowed.
 
 ### Hash
 
