@@ -27,6 +27,7 @@ You should pin these package's peer dependencies to the ranges listed on the *op
 
 The following set of extra asserts are provided by this package:
 
+* [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
 * [BankIdentifierCode](#bankidentifiercode-bic) (*BIC*)
 * [BigNumber](#bignumber) (requires `bignumber.js`)
 * [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
@@ -54,6 +55,10 @@ The following set of extra asserts are provided by this package:
 * [Uri](#uri) (requires `urijs`)
 * [UsSubdivision](#ussubdivision)
 * [Uuid](#uuid)
+
+### AbaRoutingNumber
+
+Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
 
 ### BankIdentifierCode (*BIC*)
 
