@@ -43,7 +43,7 @@
     "test": "NODE_ENV=test mocha $npm_package_options_mocha"
   },
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.0.0",
     "require-dir": "^0.3.0",
     "validator.js": "^1.2.2"
   },
