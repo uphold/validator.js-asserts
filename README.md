@@ -186,7 +186,7 @@ Tests if the value is a plain object.
 
 Tests if the value is a valid `uri` which must contain at least a protocol and a hostname.
 
-* `constraints` (optional) - additional uri parts to test for (e.g. `{ protocol: 'https' }`).
+* `constraints` (optional) - additional uri parts to test for (e.g. `{ is: 'domain', protocol: 'https' }`).
 
 ### UsSubdivision
 
