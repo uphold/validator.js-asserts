@@ -13,6 +13,7 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', () => {
     Object.keys(asserts).should.eql([
       'AbaRoutingNumber',
+      'AcceptKeys',
       'BankIdentifierCode',
       'BigNumber',
       'BigNumberGreaterThan',

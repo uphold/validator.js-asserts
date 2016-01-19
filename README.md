@@ -28,6 +28,7 @@ You should pin these package's peer dependencies to the ranges listed on the *op
 The following set of extra asserts are provided by this package:
 
 * [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
+* [AcceptKeys](#acceptkeys)
 * [BankIdentifierCode](#bankidentifiercode-bic) (*BIC*)
 * [BigNumber](#bignumber) (requires `bignumber.js`)
 * [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
@@ -59,6 +60,12 @@ The following set of extra asserts are provided by this package:
 ### AbaRoutingNumber
 
 Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
+
+### AcceptKeys
+
+Tests if the object keys belong to a given set of keys.
+
+* `keys` (required) - the keys that the object being tested accepts.
 
 ### BankIdentifierCode (*BIC*)
 
