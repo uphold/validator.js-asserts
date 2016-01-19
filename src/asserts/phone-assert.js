@@ -53,7 +53,7 @@ export default function phoneAssert({ countryCode } = {}) {
         throw new Error('Phone is not valid');
       }
 
-      if (!phoneUtil.isValidNumberForRegion(phone, this.countryCode)) {
+      if (this.countryCode && !phoneUtil.isValidNumberForRegion(phone, this.countryCode)) {
         throw new Error(`Phone does not belong to country "${this.countryCode}"`);
       }
     } catch (e) {
