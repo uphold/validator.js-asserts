@@ -51,6 +51,7 @@ The following set of extra asserts are provided by this package:
 * [NotEmpty](#notempty)
 * [NullOrDate](#nullordate)
 * [NullOrString](#nullorstring)
+* [Phone](#phone) (requires `google-libphonenumber`)
 * [PlainObject](#plainobject)
 * [Uri](#uri) (requires `urijs`)
 * [UsSubdivision](#ussubdivision)
@@ -178,6 +179,12 @@ Tests if the value is not an empty (empty object, empty array, empty string, etc
 Tests if the value is a `null` or `string`, optionally within some boundaries.
 
 * `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
+
+### Phone
+
+Tests if the phone is valid and optionally if it belongs to the given country. The phone can be in the national or E164 formats.
+
+* `countryCode` (optional) - the ISO-3166 alpha-2 country code to test the phone validity in.
 
 ### PlainObject
 
