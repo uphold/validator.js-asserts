@@ -78,6 +78,16 @@ describe('UriAssert', () => {
     }
   });
 
+  it('should throw an error if the uri does not match the `is` constraint', () => {
+    try {
+      new Assert().Uri({ is: 'ip' }).validate('https://foobar.com');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+    }
+  });
+
   it('should expose `constraints` on the violation', () => {
     try {
       new Assert().Uri({ protocol: 'http' }).validate('https://foobar.com');
@@ -99,6 +109,7 @@ describe('UriAssert', () => {
   });
 
   it('should accept an uri that matches the constraints', () => {
+    new Assert().Uri({ is: 'domain' }).validate('https://foobar.com');
     new Assert().Uri({ protocol: 'https' }).validate('https://foobar.com');
   });
 

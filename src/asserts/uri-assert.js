@@ -58,7 +58,11 @@ export default function uriAssert(constraints) {
 
     // Validate that each constraint matches exactly.
     forEach(this.constraints, (constraint, key) => {
-      if (constraint === uri[key]()) {
+      if (key === 'is' && uri[key](constraint)) {
+        return;
+      }
+
+      if (key !== 'is' && constraint === uri[key]()) {
         return;
       }
 
