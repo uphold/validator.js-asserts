@@ -1,14 +1,10 @@
 # validator.js-asserts
-
 A set of extra asserts for [validator.js](https://github.com/guillaumepotier/validator.js).
 
 ## Status
-
-[![npm version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![npm version][npm-image]][npm-url] [![build status][travis-image]][travis-url]
 
 ## Installation
-
 Install the package via `npm`:
 
 ```sh
@@ -16,215 +12,192 @@ $ npm install --save validator.js-asserts
 ```
 
 ### Peer dependencies
+Some asserts require manually installing some _peer dependencies_. Failing to do so will result in runtime errors, as packages are required dynamically.
 
-Some asserts require manually installing some *peer dependencies*. Failing to do so will result in runtime errors, as packages are required dynamically.
+Peer dependencies are not listed on `package.json` because npm 2 considers them _mandatory peer dependencies_ and, therefore, always installs them, while [npm 3](https://github.com/npm/npm/blob/master/CHANGELOG.md#peerdependencies) follows a more consensual approach of _optional peer dependencies_, not installing them by default but generating warning and confusing error messages instead.
 
-Peer dependencies are not listed on `package.json` because npm 2 considers them *mandatory peer dependencies* and, therefore, always installs them, while [npm 3](https://github.com/npm/npm/blob/master/CHANGELOG.md#peerdependencies) follows a more consensual approach of *optional peer dependencies*, not installing them by default but generating warning and confusing error messages instead.
-
-You should pin these package's peer dependencies to the ranges listed on the *optionalPeerDependencies* key of this package's manifest.
+You should pin these package's peer dependencies to the ranges listed on the _optionalPeerDependencies_ key of this package's manifest.
 
 ## Asserts
-
 The following set of extra asserts are provided by this package:
-
-* [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
-* [BankIdentifierCode](#bankidentifiercode-bic) (*BIC*)
-* [BigNumber](#bignumber) (requires `bignumber.js`)
-* [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
-* [BigNumberGreaterThanOrEqualTo](#bignumbergreaterthanorequalto) (requires `bignumber.js`)
-* [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
-* [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
-* [Boolean](#boolean)
-* [Country](#country) (requires `world-countries`)
-* [CreditCard](#creditcard) (requires `creditcard`)
-* [Date](#date)
-* [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
-* [DateDiffLessThan](#datedifflessthan) (requires `moment`)
-* [Email](#email) (requires `validator`)
-* [EqualKeys](#equalkeys)
-* [Hash](#hash)
-* [Integer](#integer)
-* [InternationalBankAccountNumber](#internationalbankaccountnumber-iban) (*IBAN*, requires `iban`)
-* [Ip](#ip)
-* [Iso3166Country](#iso3166country) (requires `isoc`)
-* [Json](#json)
-* [NotEmpty](#notempty)
-* [NullOrDate](#nullordate)
-* [NullOrString](#nullorstring)
-* [Phone](#phone) (requires `google-libphonenumber`)
-* [PlainObject](#plainobject)
-* [Uri](#uri) (requires `urijs`)
-* [UsSubdivision](#ussubdivision)
-* [UsZipCode](#uszipcode)
-* [Uuid](#uuid)
+- [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
+- [BankIdentifierCode](#bankidentifiercode-bic) (_BIC_)
+- [BigNumber](#bignumber) (requires `bignumber.js`)
+- [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
+- [BigNumberGreaterThanOrEqualTo](#bignumbergreaterthanorequalto) (requires `bignumber.js`)
+- [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
+- [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
+- [Boolean](#boolean)
+- [Country](#country) (requires `world-countries`)
+- [CreditCard](#creditcard) (requires `creditcard`)
+- [Date](#date)
+- [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
+- [DateDiffLessThan](#datedifflessthan) (requires `moment`)
+- [Email](#email) (requires `validator`)
+- [EqualKeys](#equalkeys)
+- [Hash](#hash)
+- [Integer](#integer)
+- [InternationalBankAccountNumber](#internationalbankaccountnumber-iban) (_IBAN_, requires `iban`)
+- [Ip](#ip)
+- [Iso3166Country](#iso3166country) (requires `isoc`)
+- [Json](#json)
+- [NotEmpty](#notempty)
+- [NullOrDate](#nullordate)
+- [NullOrString](#nullorstring)
+- [Phone](#phone) (requires `google-libphonenumber`)
+- [PlainObject](#plainobject)
+- [Uri](#uri) (requires `urijs`)
+- [UsSubdivision](#ussubdivision)
+- [UsZipCode](#uszipcode)
+- [Uuid](#uuid)
 
 ### AbaRoutingNumber
-
 Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
 
 ### BankIdentifierCode (*BIC*)
-
-Tests if the value is a valid Bank Identifier Code (*BIC*) as defined in the [ISO-9362](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60390) standard.
+Tests if the value is a valid Bank Identifier Code (_BIC_) as defined in the [ISO-9362](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60390) standard.
 
 ### BigNumber
-
 Tests if the value is a valid `BigNumber`.
 
 ### BigNumberGreaterThan
-
 Tests if a `BigNumber` is greater than a given threshold.
 
-* `threshold` (required)
+#### Arguments
+- `threshold` (required)
 
 ### BigNumberGreaterThanOrEqualTo
-
 Tests if a `BigNumber` is greater than or equal to a given threshold.
 
-* `threshold` (required)
+#### Arguments
+- `threshold` (required)
 
 ### BigNumberLessThan
-
 Tests if a `BigNumber` is less than a given threshold.
 
-* `threshold` (required)
+#### Arguments
+- `threshold` (required)
 
 ### BigNumberLessThanOrEqualTo
-
 Tests if a `BigNumber` is less than or equal to a given threshold.
 
-* `threshold` (required)
+#### Arguments
+- `threshold` (required)
 
 ### Boolean
-
 Tests if the value is a boolean.
 
 ### Country
-
-Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names.
-The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
+Tests if the value is a valid country by alpha-3 code, alpha-2 code, common name, official name or alternative spelling names. The difference from the `Iso3166Country` assert is that it is less rigid in its definitions since it is based on a community-effort rather than a standards body where rules are very strict.
 
 ### CreditCard
-
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
 
 ### Date
-
 Tests if the value is a valid date.
 
 ### DateDiffGreaterThan
-
 Tests if the difference between two dates is greater than a given threshold.
 
-* `threshold` (required)
-* `options`
-	* `absolute` - whether the comparison should use the absolute value of the measured difference.
-	* `asFloat` - whether to return the difference rounded down or as float.
-	* `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
-	* `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
+#### Arguments
+- `threshold` (required)
+- `options`
+  - `absolute` - whether the comparison should use the absolute value of the measured difference.
+  - `asFloat` - whether to return the difference rounded down or as float.
+  - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
+  - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
 
 ### DateDiffLessThan
-
 Tests if the difference between two dates is less than a given threshold.
 
-* `threshold` (required)
-* `options`
-	* `absolute` - whether the comparison should use the absolute value of the measured difference.
-	* `asFloat` - whether to return the difference rounded down or as float.
-	* `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
-	* `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
+#### Arguments
+- `threshold` (required)
+- `options`
+  - `absolute` - whether the comparison should use the absolute value of the measured difference.
+  - `asFloat` - whether to return the difference rounded down or as float.
+  - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
+  - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
 
 ### Email
-
 Tests if the value is a valid email.
 
 ### EqualKeys
-
 Tests if the object has the exact given set of keys (missing or extra keys are not allowed).
 
-* `keys` (optional) - the keys that the object being tested must equal. If none are defined, no keys will be allowed.
+#### Arguments
+- `keys` (optional) - the keys that the object being tested must equal. If none are defined, no keys will be allowed.
 
 ### Hash
-
 Tests if the value is a valid hash.
 
-* `algorithm` (required) - the algorithm to test the hash for. Supported algorithms are `sha1`, `sha256` and `sha512`.
+#### Arguments
+- `algorithm` (required) - the algorithm to test the hash for. Supported algorithms are `sha1`, `sha256` and `sha512`.
 
 ### Integer
-
 Tests if the value is an integer.
 
 ### InternationalBankAccountNumber (*IBAN*)
-
-Tests if the value is a valid International Bank Account Number (*IBAN*) as defined in the [13616-1](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=41031) standard.
+Tests if the value is a valid International Bank Account Number (_IBAN_) as defined in the [13616-1](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=41031) standard.
 
 ### Ip
-
 Tests if the value is a valid ip (v4 or v6).
 
 ### Iso3166Country
-
-Tests if the value is a valid ISO-3166 country by alpha-3 code, alpha-2 code, short name or uppercase name.
-All officially-assigned, transitionally-assigned and user-assigned codes are considered valid.
+Tests if the value is a valid ISO-3166 country by alpha-3 code, alpha-2 code, short name or uppercase name. All officially-assigned, transitionally-assigned and user-assigned codes are considered valid.
 
 ### Json
-
 Tests if the value is valid json.
 
 ### NotEmpty
-
 Tests if the value is not an empty (empty object, empty array, empty string, etc).
 
 ### NullOrString
-
 Tests if the value is a `null` or `string`, optionally within some boundaries.
 
-* `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
+#### Arguments
+- `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
 
 ### Phone
-
 Tests if the phone is valid and optionally if it belongs to the given country. The phone can be in the national or E164 formats.
 
-* `countryCode` (optional) - the ISO-3166 alpha-2 country code to test the phone validity in.
+#### Arguments
+- `countryCode` (optional) - the ISO-3166 alpha-2 country code to test the phone validity in.
 
 ### PlainObject
-
 Tests if the value is a plain object.
 
 ### Uri
-
 Tests if the value is a valid `uri` which must contain at least a protocol and a hostname.
 
-* `constraints` (optional) - additional uri parts to test for (e.g. `{ is: 'domain', protocol: 'https' }`).
+#### Arguments
+- `constraints` (optional) - additional uri parts to test for (e.g. `{ is: 'domain', protocol: 'https' }`).
 
 ### UsSubdivision
+Tests if the value is a valid US subdivision or not. By default, codes in the short ("alpha2", e.g. `CA`) or full form (e.g. `US-CA`) are allowed. All US subdivisions categories are supported: `districts` (1), `states` (50) and `outlying` territories (6).
 
-Tests if the value is a valid US subdivision or not. By default, codes in the short ("alpha2", e.g. `CA`) or full form (e.g. `US-CA`) are allowed.
-All US subdivisions categories are supported: `districts` (1), `states` (50) and `outlying` territories (6).
-
-* `alpha2Only` (optional) - whether to restrict validation to the "alpha2" short code form only.
-* `categories` (optional) - a list of categories to restrict code validation to (e.g. `['states', 'outlying']`).
+#### Arguments
+- `alpha2Only` (optional) - whether to restrict validation to the "alpha2" short code form only.
+- `categories` (optional) - a list of categories to restrict code validation to (e.g. `['states', 'outlying']`).
 
 ### UsZipCode
-
 Tests if the value is a valid US zip code.
 
 ### Uuid
-
 Tests if the value is a valid uuid.
 
-* `version` (optional) - the version to test the uuid for. Supported version are `3`, `4` and `5`. Defaults to test for `all` three if omitted.
+#### Arguments
+- `version` (optional) - the version to test the uuid for. Supported version are `3`, `4` and `5`. Defaults to test for `all` three if omitted.
 
 ## Usage
-
 The following is an example for the extra ip assert:
 
 ```js
-var Assert = require('validator.js').Assert.extend(require('validator.js-asserts'));
-var Validator = require('validator.js').Validator;
-var validator = new Validator();
+const Assert = require('validator.js').Assert.extend(require('validator.js-asserts'));
+const Validator = require('validator.js').Validator;
+const validator = new Validator();
 
 // Validate ip `1.3.3.7`.
-var violation = validator.validate('1.3.3.7', new Assert().Ip());
+const violation = validator.validate('1.3.3.7', new Assert().Ip());
 
 if (true === violation) {
   console.log('"1.3.3.7" is a valid IP'); // => "1.3.3.7" is a valid IP
@@ -246,7 +219,6 @@ $ npm test
 ```
 
 ## License
-
 MIT
 
 [npm-image]: https://img.shields.io/npm/v/validator.js-asserts.svg?style=flat-square
