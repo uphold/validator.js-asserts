@@ -70,8 +70,7 @@
     "should": "^8.1.1",
     "sinon": "^1.15.4",
     "urijs": "^1.16.1",
-    "validator": "^4.1.0",
-    "world-countries": "^1.7.3"
+    "validator": "^4.1.0"
   },
   "optionalPeerDependencies": {
     "urijs": ">=1 <2",
@@ -82,8 +81,7 @@
     "iban": ">=0.0.6 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
     "moment": ">=2 <3",
-    "validator": ">=3 <5",
-    "world-countries": ">=1 <2"
+    "validator": ">=3 <5"
   },
   "engines": {
     "node": ">= 4"
