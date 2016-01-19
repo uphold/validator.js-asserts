@@ -54,6 +54,7 @@ The following set of extra asserts are provided by this package:
 * [PlainObject](#plainobject)
 * [Uri](#uri) (requires `urijs`)
 * [UsSubdivision](#ussubdivision)
+* [UsZipCode](#uszipcode)
 * [Uuid](#uuid)
 
 ### AbaRoutingNumber
@@ -195,6 +196,10 @@ All US subdivisions categories are supported: `districts` (1), `states` (50) and
 
 * `alpha2Only` (optional) - whether to restrict validation to the "alpha2" short code form only.
 * `categories` (optional) - a list of categories to restrict code validation to (e.g. `['states', 'outlying']`).
+
+### UsZipCode
+
+Tests if the value is a valid US zip code.
 
 ### Uuid
 

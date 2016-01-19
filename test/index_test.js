@@ -39,6 +39,7 @@ describe('validator.js-asserts', () => {
       'PlainObject',
       'Uri',
       'UsSubdivision',
+      'UsZipCode',
       'Uuid'
     ]);
   });
