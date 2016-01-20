@@ -55,6 +55,10 @@ describe('Phone', () => {
     }
   });
 
+  it('should accept a valid phone in the e164 format', () => {
+    new Assert().Phone().validate('+1 415 555 2671');
+  });
+
   it('should accept a phone in the e164 format that belongs to the given country', () => {
     new Assert().Phone({ countryCode: 'US' }).validate('+1 415 555 2671');
   });
