@@ -4,3 +4,6 @@ plugins:
   - jscs-config-seegno
 
 preset: seegno
+
+requireCamelCaseOrUpperCaseIdentifiers: false
+requirePaddingNewlinesBeforeKeywords: false
