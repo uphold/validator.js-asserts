@@ -30,7 +30,6 @@ export default function nullOrStringAssert(boundaries) {
    */
 
   this.validate = (value) => {
-    // jscs: disable requirePaddingNewlinesBeforeKeywords
     if (value !== null && typeof value !== 'string') {
       throw new Violation(this, value, { value: 'must_be_null_or_a_string' });
     }

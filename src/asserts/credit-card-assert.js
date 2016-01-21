@@ -27,7 +27,6 @@ export default function creditCardAssert() {
    */
 
   this.validate = (value) => {
-    // jscs:disable requirePaddingNewlinesBeforeKeywords
     if (typeof value !== 'string' && typeof value !== 'number') {
       throw new Violation(this, value, { value: 'must_be_a_string_or_a_number' });
     }

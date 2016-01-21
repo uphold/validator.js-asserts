@@ -35,12 +35,12 @@
     "mocha": "--compilers js:babel-register --recursive test"
   },
   "scripts": {
-    "build": "rm -rf dist/* && babel src --out-dir dist",
     "changelog": "github_changelog_generator --header-label='# Changelog'",
     "cover": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
     "lint": "eslint src test && jscs src test",
-    "prepublish": "npm test && npm run build",
-    "test": "NODE_ENV=test mocha $npm_package_options_mocha"
+    "prepublish": "npm run transpile",
+    "test": "NODE_ENV=test mocha $npm_package_options_mocha",
+    "transpile": "rm -rf dist/* && babel src --out-dir dist"
   },
   "dependencies": {
     "lodash": "^4.0.0",
@@ -84,6 +84,6 @@
     "validator": ">=3 <5"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">=4"
   }
 }
