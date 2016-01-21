@@ -1,26 +1,22 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = creditCardAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
-
-var _creditcard = require('creditcard');
-
-var _creditcard2 = _interopRequireDefault(_creditcard);
+var _validator = require('validator.js');
 
 /**
  * Export `CreditCardAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
+function creditCardAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const creditcard = require('creditcard');
 
   /**
    * Class name.
@@ -32,19 +28,20 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string' && typeof value !== 'number') {
-      throw new _validatorJs.Violation(_this, value, { value: 'must_be_a_string_or_a_number' });
+      throw new _validator.Violation(this, value, { value: 'must_be_a_string_or_a_number' });
     }
 
-    if (_creditcard2['default'].validate(value) !== true) {
-      throw new _validatorJs.Violation(_this, value);
+    if (creditcard.validate(value) !== true) {
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */

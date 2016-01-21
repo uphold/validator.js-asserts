@@ -1,19 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = hashAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Hash algorithm regular expression mapping.
  */
 
-var hash = {
+const hash = {
   sha1: /^[a-f0-9]{40}$/,
   sha256: /^[A-Fa-f0-9]{64}$/,
   sha512: /^[A-Fa-f0-9]{128}$/
@@ -23,9 +21,11 @@ var hash = {
  * Export `HashAssert`.
  */
 
-exports['default'] = function (algorithm) {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
 
+function hashAssert(algorithm) {
   /**
    * Class name.
    */
@@ -50,19 +50,18 @@ exports['default'] = function (algorithm) {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!hash[_this.algorithm].test(value)) {
-      throw new _validatorJs.Violation(_this, value, { algorithm: _this.algorithm });
+    if (!hash[this.algorithm].test(value)) {
+      throw new _validator.Violation(this, value, { algorithm: this.algorithm });
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

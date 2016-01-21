@@ -1,28 +1,28 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = uriAssert;
+
+var _validator = require('validator.js');
+
+var _lodash = require('lodash');
+
+/**
+ * Export `UriAssert`.
+ */
 
 /**
 * Module dependencies.
 */
 
-'use strict';
+function uriAssert(constraints) {
+  /**
+   * Optional peer dependencies.
+   */
 
-exports.__esModule = true;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
-
-var _lodash = require('lodash');
-
-var _urijs = require('urijs');
-
-var _urijs2 = _interopRequireDefault(_urijs);
-
-/**
-* Export `UriAssert`.
-*/
-
-exports['default'] = function (constraints) {
-  var _this = this;
+  const URI = require('urijs');
 
   /**
    * Class name.
@@ -40,9 +40,9 @@ exports['default'] = function (constraints) {
    * Validate constraints.
    */
 
-  _lodash.forEach(this.constraints, function (constraint, key) {
-    if (!_lodash.has(_urijs2['default'].prototype, key)) {
-      throw new Error('Invalid constraint "' + key + '=' + constraint + '"');
+  (0, _lodash.forEach)(this.constraints, (constraint, key) => {
+    if (!(0, _lodash.has)(URI.prototype, key)) {
+      throw new Error(`Invalid constraint "${ key }=${ constraint }"`);
     }
   });
 
@@ -50,31 +50,34 @@ exports['default'] = function (constraints) {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    var uri = new _urijs2['default'](value);
+    const uri = new URI(value);
 
     // URIs must have at least a hostname and protocol.
     if (!uri.hostname() || !uri.protocol()) {
-      throw new _validatorJs.Violation(_this, value, { constraints: _this.constraints });
+      throw new _validator.Violation(this, value, { constraints: this.constraints });
     }
 
     // Validate that each constraint matches exactly.
-    _lodash.forEach(_this.constraints, function (constraint, key) {
-      if (constraint === uri[key]()) {
+    (0, _lodash.forEach)(this.constraints, (constraint, key) => {
+      if (key === 'is' && uri[key](constraint)) {
         return;
       }
 
-      throw new _validatorJs.Violation(_this, value, { constraints: _this.constraints });
-    }, _this);
+      if (key !== 'is' && constraint === uri[key]()) {
+        return;
+      }
+
+      throw new _validator.Violation(this, value, { constraints: this.constraints });
+    }, this);
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

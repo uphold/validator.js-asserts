@@ -1,26 +1,22 @@
-
-/**
-* Module dependencies.
-*/
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = emailAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
-
-var _validator = require('validator');
-
-var _validator2 = _interopRequireDefault(_validator);
+var _validator = require('validator.js');
 
 /**
-* Export `EmailAssert`.
-*/
+ * Export `EmailAssert`.
+ */
 
-exports['default'] = function () {
-  var _this = this;
+function emailAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const validator = require('validator');
 
   /**
    * Class name.
@@ -32,25 +28,27 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!_validator2['default'].isEmail(value)) {
-      throw new _validatorJs.Violation(_this, value);
+    if (!validator.isEmail(value)) {
+      throw new _validator.Violation(this, value);
     }
 
     try {
-      new _validatorJs.Assert().Length({ max: 254 }).validate(value);
+      new _validator.Assert().Length({ max: 254 }).validate(value);
     } catch (e) {
-      throw new _validatorJs.Violation(_this, value);
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+* Module dependencies.
+*/

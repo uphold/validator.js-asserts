@@ -1,27 +1,27 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = integerAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Int regex.
  */
 
-var int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
+const int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
 
 /**
  * Export `IntegerAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
 
+function integerAssert() {
   /**
    * Class name.
    */
@@ -32,19 +32,18 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'number') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_number });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_number });
     }
 
     if (int.test(value) !== true) {
-      throw new _validatorJs.Violation(_this, value);
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

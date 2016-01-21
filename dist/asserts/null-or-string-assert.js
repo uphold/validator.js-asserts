@@ -1,21 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = nullOrStringAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Export `NullOrStringAssert`.
  */
 
-exports['default'] = function (boundaries) {
-  var _this = this;
-
+function nullOrStringAssert(boundaries) {
   /**
    * Class name.
    */
@@ -35,29 +31,30 @@ exports['default'] = function (boundaries) {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (value !== null && typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: 'must_be_null_or_a_string' });
+      throw new _validator.Violation(this, value, { value: 'must_be_null_or_a_string' });
     }
 
     if (value === null) {
       return true;
     }
 
-    if (typeof value === 'string' && typeof _this.min === 'undefined' && typeof _this.max === 'undefined') {
+    if (typeof value === 'string' && typeof this.min === 'undefined' && typeof this.max === 'undefined') {
       return true;
     }
 
     try {
-      new _validatorJs.Assert().Length({ min: _this.min, max: _this.max }).validate(value);
+      new _validator.Assert().Length({ max: this.max, min: this.min }).validate(value);
     } catch (e) {
-      throw new _validatorJs.Violation(_this, value, e.violation);
+      throw new _validator.Violation(this, value, e.violation);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */

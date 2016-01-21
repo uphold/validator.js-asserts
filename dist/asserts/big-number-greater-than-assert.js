@@ -1,26 +1,22 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = bigNumberGreaterThanAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
-
-var _bignumberJs = require('bignumber.js');
-
-var _bignumberJs2 = _interopRequireDefault(_bignumberJs);
+var _validator = require('validator.js');
 
 /**
  * Export `BigNumberGreaterThanAssert`.
  */
 
-exports['default'] = function (threshold) {
-  var _this = this;
+function bigNumberGreaterThanAssert(threshold) {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const BigNumber = require('bignumber.js');
 
   /**
    * Class name.
@@ -32,33 +28,34 @@ exports['default'] = function (threshold) {
     throw new Error('A threshold value is required.');
   }
 
-  this.threshold = new _bignumberJs2['default'](threshold);
+  this.threshold = new BigNumber(threshold);
 
   /**
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     try {
-      var number = new _bignumberJs2['default'](value);
+      const number = new BigNumber(value);
 
-      if (!number.greaterThan(_this.threshold)) {
+      if (!number.greaterThan(this.threshold)) {
         throw new Error();
       }
     } catch (e) {
-      var context = { threshold: _this.threshold.toString() };
+      const context = { threshold: this.threshold.toString() };
 
       if (e.name === 'BigNumber Error') {
         context.message = e.message;
       }
 
-      throw new _validatorJs.Violation(_this, value, context);
+      throw new _validator.Violation(this, value, context);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */

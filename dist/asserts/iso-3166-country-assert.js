@@ -1,28 +1,28 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = iso3166CountryAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 var _lodash = require('lodash');
-
-var _isoc = require('isoc');
-
-var _isoc2 = _interopRequireDefault(_isoc);
 
 /**
  * Export `Iso3166CountryAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
+
+function iso3166CountryAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const countries = require('isoc');
 
   /**
    * Class name.
@@ -34,43 +34,42 @@ exports['default'] = function () {
    * Data source.
    */
 
-  this.countries = _isoc2['default'];
+  this.countries = countries;
 
   /**
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
     // Test by `alpha-3` code.
-    var country = _lodash.find(_this.countries, { alpha3: value });
+    let country = (0, _lodash.find)(this.countries, { alpha3: value });
 
     // Test by `alpha-2` code.
     if (!country) {
-      country = _lodash.find(_this.countries, { alpha2: value });
+      country = (0, _lodash.find)(this.countries, { alpha2: value });
     }
 
     // Test by `name`.
-    var name = value.toLocaleUpperCase();
+    const name = value.toLocaleUpperCase();
 
     if (!country) {
-      country = _lodash.find(_isoc2['default'], function (item) {
+      country = (0, _lodash.find)(countries, item => {
         return item.name.short.toLocaleUpperCase() === name || item.name.uppercase.toLocaleUpperCase() === name;
       });
     }
 
     // Country is invalid or not in a `ISO 3166-1` compatible format.
     if (!country) {
-      throw new _validatorJs.Violation(_this, value);
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

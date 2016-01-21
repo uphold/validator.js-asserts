@@ -1,21 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = dateAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Export `DateAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
-
+function dateAssert() {
   /**
    * Class name.
    */
@@ -26,19 +22,20 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string' && Object.prototype.toString.call(value) !== '[object Date]') {
-      throw new _validatorJs.Violation(_this, value, { value: 'must_be_a_date_or_a_string' });
+      throw new _validator.Violation(this, value, { value: 'must_be_a_date_or_a_string' });
     }
 
     if (isNaN(Date.parse(value)) === true) {
-      throw new _validatorJs.Violation(_this, value);
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */

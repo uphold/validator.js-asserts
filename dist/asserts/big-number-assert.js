@@ -1,26 +1,22 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = bigNumberAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
-
-var _bignumberJs = require('bignumber.js');
-
-var _bignumberJs2 = _interopRequireDefault(_bignumberJs);
+var _validator = require('validator.js');
 
 /**
  * Export `BigNumberAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
+function bigNumberAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const BigNumber = require('bignumber.js');
 
   /**
    * Class name.
@@ -32,17 +28,18 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     try {
-      new _bignumberJs2['default'](value);
+      new BigNumber(value); // eslint-disable-line no-new
     } catch (e) {
-      throw new _validatorJs.Violation(_this, value);
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */

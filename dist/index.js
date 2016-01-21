@@ -1,13 +1,8 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _lodash = require('lodash');
 
@@ -15,13 +10,22 @@ var _requireDir = require('require-dir');
 
 var _requireDir2 = _interopRequireDefault(_requireDir);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Naming function (capitalized camel case).
+ */
+
+/**
+ * Module dependencies.
+ */
+
+const name = (0, _lodash.flow)(_lodash.camelCase, string => string.replace('Assert', ''), string => `${ string.charAt(0).toUpperCase() }${ string.slice(1) }`);
+
 /**
  * Prepare asserts to be exported.
  */
 
-var asserts = _lodash.transform(_requireDir2['default']('./asserts'), function (result, fn, key) {
-  result[_lodash.flowRight(_lodash.capitalize, _lodash.camelCase)(key).replace('Assert', '')] = fn;
+exports.default = (0, _lodash.transform)((0, _requireDir2.default)('./asserts'), (result, fn, key) => {
+  result[name(key)] = fn;
 });
-
-exports['default'] = asserts;
-module.exports = exports['default'];

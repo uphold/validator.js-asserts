@@ -1,28 +1,28 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = dateDiffGreaterThanAssert;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 var _lodash = require('lodash');
-
-var _moment = require('moment');
-
-var _moment2 = _interopRequireDefault(_moment);
 
 /**
  * Export `DateDiffGreaterThanAssert`.
  */
 
-exports['default'] = function (threshold, options) {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
+
+function dateDiffGreaterThanAssert(threshold, options) {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const moment = require('moment');
 
   /**
    * Class name.
@@ -48,7 +48,7 @@ exports['default'] = function (threshold, options) {
    * Options.
    */
 
-  this.options = _lodash.assign(this, {
+  this.options = (0, _lodash.assign)(this, {
     absolute: false,
     asFloat: false,
     fromDate: null,
@@ -59,29 +59,27 @@ exports['default'] = function (threshold, options) {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string' && Object.prototype.toString.call(value) !== '[object Date]') {
-      throw new _validatorJs.Violation(_this, value, { value: 'must_be_a_date_or_a_string' });
+      throw new _validator.Violation(this, value, { value: 'must_be_a_date_or_a_string' });
     }
 
     if (isNaN(Date.parse(value)) === true) {
-      throw new _validatorJs.Violation(_this, value, { absolute: _this.absolute, asFloat: _this.asFloat, fromDate: _this.fromDate, threshold: _this.threshold, unit: _this.unit });
+      throw new _validator.Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
     }
 
-    var diff = _moment2['default'](_this.fromDate || Date.now()).diff(value, _this.unit, _this.asFloat);
+    let diff = moment(this.fromDate || Date.now()).diff(value, this.unit, this.asFloat);
 
-    if (_this.absolute) {
+    if (this.absolute) {
       diff = Math.abs(diff);
     }
 
-    if (diff <= _this.threshold) {
-      throw new _validatorJs.Violation(_this, value, { absolute: _this.absolute, asFloat: _this.asFloat, fromDate: _this.fromDate, threshold: _this.threshold, unit: _this.unit, diff: diff });
+    if (diff <= this.threshold) {
+      throw new _validator.Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, diff, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

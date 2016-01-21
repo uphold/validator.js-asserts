@@ -3,38 +3,42 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = internationalBankAccountNumberAssert;
+exports.default = usZipCodeAssert;
 
 var _validator = require('validator.js');
 
 /**
- * Export `InternationalBankAccountNumberAssert`.
+ * US zip code regular expression.
  */
 
-function internationalBankAccountNumberAssert() {
-  /**
-   * Optional peer dependencies.
-   */
+const regexp = new RegExp(/^\d{5}(?:[- ]?\d{4})?$/);
 
-  const iban = require('iban');
+/**
+ * Export `UsZipCodeAssert`.
+ */
 
+/**
+ * Module dependencies.
+ */
+
+function usZipCodeAssert() {
   /**
    * Class name.
    */
 
-  this.__class__ = 'InternationalBankAccountNumber';
+  this.__class__ = 'UsZipCode';
 
   /**
    * Validation algorithm.
    */
 
-  this.validate = value => {
+  this.validate = function (value) {
     if (typeof value !== 'string') {
       // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!iban.isValid(value)) {
+    if (!regexp.test(value)) {
       throw new _validator.Violation(this, value);
     }
 
@@ -43,6 +47,3 @@ function internationalBankAccountNumberAssert() {
 
   return this;
 }
-/**
- * Module dependencies.
- */

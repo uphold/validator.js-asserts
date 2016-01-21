@@ -1,19 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = uuidAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Uuid regexes.
  */
 
-var uuid = {
+const uuid = {
   3: /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
   4: /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
   5: /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
@@ -24,16 +22,18 @@ var uuid = {
  * Export `UuidAssert`.
  */
 
-exports['default'] = function (version) {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
 
+function uuidAssert(version) {
   /**
    * Class name.
    */
 
   this.__class__ = 'Uuid';
 
-  if (version && ! ~[3, 4, 5].indexOf(version)) {
+  if (version && [3, 4, 5].indexOf(version) === -1) {
     throw new Error('UUID version specified is not supported.');
   }
 
@@ -47,19 +47,18 @@ exports['default'] = function (version) {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'string') {
-      throw new _validatorJs.Violation(_this, value, { value: _validatorJs.Validator.errorCode.must_be_a_string });
+      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
+      throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (uuid[_this.version].test(value) !== true) {
-      throw new _validatorJs.Violation(_this, value, { version: _this.version });
+    if (uuid[this.version].test(value) !== true) {
+      throw new _validator.Violation(this, value, { version: this.version });
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

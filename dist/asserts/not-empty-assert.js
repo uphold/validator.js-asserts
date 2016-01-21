@@ -1,13 +1,11 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = notEmptyAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 var _lodash = require('lodash');
 
@@ -15,9 +13,11 @@ var _lodash = require('lodash');
  * Export `NotEmptyAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
+/**
+ * Module dependencies.
+ */
 
+function notEmptyAssert() {
   /**
    * Class name.
    */
@@ -28,15 +28,13 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
-    if (_lodash.isEmpty(value)) {
-      throw new _validatorJs.Violation(_this, value);
+  this.validate = value => {
+    if ((0, _lodash.isEmpty)(value)) {
+      throw new _validator.Violation(this, value);
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}

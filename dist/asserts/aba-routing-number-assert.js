@@ -3,26 +3,30 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = internationalBankAccountNumberAssert;
+exports.default = abaRoutingNumberAssert;
+
+var _abavalidator = require('abavalidator');
+
+var _abavalidator2 = _interopRequireDefault(_abavalidator);
 
 var _validator = require('validator.js');
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /**
- * Export `InternationalBankAccountNumberAssert`.
+ * Export `AbaRoutingNumberAssert`.
  */
 
-function internationalBankAccountNumberAssert() {
-  /**
-   * Optional peer dependencies.
-   */
+/**
+ * Module dependencies.
+ */
 
-  const iban = require('iban');
-
+function abaRoutingNumberAssert() {
   /**
    * Class name.
    */
 
-  this.__class__ = 'InternationalBankAccountNumber';
+  this.__class__ = 'AbaRoutingNumber';
 
   /**
    * Validation algorithm.
@@ -30,11 +34,10 @@ function internationalBankAccountNumberAssert() {
 
   this.validate = value => {
     if (typeof value !== 'string') {
-      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!iban.isValid(value)) {
+    if (!_abavalidator2.default.validate(value)) {
       throw new _validator.Violation(this, value);
     }
 
@@ -43,6 +46,3 @@ function internationalBankAccountNumberAssert() {
 
   return this;
 }
-/**
- * Module dependencies.
- */

@@ -1,5 +1,37 @@
 # Changelog
 
+## [2.0.0](https://github.com/seegno/validator.js-asserts/tree/2.0.0) (2016-01-21)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/1.1.0...2.0.0)
+
+**Implemented enhancements:**
+
+- Code style improvements [\#62](https://github.com/seegno/validator.js-asserts/pull/62) ([ruimarinho](https://github.com/ruimarinho))
+- Add missing Phone assert test for valid phone [\#61](https://github.com/seegno/validator.js-asserts/pull/61) ([ruimarinho](https://github.com/ruimarinho))
+- Beautify README [\#59](https://github.com/seegno/validator.js-asserts/pull/59) ([ruimarinho](https://github.com/ruimarinho))
+- Add support for the special `is` urijs constraint [\#58](https://github.com/seegno/validator.js-asserts/pull/58) ([ruimarinho](https://github.com/ruimarinho))
+- Add US Zip Code assert [\#54](https://github.com/seegno/validator.js-asserts/pull/54) ([promag](https://github.com/promag))
+- Add Phone assert [\#53](https://github.com/seegno/validator.js-asserts/pull/53) ([promag](https://github.com/promag))
+- Add ABA Routing Number assert [\#52](https://github.com/seegno/validator.js-asserts/pull/52) ([promag](https://github.com/promag))
+- Handle empty objects in `EqualKeys` [\#50](https://github.com/seegno/validator.js-asserts/pull/50) ([ruimarinho](https://github.com/ruimarinho))
+- Drop support for node \< 4 [\#49](https://github.com/seegno/validator.js-asserts/pull/49) ([ruimarinho](https://github.com/ruimarinho))
+- Reimplement `UsState` as `UsSubdivision` [\#22](https://github.com/seegno/validator.js-asserts/pull/22) ([promag](https://github.com/promag))
+
+**Fixed bugs:**
+
+- Fix asserts always requiring peer dependencies [\#31](https://github.com/seegno/validator.js-asserts/issues/31)
+- Fix peer dependencies being required directly [\#35](https://github.com/seegno/validator.js-asserts/pull/35) ([nunofgs](https://github.com/nunofgs))
+
+**Closed issues:**
+
+- Add AcceptKeys assert [\#43](https://github.com/seegno/validator.js-asserts/issues/43)
+
+**Merged pull requests:**
+
+- Deprecate Country assert [\#60](https://github.com/seegno/validator.js-asserts/pull/60) ([ruimarinho](https://github.com/ruimarinho))
+- Update lodash to version 4.0.0 🚀 [\#57](https://github.com/seegno/validator.js-asserts/pull/57) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update should to version 8.1.1 🚀 [\#56](https://github.com/seegno/validator.js-asserts/pull/56) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- iban@0.0.6 breaks build 🚨 [\#39](https://github.com/seegno/validator.js-asserts/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [1.1.0](https://github.com/seegno/validator.js-asserts/tree/1.1.0) (2015-10-16)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/1.0.0...1.1.0)
 

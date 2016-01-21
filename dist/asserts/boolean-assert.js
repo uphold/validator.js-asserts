@@ -1,21 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 'use strict';
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = booleanAssert;
 
-var _validatorJs = require('validator.js');
+var _validator = require('validator.js');
 
 /**
  * Export `BooleanAssert`.
  */
 
-exports['default'] = function () {
-  var _this = this;
-
+function booleanAssert() {
   /**
    * Class name.
    */
@@ -26,15 +22,16 @@ exports['default'] = function () {
    * Validation algorithm.
    */
 
-  this.validate = function (value) {
+  this.validate = value => {
     if (typeof value !== 'boolean') {
-      throw new _validatorJs.Violation(_this, value, { value: 'must_be_a_boolean' });
+      throw new _validator.Violation(this, value, { value: 'must_be_a_boolean' });
     }
 
     return true;
   };
 
   return this;
-};
-
-module.exports = exports['default'];
+}
+/**
+ * Module dependencies.
+ */
