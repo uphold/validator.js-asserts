@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 
-import abaValidator from 'abavalidator';
 import { Validator, Violation } from 'validator.js';
 
 /**
@@ -11,6 +10,12 @@ import { Validator, Violation } from 'validator.js';
  */
 
 export default function abaRoutingNumberAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const abaValidator = require('abavalidator');
+
   /**
    * Class name.
    */
