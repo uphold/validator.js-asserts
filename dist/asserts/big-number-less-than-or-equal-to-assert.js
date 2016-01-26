@@ -59,3 +59,5 @@ function bigNumberLessThanOrEqualToAssert(threshold) {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

@@ -81,3 +81,4 @@ function uriAssert(constraints) {
 
   return this;
 }
+module.exports = exports['default'];

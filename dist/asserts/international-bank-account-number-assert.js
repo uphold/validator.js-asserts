@@ -46,3 +46,5 @@ function internationalBankAccountNumberAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

@@ -47,3 +47,4 @@ function usZipCodeAssert() {
 
   return this;
 }
+module.exports = exports['default'];

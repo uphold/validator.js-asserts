@@ -74,3 +74,4 @@ function phoneAssert() {
 
   return this;
 }
+module.exports = exports['default'];

@@ -45,3 +45,5 @@ function creditCardAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

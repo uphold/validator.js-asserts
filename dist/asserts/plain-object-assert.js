@@ -38,3 +38,4 @@ function plainObjectAssert() {
 
   return this;
 }
+module.exports = exports['default'];

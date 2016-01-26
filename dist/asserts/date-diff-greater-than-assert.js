@@ -83,3 +83,4 @@ function dateDiffGreaterThanAssert(threshold, options) {
 
   return this;
 }
+module.exports = exports['default'];

@@ -43,3 +43,5 @@ function bigNumberAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

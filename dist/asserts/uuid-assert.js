@@ -62,3 +62,4 @@ function uuidAssert(version) {
 
   return this;
 }
+module.exports = exports['default'];

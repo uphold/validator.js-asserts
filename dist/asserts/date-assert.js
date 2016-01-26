@@ -39,3 +39,5 @@ function dateAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

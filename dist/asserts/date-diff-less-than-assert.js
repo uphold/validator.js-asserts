@@ -83,3 +83,4 @@ function dateDiffLessThanAssert(threshold, options) {
 
   return this;
 }
+module.exports = exports['default'];

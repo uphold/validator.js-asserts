@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.1](https://github.com/seegno/validator.js-asserts/tree/2.0.1) (2016-01-26)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/2.0.0...2.0.1)
+
+**Fixed bugs:**
+
+- Fix abavalidator not being considered optional [\#63](https://github.com/seegno/validator.js-asserts/pull/63) ([ruimarinho](https://github.com/ruimarinho))
+
+**Merged pull requests:**
+
+- Add module exports [\#64](https://github.com/seegno/validator.js-asserts/pull/64) ([ruimarinho](https://github.com/ruimarinho))
+
 ## [2.0.0](https://github.com/seegno/validator.js-asserts/tree/2.0.0) (2016-01-21)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/1.1.0...2.0.0)
 

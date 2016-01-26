@@ -5,23 +5,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = abaRoutingNumberAssert;
 
-var _abavalidator = require('abavalidator');
-
-var _abavalidator2 = _interopRequireDefault(_abavalidator);
-
 var _validator = require('validator.js');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * Export `AbaRoutingNumberAssert`.
  */
 
-/**
- * Module dependencies.
- */
-
 function abaRoutingNumberAssert() {
+  /**
+   * Optional peer dependencies.
+   */
+
+  const abaValidator = require('abavalidator');
+
   /**
    * Class name.
    */
@@ -37,7 +33,7 @@ function abaRoutingNumberAssert() {
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!_abavalidator2.default.validate(value)) {
+    if (!abaValidator.validate(value)) {
       throw new _validator.Violation(this, value);
     }
 
@@ -46,3 +42,8 @@ function abaRoutingNumberAssert() {
 
   return this;
 }
+/**
+ * Module dependencies.
+ */
+
+module.exports = exports['default'];

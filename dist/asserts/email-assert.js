@@ -52,3 +52,5 @@ function emailAssert() {
 /**
 * Module dependencies.
 */
+
+module.exports = exports['default'];

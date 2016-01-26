@@ -43,3 +43,5 @@ function nullOrDateAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

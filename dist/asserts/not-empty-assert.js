@@ -38,3 +38,4 @@ function notEmptyAssert() {
 
   return this;
 }
+module.exports = exports['default'];

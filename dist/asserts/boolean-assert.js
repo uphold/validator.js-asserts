@@ -35,3 +35,5 @@ function booleanAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

@@ -59,3 +59,5 @@ function bigNumberLessThan(threshold) {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

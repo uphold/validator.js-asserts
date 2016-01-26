@@ -58,3 +58,5 @@ function nullOrStringAssert(boundaries) {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

@@ -73,3 +73,4 @@ function iso3166CountryAssert() {
 
   return this;
 }
+module.exports = exports['default'];

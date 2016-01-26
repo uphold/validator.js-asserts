@@ -37,3 +37,5 @@ function jsonAssert() {
 /**
  * Module dependencies.
  */
+
+module.exports = exports['default'];

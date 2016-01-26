@@ -46,3 +46,4 @@ function bankIdentifierCodeAssert() {
 
   return this;
 }
+module.exports = exports['default'];

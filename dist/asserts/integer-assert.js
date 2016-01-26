@@ -47,3 +47,4 @@ function integerAssert() {
 
   return this;
 }
+module.exports = exports['default'];

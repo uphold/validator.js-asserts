@@ -65,3 +65,4 @@ function hashAssert(algorithm) {
 
   return this;
 }
+module.exports = exports['default'];
