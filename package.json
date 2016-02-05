@@ -73,7 +73,6 @@
     "validator": "^4.1.0"
   },
   "optionalPeerDependencies": {
-    "urijs": ">=1 <2",
     "abavalidator": ">=2 <3",
     "bignumber.js": ">=2 <3",
     "creditcard": ">=0.0.1 <1.0.0",
@@ -81,6 +80,7 @@
     "iban": ">=0.0.6 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
     "moment": ">=2 <3",
+    "urijs": ">=1 <2",
     "validator": ">=3 <5"
   },
   "engines": {
