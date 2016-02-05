@@ -61,7 +61,6 @@ export default function usSubdivisionAssert({ categories: categories = keys, alp
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
-      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 

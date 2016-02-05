@@ -28,7 +28,6 @@ export default function emailAssert() {
 
   this.validate = (value) => {
     if (typeof value !== 'string') {
-      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 
