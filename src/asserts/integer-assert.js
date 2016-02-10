@@ -28,7 +28,6 @@ export default function integerAssert() {
 
   this.validate = (value) => {
     if (typeof value !== 'number') {
-      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_number });
     }
 
