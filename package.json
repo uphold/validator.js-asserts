@@ -70,7 +70,7 @@
     "should": "^8.1.1",
     "sinon": "^1.15.4",
     "urijs": "^1.16.1",
-    "validator": "^4.1.0"
+    "validator": "^5.0.0"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
