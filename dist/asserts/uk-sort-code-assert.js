@@ -3,26 +3,36 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = emailAssert;
+exports.default = ukSortCodeAssert;
 
 var _validator = require('validator.js');
 
 /**
- * Export `EmailAssert`.
+ * Sort code regex.
  */
 
-function emailAssert() {
+const sortCode = /^(?!(?:0{6}|00-00-00))(?:\d{6}|\d\d-\d\d-\d\d)$/;
+
+/**
+ * Export `UkSortCodeAssert`.
+ */
+
+/**
+ * Module dependencies.
+ */
+
+function ukSortCodeAssert() {
   /**
    * Optional peer dependencies.
    */
 
-  const validator = require('validator');
+  const Modcheck = require('modcheck');
 
   /**
    * Class name.
    */
 
-  this.__class__ = 'Email';
+  this.__class__ = 'UkSortCode';
 
   /**
    * Validation algorithm.
@@ -33,13 +43,13 @@ function emailAssert() {
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 
-    if (!validator.isEmail(value)) {
+    if (!sortCode.test(value)) {
       throw new _validator.Violation(this, value);
     }
 
-    try {
-      new _validator.Assert().Length({ max: 254 }).validate(value);
-    } catch (e) {
+    const modcheck = new Modcheck('00000000', value);
+
+    if (!modcheck.getSortCodeChecks()) {
       throw new _validator.Violation(this, value);
     }
 
@@ -48,8 +58,4 @@ function emailAssert() {
 
   return this;
 }
-/**
-* Module dependencies.
-*/
-
 module.exports = exports['default'];
