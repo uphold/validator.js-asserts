@@ -66,6 +66,7 @@
     "jscs": "^2.7.0",
     "jscs-config-seegno": "^1.1.0",
     "mocha": "^2.3.4",
+    "modcheck": "seegno-forks/modcheck.js.git#support/complete-package-json",
     "moment": "^2.10.3",
     "should": "^8.1.1",
     "sinon": "^1.15.4",
@@ -79,6 +80,7 @@
     "google-libphonenumber": ">=1 <2",
     "iban": ">=0.0.6 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
+    "modcheck": "seegno-forks/modcheck.js.git#support/complete-package-json",
     "moment": ">=2 <3",
     "urijs": ">=1 <2",
     "validator": ">=3 <5"
