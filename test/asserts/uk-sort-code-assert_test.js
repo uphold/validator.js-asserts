@@ -57,7 +57,7 @@ describe('UkSortCodeAssert', () => {
   });
 
   it('should accept a valid sort code', () => {
-    const choices = ['089999', '08-99-99'];
+    const choices = ['089999', '08-99-99', '623053', '089999'];
 
     choices.forEach((choice) => {
       new Assert().UkSortCode().validate(choice);

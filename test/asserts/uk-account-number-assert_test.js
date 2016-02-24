@@ -83,6 +83,19 @@ describe('UkAccountNumberAssert', () => {
   });
 
   it('should accept a valid account number', () => {
-    new Assert().UkAccountNumber('08-99-99').validate('66374958');
+    const accounts = [{
+      accountNumber: '03334350',
+      sortCode: '623053'
+    }, {
+      accountNumber: '66374958',
+      sortCode: '089999'
+    }, {
+      accountNumber: '66374958',
+      sortCode: '08-99-99'
+    }];
+
+    accounts.forEach((account) => {
+      new Assert().UkAccountNumber(account.sortCode).validate(account.accountNumber);
+    });
   });
 });
