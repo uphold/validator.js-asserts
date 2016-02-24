@@ -35,12 +35,13 @@
     "mocha": "--compilers js:babel-register --recursive test"
   },
   "scripts": {
-    "changelog": "github_changelog_generator --header-label='# Changelog'",
+    "changelog": "github_changelog_generator --header-label='# Changelog' --future-release=$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
     "cover": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
     "lint": "eslint src test && jscs src test",
     "prepublish": "npm run transpile",
     "test": "NODE_ENV=test mocha $npm_package_options_mocha",
-    "transpile": "rm -rf dist/* && babel src --out-dir dist"
+    "transpile": "rm -rf dist/* && babel src --out-dir dist",
+    "version": "npm run changelog --future-release=$npm_package_version && npm run transpile && git add -A CHANGELOG.md dist"
   },
   "dependencies": {
     "lodash": "^4.0.0",
