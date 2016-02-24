@@ -37,6 +37,8 @@ describe('validator.js-asserts', () => {
       'NullOrString',
       'Phone',
       'PlainObject',
+      'UkAccountNumber',
+      'UkSortCode',
       'Uri',
       'UsSubdivision',
       'UsZipCode',

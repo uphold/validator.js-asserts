@@ -51,7 +51,6 @@ function phoneAssert() {
 
   this.validate = value => {
     if (typeof value !== 'string') {
-      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 

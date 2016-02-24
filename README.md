@@ -45,6 +45,8 @@ The following set of extra asserts are provided by this package:
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
+- [UkAccountNumber](#ukaccountnumber) (requires `modcheck`)
+- [UkSortCode](#uksortcode) (requires `modcheck`)
 - [Uri](#uri) (requires `urijs`)
 - [UsSubdivision](#ussubdivision)
 - [UsZipCode](#uszipcode)
@@ -161,6 +163,15 @@ Tests if the phone is valid and optionally if it belongs to the given country. T
 
 ### PlainObject
 Tests if the value is a plain object.
+
+### UkAccountNumber
+Tests if the value is a valid UK account number.
+
+#### Arguments
+- `sortCode` - the corresponding sort code for [modulus checking](https://www.vocalink.com/customer-support/modulus-checking/).
+
+### UkSortCode
+Tests if the value is a valid UK sort code.
 
 ### Uri
 Tests if the value is a valid `uri` which must contain at least a protocol and a hostname.

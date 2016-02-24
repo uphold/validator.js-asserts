@@ -104,6 +104,14 @@ var _plainObjectAssert = require('./asserts/plain-object-assert.js');
 
 var _plainObjectAssert2 = _interopRequireDefault(_plainObjectAssert);
 
+var _ukAccountNumberAssert = require('./asserts/uk-account-number-assert.js');
+
+var _ukAccountNumberAssert2 = _interopRequireDefault(_ukAccountNumberAssert);
+
+var _ukSortCodeAssert = require('./asserts/uk-sort-code-assert.js');
+
+var _ukSortCodeAssert2 = _interopRequireDefault(_ukSortCodeAssert);
+
 var _uriAssert = require('./asserts/uri-assert.js');
 
 var _uriAssert2 = _interopRequireDefault(_uriAssert);
@@ -152,6 +160,8 @@ exports.default = {
   NullOrString: _nullOrStringAssert2.default,
   Phone: _phoneAssert2.default,
   PlainObject: _plainObjectAssert2.default,
+  UkAccountNumber: _ukAccountNumberAssert2.default,
+  UkSortCode: _ukSortCodeAssert2.default,
   Uri: _uriAssert2.default,
   UsSubdivision: _usSubdivisionAssert2.default,
   UsZipCode: _usZipCodeAssert2.default,
