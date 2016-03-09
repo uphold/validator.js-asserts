@@ -32,6 +32,7 @@ The following set of extra asserts are provided by this package:
 - [Date](#date)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
 - [DateDiffLessThan](#datedifflessthan) (requires `moment`)
+- [DateFormat](#dateformat) (requires `moment`)
 - [Email](#email) (requires `validator`)
 - [EqualKeys](#equalkeys)
 - [Hash](#hash)
@@ -113,6 +114,13 @@ Tests if the difference between two dates is less than a given threshold.
   - `asFloat` - whether to return the difference rounded down or as float.
   - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
   - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
+
+
+### DateFormat
+Tests if the value is a valid date in the given format.
+
+#### Arguments
+- `format` (required)
 
 ### Email
 Tests if the value is a valid email.
