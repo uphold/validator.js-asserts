@@ -45,6 +45,7 @@ The following set of extra asserts are provided by this package:
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
+- [UkModulusChecking](#ukmoduluschecking) (requires `uk-modulus-checking`)
 - [Uri](#uri) (requires `urijs`)
 - [UsSubdivision](#ussubdivision)
 - [UsZipCode](#uszipcode)
@@ -164,6 +165,9 @@ Tests if the phone is valid and optionally if it belongs to the given country. T
 
 ### PlainObject
 Tests if the value is a plain object.
+
+### UkModulusChecking
+Tests if the given `accountNumber` and `sortCode` represent a valid `Faster Payment Account`.
 
 ### Uri
 Tests if the value is a valid `uri` which must contain at least a protocol and a hostname.
