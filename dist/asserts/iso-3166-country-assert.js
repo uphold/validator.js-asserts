@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = iso3166CountryAssert;
 
-var _validator = require('validator.js');
-
 var _lodash = require('lodash');
+
+var _validator = require('validator.js');
 
 /**
  * Export `Iso3166CountryAssert`.
@@ -42,7 +42,6 @@ function iso3166CountryAssert() {
 
   this.validate = value => {
     if (typeof value !== 'string') {
-      // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
       throw new _validator.Violation(this, value, { value: _validator.Validator.errorCode.must_be_a_string });
     }
 

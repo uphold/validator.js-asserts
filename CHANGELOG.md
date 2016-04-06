@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.2](https://github.com/seegno/validator.js-asserts/tree/2.0.2) (2016-04-07)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/2.0.1...2.0.2)
+
+**Implemented enhancements:**
+
+- Add automated releases [\#74](https://github.com/seegno/validator.js-asserts/pull/74) ([ruimarinho](https://github.com/ruimarinho))
+
+**Merged pull requests:**
+
+- Update dependencies [\#94](https://github.com/seegno/validator.js-asserts/pull/94) ([ruimarinho](https://github.com/ruimarinho))
+- Update dependencies [\#73](https://github.com/seegno/validator.js-asserts/pull/73) ([ruimarinho](https://github.com/ruimarinho))
+- Remove jscs inline camel case rules [\#65](https://github.com/seegno/validator.js-asserts/pull/65) ([nunofgs](https://github.com/nunofgs))
+
 ## [2.0.1](https://github.com/seegno/validator.js-asserts/tree/2.0.1) (2016-01-26)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/2.0.0...2.0.1)
 
@@ -110,4 +123,3 @@
 - Expose min and max in `NullOrString` [\#2](https://github.com/seegno/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/seegno/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
 
-## [0.0.1](https://github.com/seegno/validator.js-asserts/tree/0.0.1) (2014-11-12)
