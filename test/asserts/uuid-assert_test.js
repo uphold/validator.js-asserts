@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import UuidAssert from '../../src/asserts/uuid-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `UuidAssert`.
@@ -23,7 +23,7 @@ describe('UuidAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Uuid().validate(choice);
 
@@ -40,7 +40,7 @@ describe('UuidAssert', () => {
   it('should throw an error if the uuid `version` is specified but not supported', () => {
     const versions = [1, 2];
 
-    versions.forEach((version) => {
+    versions.forEach(version => {
       try {
         new Assert().Uuid(version);
 

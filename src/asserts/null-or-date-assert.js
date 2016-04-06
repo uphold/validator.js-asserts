@@ -20,7 +20,7 @@ export default function nullOrDateAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'string' && value !== null && Object.prototype.toString.call(value) !== '[object Date]') {
       throw new Violation(this, value, { value: 'must_be_null_or_a_date' });
     }

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import NullOrStringAssert from '../../src/asserts/null-or-string-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `NullOrStringAssert`.
@@ -23,7 +23,7 @@ describe('NullOrStringAssert', () => {
   it('should throw an error if the input value is not a `null` or a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().NullOrString().validate(choice);
 

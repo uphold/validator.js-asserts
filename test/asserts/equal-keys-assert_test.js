@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import EqualKeysAssert from '../../src/asserts/equal-keys-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `EqualKeysAssert`.
@@ -23,7 +23,7 @@ describe('EqualKeysAssert', () => {
   it('should throw an error if the input value is not a plain object', () => {
     const choices = [[], '', 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().EqualKeys(['foo', 'bar']).validate(choice);
 

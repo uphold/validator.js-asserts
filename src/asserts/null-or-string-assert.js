@@ -29,7 +29,7 @@ export default function nullOrStringAssert(boundaries) {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (value !== null && typeof value !== 'string') {
       throw new Violation(this, value, { value: 'must_be_null_or_a_string' });
     }

@@ -32,7 +32,7 @@ export default function bigNumberGreaterThanAssert(threshold) {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     try {
       const number = new BigNumber(value);
 

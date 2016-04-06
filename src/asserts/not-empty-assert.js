@@ -21,7 +21,7 @@ export default function notEmptyAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (isEmpty(value)) {
       throw new Violation(this, value);
     }

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import PlainObjectAssert from '../../src/asserts/plain-object-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `PlainObjectAssert`.
@@ -23,7 +23,7 @@ describe('PlainObjectAssert', () => {
   it('should throw an error if the input value is not a plain object', () => {
     const choices = [[], 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().PlainObject().validate(choice);
 

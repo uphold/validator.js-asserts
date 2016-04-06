@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import InternationalBankAccountNumberAssert from '../../src/asserts/international-bank-account-number-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `InternationalBankAccountNumberAssert`.
@@ -23,7 +23,7 @@ describe('InternationalBankAccountNumberAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().InternationalBankAccountNumber().validate(choice);
 

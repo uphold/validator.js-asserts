@@ -26,7 +26,7 @@ export default function bigNumberAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     try {
       new BigNumber(value); // eslint-disable-line no-new
     } catch (e) {

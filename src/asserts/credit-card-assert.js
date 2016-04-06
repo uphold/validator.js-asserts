@@ -26,7 +26,7 @@ export default function creditCardAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'string' && typeof value !== 'number') {
       throw new Violation(this, value, { value: 'must_be_a_string_or_a_number' });
     }

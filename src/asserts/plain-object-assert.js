@@ -21,7 +21,7 @@ export default function plainObjectAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (!isPlainObject(value)) {
       throw new Violation(this, value);
     }

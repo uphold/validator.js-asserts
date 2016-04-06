@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import BankIdentifierCodeAssert from '../../src/asserts/bank-identifier-code-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `BankIdentifierCodeAssert`.
@@ -23,7 +23,7 @@ describe('BankIdentifierCodeAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().BankIdentifierCode().validate(choice);
 

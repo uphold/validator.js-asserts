@@ -41,7 +41,7 @@ export default function uuidAssert(version) {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'string') {
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }

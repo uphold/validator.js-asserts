@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import BigNumber from 'bignumber.js';
 import BigNumberGreaterThanAssert from '../../src/asserts/big-number-greater-than-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `BigNumberGreaterThanAssert`.
@@ -44,7 +44,7 @@ describe('BigNumberGreaterThanAssert', () => {
   it('should throw an error if the input value is not a number', () => {
     const choices = [[], {}, ''];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().BigNumberGreaterThan(10).validate(choice);
 

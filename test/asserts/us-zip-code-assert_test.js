@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import UsZipCodeAssert from '../../src/asserts/us-zip-code-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `UsZipCodeAssert`.
@@ -23,7 +23,7 @@ describe('UsZipCodeAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().UsZipCode().validate(choice);
 
@@ -40,7 +40,7 @@ describe('UsZipCodeAssert', () => {
   it('should throw an error if `value` is invalid', () => {
     const choices = ['#', '12345--1234', '12345\t1234', '1234-12345', '1234'];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().UsZipCode().validate(choice);
 
@@ -57,7 +57,7 @@ describe('UsZipCodeAssert', () => {
   });
 
   it('should accept 9-digit zip codes', () => {
-    ['12345-1234', '12345 1234', '123456789'].forEach((choice) => {
+    ['12345-1234', '12345 1234', '123456789'].forEach(choice => {
       new Assert().UsZipCode().validate(choice);
     });
   });

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import UriAssert from '../../src/asserts/uri-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `UriAssert`.
@@ -34,7 +34,7 @@ describe('UriAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Uri().validate(choice);
 
@@ -121,7 +121,7 @@ describe('UriAssert', () => {
       'https://foobar.com',
       'ftp://foobar.com',
       'biz://foobar.com'
-    ].forEach((choice) => {
+    ].forEach(choice => {
       new Assert().Uri().validate(choice);
     });
   });

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import NotEmptyAssert from '../../src/asserts/not-empty-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `NotEmptyAssert`.
@@ -23,7 +23,7 @@ describe('NotEmptyAssert', () => {
   it('should throw an error if the input value is empty', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().NotEmpty().validate(choice);
 
@@ -47,7 +47,7 @@ describe('NotEmptyAssert', () => {
   it('should accept not empty values', () => {
     const choices = [['foo'], { foo: 'bar' }, 'foo'];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       new Assert().NotEmpty().validate(choice);
     });
   });

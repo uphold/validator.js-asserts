@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import BooleanAssert from '../../src/asserts/boolean-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `BooleanAssert`.
@@ -23,7 +23,7 @@ describe('BooleanAssert', () => {
   it('should throw an error if the input value is not a boolean', () => {
     const choices = [[], {}, 123, new Boolean(true), 'foo']; // eslint-disable-line no-new-wrappers
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Boolean().validate(choice);
 

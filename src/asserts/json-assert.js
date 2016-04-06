@@ -20,7 +20,7 @@ export default function jsonAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     try {
       JSON.parse(value);
     } catch (e) {
