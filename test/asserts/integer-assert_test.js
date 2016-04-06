@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import IntegerAssert from '../../src/asserts/integer-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `IntegerAssert`.
@@ -23,7 +23,7 @@ describe('IntegerAssert', () => {
   it('should throw an error if the input value is not a number', () => {
     const choices = [{}, 'foo', '', [], 1.01, '2'];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Integer().validate(choice);
 

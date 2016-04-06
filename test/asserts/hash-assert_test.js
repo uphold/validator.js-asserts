@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import HashAssert from '../../src/asserts/hash-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `HashAssert`.
@@ -33,7 +33,7 @@ describe('HashAssert', () => {
   it('should throw an error if the hash algorithm is not supported', () => {
     const algorithms = ['md5', 'sha384'];
 
-    algorithms.forEach((algorithm) => {
+    algorithms.forEach(algorithm => {
       try {
         new Assert().Hash(algorithm);
 
@@ -47,7 +47,7 @@ describe('HashAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Hash('sha512').validate(choice);
 

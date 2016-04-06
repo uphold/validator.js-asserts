@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import DateDiffLessThanAssert from '../../src/asserts/date-diff-less-than-assert';
 import should from 'should';
 import sinon from 'sinon';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `DateDiffLessThanAssert`.
@@ -58,7 +58,7 @@ describe('DateDiffLessThanAssert', () => {
   it('should throw an error if the input value is not a date', () => {
     const choices = [[], {}];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().DateDiffLessThan(10).validate(choice);
 

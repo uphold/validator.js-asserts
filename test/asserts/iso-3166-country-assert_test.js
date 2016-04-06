@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import Iso3166CountryAssert from '../../src/asserts/iso-3166-country-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `Iso3166CountryAssert`.
@@ -23,7 +23,7 @@ describe('Iso3166CountryAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Iso3166Country().validate(choice);
 

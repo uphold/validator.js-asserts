@@ -20,7 +20,7 @@ export default function booleanAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'boolean') {
       throw new Violation(this, value, { value: 'must_be_a_boolean' });
     }

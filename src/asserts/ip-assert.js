@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
 import net from 'net';
+import { Validator, Violation } from 'validator.js';
 
 /**
  * Export `IpAssert`.
@@ -21,7 +21,7 @@ export default function ipAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'string') {
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }

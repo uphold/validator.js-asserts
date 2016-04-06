@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import NullOrDateAssert from '../../src/asserts/null-or-date-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `NullOrDateAssert`.
@@ -23,7 +23,7 @@ describe('NullOrDateAssert', () => {
   it('should throw an error if the input value is not a `null` or a date', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().NullOrDate().validate(choice);
 

@@ -26,7 +26,7 @@ export default function integerAssert() {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (typeof value !== 'number') {
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_number });
     }

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import EmailAssert from '../../src/asserts/email-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `EmailAssert`.
@@ -23,7 +23,7 @@ describe('EmailAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Email().validate(choice);
 
@@ -62,7 +62,7 @@ describe('EmailAssert', () => {
       'foo@bar.com',
       'føø@båz.com',
       'foo+bar@baz.com'
-    ].forEach((choice) => {
+    ].forEach(choice => {
       new Assert().Email().validate(choice);
     });
   });

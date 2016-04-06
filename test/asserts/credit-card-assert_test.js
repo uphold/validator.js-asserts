@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import CreditCardAssert from '../../src/asserts/credit-card-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `CreditCardAssert`.
@@ -23,7 +23,7 @@ describe('CreditCardAssert', () => {
   it('should throw an error if the input value is not a string or a number', () => {
     const choices = [[], {}];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().CreditCard().validate(choice);
 

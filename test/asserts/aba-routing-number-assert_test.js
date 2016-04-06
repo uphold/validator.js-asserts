@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import AbaRoutingNumberAssert from '../../src/asserts/aba-routing-number-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `AbaRoutingNumberAssert`.
@@ -21,7 +21,7 @@ const Assert = BaseAssert.extend({
 
 describe('AbaRoutingNumberAssert', () => {
   it('should throw an error if the input value is not a string', () => {
-    [{}, []].forEach((choice) => {
+    [{}, []].forEach(choice => {
       try {
         new Assert().AbaRoutingNumber().validate(choice);
 

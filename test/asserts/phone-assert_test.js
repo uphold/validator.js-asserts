@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import PhoneAssert from '../../src/asserts/phone-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `Phone`.
@@ -21,7 +21,7 @@ const Assert = BaseAssert.extend({
 
 describe('Phone', () => {
   it('should throw an error if the input value is not a string', () => {
-    [{}, [], 123].forEach((choice) => {
+    [{}, [], 123].forEach(choice => {
       try {
         new Assert().Phone({ countryCode: 'US' }).validate(choice);
 

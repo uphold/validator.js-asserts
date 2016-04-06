@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 import IpAssert from '../../src/asserts/ip-assert';
 import should from 'should';
+import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `IpAssert`.
@@ -23,7 +23,7 @@ describe('IpAssert', () => {
   it('should throw an error if the input value is not a valid string', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Ip().validate(choice);
 
@@ -59,7 +59,7 @@ describe('IpAssert', () => {
   });
 
   it('should accept valid ips', () => {
-    ['1.3.3.7', '::1'].forEach((choice) => {
+    ['1.3.3.7', '::1'].forEach(choice => {
       new Assert().Ip().validate(choice);
     });
   });

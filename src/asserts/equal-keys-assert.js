@@ -31,7 +31,7 @@ export default function equalKeysAssert(...keys) {
    * Validation algorithm.
    */
 
-  this.validate = (value) => {
+  this.validate = value => {
     if (!isPlainObject(value)) {
       throw new Violation(this, value, { value: 'must_be_a_plain_object' });
     }

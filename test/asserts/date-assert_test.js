@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import DateAssert from '../../src/asserts/date-assert';
 import should from 'should';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Extend `Assert` with `DateAssert`.
@@ -23,7 +23,7 @@ describe('DateAssert', () => {
   it('should throw an error if the input value is not a string or a date', () => {
     const choices = [[], {}, 123];
 
-    choices.forEach((choice) => {
+    choices.forEach(choice => {
       try {
         new Assert().Date().validate(choice);
 
