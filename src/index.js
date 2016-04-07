@@ -15,6 +15,7 @@ import CreditCard from './asserts/credit-card-assert.js';
 import Date from './asserts/date-assert.js';
 import DateDiffGreaterThan from './asserts/date-diff-greater-than-assert.js';
 import DateDiffLessThan from './asserts/date-diff-less-than-assert.js';
+import DateFormat from './asserts/date-format-assert.js';
 import Email from './asserts/email-assert.js';
 import EqualKeys from './asserts/equal-keys-assert.js';
 import Hash from './asserts/hash-assert.js';
@@ -50,6 +51,7 @@ export default {
   Date,
   DateDiffGreaterThan,
   DateDiffLessThan,
+  DateFormat,
   Email,
   EqualKeys,
   Hash,
