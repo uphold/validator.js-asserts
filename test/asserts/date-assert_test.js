@@ -35,6 +35,43 @@ describe('DateAssert', () => {
     });
   });
 
+  it('should throw an error if an invalid format is given', () => {
+    const formats = [[], {}, 123];
+
+    formats.forEach(format => {
+      try {
+        new Assert().Date({ format }).validate();
+
+        should.fail();
+      } catch (e) {
+        e.should.be.instanceOf(Error);
+        e.message.should.equal(`Unsupported format ${format} given`);
+      }
+    });
+  });
+
+  it('should throw an error if value is not correctly formatted', () => {
+    try {
+      new Assert().Date({ format: 'YYYY-MM-DD' }).validate('20003112');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().assert.should.equal('Date');
+    }
+  });
+
+  it('should throw an error if value does not pass strict validation', () => {
+    try {
+      new Assert().Date({ format: 'YYYY-MM-DD' }).validate('2000.12.30');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().assert.should.equal('Date');
+    }
+  });
+
   it('should expose `assert` equal to `Date`', () => {
     try {
       new Assert().Date().validate('foo');
@@ -47,6 +84,10 @@ describe('DateAssert', () => {
 
   it('should accept a `Date`', () => {
     new Assert().Date().validate(new Date());
+  });
+
+  it('should accept a correctly formatted date', () => {
+    new Assert().Date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
   });
 
   it('should accept a `string`', () => {
