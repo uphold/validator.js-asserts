@@ -1,5 +1,16 @@
 # Changelog
 
+## [v2.2.0](https://github.com/seegno/validator.js-asserts/tree/v2.2.0) (2016-04-10)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.1.0...v2.2.0)
+
+**Implemented enhancements:**
+
+- Add note about `Date` assert requiring `moment` for format validation [\#97](https://github.com/seegno/validator.js-asserts/pull/97) ([ruimarinho](https://github.com/ruimarinho))
+
+**Merged pull requests:**
+
+- Add UkModulusChecking assert [\#79](https://github.com/seegno/validator.js-asserts/pull/79) ([franciscocardoso](https://github.com/franciscocardoso))
+
 ## [v2.1.0](https://github.com/seegno/validator.js-asserts/tree/v2.1.0) (2016-04-10)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.0.2...v2.1.0)
 

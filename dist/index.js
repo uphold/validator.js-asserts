@@ -104,6 +104,10 @@ var _plainObjectAssert = require('./asserts/plain-object-assert.js');
 
 var _plainObjectAssert2 = _interopRequireDefault(_plainObjectAssert);
 
+var _ukModulusCheckingAssert = require('./asserts/uk-modulus-checking-assert.js');
+
+var _ukModulusCheckingAssert2 = _interopRequireDefault(_ukModulusCheckingAssert);
+
 var _uriAssert = require('./asserts/uri-assert.js');
 
 var _uriAssert2 = _interopRequireDefault(_uriAssert);
@@ -121,6 +125,10 @@ var _uuidAssert = require('./asserts/uuid-assert.js');
 var _uuidAssert2 = _interopRequireDefault(_uuidAssert);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Module dependencies.
+ */
 
 /**
  * Module dependencies.
@@ -152,13 +160,10 @@ exports.default = {
   NullOrString: _nullOrStringAssert2.default,
   Phone: _phoneAssert2.default,
   PlainObject: _plainObjectAssert2.default,
+  UkModulusChecking: _ukModulusCheckingAssert2.default,
   Uri: _uriAssert2.default,
   UsSubdivision: _usSubdivisionAssert2.default,
   UsZipCode: _usZipCodeAssert2.default,
   Uuid: _uuidAssert2.default
 };
-/**
- * Module dependencies.
- */
-
 module.exports = exports['default'];
