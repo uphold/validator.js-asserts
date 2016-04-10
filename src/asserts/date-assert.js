@@ -46,8 +46,16 @@ export default function dateAssert({ format } = {}) {
    */
 
   this.validate = value => {
+    if (typeof value === 'number') {
+      if (new Date(value).toString() === 'Invalid Date') {
+        throw new Violation(this, value);
+      }
+
+      return true;
+    }
+
     if (typeof value !== 'string' && Object.prototype.toString.call(value) !== '[object Date]') {
-      throw new Violation(this, value, { value: 'must_be_a_date_or_a_string' });
+      throw new Violation(this, value, { value: 'must_be_a_date_or_a_string_or_a_number' });
     }
 
     if (isNaN(Date.parse(value)) === true) {
