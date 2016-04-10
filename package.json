@@ -70,6 +70,7 @@
     "moment": "^2.12.0",
     "should": "^8.3.0",
     "sinon": "^1.15.4",
+    "uk-modulus-checking": "0.0.2",
     "urijs": "^1.17.1",
     "validator": "^5.2.0"
   },
@@ -81,6 +82,7 @@
     "iban": ">=0.0.6 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
     "moment": ">=2 <3",
+    "uk-modulus-checking": "0.0.2",
     "urijs": ">=1 <2",
     "validator": ">=3 <6"
   },
