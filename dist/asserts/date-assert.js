@@ -7,16 +7,50 @@ exports.default = dateAssert;
 
 var _validator = require('validator.js');
 
+var _lodash = require('lodash');
+
 /**
  * Export `DateAssert`.
  */
 
+/**
+ * Module dependencies.
+ */
+
 function dateAssert() {
+  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+  let format = _ref.format;
+
   /**
    * Class name.
    */
 
   this.__class__ = 'Date';
+
+  /**
+   * Optional peer dependency.
+   */
+
+  let moment;
+
+  /**
+   * Validate format.
+   */
+
+  if (format) {
+    if (!(0, _lodash.isString)(format)) {
+      throw new Error(`Unsupported format ${ format } given`);
+    }
+
+    moment = require('moment');
+  }
+
+  /**
+   * Format to match the input.
+   */
+
+  this.format = format;
 
   /**
    * Validation algorithm.
@@ -31,13 +65,17 @@ function dateAssert() {
       throw new _validator.Violation(this, value);
     }
 
+    if (!this.format) {
+      return true;
+    }
+
+    if (!moment(value, this.format, true).isValid()) {
+      throw new _validator.Violation(this, value);
+    }
+
     return true;
   };
 
   return this;
 }
-/**
- * Module dependencies.
- */
-
 module.exports = exports['default'];
