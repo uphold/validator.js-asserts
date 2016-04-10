@@ -217,6 +217,12 @@ if (true !== violation) {
 $ npm test
 ```
 
+## Release
+
+```sh
+npm version [<newversion> | major | minor | patch] -m "Release %s"
+```
+
 ## License
 MIT
 
