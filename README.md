@@ -29,7 +29,7 @@ The following set of extra asserts are provided by this package:
 - [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
 - [Boolean](#boolean)
 - [CreditCard](#creditcard) (requires `creditcard`)
-- [Date](#date)
+- [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
 - [DateDiffLessThan](#datedifflessthan) (requires `moment`)
 - [Email](#email) (requires `validator`)
