@@ -4,17 +4,42 @@
  */
 
 import { Violation } from 'validator.js';
+import { isString } from 'lodash';
 
 /**
  * Export `DateAssert`.
  */
 
-export default function dateAssert() {
+export default function dateAssert({ format } = {}) {
   /**
    * Class name.
    */
 
   this.__class__ = 'Date';
+
+  /**
+   * Optional peer dependency.
+   */
+
+  let moment;
+
+  /**
+   * Validate format.
+   */
+
+  if (format) {
+    if (!isString(format)) {
+      throw new Error(`Unsupported format ${format} given`);
+    }
+
+    moment = require('moment');
+  }
+
+  /**
+   * Format to match the input.
+   */
+
+  this.format = format;
 
   /**
    * Validation algorithm.
@@ -26,6 +51,14 @@ export default function dateAssert() {
     }
 
     if (isNaN(Date.parse(value)) === true) {
+      throw new Violation(this, value);
+    }
+
+    if (!this.format) {
+      return true;
+    }
+
+    if (!moment(value, this.format, true).isValid()) {
       throw new Violation(this, value);
     }
 

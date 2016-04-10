@@ -92,6 +92,9 @@ Tests if the value is a valid credit card number using the Luhn10 algorithm.
 ### Date
 Tests if the value is a valid date.
 
+#### Arguments
+- `format` (optional) - the format in which the date must be in.
+
 ### DateDiffGreaterThan
 Tests if the difference between two dates is greater than a given threshold.
 
