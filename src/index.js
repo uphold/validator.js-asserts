@@ -29,6 +29,7 @@ import NullOrString from './asserts/null-or-string-assert.js';
 import Phone from './asserts/phone-assert.js';
 import PlainObject from './asserts/plain-object-assert.js';
 import UkModulusChecking from './asserts/uk-modulus-checking-assert.js';
+import TaxpayerIdentificationNumber from './asserts/taxpayer-identification-number-assert.js';
 import Uri from './asserts/uri-assert.js';
 import UsSubdivision from './asserts/us-subdivision-assert.js';
 import UsZipCode from './asserts/us-zip-code-assert.js';
@@ -65,6 +66,7 @@ export default {
   Phone,
   PlainObject,
   UkModulusChecking,
+  TaxpayerIdentificationNumber,
   Uri,
   UsSubdivision,
   UsZipCode,
