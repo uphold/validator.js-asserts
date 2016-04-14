@@ -1,6 +1,6 @@
 {
   "name": "validator.js-asserts",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A set of extra asserts for validator.js.",
   "license": "MIT",
   "contributors": [

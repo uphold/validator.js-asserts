@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.3.0](https://github.com/seegno/validator.js-asserts/tree/v2.3.0) (2016-04-14)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.2.0...v2.3.0)
+
+**Implemented enhancements:**
+
+- Add Taxpayer Identification Number assert [\#66](https://github.com/seegno/validator.js-asserts/pull/66) ([nunofgs](https://github.com/nunofgs))
+
 ## [v2.2.0](https://github.com/seegno/validator.js-asserts/tree/v2.2.0) (2016-04-10)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.1.0...v2.2.0)
 
