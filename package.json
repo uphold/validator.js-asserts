@@ -64,7 +64,7 @@
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "isparta": "^4.0.0",
-    "jscs": "^2.11.0",
+    "jscs": "^3.0.3",
     "jscs-config-seegno": "^2.0.0",
     "mocha": "^2.3.4",
     "moment": "^2.12.0",
