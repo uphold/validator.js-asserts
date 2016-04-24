@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-import { Assert as BaseAssert, Violation } from 'validator.js';
 import TaxpayerIdentificationNumberAssert from '../../src/asserts/taxpayer-identification-number-assert';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 import should from 'should';
 
 /**
@@ -21,7 +21,7 @@ const Assert = BaseAssert.extend({
 
 describe('TaxpayerIdentificationNumberAssert', () => {
   it('should throw an error if the input value is not a string', () => {
-    [{}, []].forEach((choice) => {
+    [{}, []].forEach(choice => {
       try {
         new Assert().TaxpayerIdentificationNumber().validate(choice);
 
