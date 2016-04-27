@@ -3,8 +3,15 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+import DateAssert from './date-assert';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 import { assign } from 'lodash';
+
+/**
+ * Extend Assert with `DateAssert`.
+ */
+
+const Assert = BaseAssert.extend({ Date: DateAssert });
 
 /**
  * Export `DateDiffLessThanAssert`.
@@ -53,12 +60,10 @@ export default function dateDiffLessThanAssert(threshold, options) {
    */
 
   this.validate = value => {
-    if (typeof value !== 'string' && Object.prototype.toString.call(value) !== '[object Date]') {
-      throw new Violation(this, value, { value: 'must_be_a_date_or_a_string' });
-    }
-
-    if (isNaN(Date.parse(value)) === true) {
-      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
+    try {
+      new Assert().Date().validate(value);
+    } catch (e) {
+      throw new Violation(this, value, { value: 'must_be_a_date_or_a_string_or_a_number' });
     }
 
     let diff = moment(this.fromDate || Date.now()).diff(value, this.unit, this.asFloat);
