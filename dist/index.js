@@ -104,13 +104,13 @@ var _plainObjectAssert = require('./asserts/plain-object-assert.js');
 
 var _plainObjectAssert2 = _interopRequireDefault(_plainObjectAssert);
 
-var _ukModulusCheckingAssert = require('./asserts/uk-modulus-checking-assert.js');
-
-var _ukModulusCheckingAssert2 = _interopRequireDefault(_ukModulusCheckingAssert);
-
 var _taxpayerIdentificationNumberAssert = require('./asserts/taxpayer-identification-number-assert.js');
 
 var _taxpayerIdentificationNumberAssert2 = _interopRequireDefault(_taxpayerIdentificationNumberAssert);
+
+var _ukModulusCheckingAssert = require('./asserts/uk-modulus-checking-assert.js');
+
+var _ukModulusCheckingAssert2 = _interopRequireDefault(_ukModulusCheckingAssert);
 
 var _uriAssert = require('./asserts/uri-assert.js');
 
@@ -160,8 +160,8 @@ exports.default = {
   NullOrString: _nullOrStringAssert2.default,
   Phone: _phoneAssert2.default,
   PlainObject: _plainObjectAssert2.default,
-  UkModulusChecking: _ukModulusCheckingAssert2.default,
   TaxpayerIdentificationNumber: _taxpayerIdentificationNumberAssert2.default,
+  UkModulusChecking: _ukModulusCheckingAssert2.default,
   Uri: _uriAssert2.default,
   UsSubdivision: _usSubdivisionAssert2.default,
   UsZipCode: _usZipCodeAssert2.default,

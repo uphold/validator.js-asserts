@@ -1,5 +1,13 @@
 # Changelog
 
+## [v2.3.1](https://github.com/seegno/validator.js-asserts/tree/v2.3.1) (2016-04-29)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.3.0...v2.3.1)
+
+**Merged pull requests:**
+
+- Update uk-modulus-checking@0.0.3 [\#105](https://github.com/seegno/validator.js-asserts/pull/105) ([promag](https://github.com/promag))
+- Update dependencies [\#103](https://github.com/seegno/validator.js-asserts/pull/103) ([ruimarinho](https://github.com/ruimarinho))
+
 ## [v2.3.0](https://github.com/seegno/validator.js-asserts/tree/v2.3.0) (2016-04-14)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.2.0...v2.3.0)
 
