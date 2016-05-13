@@ -45,7 +45,7 @@ function nullOrStringAssert(boundaries) {
     }
 
     try {
-      new _validator.Assert().Length({ max: this.max, min: this.min }).validate(value);
+      _validator.Assert.ofLength({ max: this.max, min: this.min }).validate(value);
     } catch (e) {
       throw new _validator.Violation(this, value, e.violation);
     }

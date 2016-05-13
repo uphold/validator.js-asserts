@@ -1,5 +1,12 @@
 # Changelog
 
+## [v3.0.0](https://github.com/seegno/validator.js-asserts/tree/v3.0.0) (2016-05-13)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.3.1...v3.0.0)
+
+**Implemented enhancements:**
+
+- Update validator.js@2.0.0 [\#110](https://github.com/seegno/validator.js-asserts/pull/110) ([ruimarinho](https://github.com/ruimarinho))
+
 ## [v2.3.1](https://github.com/seegno/validator.js-asserts/tree/v2.3.1) (2016-04-29)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.3.0...v2.3.1)
 

@@ -38,7 +38,7 @@ function emailAssert() {
     }
 
     try {
-      new _validator.Assert().Length({ max: 254 }).validate(value);
+      _validator.Assert.ofLength({ max: 254 }).validate(value);
     } catch (e) {
       throw new _validator.Violation(this, value);
     }
