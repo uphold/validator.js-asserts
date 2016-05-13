@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "lodash": "^4.8.2",
-    "validator.js": "^1.2.2"
+    "validator.js": "^2.0.0"
   },
   "devDependencies": {
     "abavalidator": "^2.0.1",

@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Assert, Violation } from 'validator.js';
+import { Violation, Assert as is } from 'validator.js';
 
 /**
  * Export `NullOrStringAssert`.
@@ -43,7 +43,7 @@ export default function nullOrStringAssert(boundaries) {
     }
 
     try {
-      new Assert().Length({ max: this.max, min: this.min }).validate(value);
+      is.ofLength({ max: this.max, min: this.min }).validate(value);
     } catch (e) {
       throw new Violation(this, value, e.violation);
     }
