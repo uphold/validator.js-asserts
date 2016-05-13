@@ -3,7 +3,7 @@
 * Module dependencies.
 */
 
-import { Assert, Validator, Violation } from 'validator.js';
+import { Validator, Violation, Assert as is } from 'validator.js';
 
 /**
  * Export `EmailAssert`.
@@ -36,7 +36,7 @@ export default function emailAssert() {
     }
 
     try {
-      new Assert().Length({ max: 254 }).validate(value);
+      is.ofLength({ max: 254 }).validate(value);
     } catch (e) {
       throw new Violation(this, value);
     }

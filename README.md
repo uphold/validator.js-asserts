@@ -199,19 +199,19 @@ Tests if the value is a valid uuid.
 The following is an example for the extra ip assert:
 
 ```js
-const Assert = require('validator.js').Assert.extend(require('validator.js-asserts'));
 const Validator = require('validator.js').Validator;
+const is = require('validator.js').Assert.extend(require('validator.js-asserts'));
 const validator = new Validator();
 
 // Validate ip `1.3.3.7`.
-const violation = validator.validate('1.3.3.7', new Assert().Ip());
+let violation = validator.validate('1.3.3.7', is.ip());
 
 if (true === violation) {
   console.log('"1.3.3.7" is a valid IP'); // => "1.3.3.7" is a valid IP
 }
 
 // Validate ip `foo`.
-violation = validator.validate('foo', new Assert().Ip());
+violation = validator.validate('foo', is.ip());
 
 if (true !== violation) {
   console.log('"foo" is not a valid IP. Violation:', violation[0].show());
