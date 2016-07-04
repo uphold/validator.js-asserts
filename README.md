@@ -159,7 +159,7 @@ Tests if the value is `null` or a valid date.
 - `format` (optional) - the format in which the date must be in.
 
 ### NullOrString
-Tests if the value is a `null` or `string`, optionally within some boundaries.
+Tests if the value is `null` or a string, optionally within some boundaries.
 
 #### Arguments
 - `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
