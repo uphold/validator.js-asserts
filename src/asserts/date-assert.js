@@ -50,15 +50,15 @@ export default function dateAssert({ format } = {}) {
       throw new Violation(this, value, { value: 'must_be_a_date_or_a_string' });
     }
 
-    if (isNaN(Date.parse(value)) === true) {
-      throw new Violation(this, value);
-    }
+    if (this.format) {
+      if (!moment(value, this.format, true).isValid()) {
+        throw new Violation(this, value);
+      }
 
-    if (!this.format) {
       return true;
     }
 
-    if (!moment(value, this.format, true).isValid()) {
+    if (isNaN(Date.parse(value)) === true) {
       throw new Violation(this, value);
     }
 

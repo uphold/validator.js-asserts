@@ -82,15 +82,15 @@ describe('DateAssert', () => {
     }
   });
 
-  it('should accept a `Date`', () => {
+  it('should accept a date', () => {
     new Assert().Date().validate(new Date());
   });
 
   it('should accept a correctly formatted date', () => {
-    new Assert().Date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
+    new Assert().Date({ format: 'MM/YYYY' }).validate('12/2000');
   });
 
-  it('should accept a `string`', () => {
+  it('should accept a string', () => {
     new Assert().Date().validate('2014-10-16');
   });
 });
