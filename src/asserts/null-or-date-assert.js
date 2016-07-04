@@ -4,17 +4,42 @@
  */
 
 import { Violation } from 'validator.js';
+import { isString } from 'lodash';
 
 /**
  * Export `NullOrDateAssert`.
  */
 
-export default function nullOrDateAssert() {
+export default function nullOrDateAssert({ format } = {}) {
   /**
    * Class name.
    */
 
   this.__class__ = 'NullOrDate';
+
+  /**
+   * Optional peer dependency.
+   */
+
+  let moment;
+
+  /**
+   * Validate format.
+   */
+
+  if (format) {
+    if (!isString(format)) {
+      throw new Error(`Unsupported format ${format} given`);
+    }
+
+    moment = require('moment');
+  }
+
+  /**
+   * Format to match the input.
+   */
+
+  this.format = format;
 
   /**
    * Validation algorithm.
@@ -26,6 +51,14 @@ export default function nullOrDateAssert() {
     }
 
     if (value === null) {
+      return true;
+    }
+
+    if (this.format) {
+      if (!moment(value, this.format, true).isValid()) {
+        throw new Violation(this, value);
+      }
+
       return true;
     }
 
