@@ -57,7 +57,7 @@ export default function dateDiffGreaterThanAssert(threshold, options) {
       throw new Violation(this, value, { value: 'must_be_a_date_or_a_string' });
     }
 
-    if (isNaN(Date.parse(value)) === true) {
+    if (!moment(value).isValid()) {
       throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
     }
 
