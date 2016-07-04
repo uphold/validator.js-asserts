@@ -23,6 +23,7 @@ The following set of extra asserts are provided by this package:
 - [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
 - [BankIdentifierCode](#bankidentifiercode-bic) (_BIC_)
 - [BigNumber](#bignumber) (requires `bignumber.js`)
+- [BigNumberEqualTo](#bignumberequalto) (requires `bignumber.js`)
 - [BigNumberGreaterThan](#bignumbergreaterthan) (requires `bignumber.js`)
 - [BigNumberGreaterThanOrEqualTo](#bignumbergreaterthanorequalto) (requires `bignumber.js`)
 - [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
@@ -60,6 +61,12 @@ Tests if the value is a valid Bank Identifier Code (_BIC_) as defined in the [IS
 
 ### BigNumber
 Tests if the value is a valid `BigNumber`.
+
+### BigNumberEqualTo
+Tests if a `BigNumber` is equal to a given value.
+
+#### Arguments
+- `value` (required)
 
 ### BigNumberGreaterThan
 Tests if a `BigNumber` is greater than a given threshold.
