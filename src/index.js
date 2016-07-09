@@ -6,6 +6,7 @@
 import AbaRoutingNumber from './asserts/aba-routing-number-assert.js';
 import BankIdentifierCode from './asserts/bank-identifier-code-assert.js';
 import BigNumber from './asserts/big-number-assert.js';
+import BigNumberEqualTo from './asserts/big-number-equal-to-assert.js';
 import BigNumberGreaterThan from './asserts/big-number-greater-than-assert.js';
 import BigNumberGreaterThanOrEqualTo from './asserts/big-number-greater-than-or-equal-to-assert.js';
 import BigNumberLessThan from './asserts/big-number-less-than-assert.js';
@@ -43,6 +44,7 @@ export default {
   AbaRoutingNumber,
   BankIdentifierCode,
   BigNumber,
+  BigNumberEqualTo,
   BigNumberGreaterThan,
   BigNumberGreaterThanOrEqualTo,
   BigNumberLessThan,

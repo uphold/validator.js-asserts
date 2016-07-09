@@ -99,11 +99,11 @@ describe('BigNumberGreaterThanOrEqualToAssert', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(new BigNumber(10)).validate(10.00000001);
   });
 
-  it('should accept a big number that is greater than threshold', () => {
+  it('should accept a number that is greater than threshold', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(10).validate(10.00000001);
   });
 
-  it('should accept a big number that is equal to threshold', () => {
+  it('should accept a number that is equal to threshold', () => {
     new Assert().BigNumberGreaterThanOrEqualTo(10).validate(10);
   });
 });

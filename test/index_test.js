@@ -15,6 +15,7 @@ describe('validator.js-asserts', () => {
       'AbaRoutingNumber',
       'BankIdentifierCode',
       'BigNumber',
+      'BigNumberEqualTo',
       'BigNumberGreaterThan',
       'BigNumberGreaterThanOrEqualTo',
       'BigNumberLessThan',
