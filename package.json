@@ -57,7 +57,7 @@
     "bignumber.js": "^2.3.0",
     "creditcard": "^0.1.2",
     "eslint": "^2.8.0",
-    "eslint-config-seegno": "^4.0.0",
+    "eslint-config-seegno": "^6.0.0",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-sort-class-members": "^1.0.1",
     "google-libphonenumber": "^1.0.18",
