@@ -60,7 +60,7 @@
     "eslint-config-seegno": "^4.0.0",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-sort-class-members": "^1.0.1",
-    "google-libphonenumber": "^1.0.18",
+    "google-libphonenumber": "^1.0.27",
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "isparta": "^4.0.0",
