@@ -16,6 +16,10 @@ var _bigNumberAssert = require('./asserts/big-number-assert.js');
 
 var _bigNumberAssert2 = _interopRequireDefault(_bigNumberAssert);
 
+var _bigNumberEqualToAssert = require('./asserts/big-number-equal-to-assert.js');
+
+var _bigNumberEqualToAssert2 = _interopRequireDefault(_bigNumberEqualToAssert);
+
 var _bigNumberGreaterThanAssert = require('./asserts/big-number-greater-than-assert.js');
 
 var _bigNumberGreaterThanAssert2 = _interopRequireDefault(_bigNumberGreaterThanAssert);
@@ -134,10 +138,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Module dependencies.
  */
 
+/**
+ * Module dependencies.
+ */
+
 exports.default = {
   AbaRoutingNumber: _abaRoutingNumberAssert2.default,
   BankIdentifierCode: _bankIdentifierCodeAssert2.default,
   BigNumber: _bigNumberAssert2.default,
+  BigNumberEqualTo: _bigNumberEqualToAssert2.default,
   BigNumberGreaterThan: _bigNumberGreaterThanAssert2.default,
   BigNumberGreaterThanOrEqualTo: _bigNumberGreaterThanOrEqualToAssert2.default,
   BigNumberLessThan: _bigNumberLessThanAssert2.default,
@@ -167,8 +176,4 @@ exports.default = {
   UsZipCode: _usZipCodeAssert2.default,
   Uuid: _uuidAssert2.default
 };
-/**
- * Module dependencies.
- */
-
 module.exports = exports['default'];

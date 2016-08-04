@@ -1,5 +1,12 @@
 # Changelog
 
+## [v3.0.1](https://github.com/seegno/validator.js-asserts/tree/v3.0.1) (2016-08-04)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v3.0.0...v3.0.1)
+
+**Implemented enhancements:**
+
+- Add `BigNumberEqualTo` assert [\#117](https://github.com/seegno/validator.js-asserts/pull/117) ([nunofgs](https://github.com/nunofgs))
+
 ## [v3.0.0](https://github.com/seegno/validator.js-asserts/tree/v3.0.0) (2016-05-13)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v2.3.1...v3.0.0)
 
