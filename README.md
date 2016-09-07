@@ -46,6 +46,7 @@ The following set of extra asserts are provided by this package:
 - [Iso3166Country](#iso3166country) (requires `isoc`)
 - [Json](#json)
 - [NotEmpty](#notempty)
+- [NullOr](#nullor)
 - [NullOrDate](#nullordate)
 - [NullOrBoolean](#nullorboolean)
 - [NullOrString](#nullorstring)
@@ -196,6 +197,9 @@ Tests if the value is valid json.
 ### NotEmpty
 Tests if the value is not an empty (empty object, empty array, empty string, etc).
 
+### NullOr
+Tests if the value is a `null` or validates agains the assert received as an argument.
+
 ### NullOrBoolean
 Tests if the value is a `null` or `boolean`.
 
@@ -263,6 +267,13 @@ violation = validator.validate('foo', is.ip());
 if (true !== violation) {
   console.log('"foo" is not a valid IP. Violation:', violation[0].show());
   // => "foo" is not a valid IP. Violation: { assert: 'Ip', value: 'foo' }
+}
+
+// Make the validation nullable.
+violation = validator.validate(null, is.nullOr(is.ip()));
+
+if (true === violation) {
+  console.log('null is null or a valid IP'); // => null is null or a valid IP
 }
 ```
 
