@@ -30,6 +30,7 @@ const Ip = require('./asserts/ip-assert.js');
 const Iso3166Country = require('./asserts/iso-3166-country-assert.js');
 const Json = require('./asserts/json-assert.js');
 const NotEmpty = require('./asserts/not-empty-assert.js');
+const NullOr = require('./asserts/null-or-assert.js');
 const NullOrBoolean = require('./asserts/null-or-boolean-assert.js');
 const NullOrDate = require('./asserts/null-or-date-assert.js');
 const NullOrString = require('./asserts/null-or-string-assert.js');
@@ -73,6 +74,7 @@ module.exports = {
   Iso3166Country,
   Json,
   NotEmpty,
+  NullOr,
   NullOrBoolean,
   NullOrDate,
   NullOrString,
