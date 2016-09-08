@@ -35,21 +35,6 @@ describe('DateAssert', () => {
     });
   });
 
-  it('should throw an error if an invalid format is given', () => {
-    const formats = [[], {}, 123];
-
-    formats.forEach(format => {
-      try {
-        new Assert().Date({ format }).validate();
-
-        should.fail();
-      } catch (e) {
-        e.should.be.instanceOf(Error);
-        e.message.should.equal(`Unsupported format ${format} given`);
-      }
-    });
-  });
-
   it('should throw an error if value is not correctly formatted', () => {
     try {
       new Assert().Date({ format: 'YYYY-MM-DD' }).validate('20003112');

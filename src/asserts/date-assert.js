@@ -28,10 +28,6 @@ export default function dateAssert({ format } = {}) {
    */
 
   if (format) {
-    if (!isString(format)) {
-      throw new Error(`Unsupported format ${format} given`);
-    }
-
     moment = require('moment');
   }
 
