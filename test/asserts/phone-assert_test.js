@@ -20,6 +20,19 @@ const Assert = BaseAssert.extend({
  */
 
 describe('Phone', () => {
+  it('should throw an error if the allowed types are invalid', () => {
+    ['foobar', ['foobar']].forEach(types => {
+      try {
+        new Assert().Phone({ allowedTypes: types }).validate('+1 415 555 2671');
+
+        should.fail();
+      } catch (e) {
+        e.should.be.instanceOf(Error);
+        e.message.should.equal('Phone types specified are not valid.');
+      }
+    });
+  });
+
   it('should throw an error if the input value is not a string', () => {
     [{}, [], 123].forEach(choice => {
       try {
@@ -47,6 +60,17 @@ describe('Phone', () => {
   it('should throw an error if the phone does not belong to the given country', () => {
     try {
       new Assert().Phone({ countryCode: 'US' }).validate('912345578');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().assert.should.equal('Phone');
+    }
+  });
+
+  it('should throw an error if the phone does not have one of the given allowed types', () => {
+    try {
+      new Assert().Phone({ allowedTypes: ['FIXED_LINE', 'MOBILE'] }).validate('+1 415 555 2671');
 
       should.fail();
     } catch (e) {
