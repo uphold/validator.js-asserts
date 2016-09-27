@@ -66,7 +66,7 @@
     "isparta": "^4.0.0",
     "jscs": "^3.0.3",
     "jscs-config-seegno": "^2.0.0",
-    "mocha": "^2.3.4",
+    "mocha": "^3.1.0",
     "moment": "^2.13.0",
     "should": "^8.3.1",
     "sinon": "^1.15.4",
