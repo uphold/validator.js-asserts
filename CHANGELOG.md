@@ -1,5 +1,16 @@
 # Changelog
 
+## [v3.0.2](https://github.com/seegno/validator.js-asserts/tree/v3.0.2) (2016-10-10)
+[Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v3.0.1...v3.0.2)
+
+**Closed issues:**
+
+- Incorrect documentation for `Uuid` assert [\#148](https://github.com/seegno/validator.js-asserts/issues/148)
+
+**Merged pull requests:**
+
+- Allow custom date formats [\#150](https://github.com/seegno/validator.js-asserts/pull/150) ([kurayama](https://github.com/kurayama))
+
 ## [v3.0.1](https://github.com/seegno/validator.js-asserts/tree/v3.0.1) (2016-08-04)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v3.0.0...v3.0.1)
 

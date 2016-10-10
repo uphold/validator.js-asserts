@@ -39,10 +39,6 @@ function dateAssert() {
    */
 
   if (format) {
-    if (!(0, _lodash.isString)(format)) {
-      throw new Error(`Unsupported format ${ format } given`);
-    }
-
     moment = require('moment');
   }
 

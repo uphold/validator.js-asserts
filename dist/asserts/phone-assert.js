@@ -72,5 +72,4 @@ function phoneAssert() {
   };
 
   return this;
-}
-module.exports = exports['default'];
+}module.exports = exports['default'];
