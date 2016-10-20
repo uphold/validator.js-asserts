@@ -24,6 +24,7 @@ describe('validator.js-asserts', () => {
       'CreditCard',
       'Date',
       'DateDiffGreaterThan',
+      'DateDiffGreaterThanOrEqualTo',
       'DateDiffLessThan',
       'Email',
       'EqualKeys',
