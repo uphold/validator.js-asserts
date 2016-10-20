@@ -31,7 +31,7 @@ function ukModulusCheckingAssert() {
    */
 
   this.validate = function () {
-    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     let accountNumber = _ref.accountNumber;
     let sortCode = _ref.sortCode;

@@ -30,7 +30,7 @@ const keys = Object.keys(subdivisions);
  */
 
 function usSubdivisionAssert() {
-  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   var _ref$categories = _ref.categories;
   let categories = _ref$categories === undefined ? keys : _ref$categories;

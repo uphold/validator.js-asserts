@@ -16,7 +16,7 @@ var _validator = require('validator.js');
  */
 
 function phoneAssert() {
-  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   let countryCode = _ref.countryCode;
 

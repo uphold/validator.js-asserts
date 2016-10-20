@@ -52,9 +52,17 @@ var _dateDiffGreaterThanAssert = require('./asserts/date-diff-greater-than-asser
 
 var _dateDiffGreaterThanAssert2 = _interopRequireDefault(_dateDiffGreaterThanAssert);
 
+var _dateDiffGreaterThanOrEqualToAssert = require('./asserts/date-diff-greater-than-or-equal-to-assert.js');
+
+var _dateDiffGreaterThanOrEqualToAssert2 = _interopRequireDefault(_dateDiffGreaterThanOrEqualToAssert);
+
 var _dateDiffLessThanAssert = require('./asserts/date-diff-less-than-assert.js');
 
 var _dateDiffLessThanAssert2 = _interopRequireDefault(_dateDiffLessThanAssert);
+
+var _dateDiffLessThanOrEqualToAssert = require('./asserts/date-diff-less-than-or-equal-to-assert.js');
+
+var _dateDiffLessThanOrEqualToAssert2 = _interopRequireDefault(_dateDiffLessThanOrEqualToAssert);
 
 var _emailAssert = require('./asserts/email-assert.js');
 
@@ -155,7 +163,9 @@ exports.default = {
   CreditCard: _creditCardAssert2.default,
   Date: _dateAssert2.default,
   DateDiffGreaterThan: _dateDiffGreaterThanAssert2.default,
+  DateDiffGreaterThanOrEqualTo: _dateDiffGreaterThanOrEqualToAssert2.default,
   DateDiffLessThan: _dateDiffLessThanAssert2.default,
+  DateDiffLessThanOrEqualTo: _dateDiffLessThanOrEqualToAssert2.default,
   Email: _emailAssert2.default,
   EqualKeys: _equalKeysAssert2.default,
   Hash: _hashAssert2.default,

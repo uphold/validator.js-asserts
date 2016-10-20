@@ -18,7 +18,7 @@ var _lodash = require('lodash');
  */
 
 function dateAssert() {
-  var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   let format = _ref.format;
 
