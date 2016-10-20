@@ -32,7 +32,9 @@ The following set of extra asserts are provided by this package:
 - [CreditCard](#creditcard) (requires `creditcard`)
 - [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
+- [DateDiffGreaterThanOrEqualTo](#datediffgreaterthanorequalto) (requires `moment`)
 - [DateDiffLessThan](#datedifflessthan) (requires `moment`)
+- [DateDiffLessThanOrEqualTo](#datedifflessthanorequalto) (requires `moment`)
 - [Email](#email) (requires `validator`)
 - [EqualKeys](#equalkeys)
 - [Hash](#hash)
@@ -115,8 +117,30 @@ Tests if the difference between two dates is greater than a given threshold.
   - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
   - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
 
+### DateDiffGreaterThanOrEqualTo
+Tests if the difference between two dates is greater than or equal to a given threshold.
+
+#### Arguments
+- `threshold` (required)
+- `options`
+  - `absolute` - whether the comparison should use the absolute value of the measured difference.
+  - `asFloat` - whether to return the difference rounded down or as float.
+  - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
+  - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
+
 ### DateDiffLessThan
 Tests if the difference between two dates is less than a given threshold.
+
+#### Arguments
+- `threshold` (required)
+- `options`
+  - `absolute` - whether the comparison should use the absolute value of the measured difference.
+  - `asFloat` - whether to return the difference rounded down or as float.
+  - `fromDate` - the date where the diff is measured with. If omitted, defaults to `now`.
+  - `unit` - the unit of the difference measurement (`years`, `months`, `weeks`, `days`, `hours`, `minutes` and `seconds`).
+
+### DateDiffLessThanOrEqualTo
+Tests if the difference between two dates is less than or equal to a given threshold.
 
 #### Arguments
 - `threshold` (required)
