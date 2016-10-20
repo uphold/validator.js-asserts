@@ -26,6 +26,7 @@ describe('validator.js-asserts', () => {
       'DateDiffGreaterThan',
       'DateDiffGreaterThanOrEqualTo',
       'DateDiffLessThan',
+      'DateDiffLessThanOrEqualTo',
       'Email',
       'EqualKeys',
       'Hash',
