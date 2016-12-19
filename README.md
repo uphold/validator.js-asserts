@@ -168,6 +168,10 @@ Tests if the value is a valid hash.
 ### Integer
 Tests if the value is an integer.
 
+#### Arguments
+- `allowString` (optional) - whether the assert accepts string inputs or not.
+- `unsigned` (optional) - whether the assert should consider only unsigned values or not.
+
 ### InternationalBankAccountNumber (*IBAN*)
 Tests if the value is a valid International Bank Account Number (_IBAN_) as defined in the [13616-1](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=41031) standard.
 
