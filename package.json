@@ -65,7 +65,7 @@
     "isoc": "0.0.1",
     "isparta": "^4.0.0",
     "jscs": "^3.0.3",
-    "jscs-config-seegno": "^2.0.0",
+    "jscs-config-seegno": "^2.0.1",
     "mocha": "^2.3.4",
     "moment": "^2.13.0",
     "should": "^8.3.1",
