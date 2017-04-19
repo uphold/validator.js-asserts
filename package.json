@@ -73,7 +73,7 @@
     "tin-validator": "^1.0.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
-    "validator": "^5.2.0"
+    "validator": "^5.5.0"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
