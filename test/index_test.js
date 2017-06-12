@@ -40,6 +40,7 @@ describe('validator.js-asserts', () => {
       'NullOrString',
       'Phone',
       'PlainObject',
+      'StringOfLength',
       'TaxpayerIdentificationNumber',
       'UkModulusChecking',
       'Uri',

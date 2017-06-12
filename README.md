@@ -48,6 +48,7 @@ The following set of extra asserts are provided by this package:
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
+- [StringOfLength](#stringoflength)
 - [TaxpayerIdentificationNumber](#taxpayeridentificationnumber) (_TIN_, requires `tin-validator`)
 - [UkModulusChecking](#ukmoduluschecking) (requires `uk-modulus-checking`)
 - [Uri](#uri) (requires `urijs`)
@@ -197,6 +198,13 @@ Tests if the phone is valid and optionally if it belongs to the given country. T
 
 ### PlainObject
 Tests if the value is a plain object.
+
+### StringOfLength
+Tests if the value is a string within the given boundaries.
+
+#### Arguments
+- `max` (optional) - the maximum number of characters.
+- `min` (optional) - the minimum number of characters (defaults to 1, to avoid empty strings).
 
 ### TaxpayerIdentificationNumber
 Tests if the value is a valid Taxpayer Identification Number (_TIN_) as defined by the [U.S. IRS](http://www.irs.gov/Individuals/International-Taxpayers/Taxpayer-Identification-Numbers-TIN).
