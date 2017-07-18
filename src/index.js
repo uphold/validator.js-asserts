@@ -13,6 +13,7 @@ import BigNumberLessThan from './asserts/big-number-less-than-assert.js';
 import BigNumberLessThanOrEqualTo from './asserts/big-number-less-than-or-equal-to-assert.js';
 import Boolean from './asserts/boolean-assert.js';
 import CreditCard from './asserts/credit-card-assert.js';
+import CreditCardVerificationValue from './asserts/credit-card-verification-value-assert.js';
 import Date from './asserts/date-assert.js';
 import DateDiffGreaterThan from './asserts/date-diff-greater-than-assert.js';
 import DateDiffGreaterThanOrEqualTo from './asserts/date-diff-greater-than-or-equal-to-assert.js';
@@ -53,6 +54,7 @@ export default {
   BigNumberLessThanOrEqualTo,
   Boolean,
   CreditCard,
+  CreditCardVerificationValue,
   Date,
   DateDiffGreaterThan,
   DateDiffGreaterThanOrEqualTo,

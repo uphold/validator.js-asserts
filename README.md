@@ -30,6 +30,7 @@ The following set of extra asserts are provided by this package:
 - [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
 - [Boolean](#boolean)
 - [CreditCard](#creditcard) (requires `creditcard`)
+- [CreditCardVerificationValue](#creditcardverificationvalue)
 - [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
 - [DateDiffGreaterThanOrEqualTo](#datediffgreaterthanorequalto) (requires `moment`)
@@ -99,6 +100,12 @@ Tests if the value is a boolean.
 
 ### CreditCard
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
+
+### CreditCardVerificationValue
+Tests if the value is a valid credit card verification value number based on the credit card type.
+
+#### Arguments
+- `type` - the card type.
 
 ### Date
 Tests if the value is a valid date.
