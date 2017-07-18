@@ -6,22 +6,22 @@
   "contributors": [
     {
       "name": "Nuno Sousa",
-      "email": "nuno.sousa@seegno.com"
+      "email": "nunofgs@gmail.com"
     },
     {
       "name": "Rui Marinho",
-      "email": "rui.marinho@seegno.com"
+      "email": "ruipmarinho@gmail.com"
     },
     {
       "name": "Tiago Ribeiro",
-      "email": "tiago.ribeiro@seegno.com"
+      "email": "tiago.ribeiro@gmail.com"
     }
   ],
-  "homepage": "http://seegno.github.io/validator.js-asserts/",
-  "bugs": "https://github.com/seegno/validator.js-asserts/issues",
+  "homepage": "https://uphold.github.io/validator.js-asserts/",
+  "bugs": "https://github.com/uphold/validator.js-asserts/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seegno/validator.js-asserts"
+    "url": "https://github.com/uphold/validator.js-asserts"
   },
   "main": "./dist/index.js",
   "keywords": [
