@@ -267,5 +267,5 @@ MIT
 
 [npm-image]: https://img.shields.io/npm/v/validator.js-asserts.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/validator.js-asserts
-[travis-image]: https://img.shields.io/travis/seegno/validator.js-asserts.svg?style=flat-square
-[travis-url]: https://travis-ci.org/seegno/validator.js-asserts
+[travis-image]: https://img.shields.io/travis/uphold/validator.js-asserts.svg?style=flat-square
+[travis-url]: https://travis-ci.org/uphold/validator.js-asserts
