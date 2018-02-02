@@ -29,6 +29,7 @@ The following set of extra asserts are provided by this package:
 - [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
 - [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
 - [Boolean](#boolean)
+- [CaSubdivision](#casubdivision)
 - [CreditCard](#creditcard) (requires `creditcard`)
 - [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
@@ -96,6 +97,9 @@ Tests if a `BigNumber` is less than or equal to a given threshold.
 
 ### Boolean
 Tests if the value is a boolean.
+
+### CaSubdivision
+Tests if the value is a valid CA subdivision or not. Codes in the short (`AB`) or full form (e.g. `CA-AB`) are allowed.
 
 ### CreditCard
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
