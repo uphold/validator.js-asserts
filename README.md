@@ -21,6 +21,7 @@ You should pin these package's peer dependencies to the ranges listed on the _op
 ## Asserts
 The following set of extra asserts are provided by this package:
 - [AbaRoutingNumber](#abaroutingnumber) (requires `abavalidator`)
+- [AuSubdivision](#ausubdivision)
 - [BankIdentifierCode](#bankidentifiercode-bic) (_BIC_)
 - [BigNumber](#bignumber) (requires `bignumber.js`)
 - [BigNumberEqualTo](#bignumberequalto) (requires `bignumber.js`)
@@ -57,6 +58,9 @@ The following set of extra asserts are provided by this package:
 
 ### AbaRoutingNumber
 Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
+
+### AuSubdivision
+Tests if the value is a valid AU subdivision or not. Codes in the short (`NSW`) or full form (e.g. `AU-NSW`) are allowed. 
 
 ### BankIdentifierCode (*BIC*)
 Tests if the value is a valid Bank Identifier Code (_BIC_) as defined in the [ISO-9362](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60390) standard.

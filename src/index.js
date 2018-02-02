@@ -4,6 +4,7 @@
  */
 
 import AbaRoutingNumber from './asserts/aba-routing-number-assert.js';
+import AuSubdivision from './asserts/au-subdivision-assert.js';
 import BankIdentifierCode from './asserts/bank-identifier-code-assert.js';
 import BigNumber from './asserts/big-number-assert.js';
 import BigNumberEqualTo from './asserts/big-number-equal-to-assert.js';
@@ -44,6 +45,7 @@ import Uuid from './asserts/uuid-assert.js';
 
 export default {
   AbaRoutingNumber,
+  AuSubdivision,
   BankIdentifierCode,
   BigNumber,
   BigNumberEqualTo,
