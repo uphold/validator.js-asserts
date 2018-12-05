@@ -79,7 +79,7 @@
     "abavalidator": ">=2 <3",
     "bignumber.js": ">=2 <3",
     "creditcard": ">=0.0.1 <1.0.0",
-    "google-libphonenumber": ">=1 <2",
+    "google-libphonenumber": ">=1 <4",
     "iban": ">=0.0.6 <1.0.0",
     "isoc": ">=0.0.1 <1.0.0",
     "moment": ">=2 <3",
