@@ -9,12 +9,14 @@ import { Violation } from 'validator.js';
  * Export `BigNumberAssert`.
  */
 
-export default function bigNumberAssert() {
+export default function bigNumberAssert({ validateSignificantDigits = true } = {}) {
   /**
    * Optional peer dependencies.
    */
 
   const BigNumber = require('bignumber.js');
+
+  BigNumber.DEBUG = !!validateSignificantDigits;
 
   /**
    * Class name.
@@ -28,8 +30,16 @@ export default function bigNumberAssert() {
 
   this.validate = value => {
     try {
-      new BigNumber(value); // eslint-disable-line no-new
+      const number = new BigNumber(value);
+
+      if (Number.isNaN(number.toNumber())) {
+        throw new Error(`[BigNumber Error] Not a number: ${value.toString()}`);
+      }
     } catch (e) {
+      if (e.message.startsWith('[BigNumber Error]')) {
+        throw new Violation(this, value, { message: e.message });
+      }
+
       throw new Violation(this, value);
     }
 

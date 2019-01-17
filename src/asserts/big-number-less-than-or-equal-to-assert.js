@@ -3,18 +3,28 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+import BigNumberAssert from './big-number-assert';
+import { Assert as BaseAssert, Violation } from 'validator.js';
+
 
 /**
  * Export `BigNumberLessThanOrEqualToAssert`.
  */
 
-export default function bigNumberLessThanOrEqualToAssert(threshold) {
+export default function bigNumberLessThanOrEqualToAssert(threshold, { validateSignificantDigits = true } = {}) {
   /**
    * Optional peer dependencies.
    */
 
   const BigNumber = require('bignumber.js');
+
+  BigNumber.DEBUG = !!validateSignificantDigits;
+
+  /**
+   * Extend `Assert` with `BigNumberAssert`.
+   */
+
+  const Assert = BaseAssert.extend({ BigNumber: BigNumberAssert });
 
   /**
    * Class name.
@@ -26,6 +36,8 @@ export default function bigNumberLessThanOrEqualToAssert(threshold) {
     throw new Error('A threshold value is required.');
   }
 
+  new Assert().BigNumber({ validateSignificantDigits }).validate(threshold);
+
   this.threshold = new BigNumber(threshold);
 
   /**
@@ -33,16 +45,18 @@ export default function bigNumberLessThanOrEqualToAssert(threshold) {
    */
 
   this.validate = value => {
+    new Assert().BigNumber({ validateSignificantDigits }).validate(value);
+
     try {
       const number = new BigNumber(value);
 
-      if (!number.lessThanOrEqualTo(this.threshold)) {
+      if (!number.isLessThanOrEqualTo(this.threshold)) {
         throw new Error();
       }
     } catch (e) {
       const context = { threshold: this.threshold.toString() };
 
-      if (e.name === 'BigNumber Error') {
+      if (e.message.startsWith('[BigNumber Error]')) {
         context.message = e.message;
       }
 

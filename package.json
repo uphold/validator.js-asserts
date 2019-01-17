@@ -54,7 +54,7 @@
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-register": "^6.7.2",
-    "bignumber.js": "^2.3.0",
+    "bignumber.js": "^8.0.2",
     "creditcard": "^0.1.2",
     "eslint": "^2.8.0",
     "eslint-config-seegno": "^4.0.0",
@@ -77,7 +77,7 @@
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
-    "bignumber.js": ">=2 <3",
+    "bignumber.js": ">=7 <9",
     "creditcard": ">=0.0.1 <1.0.0",
     "google-libphonenumber": ">=1 <4",
     "iban": ">=0.0.6 <1.0.0",

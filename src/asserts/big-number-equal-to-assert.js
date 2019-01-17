@@ -3,18 +3,27 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+import BigNumberAssert from './big-number-assert';
+import { Assert as BaseAssert, Violation } from 'validator.js';
 
 /**
  * Export `BigNumberEqualToAssert`.
  */
 
-export default function bigNumberEqualToAssert(value) {
+export default function bigNumberEqualToAssert(value, { validateSignificantDigits = true } = {}) {
   /**
    * Optional peer dependencies.
    */
 
   const BigNumber = require('bignumber.js');
+
+  BigNumber.DEBUG = !!validateSignificantDigits;
+
+  /**
+   * Extend `Assert` with `BigNumberAssert`.
+   */
+
+  const Assert = BaseAssert.extend({ BigNumber: BigNumberAssert });
 
   /**
    * Class name.
@@ -26,6 +35,8 @@ export default function bigNumberEqualToAssert(value) {
     throw new Error('A value is required.');
   }
 
+  new Assert().BigNumber({ validateSignificantDigits }).validate(value);
+
   this.value = new BigNumber(value);
 
   /**
@@ -33,16 +44,18 @@ export default function bigNumberEqualToAssert(value) {
    */
 
   this.validate = value => {
+    new Assert().BigNumber({ validateSignificantDigits }).validate(value);
+
     try {
       const number = new BigNumber(value);
 
-      if (!number.equals(this.value)) {
+      if (!number.isEqualTo(this.value)) {
         throw new Error();
       }
     } catch (e) {
       const context = { value: this.value.toString() };
 
-      if (e.name === 'BigNumber Error') {
+      if (e.message.startsWith('[BigNumber Error]')) {
         context.message = e.message;
       }
 
