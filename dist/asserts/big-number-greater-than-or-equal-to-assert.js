@@ -35,16 +35,18 @@ function bigNumberGreaterThanOrEqualToAssert(threshold) {
    */
 
   this.validate = value => {
+    BigNumber.DEBUG = true;
+
     try {
       const number = new BigNumber(value);
 
-      if (!number.greaterThanOrEqualTo(this.threshold)) {
+      if (!number.isGreaterThanOrEqualTo(this.threshold)) {
         throw new Error();
       }
     } catch (e) {
       const context = { threshold: this.threshold.toString() };
 
-      if (e.name === 'BigNumber Error') {
+      if (e.message.startsWith('[BigNumber Error]')) {
         context.message = e.message;
       }
 

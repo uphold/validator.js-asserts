@@ -29,6 +29,8 @@ function bigNumberAssert() {
    */
 
   this.validate = value => {
+    BigNumber.DEBUG = true;
+
     try {
       new BigNumber(value); // eslint-disable-line no-new
     } catch (e) {

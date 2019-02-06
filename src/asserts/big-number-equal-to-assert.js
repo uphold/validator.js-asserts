@@ -33,16 +33,18 @@ export default function bigNumberEqualToAssert(value) {
    */
 
   this.validate = value => {
+    BigNumber.DEBUG = true;
+
     try {
       const number = new BigNumber(value);
 
-      if (!number.equals(this.value)) {
+      if (!number.isEqualTo(this.value)) {
         throw new Error();
       }
     } catch (e) {
       const context = { value: this.value.toString() };
 
-      if (e.name === 'BigNumber Error') {
+      if (e.message.startsWith('[BigNumber Error]')) {
         context.message = e.message;
       }
 

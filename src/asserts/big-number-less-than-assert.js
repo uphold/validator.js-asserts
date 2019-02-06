@@ -33,16 +33,18 @@ export default function bigNumberLessThan(threshold) {
    */
 
   this.validate = value => {
+    BigNumber.DEBUG = true;
+
     try {
       const number = new BigNumber(value);
 
-      if (!number.lessThan(this.threshold)) {
+      if (!number.isLessThan(this.threshold)) {
         throw new Error();
       }
     } catch (e) {
       const context = { threshold: this.threshold.toString() };
 
-      if (e.name === 'BigNumber Error') {
+      if (e.message.startsWith('[BigNumber Error]')) {
         context.message = e.message;
       }
 

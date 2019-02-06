@@ -37,7 +37,7 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
 
       should.fail();
     } catch (e) {
-      e.message.should.match(/not a number/);
+      e.message.should.match(/Not a number/);
     }
   });
 
@@ -81,7 +81,7 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
 
       should.fail();
     } catch (e) {
-      e.show().violation.message.should.match(/not a number/);
+      e.show().violation.message.should.match(/Not a number/);
     }
   });
 

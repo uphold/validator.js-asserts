@@ -30,9 +30,9 @@ const keys = Object.keys(subdivisions);
  */
 
 function usSubdivisionAssert() {
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$categories = _ref.categories;
 
-  var _ref$categories = _ref.categories;
   let categories = _ref$categories === undefined ? keys : _ref$categories;
   var _ref$alpha2Only = _ref.alpha2Only;
   let alpha2Only = _ref$alpha2Only === undefined ? false : _ref$alpha2Only;
@@ -48,7 +48,7 @@ function usSubdivisionAssert() {
    */
 
   if (categories && (0, _lodash.intersection)(keys, categories).length !== categories.length) {
-    throw new Error(`Unsupported categories "${ (0, _lodash.difference)(categories, keys) }" given`);
+    throw new Error(`Unsupported categories "${(0, _lodash.difference)(categories, keys)}" given`);
   }
 
   /**
