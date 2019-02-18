@@ -62,7 +62,7 @@ function phoneAssert() {
       }
 
       if (this.countryCode && !phoneUtil.isValidNumberForRegion(phone, this.countryCode)) {
-        throw new Error(`Phone does not belong to country "${ this.countryCode }"`);
+        throw new Error(`Phone does not belong to country "${this.countryCode}"`);
       }
     } catch (e) {
       throw new _validator.Violation(this, value);

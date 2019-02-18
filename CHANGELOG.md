@@ -1,5 +1,19 @@
 # Changelog
 
+## [v4.0.0](https://github.com/uphold/validator.js-asserts/tree/v4.0.0) (2019-02-18)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.0...v4.0.0)
+
+**Implemented enhancements:**
+
+- Support bignumber.js@7+ and add optional `validateSignificantDigits` flag [\#174](https://github.com/uphold/validator.js-asserts/pull/174) ([ricardobcl](https://github.com/ricardobcl))
+
+**Merged pull requests:**
+
+- Update google-libphonenumber [\#173](https://github.com/uphold/validator.js-asserts/pull/173) ([rplopes](https://github.com/rplopes))
+- Fix mixed content issue preventing page load [\#170](https://github.com/uphold/validator.js-asserts/pull/170) ([hitmanmcc](https://github.com/hitmanmcc))
+- Update ownership [\#169](https://github.com/uphold/validator.js-asserts/pull/169) ([ruimarinho](https://github.com/ruimarinho))
+- Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
+
 ## [v3.1.0](https://github.com/uphold/validator.js-asserts/tree/v3.1.0) (2016-10-20)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.2...v3.1.0)
 
@@ -188,3 +202,4 @@
 
 - Expose min and max in `NullOrString` [\#2](https://github.com/uphold/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/uphold/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
+

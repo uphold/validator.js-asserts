@@ -42,7 +42,7 @@ function uriAssert(constraints) {
 
   (0, _lodash.forEach)(this.constraints, (constraint, key) => {
     if (!(0, _lodash.has)(URI.prototype, key)) {
-      throw new Error(`Invalid constraint "${ key }=${ constraint }"`);
+      throw new Error(`Invalid constraint "${key}=${constraint}"`);
     }
   });
 

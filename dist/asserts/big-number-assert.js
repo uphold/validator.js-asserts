@@ -12,11 +12,18 @@ var _validator = require('validator.js');
  */
 
 function bigNumberAssert() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$validateSignific = _ref.validateSignificantDigits;
+
+  let validateSignificantDigits = _ref$validateSignific === undefined ? true : _ref$validateSignific;
+
   /**
    * Optional peer dependencies.
    */
 
   const BigNumber = require('bignumber.js');
+
+  BigNumber.DEBUG = !!validateSignificantDigits;
 
   /**
    * Class name.
@@ -30,8 +37,16 @@ function bigNumberAssert() {
 
   this.validate = value => {
     try {
-      new BigNumber(value); // eslint-disable-line no-new
+      const number = new BigNumber(value);
+
+      if (Number.isNaN(number.toNumber())) {
+        throw new Error(`[BigNumber Error] Not a number: ${value.toString()}`);
+      }
     } catch (e) {
+      if (e.message.startsWith('[BigNumber Error]')) {
+        throw new _validator.Violation(this, value, { message: e.message });
+      }
+
       throw new _validator.Violation(this, value);
     }
 
