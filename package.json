@@ -35,7 +35,7 @@
     "mocha": "--compilers js:babel-register --recursive test"
   },
   "scripts": {
-    "changelog": "github_changelog_generator --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
+    "changelog": "github-changelog-generator --future-release=$npm_package_version > CHANGELOG.md",
     "cover": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
     "lint": "eslint src test && jscs src test",
     "prepublish": "npm run transpile",
@@ -48,6 +48,7 @@
     "validator.js": "^2.0.0"
   },
   "devDependencies": {
+    "@uphold/github-changelog-generator": "^0.8.0",
     "abavalidator": "^2.0.1",
     "babel-cli": "^6.7.7",
     "babel-eslint": "^6.0.3",
