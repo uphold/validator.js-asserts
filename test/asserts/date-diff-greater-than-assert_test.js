@@ -150,7 +150,7 @@ describe('DateDiffGreaterThanAssert', () => {
 
   it('should throw an error if the diff between `fromDate` and input date is less than the `threshold`', () => {
     try {
-      new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000, { fromDate: new Date('1970-01-01 00:00:00') }).validate(new Date('1970-01-01 10:00:00'));
+      new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000, { fromDate: new Date('1970-01-01') }).validate(new Date('1970-01-01 10:00:00Z'));
 
       should.fail();
     } catch (e) {
@@ -208,7 +208,7 @@ describe('DateDiffGreaterThanAssert', () => {
 
   it('should use the `asFloat` option supplied', () => {
     try {
-      new Assert().DateDiffGreaterThan(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00'), unit: 'minutes' }).validate(new Date('1970-01-01 10:04:51'));
+      new Assert().DateDiffGreaterThan(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00Z'), unit: 'minutes' }).validate(new Date('1970-01-01 10:04:51Z'));
 
       should.fail();
     } catch (e) {
@@ -219,7 +219,7 @@ describe('DateDiffGreaterThanAssert', () => {
 
   it('should use the `unit` option supplied', () => {
     try {
-      new Assert().DateDiffGreaterThan(2000, { fromDate: new Date('1970-01-01 10:00:00'), unit: 'seconds' }).validate(new Date('1970-01-01 10:00:05'));
+      new Assert().DateDiffGreaterThan(2000, { fromDate: new Date('1970-01-01 10:00:00Z'), unit: 'seconds' }).validate(new Date('1970-01-01 10:00:05Z'));
 
       should.fail();
     } catch (e) {
@@ -230,7 +230,7 @@ describe('DateDiffGreaterThanAssert', () => {
   it('should accept a date whose diff from `now` is greater than the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000).validate(new Date('1969-12-30 00:00:00'));
+    new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000).validate(new Date('1969-12-30'));
 
     clock.restore();
   });
@@ -238,16 +238,16 @@ describe('DateDiffGreaterThanAssert', () => {
   it('should accept a date whose `absolute` diff from `now` is greater than the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-03 00:00:00'));
+    new Assert().DateDiffGreaterThan(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-03'));
 
     clock.restore();
   });
 
   it('should accept a date whose diff from `fromDate` is greater than the threshold', () => {
-    new Assert().DateDiffGreaterThan(24, { asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1969-12-30 00:00:00'));
+    new Assert().DateDiffGreaterThan(24, { asFloat: false, fromDate: new Date('1970-01-01'), unit: 'hours' }).validate(new Date('1969-12-30'));
   });
 
   it('should accept a date whose `absolute` diff from `fromDate` is greater than the threshold', () => {
-    new Assert().DateDiffGreaterThan(24, { absolute: true, asFloat: false, fromDate: new Date('1969-12-30 00:00:00'), unit: 'hours' }).validate(new Date('1970-01-01 00:00:00'));
+    new Assert().DateDiffGreaterThan(24, { absolute: true, asFloat: false, fromDate: new Date('1969-12-30'), unit: 'hours' }).validate(new Date('1970-01-01'));
   });
 });

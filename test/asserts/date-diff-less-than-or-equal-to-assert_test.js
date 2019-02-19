@@ -182,7 +182,7 @@ describe('DateDiffLessThanOrEqualToAssert', () => {
 
   it('should use the `asFloat` option supplied', () => {
     try {
-      new Assert().DateDiffLessThanOrEqualTo(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00'), unit: 'minutes' }).validate(new Date('1970-01-01 09:54:57'));
+      new Assert().DateDiffLessThanOrEqualTo(5, { asFloat: true, fromDate: new Date('1970-01-01 10:00:00Z'), unit: 'minutes' }).validate(new Date('1970-01-01 09:54:57Z'));
 
       should.fail();
     } catch (e) {
@@ -192,13 +192,13 @@ describe('DateDiffLessThanOrEqualToAssert', () => {
   });
 
   it('should use the `unit` option supplied', () => {
-    new Assert().DateDiffLessThanOrEqualTo(2000, { fromDate: new Date('1970-01-01 10:00:00'), unit: 'seconds' }).validate(new Date('1970-01-01 09:55:55'));
+    new Assert().DateDiffLessThanOrEqualTo(2000, { fromDate: new Date('1970-01-01 10:00:00Z'), unit: 'seconds' }).validate(new Date('1970-01-01 09:55:55Z'));
   });
 
   it('should accept a date whose diff from `now` is equal to the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1969-12-31 00:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1969-12-31'));
 
     clock.restore();
   });
@@ -206,7 +206,7 @@ describe('DateDiffLessThanOrEqualToAssert', () => {
   it('should accept a date whose diff from `now` is less than the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1969-12-31 11:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1969-12-31 11:00:00Z'));
 
     clock.restore();
   });
@@ -214,7 +214,7 @@ describe('DateDiffLessThanOrEqualToAssert', () => {
   it('should accept a date whose `absolute` diff from `now` is equal to the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-02 00:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-02'));
 
     clock.restore();
   });
@@ -222,24 +222,24 @@ describe('DateDiffLessThanOrEqualToAssert', () => {
   it('should accept a date whose `absolute` diff from `now` is less than the threshold', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
-    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-01 11:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24 * 60 * 60 * 1000, { absolute: true }).validate(new Date('1970-01-01 11:00:00Z'));
 
     clock.restore();
   });
 
   it('should accept a date whose diff from `fromDate` is equal to the threshold', () => {
-    new Assert().DateDiffLessThanOrEqualTo(24, { asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1969-12-31 00:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24, { asFloat: false, fromDate: new Date('1970-01-01'), unit: 'hours' }).validate(new Date('1969-12-31'));
   });
 
   it('should accept a date whose diff from `fromDate` is less than the threshold', () => {
-    new Assert().DateDiffLessThanOrEqualTo(24, { asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1969-12-31 11:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24, { asFloat: false, fromDate: new Date('1970-01-01'), unit: 'hours' }).validate(new Date('1969-12-31 11:00:00Z'));
   });
 
   it('should accept a date whose `absolute` diff from `fromDate` is equal to the threshold', () => {
-    new Assert().DateDiffLessThanOrEqualTo(24, { absolute: true, asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1970-01-02 00:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24, { absolute: true, asFloat: false, fromDate: new Date('1970-01-01'), unit: 'hours' }).validate(new Date('1970-01-02'));
   });
 
   it('should accept a date whose `absolute` diff from `fromDate` is less than the threshold', () => {
-    new Assert().DateDiffLessThanOrEqualTo(24, { absolute: true, asFloat: false, fromDate: new Date('1970-01-01 00:00:00'), unit: 'hours' }).validate(new Date('1970-01-01 11:00:00'));
+    new Assert().DateDiffLessThanOrEqualTo(24, { absolute: true, asFloat: false, fromDate: new Date('1970-01-01'), unit: 'hours' }).validate(new Date('1970-01-01 11:00:00Z'));
   });
 });
