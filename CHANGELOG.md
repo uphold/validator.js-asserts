@@ -1,5 +1,16 @@
 # Changelog
 
+## [v4.0.1](https://github.com/uphold/validator.js-asserts/tree/v4.0.1) (2019-06-05)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.0...v4.0.1)
+
+**Fixed bugs:**
+
+- Date asserts are not working correctly on node 10 and above [\#175](https://github.com/uphold/validator.js-asserts/issues/175)
+
+**Merged pull requests:**
+
+- Fix date tests on node 10 [\#178](https://github.com/uphold/validator.js-asserts/pull/178) ([rplopes](https://github.com/rplopes))
+
 ## [v4.0.0](https://github.com/uphold/validator.js-asserts/tree/v4.0.0) (2019-02-18)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.0...v4.0.0)
 
@@ -12,7 +23,6 @@
 - Update google-libphonenumber [\#173](https://github.com/uphold/validator.js-asserts/pull/173) ([rplopes](https://github.com/rplopes))
 - Fix mixed content issue preventing page load [\#170](https://github.com/uphold/validator.js-asserts/pull/170) ([hitmanmcc](https://github.com/hitmanmcc))
 - Update ownership [\#169](https://github.com/uphold/validator.js-asserts/pull/169) ([ruimarinho](https://github.com/ruimarinho))
-- Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
 
 ## [v3.1.0](https://github.com/uphold/validator.js-asserts/tree/v3.1.0) (2016-10-20)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.2...v3.1.0)
@@ -51,6 +61,7 @@
 
 **Merged pull requests:**
 
+- Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
 - Update uk-modulus-checking@0.0.3 [\#105](https://github.com/uphold/validator.js-asserts/pull/105) ([promag](https://github.com/promag))
 - Update dependencies [\#103](https://github.com/uphold/validator.js-asserts/pull/103) ([ruimarinho](https://github.com/ruimarinho))
 
