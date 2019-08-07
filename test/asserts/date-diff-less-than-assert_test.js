@@ -65,7 +65,7 @@ describe('DateDiffLessThanAssert', () => {
         should.fail();
       } catch (e) {
         e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_date_or_a_string');
+        e.violation.value.should.equal('must_be_a_date_or_a_string_or_a_number');
       }
     });
   });
@@ -78,6 +78,17 @@ describe('DateDiffLessThanAssert', () => {
     } catch (e) {
       e.should.be.instanceOf(Violation);
       e.show().value.should.equal('2015-99-01');
+    }
+  });
+
+  it('should throw an error if the input value is an invalid timestamp', () => {
+    try {
+      new Assert().DateDiffLessThan(10).validate(-Number.MAX_VALUE);
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.show().assert.should.equal('DateDiffLessThan');
     }
   });
 
@@ -251,6 +262,14 @@ describe('DateDiffLessThanAssert', () => {
     const clock = sinon.useFakeTimers(0, 'Date');
 
     new Assert().DateDiffLessThan(24 * 60 * 60 * 1000).validate(new Date('1969-12-31 11:00:00Z'));
+
+    clock.restore();
+  });
+
+  it('should accept a timestamp whose diff from `now` is less than the threshold', () => {
+    const clock = sinon.useFakeTimers(0, 'Date');
+
+    new Assert().DateDiffLessThan(1).validate(0);
 
     clock.restore();
   });
