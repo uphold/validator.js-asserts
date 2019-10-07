@@ -56,11 +56,31 @@ describe('BankIdentifierCodeAssert', () => {
     }
   });
 
+  it('should throw an error if the input value is not a valid bic', () => {
+    try {
+      new Assert().BankIdentifierCode().validate('BICOLETO');
+
+      should.fail();
+    } catch (e) {
+      e.should.be.instanceOf(Violation);
+      e.value.should.equal('BICOLETO');
+    }
+  });
+
   it('should accept a valid bic without branch code', () => {
     new Assert().BankIdentifierCode().validate('FOOBARBI');
   });
 
   it('should accept a valid bic with branch code', () => {
     new Assert().BankIdentifierCode().validate('FOOBARBIXXX');
+  });
+
+  it('should be case-insensitive', () => {
+    new Assert().BankIdentifierCode().validate('FOOBARBI');
+    new Assert().BankIdentifierCode().validate('FooBarBI');
+    new Assert().BankIdentifierCode().validate('foobarbi');
+    new Assert().BankIdentifierCode().validate('FOOBARBIXXX');
+    new Assert().BankIdentifierCode().validate('FooBarBIXXX');
+    new Assert().BankIdentifierCode().validate('foobarbixxx');
   });
 });
