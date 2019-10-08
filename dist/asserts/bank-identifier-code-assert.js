@@ -11,7 +11,7 @@ var _validator = require('validator.js');
  * Bic regex.
  */
 
-const bic = /^[a-zA-Z]{6}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?$/;
+const bic = /^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$/i;
 
 /**
  * Export `BankIdentifierCodeAssert`.

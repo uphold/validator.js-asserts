@@ -33,8 +33,8 @@ function ukModulusCheckingAssert() {
   this.validate = function () {
     var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-    let accountNumber = _ref.accountNumber;
-    let sortCode = _ref.sortCode;
+    let accountNumber = _ref.accountNumber,
+        sortCode = _ref.sortCode;
 
     if (typeof accountNumber !== 'string') {
       throw new _validator.Violation(_this, accountNumber, { accountNumber: _validator.Validator.errorCode.must_be_a_string });
