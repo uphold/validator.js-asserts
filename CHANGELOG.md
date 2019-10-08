@@ -1,6 +1,19 @@
 # Changelog
 
+## [v4.0.2](https://github.com/uphold/validator.js-asserts/tree/v4.0.2) (2019-10-08)
+
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.1...v4.0.2)
+
+**Fixed bugs:**
+
+- Fix Bank Identifier Code assert [\#181](https://github.com/uphold/validator.js-asserts/pull/181) ([pedrobranco](https://github.com/pedrobranco))
+
+**Merged pull requests:**
+
+- Add MIT license [\#179](https://github.com/uphold/validator.js-asserts/pull/179) ([zangetsouu](https://github.com/zangetsouu))
+
 ## [v4.0.1](https://github.com/uphold/validator.js-asserts/tree/v4.0.1) (2019-06-05)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.0...v4.0.1)
 
 **Fixed bugs:**
@@ -12,6 +25,7 @@
 - Fix date tests on node 10 [\#178](https://github.com/uphold/validator.js-asserts/pull/178) ([rplopes](https://github.com/rplopes))
 
 ## [v4.0.0](https://github.com/uphold/validator.js-asserts/tree/v4.0.0) (2019-02-18)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.0...v4.0.0)
 
 **Implemented enhancements:**
@@ -23,8 +37,10 @@
 - Update google-libphonenumber [\#173](https://github.com/uphold/validator.js-asserts/pull/173) ([rplopes](https://github.com/rplopes))
 - Fix mixed content issue preventing page load [\#170](https://github.com/uphold/validator.js-asserts/pull/170) ([hitmanmcc](https://github.com/hitmanmcc))
 - Update ownership [\#169](https://github.com/uphold/validator.js-asserts/pull/169) ([ruimarinho](https://github.com/ruimarinho))
+- Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
 
 ## [v3.1.0](https://github.com/uphold/validator.js-asserts/tree/v3.1.0) (2016-10-20)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.2...v3.1.0)
 
 **Implemented enhancements:**
@@ -32,6 +48,7 @@
 - New date asserts [\#164](https://github.com/uphold/validator.js-asserts/pull/164) ([kurayama](https://github.com/kurayama))
 
 ## [v3.0.2](https://github.com/uphold/validator.js-asserts/tree/v3.0.2) (2016-10-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.1...v3.0.2)
 
 **Closed issues:**
@@ -43,6 +60,7 @@
 - Allow custom date formats [\#150](https://github.com/uphold/validator.js-asserts/pull/150) ([kurayama](https://github.com/kurayama))
 
 ## [v3.0.1](https://github.com/uphold/validator.js-asserts/tree/v3.0.1) (2016-08-04)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.0...v3.0.1)
 
 **Implemented enhancements:**
@@ -50,6 +68,7 @@
 - Add `BigNumberEqualTo` assert [\#117](https://github.com/uphold/validator.js-asserts/pull/117) ([nunofgs](https://github.com/nunofgs))
 
 ## [v3.0.0](https://github.com/uphold/validator.js-asserts/tree/v3.0.0) (2016-05-13)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.3.1...v3.0.0)
 
 **Implemented enhancements:**
@@ -57,15 +76,16 @@
 - Update validator.js@2.0.0 [\#110](https://github.com/uphold/validator.js-asserts/pull/110) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.3.1](https://github.com/uphold/validator.js-asserts/tree/v2.3.1) (2016-04-29)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.3.0...v2.3.1)
 
 **Merged pull requests:**
 
-- Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
 - Update uk-modulus-checking@0.0.3 [\#105](https://github.com/uphold/validator.js-asserts/pull/105) ([promag](https://github.com/promag))
 - Update dependencies [\#103](https://github.com/uphold/validator.js-asserts/pull/103) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.3.0](https://github.com/uphold/validator.js-asserts/tree/v2.3.0) (2016-04-14)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.2.0...v2.3.0)
 
 **Implemented enhancements:**
@@ -73,6 +93,7 @@
 - Add Taxpayer Identification Number assert [\#66](https://github.com/uphold/validator.js-asserts/pull/66) ([nunofgs](https://github.com/nunofgs))
 
 ## [v2.2.0](https://github.com/uphold/validator.js-asserts/tree/v2.2.0) (2016-04-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.1.0...v2.2.0)
 
 **Implemented enhancements:**
@@ -84,6 +105,7 @@
 - Add UkModulusChecking assert [\#79](https://github.com/uphold/validator.js-asserts/pull/79) ([franciscocardoso](https://github.com/franciscocardoso))
 
 ## [v2.1.0](https://github.com/uphold/validator.js-asserts/tree/v2.1.0) (2016-04-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.2...v2.1.0)
 
 **Merged pull requests:**
@@ -92,6 +114,7 @@
 - Add format option to date assert [\#95](https://github.com/uphold/validator.js-asserts/pull/95) ([franciscocardoso](https://github.com/franciscocardoso))
 
 ## [v2.0.2](https://github.com/uphold/validator.js-asserts/tree/v2.0.2) (2016-04-06)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.1...v2.0.2)
 
 **Implemented enhancements:**
@@ -105,6 +128,7 @@
 - Remove jscs inline camel case rules [\#65](https://github.com/uphold/validator.js-asserts/pull/65) ([nunofgs](https://github.com/nunofgs))
 
 ## [v2.0.1](https://github.com/uphold/validator.js-asserts/tree/v2.0.1) (2016-01-26)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.0...v2.0.1)
 
 **Fixed bugs:**
@@ -116,6 +140,7 @@
 - Add module exports [\#64](https://github.com/uphold/validator.js-asserts/pull/64) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.0.0](https://github.com/uphold/validator.js-asserts/tree/v2.0.0) (2016-01-21)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v1.1.0...v2.0.0)
 
 **Implemented enhancements:**
@@ -148,6 +173,7 @@
 - iban@0.0.6 breaks build 🚨 [\#39](https://github.com/uphold/validator.js-asserts/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v1.1.0](https://github.com/uphold/validator.js-asserts/tree/v1.1.0) (2015-10-16)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v1.0.0...v1.1.0)
 
 **Merged pull requests:**
@@ -158,6 +184,7 @@
 - Add International Bank Account Number assert [\#23](https://github.com/uphold/validator.js-asserts/pull/23) ([nunofgs](https://github.com/nunofgs))
 
 ## [v1.0.0](https://github.com/uphold/validator.js-asserts/tree/v1.0.0) (2015-08-11)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.7...v1.0.0)
 
 **Merged pull requests:**
@@ -166,6 +193,7 @@
 - Move dependencies to peer dependencies [\#19](https://github.com/uphold/validator.js-asserts/pull/19) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.7](https://github.com/uphold/validator.js-asserts/tree/v0.0.7) (2015-05-25)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.6...v0.0.7)
 
 **Merged pull requests:**
@@ -173,6 +201,7 @@
 - Add null or date assert [\#17](https://github.com/uphold/validator.js-asserts/pull/17) ([nunofgs](https://github.com/nunofgs))
 
 ## [v0.0.6](https://github.com/uphold/validator.js-asserts/tree/v0.0.6) (2015-05-25)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.5...v0.0.6)
 
 **Merged pull requests:**
@@ -181,6 +210,7 @@
 - Add documentation for uri assert [\#15](https://github.com/uphold/validator.js-asserts/pull/15) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.5](https://github.com/uphold/validator.js-asserts/tree/v0.0.5) (2015-05-24)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.4...v0.0.5)
 
 **Merged pull requests:**
@@ -190,6 +220,7 @@
 - Add URI assert [\#12](https://github.com/uphold/validator.js-asserts/pull/12) ([nunofgs](https://github.com/nunofgs))
 
 ## [v0.0.4](https://github.com/uphold/validator.js-asserts/tree/v0.0.4) (2015-01-16)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.3...v0.0.4)
 
 **Merged pull requests:**
@@ -197,6 +228,7 @@
 - Update bignumber.js version [\#7](https://github.com/uphold/validator.js-asserts/pull/7) ([fixe](https://github.com/fixe))
 
 ## [v0.0.3](https://github.com/uphold/validator.js-asserts/tree/v0.0.3) (2014-12-01)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.2...v0.0.3)
 
 **Merged pull requests:**
@@ -207,6 +239,7 @@
 - Add date diff less and greater than asserts [\#3](https://github.com/uphold/validator.js-asserts/pull/3) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.2](https://github.com/uphold/validator.js-asserts/tree/v0.0.2) (2014-11-26)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.1...v0.0.2)
 
 **Merged pull requests:**
@@ -214,3 +247,6 @@
 - Expose min and max in `NullOrString` [\#2](https://github.com/uphold/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/uphold/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
 
+## [v0.0.1](https://github.com/uphold/validator.js-asserts/tree/v0.0.1) (2014-11-12)
+
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/2a36ab31a3ad1998e2f4e9f41041b3c587aaa1ed...v0.0.1)
