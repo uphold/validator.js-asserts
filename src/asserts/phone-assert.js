@@ -5,17 +5,18 @@
  */
 
 import { Validator, Violation } from 'validator.js';
+import { includes, intersection, isArray, keys } from 'lodash';
 
 /**
  * Export `Phone`.
  */
 
-export default function phoneAssert({ countryCode } = {}) {
+export default function phoneAssert({ countryCode, allowedTypes } = {}) {
   /**
    * Peer dependency `google-libphonenumber`.
    */
 
-  const PhoneNumberUtil = require('google-libphonenumber').PhoneNumberUtil;
+  const { PhoneNumberType, PhoneNumberUtil } = require('google-libphonenumber');
 
   /**
    * Phone util instance.
@@ -37,6 +38,18 @@ export default function phoneAssert({ countryCode } = {}) {
   this.countryCode = countryCode;
 
   /**
+   * The allowed phone number types.
+   */
+
+  if (allowedTypes) {
+    if (!isArray(allowedTypes) || intersection(allowedTypes, keys(PhoneNumberType)).length !== allowedTypes.length) {
+      throw new Error('Phone types specified are not valid.');
+    }
+
+    this.allowedTypes = allowedTypes.map(type => PhoneNumberType[type]);
+  }
+
+  /**
    * Validation algorithm.
    */
 
@@ -54,6 +67,10 @@ export default function phoneAssert({ countryCode } = {}) {
 
       if (this.countryCode && !phoneUtil.isValidNumberForRegion(phone, this.countryCode)) {
         throw new Error(`Phone does not belong to country "${this.countryCode}"`);
+      }
+
+      if (this.allowedTypes && !includes(this.allowedTypes, phoneUtil.getNumberType(phone))) {
+        throw new Error(`Phone type is not allowed`);
       }
     } catch (e) {
       throw new Violation(this, value);
