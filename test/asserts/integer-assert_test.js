@@ -44,7 +44,31 @@ describe('IntegerAssert', () => {
     }
   });
 
+  it('should throw an error if strings are allowed but input is not valid', () => {
+    try {
+      new Assert().Integer({ allowString: true }).validate(' 1');
+
+      should.fail();
+    } catch (e) {
+      e.show().assert.should.equal('Integer');
+    }
+  });
+
+  it('should throw an error if only unsigned integers are allowed but input is not valid', () => {
+    try {
+      new Assert().Integer({ unsigned: true }).validate(-1);
+
+      should.fail();
+    } catch (e) {
+      e.show().assert.should.equal('Integer');
+    }
+  });
+
+  it('should accept an unsigned integer as a string if strings are allowed', () => {
+    new Assert().Integer({ allowString: true, unsigned: true }).validate('1');
+  });
+
   it('should accept an integer', () => {
-    new Assert().Integer().validate(1);
+    new Assert().Integer().validate(+1);
   });
 });
