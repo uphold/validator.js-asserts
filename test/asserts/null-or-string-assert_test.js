@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('NullOrStringAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().NullOrString().validate(choice);
+        new Assert.NullOrString().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('NullOrStringAssert', () => {
 
   it('should throw an error if input is a string but is out of boundaries', () => {
     try {
-      new Assert().NullOrString({ min: 10 }).validate('foo');
+      new Assert.NullOrString({ min: 10 }).validate('foo');
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('NullOrStringAssert', () => {
 
   it('should expose `assert` equal to `NullOrString`', () => {
     try {
-      new Assert().NullOrString().validate({});
+      new Assert.NullOrString().validate({});
 
       should.fail();
     } catch (e) {
@@ -58,7 +59,7 @@ describe('NullOrStringAssert', () => {
 
   it('should expose `min` or `max` on the violation if testing boundaries of a string', () => {
     try {
-      new Assert().NullOrString({ min: 5 }).validate('foo');
+      new Assert.NullOrString({ min: 5 }).validate('foo');
 
       should.fail();
     } catch (e) {
@@ -68,7 +69,7 @@ describe('NullOrStringAssert', () => {
 
   it('should expose `min` or `max` on the `assert` if testing boundaries of a string', () => {
     try {
-      new Assert().NullOrString({ max: 2, min: 1 }).validate('foobar');
+      new Assert.NullOrString({ max: 2, min: 1 }).validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -78,14 +79,14 @@ describe('NullOrStringAssert', () => {
   });
 
   it('should accept `null`', () => {
-    new Assert().NullOrString().validate(null);
+    new Assert.NullOrString().validate(null);
   });
 
   it('should accept a string within boundaries', () => {
-    new Assert().NullOrString({ max: 10 }).validate('foo');
+    new Assert.NullOrString({ max: 10 }).validate('foo');
   });
 
   it('should accept a string', () => {
-    new Assert().NullOrString().validate('foo');
+    new Assert.NullOrString().validate('foo');
   });
 });

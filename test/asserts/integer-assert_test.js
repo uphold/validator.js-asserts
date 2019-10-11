@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('IntegerAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Integer().validate(choice);
+        new Assert.Integer().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +37,7 @@ describe('IntegerAssert', () => {
 
   it('should expose `assert` equal to `Integer`', () => {
     try {
-      new Assert().Integer().validate('foo');
+      new Assert.Integer().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -45,6 +46,6 @@ describe('IntegerAssert', () => {
   });
 
   it('should accept an integer', () => {
-    new Assert().Integer().validate(1);
+    new Assert.Integer().validate(1);
   });
 });

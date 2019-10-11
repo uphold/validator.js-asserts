@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('BankIdentifierCodeAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().BankIdentifierCode().validate(choice);
+        new Assert.BankIdentifierCode().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('BankIdentifierCodeAssert', () => {
 
   it('should throw an error if the input value is not a valid bic', () => {
     try {
-      new Assert().BankIdentifierCode().validate('foobar');
+      new Assert.BankIdentifierCode().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('BankIdentifierCodeAssert', () => {
 
   it('should expose `assert` equal to `BankIdentifierCode`', () => {
     try {
-      new Assert().BankIdentifierCode().validate(123);
+      new Assert.BankIdentifierCode().validate(123);
 
       should.fail();
     } catch (e) {
@@ -58,7 +59,7 @@ describe('BankIdentifierCodeAssert', () => {
 
   it('should throw an error if the input value is not a valid bic', () => {
     try {
-      new Assert().BankIdentifierCode().validate('BICOLETO');
+      new Assert.BankIdentifierCode().validate('BICOLETO');
 
       should.fail();
     } catch (e) {
@@ -68,19 +69,19 @@ describe('BankIdentifierCodeAssert', () => {
   });
 
   it('should accept a valid bic without branch code', () => {
-    new Assert().BankIdentifierCode().validate('FOOBARBI');
+    new Assert.BankIdentifierCode().validate('FOOBARBI');
   });
 
   it('should accept a valid bic with branch code', () => {
-    new Assert().BankIdentifierCode().validate('FOOBARBIXXX');
+    new Assert.BankIdentifierCode().validate('FOOBARBIXXX');
   });
 
   it('should be case-insensitive', () => {
-    new Assert().BankIdentifierCode().validate('FOOBARBI');
-    new Assert().BankIdentifierCode().validate('FooBarBI');
-    new Assert().BankIdentifierCode().validate('foobarbi');
-    new Assert().BankIdentifierCode().validate('FOOBARBIXXX');
-    new Assert().BankIdentifierCode().validate('FooBarBIXXX');
-    new Assert().BankIdentifierCode().validate('foobarbixxx');
+    new Assert.BankIdentifierCode().validate('FOOBARBI');
+    new Assert.BankIdentifierCode().validate('FooBarBI');
+    new Assert.BankIdentifierCode().validate('foobarbi');
+    new Assert.BankIdentifierCode().validate('FOOBARBIXXX');
+    new Assert.BankIdentifierCode().validate('FooBarBIXXX');
+    new Assert.BankIdentifierCode().validate('foobarbixxx');
   });
 });

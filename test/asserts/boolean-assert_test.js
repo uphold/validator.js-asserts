@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('BooleanAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Boolean().validate(choice);
+        new Assert.Boolean().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('BooleanAssert', () => {
 
   it('should expose `assert` equal to `Boolean`', () => {
     try {
-      new Assert().Boolean().validate('foo');
+      new Assert.Boolean().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -46,10 +47,10 @@ describe('BooleanAssert', () => {
   });
 
   it('should accept a `true` boolean value', () => {
-    new Assert().Boolean().validate(true);
+    new Assert.Boolean().validate(true);
   });
 
   it('should accept a `false` boolean value', () => {
-    new Assert().Boolean().validate(false);
+    new Assert.Boolean().validate(false);
   });
 });

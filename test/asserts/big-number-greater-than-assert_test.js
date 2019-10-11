@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -23,7 +24,7 @@ const Assert = BaseAssert.extend({
 describe('BigNumberGreaterThanAssert', () => {
   it('should throw an error if `threshold` is missing', () => {
     try {
-      new Assert().BigNumberGreaterThan();
+      new Assert.BigNumberGreaterThan();
 
       should.fail();
     } catch (e) {
@@ -35,7 +36,7 @@ describe('BigNumberGreaterThanAssert', () => {
     describe(`with option '${option ? `{ validateSignificantDigits: ${option.validateSignificantDigits} }` : undefined }'`, () => {
       it('should throw an error if `threshold` is not a number', () => {
         try {
-          new Assert().BigNumberGreaterThan({}, option);
+          new Assert.BigNumberGreaterThan({}, option);
 
           should.fail();
         } catch (e) {
@@ -49,7 +50,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
         choices.forEach(choice => {
           try {
-            new Assert().BigNumberGreaterThan(10, option).validate(choice);
+            new Assert.BigNumberGreaterThan(10, option).validate(choice);
 
             should.fail();
           } catch (e) {
@@ -60,7 +61,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
       it('should throw an error if the input number is equal to threshold', () => {
         try {
-          new Assert().BigNumberGreaterThan(10, option).validate(10);
+          new Assert.BigNumberGreaterThan(10, option).validate(10);
 
           should.fail();
         } catch (e) {
@@ -70,7 +71,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
       it('should throw an error if the input number is less than the threshold', () => {
         try {
-          new Assert().BigNumberGreaterThan(10, option).validate(9.99999999);
+          new Assert.BigNumberGreaterThan(10, option).validate(9.99999999);
 
           should.fail();
         } catch (e) {
@@ -80,7 +81,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
       it('should expose `assert` equal to `BigNumberGreaterThan`', () => {
         try {
-          new Assert().BigNumberGreaterThan(1, option).validate(0.1);
+          new Assert.BigNumberGreaterThan(1, option).validate(0.1);
 
           should.fail();
         } catch (e) {
@@ -90,7 +91,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
       it('should expose `message` on the violation if the input value is not a number', () => {
         try {
-          new Assert().BigNumberGreaterThan(10, option).validate({});
+          new Assert.BigNumberGreaterThan(10, option).validate({});
 
           should.fail();
         } catch (e) {
@@ -100,7 +101,7 @@ describe('BigNumberGreaterThanAssert', () => {
 
       it('should expose `threshold` on the violation', () => {
         try {
-          new Assert().BigNumberGreaterThan(10, option).validate(0.1);
+          new Assert.BigNumberGreaterThan(10, option).validate(0.1);
 
           should.fail();
         } catch (e) {
@@ -109,11 +110,11 @@ describe('BigNumberGreaterThanAssert', () => {
       });
 
       it('should accept a big number as a `threshold` value', () => {
-        new Assert().BigNumberGreaterThan(new BigNumber(10), option).validate(10.00000001);
+        new Assert.BigNumberGreaterThan(new BigNumber(10), option).validate(10.00000001);
       });
 
       it('should accept a number that is greater than threshold', () => {
-        new Assert().BigNumberGreaterThan(10, option).validate(10.00000001);
+        new Assert.BigNumberGreaterThan(10, option).validate(10.00000001);
       });
     });
   });

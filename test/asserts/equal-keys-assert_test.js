@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('EqualKeysAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().EqualKeys(['foo', 'bar']).validate(choice);
+        new Assert.EqualKeys(['foo', 'bar']).validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('EqualKeysAssert', () => {
 
   it('should throw an error if the object does not have the expected keys', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
+      new Assert.EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -47,7 +48,7 @@ describe('EqualKeysAssert', () => {
 
   it('should throw an error if the object is empty', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate({});
+      new Assert.EqualKeys(['foo']).validate({});
 
       should.fail();
     } catch (e) {
@@ -57,7 +58,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be `undefined`', () => {
     try {
-      new Assert().EqualKeys().validate({ foo: 'oof' });
+      new Assert.EqualKeys().validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -67,7 +68,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be defined as multiple arguments', () => {
     try {
-      new Assert().EqualKeys('foo', 'bar').validate({ foo: 'oof' });
+      new Assert.EqualKeys('foo', 'bar').validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -77,7 +78,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be defined as a single string argument', () => {
     try {
-      new Assert().EqualKeys('bar').validate({ foo: 'oof' });
+      new Assert.EqualKeys('bar').validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -87,7 +88,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `assert` equal to `EqualKeys`', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate(123);
+      new Assert.EqualKeys(['foo']).validate(123);
 
       should.fail();
     } catch (e) {
@@ -97,7 +98,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `difference` on the violation if object has extra keys', () => {
     try {
-      new Assert().EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
+      new Assert.EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -107,7 +108,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `difference` on the violation if object has missing keys', () => {
     try {
-      new Assert().EqualKeys(['foo', 'biz']).validate({ foo: 'qux' });
+      new Assert.EqualKeys(['foo', 'biz']).validate({ foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -116,10 +117,10 @@ describe('EqualKeysAssert', () => {
   });
 
   it('should accept an empty object with no keys expected', () => {
-    new Assert().EqualKeys().validate({});
+    new Assert.EqualKeys().validate({});
   });
 
   it('should accept an object with expected keys', () => {
-    new Assert().EqualKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
+    new Assert.EqualKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
   });
 });

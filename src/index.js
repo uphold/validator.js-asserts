@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -39,7 +40,7 @@ const UsZipCode = require('./asserts/us-zip-code-assert.js');
 const Uuid = require('./asserts/uuid-assert.js');
 
 /**
- * Module dependencies.
+ * Export asserts.
  */
 
 module.exports = {

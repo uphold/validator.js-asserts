@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('NotEmptyAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().NotEmpty().validate(choice);
+        new Assert.NotEmpty().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +37,7 @@ describe('NotEmptyAssert', () => {
 
   it('should expose `assert` equal to `NotEmpty`', () => {
     try {
-      new Assert().NotEmpty().validate({});
+      new Assert.NotEmpty().validate({});
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('NotEmptyAssert', () => {
     const choices = [['foo'], { foo: 'bar' }, 'foo'];
 
     choices.forEach(choice => {
-      new Assert().NotEmpty().validate(choice);
+      new Assert.NotEmpty().validate(choice);
     });
   });
 });

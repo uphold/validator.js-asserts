@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -35,7 +36,7 @@ module.exports = function bigNumberGreaterThanAssert(threshold, { validateSignif
     throw new Error('A threshold value is required.');
   }
 
-  new Assert().BigNumber({ validateSignificantDigits }).validate(threshold);
+  new Assert.BigNumber({ validateSignificantDigits }).validate(threshold);
 
   this.threshold = new BigNumber(threshold);
 
@@ -44,7 +45,7 @@ module.exports = function bigNumberGreaterThanAssert(threshold, { validateSignif
    */
 
   this.validate = value => {
-    new Assert().BigNumber({ validateSignificantDigits }).validate(value);
+    new Assert.BigNumber({ validateSignificantDigits }).validate(value);
 
     try {
       const number = new BigNumber(value);
