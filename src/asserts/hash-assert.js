@@ -58,4 +58,4 @@ module.exports = function hashAssert(algorithm) {
   };
 
   return this;
-}
+};

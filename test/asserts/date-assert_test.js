@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const DateAssert = require('../../src/asserts/date-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `DateAssert`.
@@ -26,7 +26,7 @@ describe('DateAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Date().validate(choice);
+        Assert.date().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('DateAssert', () => {
 
   it('should throw an error if value is not correctly formatted', () => {
     try {
-      new Assert.Date({ format: 'YYYY-MM-DD' }).validate('20003112');
+      Assert.date({ format: 'YYYY-MM-DD' }).validate('20003112');
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('DateAssert', () => {
 
   it('should throw an error if value does not pass strict validation', () => {
     try {
-      new Assert.Date({ format: 'YYYY-MM-DD' }).validate('2000.12.30');
+      Assert.date({ format: 'YYYY-MM-DD' }).validate('2000.12.30');
 
       should.fail();
     } catch (e) {
@@ -60,7 +60,7 @@ describe('DateAssert', () => {
 
   it('should expose `assert` equal to `Date`', () => {
     try {
-      new Assert.Date().validate('foo');
+      Assert.date().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -69,14 +69,14 @@ describe('DateAssert', () => {
   });
 
   it('should accept a `Date`', () => {
-    new Assert.Date().validate(new Date());
+    Assert.date().validate(new Date());
   });
 
   it('should accept a correctly formatted date', () => {
-    new Assert.Date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
+    Assert.date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
   });
 
   it('should accept a `string`', () => {
-    new Assert.Date().validate('2014-10-16');
+    Assert.date().validate('2014-10-16');
   });
 });

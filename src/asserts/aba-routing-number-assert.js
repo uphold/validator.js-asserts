@@ -40,4 +40,4 @@ module.exports = function abaRoutingNumberAssert() {
   };
 
   return this;
-}
+};

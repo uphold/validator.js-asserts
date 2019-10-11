@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UsSubdivisionAssert = require('../../src/asserts/us-subdivision-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UsSubdivisionAssert`.
@@ -26,7 +26,7 @@ describe('UsSubdivisionAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.UsSubdivision().validate(choice);
+        Assert.usSubdivision().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -39,7 +39,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should throw an error if subdivision is invalid', () => {
     try {
-      new Assert.UsSubdivision().validate('FOO');
+      Assert.usSubdivision().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should throw an error if category is unsupported', () => {
     try {
-      new Assert.UsSubdivision({ categories: ['foo', 'districts'] });
+      Assert.usSubdivision({ categories: ['foo', 'districts'] });
 
       should.fail();
     } catch (e) {
@@ -57,9 +57,9 @@ describe('UsSubdivisionAssert', () => {
     }
   });
 
-  it('should throw an error if only alpha2 codes are allowed but input isn\'t one', () => {
+  it("should throw an error if only alpha2 codes are allowed but input isn't one", () => {
     try {
-      new Assert.UsSubdivision({ alpha2Only: true }).validate('US-CA');
+      Assert.usSubdivision({ alpha2Only: true }).validate('US-CA');
 
       should.fail();
     } catch (e) {
@@ -69,7 +69,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should expose `assert` equal to `UsSubdivision`', () => {
     try {
-      new Assert.UsSubdivision().validate('FOO');
+      Assert.usSubdivision().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -79,7 +79,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should allow restricting to `districts` subdivisions only', () => {
     try {
-      new Assert.UsSubdivision({ categories: ['districts'] }).validate('AS');
+      Assert.usSubdivision({ categories: ['districts'] }).validate('AS');
 
       should.fail();
     } catch (e) {
@@ -89,7 +89,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should allow restricting to `outlying` subdivisions only', () => {
     try {
-      new Assert.UsSubdivision({ categories: ['outlying'] }).validate('DC');
+      Assert.usSubdivision({ categories: ['outlying'] }).validate('DC');
 
       should.fail();
     } catch (e) {
@@ -99,7 +99,7 @@ describe('UsSubdivisionAssert', () => {
 
   it('should allow restricting to `states` subdivisions only', () => {
     try {
-      new Assert.UsSubdivision({ categories: ['states'] }).validate('AS');
+      Assert.usSubdivision({ categories: ['states'] }).validate('AS');
 
       should.fail();
     } catch (e) {
@@ -108,22 +108,22 @@ describe('UsSubdivisionAssert', () => {
   });
 
   it('should accept a `district` subdivision by default', () => {
-    new Assert.UsSubdivision().validate('DC');
+    Assert.usSubdivision().validate('DC');
   });
 
   it('should accept an `outlying` subdivision by default', () => {
-    new Assert.UsSubdivision().validate('AS');
+    Assert.usSubdivision().validate('AS');
   });
 
   it('should accept a `state` subdivision by default', () => {
-    new Assert.UsSubdivision().validate('AK');
+    Assert.usSubdivision().validate('AK');
   });
 
   it('should accept a full subdivision code by default', () => {
-    new Assert.UsSubdivision().validate('US-CA');
+    Assert.usSubdivision().validate('US-CA');
   });
 
   it('should accept an `alpha2` code if only those are allowed', () => {
-    new Assert.UsSubdivision({ alpha2Only: true }).validate('CA');
+    Assert.usSubdivision({ alpha2Only: true }).validate('CA');
   });
 });

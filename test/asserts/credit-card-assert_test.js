@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const CreditCardAssert = require('../../src/asserts/credit-card-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `CreditCardAssert`.
@@ -26,7 +26,7 @@ describe('CreditCardAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.CreditCard().validate(choice);
+        Assert.creditCard().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('CreditCardAssert', () => {
 
   it('should throw an error if the input value is not a valid card number', () => {
     try {
-      new Assert.CreditCard().validate('foobar');
+      Assert.creditCard().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('CreditCardAssert', () => {
 
   it('should expose `assert` equal to `CreditCard`', () => {
     try {
-      new Assert.CreditCard().validate(123);
+      Assert.creditCard().validate(123);
 
       should.fail();
     } catch (e) {
@@ -58,10 +58,10 @@ describe('CreditCardAssert', () => {
   });
 
   it('should accept a valid credit card number as string', () => {
-    new Assert.CreditCard().validate('4111111111111111');
+    Assert.creditCard().validate('4111111111111111');
   });
 
   it('should accept a valid credit card number', () => {
-    new Assert.CreditCard().validate(4111111111111111);
+    Assert.creditCard().validate(4111111111111111);
   });
 });

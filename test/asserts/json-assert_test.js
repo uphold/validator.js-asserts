@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const JsonAssert = require('../../src/asserts/json-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `JsonAssert`.
@@ -26,7 +26,7 @@ describe('JsonAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Json().validate(choice);
+        Assert.json().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +37,7 @@ describe('JsonAssert', () => {
 
   it('should expose `assert` equal to `Json`', () => {
     try {
-      new Assert.Json().validate([]);
+      Assert.json().validate([]);
 
       should.fail();
     } catch (e) {
@@ -46,15 +46,8 @@ describe('JsonAssert', () => {
   });
 
   it('should accept valid JSON strings', () => {
-    [
-      '"foo"',
-      '10',
-      '{"foo":"bar"}',
-      123,
-      Boolean(true),
-      Number(10)
-    ].forEach(choice => {
-      new Assert.Json().validate(choice);
+    ['"foo"', '10', '{"foo":"bar"}', 123, Boolean(true), Number(10)].forEach(choice => {
+      Assert.json().validate(choice);
     });
   });
 });

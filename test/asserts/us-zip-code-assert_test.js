@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UsZipCodeAssert = require('../../src/asserts/us-zip-code-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UsZipCodeAssert`.
@@ -26,7 +26,7 @@ describe('UsZipCodeAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.UsZipCode().validate(choice);
+        Assert.usZipCode().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -42,7 +42,7 @@ describe('UsZipCodeAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.UsZipCode().validate(choice);
+        Assert.usZipCode().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -53,12 +53,12 @@ describe('UsZipCodeAssert', () => {
   });
 
   it('should accept 5-digit zip codes', () => {
-    new Assert.UsZipCode().validate('12345');
+    Assert.usZipCode().validate('12345');
   });
 
   it('should accept 9-digit zip codes', () => {
     ['12345-1234', '12345 1234', '123456789'].forEach(choice => {
-      new Assert.UsZipCode().validate(choice);
+      Assert.usZipCode().validate(choice);
     });
   });
 });

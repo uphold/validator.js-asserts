@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const NullOrDateAssert = require('../../src/asserts/null-or-date-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `NullOrDateAssert`.
@@ -26,7 +26,7 @@ describe('NullOrDateAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.NullOrDate().validate(choice);
+        Assert.nullOrDate().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('NullOrDateAssert', () => {
 
   it('should throw an error if the input value is not a valid date', () => {
     try {
-      new Assert.NullOrDate().validate('2015-99-01');
+      Assert.nullOrDate().validate('2015-99-01');
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('NullOrDateAssert', () => {
 
   it('should expose `assert` equal to `NullOrDate`', () => {
     try {
-      new Assert.NullOrDate().validate({});
+      Assert.nullOrDate().validate({});
 
       should.fail();
     } catch (e) {
@@ -58,14 +58,14 @@ describe('NullOrDateAssert', () => {
   });
 
   it('should accept `null`', () => {
-    new Assert.NullOrDate().validate(null);
+    Assert.nullOrDate().validate(null);
   });
 
   it('should accept a date', () => {
-    new Assert.NullOrDate().validate(new Date());
+    Assert.nullOrDate().validate(new Date());
   });
 
   it('should accept a string', () => {
-    new Assert.NullOrDate().validate('2014-10-16');
+    Assert.nullOrDate().validate('2014-10-16');
   });
 });

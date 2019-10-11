@@ -42,12 +42,16 @@ module.exports = function dateDiffGreaterThanOrEqualToAssert(threshold, options)
    * Options.
    */
 
-  this.options = assign(this, {
-    absolute: false,
-    asFloat: false,
-    fromDate: null,
-    unit: 'milliseconds'
-  }, options);
+  this.options = assign(
+    this,
+    {
+      absolute: false,
+      asFloat: false,
+      fromDate: null,
+      unit: 'milliseconds'
+    },
+    options
+  );
 
   /**
    * Validation algorithm.
@@ -59,7 +63,13 @@ module.exports = function dateDiffGreaterThanOrEqualToAssert(threshold, options)
     }
 
     if (isNaN(Date.parse(value)) === true) {
-      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
+      throw new Violation(this, value, {
+        absolute: this.absolute,
+        asFloat: this.asFloat,
+        fromDate: this.fromDate,
+        threshold: this.threshold,
+        unit: this.unit
+      });
     }
 
     let diff = moment(this.fromDate || Date.now()).diff(value, this.unit, this.asFloat);
@@ -69,11 +79,18 @@ module.exports = function dateDiffGreaterThanOrEqualToAssert(threshold, options)
     }
 
     if (diff < this.threshold) {
-      throw new Violation(this, value, { absolute: this.absolute, asFloat: this.asFloat, diff, fromDate: this.fromDate, threshold: this.threshold, unit: this.unit });
+      throw new Violation(this, value, {
+        absolute: this.absolute,
+        asFloat: this.asFloat,
+        diff,
+        fromDate: this.fromDate,
+        threshold: this.threshold,
+        unit: this.unit
+      });
     }
 
     return true;
   };
 
   return this;
-}
+};

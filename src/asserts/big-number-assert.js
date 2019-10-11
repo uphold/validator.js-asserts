@@ -48,4 +48,4 @@ module.exports = function bigNumberAssert({ validateSignificantDigits = true } =
   };
 
   return this;
-}
+};

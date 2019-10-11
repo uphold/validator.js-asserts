@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const PhoneAssert = require('../../src/asserts/phone-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `Phone`.
@@ -24,7 +24,7 @@ describe('Phone', () => {
   it('should throw an error if the input value is not a string', () => {
     [{}, [], 123].forEach(choice => {
       try {
-        new Assert.Phone({ countryCode: 'US' }).validate(choice);
+        Assert.phone({ countryCode: 'US' }).validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +36,7 @@ describe('Phone', () => {
 
   it('should throw an error if the phone is not valid', () => {
     try {
-      new Assert.Phone().validate('+35191234567890');
+      Assert.phone().validate('+35191234567890');
 
       should.fail();
     } catch (e) {
@@ -47,7 +47,7 @@ describe('Phone', () => {
 
   it('should throw an error if the phone does not belong to the given country', () => {
     try {
-      new Assert.Phone({ countryCode: 'US' }).validate('912345578');
+      Assert.phone({ countryCode: 'US' }).validate('912345578');
 
       should.fail();
     } catch (e) {
@@ -57,14 +57,14 @@ describe('Phone', () => {
   });
 
   it('should accept a valid phone in the e164 format', () => {
-    new Assert.Phone().validate('+1 415 555 2671');
+    Assert.phone().validate('+1 415 555 2671');
   });
 
   it('should accept a phone in the e164 format that belongs to the given country', () => {
-    new Assert.Phone({ countryCode: 'US' }).validate('+1 415 555 2671');
+    Assert.phone({ countryCode: 'US' }).validate('+1 415 555 2671');
   });
 
   it('should accept a phone in the national format that belongs to the given country', () => {
-    new Assert.Phone({ countryCode: 'US' }).validate('415 555 2671');
+    Assert.phone({ countryCode: 'US' }).validate('415 555 2671');
   });
 });

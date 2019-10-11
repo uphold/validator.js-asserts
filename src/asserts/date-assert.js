@@ -62,4 +62,4 @@ module.exports = function dateAssert({ format } = {}) {
   };
 
   return this;
-}
+};

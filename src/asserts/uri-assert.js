@@ -1,8 +1,8 @@
 'use strict';
 
 /**
-* Module dependencies.
-*/
+ * Module dependencies.
+ */
 
 const { Validator, Violation } = require('validator.js');
 const { forEach, has } = require('lodash');
@@ -57,20 +57,24 @@ module.exports = function uriAssert(constraints) {
     }
 
     // Validate that each constraint matches exactly.
-    forEach(this.constraints, (constraint, key) => {
-      if (key === 'is' && uri[key](constraint)) {
-        return;
-      }
+    forEach(
+      this.constraints,
+      (constraint, key) => {
+        if (key === 'is' && uri[key](constraint)) {
+          return;
+        }
 
-      if (key !== 'is' && constraint === uri[key]()) {
-        return;
-      }
+        if (key !== 'is' && constraint === uri[key]()) {
+          return;
+        }
 
-      throw new Violation(this, value, { constraints: this.constraints });
-    }, this);
+        throw new Violation(this, value, { constraints: this.constraints });
+      },
+      this
+    );
 
     return true;
   };
 
   return this;
-}
+};

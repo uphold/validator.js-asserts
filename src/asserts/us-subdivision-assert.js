@@ -15,10 +15,56 @@ const subdivisions = {
   districts: ['DC'],
   outlying: ['AS', 'GU', 'MP', 'PR', 'UM', 'VI'],
   states: [
-    'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID',
-    'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT',
-    'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI',
-    'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'
+    'AK',
+    'AL',
+    'AR',
+    'AZ',
+    'CA',
+    'CO',
+    'CT',
+    'DE',
+    'FL',
+    'GA',
+    'HI',
+    'IA',
+    'ID',
+    'IL',
+    'IN',
+    'KS',
+    'KY',
+    'LA',
+    'MA',
+    'MD',
+    'ME',
+    'MI',
+    'MN',
+    'MO',
+    'MS',
+    'MT',
+    'NC',
+    'ND',
+    'NE',
+    'NH',
+    'NJ',
+    'NM',
+    'NV',
+    'NY',
+    'OH',
+    'OK',
+    'OR',
+    'PA',
+    'RI',
+    'SC',
+    'SD',
+    'TN',
+    'TX',
+    'UT',
+    'VA',
+    'VT',
+    'WA',
+    'WI',
+    'WV',
+    'WY'
   ]
 };
 
@@ -81,7 +127,12 @@ module.exports = function usSubdivisionAssert({ categories: categories = keys, a
       code = value.substr(-2);
     }
 
-    const result = chain(subdivisions).pick(this.categories).values().flatten().includes(code).value();
+    const result = chain(subdivisions)
+      .pick(this.categories)
+      .values()
+      .flatten()
+      .includes(code)
+      .value();
 
     if (result !== true) {
       throw new Violation(this, value);
@@ -91,4 +142,4 @@ module.exports = function usSubdivisionAssert({ categories: categories = keys, a
   };
 
   return this;
-}
+};

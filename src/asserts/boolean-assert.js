@@ -30,4 +30,4 @@ module.exports = function booleanAssert() {
   };
 
   return this;
-}
+};

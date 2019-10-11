@@ -15,7 +15,7 @@ module.exports = function phoneAssert({ countryCode } = {}) {
    * Peer dependency `google-libphonenumber`.
    */
 
-  const PhoneNumberUtil = require('google-libphonenumber').PhoneNumberUtil;
+  const { PhoneNumberUtil } = require('google-libphonenumber');
 
   /**
    * Phone util instance.
@@ -63,4 +63,4 @@ module.exports = function phoneAssert({ countryCode } = {}) {
   };
 
   return this;
-}
+};

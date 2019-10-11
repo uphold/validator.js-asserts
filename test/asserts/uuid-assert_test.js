@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UuidAssert = require('../../src/asserts/uuid-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UuidAssert`.
@@ -26,7 +26,7 @@ describe('UuidAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Uuid().validate(choice);
+        Assert.uuid().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -42,7 +42,7 @@ describe('UuidAssert', () => {
 
     versions.forEach(version => {
       try {
-        new Assert.Uuid(version);
+        Assert.uuid(version);
 
         should.fail();
       } catch (e) {
@@ -53,7 +53,7 @@ describe('UuidAssert', () => {
 
   it('should expose `assert` equal to `Uuid`', () => {
     try {
-      new Assert.Uuid().validate('foo');
+      Assert.uuid().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -63,7 +63,7 @@ describe('UuidAssert', () => {
 
   it('should expose `version` on the violation', () => {
     try {
-      new Assert.Uuid(5).validate('foo');
+      Assert.uuid(5).validate('foo');
 
       should.fail();
     } catch (e) {
@@ -72,14 +72,14 @@ describe('UuidAssert', () => {
   });
 
   it('should accept a v3 uuid', () => {
-    new Assert.Uuid(3).validate('6fa459ea-ee8a-3ca4-894e-db77e160355e');
+    Assert.uuid(3).validate('6fa459ea-ee8a-3ca4-894e-db77e160355e');
   });
 
   it('should accept a v4 uuid', () => {
-    new Assert.Uuid(4).validate('17dd5a7a-637c-436e-bb8a-5398f7ac0a76');
+    Assert.uuid(4).validate('17dd5a7a-637c-436e-bb8a-5398f7ac0a76');
   });
 
   it('should accept a v5 uuid', () => {
-    new Assert.Uuid(5).validate('74738ff5-5367-5958-9aee-98fffdcd1876');
+    Assert.uuid(5).validate('74738ff5-5367-5958-9aee-98fffdcd1876');
   });
 });

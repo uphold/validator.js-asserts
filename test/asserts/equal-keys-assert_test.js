@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const EqualKeysAssert = require('../../src/asserts/equal-keys-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `EqualKeysAssert`.
@@ -26,7 +26,7 @@ describe('EqualKeysAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.EqualKeys(['foo', 'bar']).validate(choice);
+        Assert.equalKeys(['foo', 'bar']).validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('EqualKeysAssert', () => {
 
   it('should throw an error if the object does not have the expected keys', () => {
     try {
-      new Assert.EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
+      Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -48,7 +48,7 @@ describe('EqualKeysAssert', () => {
 
   it('should throw an error if the object is empty', () => {
     try {
-      new Assert.EqualKeys(['foo']).validate({});
+      Assert.equalKeys(['foo']).validate({});
 
       should.fail();
     } catch (e) {
@@ -58,7 +58,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be `undefined`', () => {
     try {
-      new Assert.EqualKeys().validate({ foo: 'oof' });
+      Assert.equalKeys().validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -68,7 +68,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be defined as multiple arguments', () => {
     try {
-      new Assert.EqualKeys('foo', 'bar').validate({ foo: 'oof' });
+      Assert.equalKeys('foo', 'bar').validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -78,7 +78,7 @@ describe('EqualKeysAssert', () => {
 
   it('should allow `keys` to be defined as a single string argument', () => {
     try {
-      new Assert.EqualKeys('bar').validate({ foo: 'oof' });
+      Assert.equalKeys('bar').validate({ foo: 'oof' });
 
       should.fail();
     } catch (e) {
@@ -88,7 +88,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `assert` equal to `EqualKeys`', () => {
     try {
-      new Assert.EqualKeys(['foo']).validate(123);
+      Assert.equalKeys(['foo']).validate(123);
 
       should.fail();
     } catch (e) {
@@ -98,7 +98,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `difference` on the violation if object has extra keys', () => {
     try {
-      new Assert.EqualKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
+      Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -108,7 +108,7 @@ describe('EqualKeysAssert', () => {
 
   it('should expose `difference` on the violation if object has missing keys', () => {
     try {
-      new Assert.EqualKeys(['foo', 'biz']).validate({ foo: 'qux' });
+      Assert.equalKeys(['foo', 'biz']).validate({ foo: 'qux' });
 
       should.fail();
     } catch (e) {
@@ -117,10 +117,10 @@ describe('EqualKeysAssert', () => {
   });
 
   it('should accept an empty object with no keys expected', () => {
-    new Assert.EqualKeys().validate({});
+    Assert.equalKeys().validate({});
   });
 
   it('should accept an object with expected keys', () => {
-    new Assert.EqualKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
+    Assert.equalKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
   });
 });

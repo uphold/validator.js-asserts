@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const IntegerAssert = require('../../src/asserts/integer-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `IntegerAssert`.
@@ -26,7 +26,7 @@ describe('IntegerAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Integer().validate(choice);
+        Assert.integer().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +37,7 @@ describe('IntegerAssert', () => {
 
   it('should expose `assert` equal to `Integer`', () => {
     try {
-      new Assert.Integer().validate('foo');
+      Assert.integer().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -46,6 +46,6 @@ describe('IntegerAssert', () => {
   });
 
   it('should accept an integer', () => {
-    new Assert.Integer().validate(1);
+    Assert.integer().validate(1);
   });
 });

@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const UkModulusCheckingAssert = require('../../src/asserts/uk-modulus-checking-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UkModulusCheckingAssert`.
@@ -23,7 +23,7 @@ const Assert = BaseAssert.extend({
 describe('UkModulusChecking', () => {
   it('should throw an error if `accountNumber` is missing', () => {
     try {
-      new Assert.UkModulusChecking().validate();
+      Assert.ukModulusChecking().validate();
 
       should.fail();
     } catch (e) {
@@ -35,7 +35,7 @@ describe('UkModulusChecking', () => {
 
   it('should throw an error if `sortCode` is missing', () => {
     try {
-      new Assert.UkModulusChecking().validate({ accountNumber: '' });
+      Assert.ukModulusChecking().validate({ accountNumber: '' });
 
       should.fail();
     } catch (e) {
@@ -47,7 +47,7 @@ describe('UkModulusChecking', () => {
 
   it('should throw an error if `accountNumber` or `sortCode` are invalid', () => {
     try {
-      new Assert.UkModulusChecking().validate({ accountNumber: '15764273', sortCode: '938063' });
+      Assert.ukModulusChecking().validate({ accountNumber: '15764273', sortCode: '938063' });
 
       should.fail();
     } catch (e) {
@@ -58,6 +58,6 @@ describe('UkModulusChecking', () => {
   });
 
   it('should accept a valid `accountNumber` and `sortCode`', () => {
-    new Assert.UkModulusChecking().validate({ accountNumber: '66374958', sortCode: '089999' });
+    Assert.ukModulusChecking().validate({ accountNumber: '66374958', sortCode: '089999' });
   });
 });

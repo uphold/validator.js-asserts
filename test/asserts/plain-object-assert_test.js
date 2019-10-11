@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const PlainObjectAssert = require('../../src/asserts/plain-object-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `PlainObjectAssert`.
@@ -26,7 +26,7 @@ describe('PlainObjectAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.PlainObject().validate(choice);
+        Assert.plainObject().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +37,7 @@ describe('PlainObjectAssert', () => {
 
   it('should expose `assert` equal to `PlainObject`', () => {
     try {
-      new Assert.PlainObject().validate('FOO');
+      Assert.plainObject().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -46,6 +46,6 @@ describe('PlainObjectAssert', () => {
   });
 
   it('should accept a plain object', () => {
-    new Assert.PlainObject().validate({ foo: 'bar' });
+    Assert.plainObject().validate({ foo: 'bar' });
   });
 });

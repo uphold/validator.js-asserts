@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumber = require('bignumber.js');
 const BigNumberEqualToAssert = require('../../src/asserts/big-number-equal-to-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `BigNumberEqualToAssert`.
@@ -24,7 +24,7 @@ const Assert = BaseAssert.extend({
 describe('BigNumberEqualToAssert', () => {
   it('should throw an error if `value` is missing', () => {
     try {
-      new Assert.BigNumberEqualTo();
+      Assert.bigNumberEqualTo();
 
       should.fail();
     } catch (e) {
@@ -33,10 +33,12 @@ describe('BigNumberEqualToAssert', () => {
   });
 
   [undefined, { validateSignificantDigits: true }, { validateSignificantDigits: false }].forEach(option => {
-    describe(`with option '${option ? `{ validateSignificantDigits: ${option.validateSignificantDigits} }` : undefined }'`, () => {
+    describe(`with option '${
+      option ? `{ validateSignificantDigits: ${option.validateSignificantDigits} }` : undefined
+    }'`, () => {
       it('should throw an error if `value` is not a number', () => {
         try {
-          new Assert.BigNumberEqualTo({}, option);
+          Assert.bigNumberEqualTo({}, option);
 
           should.fail();
         } catch (e) {
@@ -50,7 +52,7 @@ describe('BigNumberEqualToAssert', () => {
 
         choices.forEach(choice => {
           try {
-            new Assert.BigNumberEqualTo(10, option).validate(choice);
+            Assert.bigNumberEqualTo(10, option).validate(choice);
 
             should.fail();
           } catch (e) {
@@ -61,7 +63,7 @@ describe('BigNumberEqualToAssert', () => {
 
       it('should throw an error if the input number is greater than the value', () => {
         try {
-          new Assert.BigNumberEqualTo(10, option).validate(12);
+          Assert.bigNumberEqualTo(10, option).validate(12);
 
           should.fail();
         } catch (e) {
@@ -71,7 +73,7 @@ describe('BigNumberEqualToAssert', () => {
 
       it('should throw an error if the input number is less than the value', () => {
         try {
-          new Assert.BigNumberEqualTo(10, option).validate(9);
+          Assert.bigNumberEqualTo(10, option).validate(9);
 
           should.fail();
         } catch (e) {
@@ -81,7 +83,7 @@ describe('BigNumberEqualToAssert', () => {
 
       it('should expose `assert` equal to `BigNumberEqualTo`', () => {
         try {
-          new Assert.BigNumberEqualTo(1, option).validate(0.1);
+          Assert.bigNumberEqualTo(1, option).validate(0.1);
 
           should.fail();
         } catch (e) {
@@ -91,7 +93,7 @@ describe('BigNumberEqualToAssert', () => {
 
       it('should expose `message` on the violation if the input value is not a number', () => {
         try {
-          new Assert.BigNumberEqualTo(10, option).validate({});
+          Assert.bigNumberEqualTo(10, option).validate({});
 
           should.fail();
         } catch (e) {
@@ -101,7 +103,7 @@ describe('BigNumberEqualToAssert', () => {
 
       it('should expose `value` on the violation', () => {
         try {
-          new Assert.BigNumberEqualTo(10, option).validate(0.1);
+          Assert.bigNumberEqualTo(10, option).validate(0.1);
 
           should.fail();
         } catch (e) {
@@ -110,11 +112,11 @@ describe('BigNumberEqualToAssert', () => {
       });
 
       it('should accept a big number as a value', () => {
-        new Assert.BigNumberEqualTo(new BigNumber(10), option).validate(10);
+        Assert.bigNumberEqualTo(new BigNumber(10), option).validate(10);
       });
 
       it('should accept a number that is equal to value', () => {
-        new Assert.BigNumberEqualTo(10, option).validate(10);
+        Assert.bigNumberEqualTo(10, option).validate(10);
       });
     });
   });

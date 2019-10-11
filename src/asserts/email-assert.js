@@ -1,8 +1,8 @@
 'use strict';
 
 /**
-* Module dependencies.
-*/
+ * Module dependencies.
+ */
 
 const { Assert: is, Validator, Violation } = require('validator.js');
 
@@ -46,4 +46,4 @@ module.exports = function emailAssert() {
   };
 
   return this;
-}
+};
