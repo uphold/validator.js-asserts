@@ -40,4 +40,4 @@ module.exports = function internationalBankAccountNumberAssert() {
   };
 
   return this;
-}
+};

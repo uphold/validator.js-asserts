@@ -36,7 +36,7 @@ module.exports = function bigNumberLessThanOrEqualToAssert(threshold, { validate
     throw new Error('A threshold value is required.');
   }
 
-  new Assert.BigNumber({ validateSignificantDigits }).validate(threshold);
+  Assert.bigNumber({ validateSignificantDigits }).validate(threshold);
 
   this.threshold = new BigNumber(threshold);
 
@@ -45,7 +45,7 @@ module.exports = function bigNumberLessThanOrEqualToAssert(threshold, { validate
    */
 
   this.validate = value => {
-    new Assert.BigNumber({ validateSignificantDigits }).validate(value);
+    Assert.bigNumber({ validateSignificantDigits }).validate(value);
 
     try {
       const number = new BigNumber(value);
@@ -67,4 +67,4 @@ module.exports = function bigNumberLessThanOrEqualToAssert(threshold, { validate
   };
 
   return this;
-}
+};

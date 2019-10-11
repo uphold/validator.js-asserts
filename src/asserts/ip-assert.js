@@ -36,4 +36,4 @@ module.exports = function ipAssert() {
   };
 
   return this;
-}
+};

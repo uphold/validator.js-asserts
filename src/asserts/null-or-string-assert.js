@@ -53,4 +53,4 @@ module.exports = function nullOrStringAssert(boundaries) {
   };
 
   return this;
-}
+};

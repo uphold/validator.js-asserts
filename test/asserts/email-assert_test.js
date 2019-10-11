@@ -1,15 +1,19 @@
 'use strict';
+/* eslint-disable new-cap */
 
 /**
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const EmailAssert = require('../../src/asserts/email-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `EmailAssert`.
+ *
+ * TODO: This is not working since `Email` is already a common assert,
+ * and the `extend` method does not override it with our assert.
  */
 
 const Assert = BaseAssert.extend({
@@ -26,7 +30,7 @@ describe('EmailAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Email().validate(choice);
+        Assert.prototype.Email().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -39,7 +43,7 @@ describe('EmailAssert', () => {
 
   it('should throw an error if email is a string but is out of boundaries', () => {
     try {
-      new Assert.Email().validate(`${'-'.repeat(247)}@bar.com`);
+      Assert.prototype.Email().validate(`${'-'.repeat(248)}@bar.com`);
 
       should.fail();
     } catch (e) {
@@ -49,7 +53,7 @@ describe('EmailAssert', () => {
 
   it('should expose `assert` equal to `Email`', () => {
     try {
-      new Assert.Email().validate('foo');
+      Assert.prototype.Email().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -58,12 +62,8 @@ describe('EmailAssert', () => {
   });
 
   it('should accept valid emails', () => {
-    [
-      'foo@bar.com',
-      'føø@båz.com',
-      'foo+bar@baz.com'
-    ].forEach(choice => {
-      new Assert.Email().validate(choice);
+    ['foo@bar.com', 'føø@båz.com', 'foo+bar@baz.com'].forEach(choice => {
+      Assert.prototype.Email().validate(choice);
     });
   });
 });

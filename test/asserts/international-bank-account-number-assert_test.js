@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const InternationalBankAccountNumberAssert = require('../../src/asserts/international-bank-account-number-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `InternationalBankAccountNumberAssert`.
@@ -26,7 +26,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.InternationalBankAccountNumber().validate(choice);
+        Assert.internationalBankAccountNumber().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
   it('should throw an error if the input value is not a valid iban', () => {
     try {
-      new Assert.InternationalBankAccountNumber().validate('foobar');
+      Assert.internationalBankAccountNumber().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
   it('should expose `assert` equal to `InternationalBankAccountNumber`', () => {
     try {
-      new Assert.InternationalBankAccountNumber().validate(123);
+      Assert.internationalBankAccountNumber().validate(123);
 
       should.fail();
     } catch (e) {
@@ -58,6 +58,6 @@ describe('InternationalBankAccountNumberAssert', () => {
   });
 
   it('should accept a valid iban', () => {
-    new Assert.InternationalBankAccountNumber().validate('BE68539007547034');
+    Assert.internationalBankAccountNumber().validate('BE68539007547034');
   });
 });

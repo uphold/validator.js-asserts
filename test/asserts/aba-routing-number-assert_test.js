@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const AbaRoutingNumberAssert = require('../../src/asserts/aba-routing-number-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `AbaRoutingNumberAssert`.
@@ -24,7 +24,7 @@ describe('AbaRoutingNumberAssert', () => {
   it('should throw an error if the input value is not a string', () => {
     [{}, []].forEach(choice => {
       try {
-        new Assert.AbaRoutingNumber().validate(choice);
+        Assert.abaRoutingNumber().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +36,7 @@ describe('AbaRoutingNumberAssert', () => {
 
   it('should throw an error if the input value is not a valid ABA routing number', () => {
     try {
-      new Assert.AbaRoutingNumber().validate('foobar');
+      Assert.abaRoutingNumber().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -47,7 +47,7 @@ describe('AbaRoutingNumberAssert', () => {
 
   it('should expose `assert` equal to `AbaRoutingNumber`', () => {
     try {
-      new Assert.AbaRoutingNumber().validate(123);
+      Assert.abaRoutingNumber().validate(123);
 
       should.fail();
     } catch (e) {
@@ -56,6 +56,6 @@ describe('AbaRoutingNumberAssert', () => {
   });
 
   it('should accept a valid ABA routing number', () => {
-    new Assert.AbaRoutingNumber().validate('123123123');
+    Assert.abaRoutingNumber().validate('123123123');
   });
 });

@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const HashAssert = require('../../src/asserts/hash-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `HashAssert`.
@@ -23,7 +23,7 @@ const Assert = BaseAssert.extend({
 describe('HashAssert', () => {
   it('should throw an error if the hash algorithm is missing', () => {
     try {
-      new Assert.Hash();
+      Assert.hash();
 
       should.fail();
     } catch (e) {
@@ -36,7 +36,7 @@ describe('HashAssert', () => {
 
     algorithms.forEach(algorithm => {
       try {
-        new Assert.Hash(algorithm);
+        Assert.hash(algorithm);
 
         should.fail();
       } catch (e) {
@@ -50,7 +50,7 @@ describe('HashAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Hash('sha512').validate(choice);
+        Assert.hash('sha512').validate(choice);
 
         should.fail();
       } catch (e) {
@@ -63,7 +63,7 @@ describe('HashAssert', () => {
 
   it('should expose `assert` equal to `Hash`', () => {
     try {
-      new Assert.Hash('sha1').validate(123);
+      Assert.hash('sha1').validate(123);
 
       should.fail();
     } catch (e) {
@@ -73,7 +73,7 @@ describe('HashAssert', () => {
 
   it('should expose `algorithm` on the violation', () => {
     try {
-      new Assert.Hash('sha1').validate('foo');
+      Assert.hash('sha1').validate('foo');
 
       should.fail();
     } catch (e) {
@@ -82,14 +82,16 @@ describe('HashAssert', () => {
   });
 
   it('should accept a `sha1` hash', () => {
-    new Assert.Hash('sha1').validate('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
+    Assert.hash('sha1').validate('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
   });
 
   it('should accept a `sha256` hash', () => {
-    new Assert.Hash('sha256').validate('2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae');
+    Assert.hash('sha256').validate('2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae');
   });
 
   it('should accept a `sha512` hash', () => {
-    new Assert.Hash('sha512').validate('f7fbba6e0636f890e56fbbf3283e524c6fa3204ae298382d624741d0dc6638326e282c41be5e4254d8820772c5518a2c5a8c0c7f7eda19594a7eb539453e1ed7');
+    Assert.hash('sha512').validate(
+      'f7fbba6e0636f890e56fbbf3283e524c6fa3204ae298382d624741d0dc6638326e282c41be5e4254d8820772c5518a2c5a8c0c7f7eda19594a7eb539453e1ed7'
+    );
   });
 });

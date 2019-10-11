@@ -39,7 +39,7 @@ module.exports = function equalKeysAssert(...keys) {
 
     const keys = Object.keys(value);
 
-    if (keys.length === 0 && this.keys.length > 0 || this.keys.length > keys.length) {
+    if ((keys.length === 0 && this.keys.length > 0) || this.keys.length > keys.length) {
       throw new Violation(this, value, { difference: difference(this.keys, keys) });
     }
 
@@ -53,4 +53,4 @@ module.exports = function equalKeysAssert(...keys) {
   };
 
   return this;
-}
+};

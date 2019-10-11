@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const Iso3166CountryAssert = require('../../src/asserts/iso-3166-country-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `Iso3166CountryAssert`.
@@ -26,7 +26,7 @@ describe('Iso3166CountryAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Iso3166Country().validate(choice);
+        Assert.iso3166Country().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -39,7 +39,7 @@ describe('Iso3166CountryAssert', () => {
 
   it('should throw an error if country is invalid', () => {
     try {
-      new Assert.Iso3166Country().validate('FOO');
+      Assert.iso3166Country().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -50,7 +50,7 @@ describe('Iso3166CountryAssert', () => {
 
   it('should expose `assert` equal to `Iso3166Country`', () => {
     try {
-      new Assert.Iso3166Country().validate([]);
+      Assert.iso3166Country().validate([]);
 
       should.fail();
     } catch (e) {
@@ -59,18 +59,18 @@ describe('Iso3166CountryAssert', () => {
   });
 
   it('should accept an ISO 3166-1 alpha-3 code', () => {
-    new Assert.Iso3166Country().validate('PRT');
+    Assert.iso3166Country().validate('PRT');
   });
 
   it('should accept an ISO 3166-1 alpha-2 code', () => {
-    new Assert.Iso3166Country().validate('PT');
+    Assert.iso3166Country().validate('PT');
   });
 
   it('should accept an ISO 3166-1 country name in short format', () => {
-    new Assert.Iso3166Country().validate('Portugal');
+    Assert.iso3166Country().validate('Portugal');
   });
 
   it('should accept an ISO 3166-1 country name in uppercase format', () => {
-    new Assert.Iso3166Country().validate('PORTUGAL');
+    Assert.iso3166Country().validate('PORTUGAL');
   });
 });

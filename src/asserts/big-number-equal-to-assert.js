@@ -36,7 +36,7 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
     throw new Error('A value is required.');
   }
 
-  new Assert.BigNumber({ validateSignificantDigits }).validate(value);
+  Assert.bigNumber({ validateSignificantDigits }).validate(value);
 
   this.value = new BigNumber(value);
 
@@ -45,7 +45,7 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
    */
 
   this.validate = value => {
-    new Assert.BigNumber({ validateSignificantDigits }).validate(value);
+    Assert.bigNumber({ validateSignificantDigits }).validate(value);
 
     try {
       const number = new BigNumber(value);
@@ -67,4 +67,4 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
   };
 
   return this;
-}
+};

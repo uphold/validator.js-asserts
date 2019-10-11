@@ -1,0 +1,8 @@
+extends: uphold
+
+rules:
+  # Add exception to the `no-underscore-dangle` rule required by validator.js to set the class name.
+  no-underscore-dangle:
+    - error
+    - allow:
+      - __class__

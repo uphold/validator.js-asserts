@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const BooleanAssert = require('../../src/asserts/boolean-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `BooleanAssert`.
@@ -26,7 +26,7 @@ describe('BooleanAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Boolean().validate(choice);
+        Assert.boolean().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +38,7 @@ describe('BooleanAssert', () => {
 
   it('should expose `assert` equal to `Boolean`', () => {
     try {
-      new Assert.Boolean().validate('foo');
+      Assert.boolean().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -47,10 +47,10 @@ describe('BooleanAssert', () => {
   });
 
   it('should accept a `true` boolean value', () => {
-    new Assert.Boolean().validate(true);
+    Assert.boolean().validate(true);
   });
 
   it('should accept a `false` boolean value', () => {
-    new Assert.Boolean().validate(false);
+    Assert.boolean().validate(false);
   });
 });

@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Violation } = require('validator.js');
 const NotEmptyAssert = require('../../src/asserts/not-empty-assert');
 const should = require('should');
-const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `NotEmptyAssert`.
@@ -26,7 +26,7 @@ describe('NotEmptyAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.NotEmpty().validate(choice);
+        Assert.notEmpty().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +37,7 @@ describe('NotEmptyAssert', () => {
 
   it('should expose `assert` equal to `NotEmpty`', () => {
     try {
-      new Assert.NotEmpty().validate({});
+      Assert.notEmpty().validate({});
 
       should.fail();
     } catch (e) {
@@ -49,7 +49,7 @@ describe('NotEmptyAssert', () => {
     const choices = [['foo'], { foo: 'bar' }, 'foo'];
 
     choices.forEach(choice => {
-      new Assert.NotEmpty().validate(choice);
+      Assert.notEmpty().validate(choice);
     });
   });
 });

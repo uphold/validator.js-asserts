@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const IpAssert = require('../../src/asserts/ip-assert');
 const should = require('should');
-const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `IpAssert`.
@@ -26,7 +26,7 @@ describe('IpAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert.Ip().validate(choice);
+        Assert.ip().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -39,7 +39,7 @@ describe('IpAssert', () => {
 
   it('should throw an error if the ip is invalid', () => {
     try {
-      new Assert.Ip().validate('FOO');
+      Assert.ip().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -50,7 +50,7 @@ describe('IpAssert', () => {
 
   it('should expose `assert` equal to `Ip`', () => {
     try {
-      new Assert.Ip().validate(123);
+      Assert.ip().validate(123);
 
       should.fail();
     } catch (e) {
@@ -60,7 +60,7 @@ describe('IpAssert', () => {
 
   it('should accept valid ips', () => {
     ['1.3.3.7', '::1'].forEach(choice => {
-      new Assert.Ip().validate(choice);
+      Assert.ip().validate(choice);
     });
   });
 });

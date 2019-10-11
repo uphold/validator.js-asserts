@@ -65,4 +65,4 @@ module.exports = function iso3166CountryAssert() {
   };
 
   return this;
-}
+};
