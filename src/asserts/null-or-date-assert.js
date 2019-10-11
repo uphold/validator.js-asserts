@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+const { Violation } = require('validator.js');
 
 /**
  * Export `NullOrDateAssert`.
  */
 
-export default function nullOrDateAssert() {
+module.exports = function nullOrDateAssert() {
   /**
    * Class name.
    */

@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import { find } from 'lodash';
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
+const { find } = require('lodash');
 
 /**
  * Export `Iso3166CountryAssert`.
  */
 
-export default function iso3166CountryAssert() {
+module.exports = function iso3166CountryAssert() {
   /**
    * Optional peer dependencies.
    */

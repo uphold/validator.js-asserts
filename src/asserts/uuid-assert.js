@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Uuid regexes.
@@ -20,7 +20,7 @@ const uuid = {
  * Export `UuidAssert`.
  */
 
-export default function uuidAssert(version) {
+module.exports = function uuidAssert(version) {
   /**
    * Class name.
    */

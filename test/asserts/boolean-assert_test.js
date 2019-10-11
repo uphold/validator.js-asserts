@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import BooleanAssert from '../../src/asserts/boolean-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const BooleanAssert = require('../../src/asserts/boolean-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `BooleanAssert`.

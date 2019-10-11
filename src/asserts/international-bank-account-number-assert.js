@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Export `InternationalBankAccountNumberAssert`.
  */
 
-export default function internationalBankAccountNumberAssert() {
+module.exports = function internationalBankAccountNumberAssert() {
   /**
    * Optional peer dependencies.
    */

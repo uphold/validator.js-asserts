@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import asserts from '../src';
+const asserts = require('../src');
 
 /**
  * Test `validator.js-assert`.

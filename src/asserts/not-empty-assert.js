@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
-import { isEmpty } from 'lodash';
+const { Violation } = require('validator.js');
+const { isEmpty } = require('lodash');
 
 /**
  * Export `NotEmptyAssert`.
  */
 
-export default function notEmptyAssert() {
+module.exports = function notEmptyAssert() {
   /**
    * Class name.
    */

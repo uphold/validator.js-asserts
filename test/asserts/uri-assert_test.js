@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import UriAssert from '../../src/asserts/uri-assert';
-import should from 'should';
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+const UriAssert = require('../../src/asserts/uri-assert');
+const should = require('should');
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UriAssert`.

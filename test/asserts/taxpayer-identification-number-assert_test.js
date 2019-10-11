@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import TaxpayerIdentificationNumberAssert from '../../src/asserts/taxpayer-identification-number-assert';
-import { Assert as BaseAssert, Violation } from 'validator.js';
-import should from 'should';
+const TaxpayerIdentificationNumberAssert = require('../../src/asserts/taxpayer-identification-number-assert');
+const { Assert: BaseAssert, Violation } = require('validator.js');
+const should = require('should');
 
 /**
  * Extend `Assert` with `TaxpayerIdentificationNumberAssert`.

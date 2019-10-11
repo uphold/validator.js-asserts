@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import Iso3166CountryAssert from '../../src/asserts/iso-3166-country-assert';
-import should from 'should';
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+const Iso3166CountryAssert = require('../../src/asserts/iso-3166-country-assert');
+const should = require('should');
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `Iso3166CountryAssert`.

@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Int regex.
@@ -15,7 +15,7 @@ const int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
  * Export `IntegerAssert`.
  */
 
-export default function integerAssert() {
+module.exports = function integerAssert() {
   /**
    * Class name.
    */

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import HashAssert from '../../src/asserts/hash-assert';
-import should from 'should';
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+const HashAssert = require('../../src/asserts/hash-assert');
+const should = require('should');
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `HashAssert`.

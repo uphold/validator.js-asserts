@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-import DateDiffLessThanOrEqualToAssert from '../../src/asserts/date-diff-less-than-or-equal-to-assert';
-import should from 'should';
-import sinon from 'sinon';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const DateDiffLessThanOrEqualToAssert = require('../../src/asserts/date-diff-less-than-or-equal-to-assert');
+const should = require('should');
+const sinon = require('sinon');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `DateDiffLessThanOrEqualToAssert`.

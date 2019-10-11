@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Hash algorithm regular expression mapping.
@@ -19,7 +19,7 @@ const hash = {
  * Export `HashAssert`.
  */
 
-export default function hashAssert(algorithm) {
+module.exports = function hashAssert(algorithm) {
   /**
    * Class name.
    */

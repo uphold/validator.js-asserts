@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import IpAssert from '../../src/asserts/ip-assert';
-import should from 'should';
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+const IpAssert = require('../../src/asserts/ip-assert');
+const should = require('should');
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `IpAssert`.

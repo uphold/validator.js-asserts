@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * US zip code regular expression.
@@ -15,7 +15,7 @@ const regexp = new RegExp(/^\d{5}(?:[- ]?\d{4})?$/);
  * Export `UsZipCodeAssert`.
  */
 
-export default function usZipCodeAssert() {
+module.exports = function usZipCodeAssert() {
   /**
    * Class name.
    */

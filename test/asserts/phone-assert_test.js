@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import PhoneAssert from '../../src/asserts/phone-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const PhoneAssert = require('../../src/asserts/phone-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `Phone`.

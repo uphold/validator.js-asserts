@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation, Assert as is } from 'validator.js';
+const { Assert: is, Violation } = require('validator.js');
 
 /**
  * Export `NullOrStringAssert`.
  */
 
-export default function nullOrStringAssert(boundaries) {
+module.exports = function nullOrStringAssert(boundaries) {
   /**
    * Class name.
    */

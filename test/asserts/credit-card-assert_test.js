@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import CreditCardAssert from '../../src/asserts/credit-card-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const CreditCardAssert = require('../../src/asserts/credit-card-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `CreditCardAssert`.

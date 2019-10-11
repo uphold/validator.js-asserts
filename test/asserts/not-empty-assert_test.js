@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import NotEmptyAssert from '../../src/asserts/not-empty-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const NotEmptyAssert = require('../../src/asserts/not-empty-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `NotEmptyAssert`.

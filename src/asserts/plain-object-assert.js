@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
-import { isPlainObject } from 'lodash';
+const { Violation } = require('validator.js');
+const { isPlainObject } = require('lodash');
 
 /**
  * Export `PlainObjectAssert`.
  */
 
-export default function plainObjectAssert() {
+module.exports = function plainObjectAssert() {
   /**
    * Class name.
    */

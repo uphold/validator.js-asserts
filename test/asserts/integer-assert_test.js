@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import IntegerAssert from '../../src/asserts/integer-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const IntegerAssert = require('../../src/asserts/integer-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `IntegerAssert`.

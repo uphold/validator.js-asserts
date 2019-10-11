@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Export `UkModulusCheckingAssert`.
  */
 
-export default function ukModulusCheckingAssert() {
+module.exports = function ukModulusCheckingAssert() {
   /**
    * Optional peer dependencies.
    */
