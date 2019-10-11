@@ -31,7 +31,6 @@ describe('Iso3166CountryAssert', () => {
       } catch (e) {
         e.should.be.instanceOf(Violation);
 
-        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });

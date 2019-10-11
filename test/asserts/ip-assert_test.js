@@ -31,7 +31,6 @@ describe('IpAssert', () => {
       } catch (e) {
         e.should.be.instanceOf(Violation);
 
-        // jscs: disable requireCamelCaseOrUpperCaseIdentifiers
         e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
       }
     });
