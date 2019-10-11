@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('Iso3166CountryAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Iso3166Country().validate(choice);
+        new Assert.Iso3166Country().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +39,7 @@ describe('Iso3166CountryAssert', () => {
 
   it('should throw an error if country is invalid', () => {
     try {
-      new Assert().Iso3166Country().validate('FOO');
+      new Assert.Iso3166Country().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -49,7 +50,7 @@ describe('Iso3166CountryAssert', () => {
 
   it('should expose `assert` equal to `Iso3166Country`', () => {
     try {
-      new Assert().Iso3166Country().validate([]);
+      new Assert.Iso3166Country().validate([]);
 
       should.fail();
     } catch (e) {
@@ -58,18 +59,18 @@ describe('Iso3166CountryAssert', () => {
   });
 
   it('should accept an ISO 3166-1 alpha-3 code', () => {
-    new Assert().Iso3166Country().validate('PRT');
+    new Assert.Iso3166Country().validate('PRT');
   });
 
   it('should accept an ISO 3166-1 alpha-2 code', () => {
-    new Assert().Iso3166Country().validate('PT');
+    new Assert.Iso3166Country().validate('PT');
   });
 
   it('should accept an ISO 3166-1 country name in short format', () => {
-    new Assert().Iso3166Country().validate('Portugal');
+    new Assert.Iso3166Country().validate('Portugal');
   });
 
   it('should accept an ISO 3166-1 country name in uppercase format', () => {
-    new Assert().Iso3166Country().validate('PORTUGAL');
+    new Assert.Iso3166Country().validate('PORTUGAL');
   });
 });

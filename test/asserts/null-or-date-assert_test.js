@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('NullOrDateAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().NullOrDate().validate(choice);
+        new Assert.NullOrDate().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('NullOrDateAssert', () => {
 
   it('should throw an error if the input value is not a valid date', () => {
     try {
-      new Assert().NullOrDate().validate('2015-99-01');
+      new Assert.NullOrDate().validate('2015-99-01');
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('NullOrDateAssert', () => {
 
   it('should expose `assert` equal to `NullOrDate`', () => {
     try {
-      new Assert().NullOrDate().validate({});
+      new Assert.NullOrDate().validate({});
 
       should.fail();
     } catch (e) {
@@ -57,14 +58,14 @@ describe('NullOrDateAssert', () => {
   });
 
   it('should accept `null`', () => {
-    new Assert().NullOrDate().validate(null);
+    new Assert.NullOrDate().validate(null);
   });
 
   it('should accept a date', () => {
-    new Assert().NullOrDate().validate(new Date());
+    new Assert.NullOrDate().validate(new Date());
   });
 
   it('should accept a string', () => {
-    new Assert().NullOrDate().validate('2014-10-16');
+    new Assert.NullOrDate().validate('2014-10-16');
   });
 });

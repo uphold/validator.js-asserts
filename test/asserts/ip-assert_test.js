@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('IpAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Ip().validate(choice);
+        new Assert.Ip().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +39,7 @@ describe('IpAssert', () => {
 
   it('should throw an error if the ip is invalid', () => {
     try {
-      new Assert().Ip().validate('FOO');
+      new Assert.Ip().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -49,7 +50,7 @@ describe('IpAssert', () => {
 
   it('should expose `assert` equal to `Ip`', () => {
     try {
-      new Assert().Ip().validate(123);
+      new Assert.Ip().validate(123);
 
       should.fail();
     } catch (e) {
@@ -59,7 +60,7 @@ describe('IpAssert', () => {
 
   it('should accept valid ips', () => {
     ['1.3.3.7', '::1'].forEach(choice => {
-      new Assert().Ip().validate(choice);
+      new Assert.Ip().validate(choice);
     });
   });
 });

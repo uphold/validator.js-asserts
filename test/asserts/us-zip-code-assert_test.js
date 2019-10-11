@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('UsZipCodeAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().UsZipCode().validate(choice);
+        new Assert.UsZipCode().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -41,7 +42,7 @@ describe('UsZipCodeAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().UsZipCode().validate(choice);
+        new Assert.UsZipCode().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -52,12 +53,12 @@ describe('UsZipCodeAssert', () => {
   });
 
   it('should accept 5-digit zip codes', () => {
-    new Assert().UsZipCode().validate('12345');
+    new Assert.UsZipCode().validate('12345');
   });
 
   it('should accept 9-digit zip codes', () => {
     ['12345-1234', '12345 1234', '123456789'].forEach(choice => {
-      new Assert().UsZipCode().validate(choice);
+      new Assert.UsZipCode().validate(choice);
     });
   });
 });

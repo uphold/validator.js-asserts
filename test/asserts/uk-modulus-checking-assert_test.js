@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -22,7 +23,7 @@ const Assert = BaseAssert.extend({
 describe('UkModulusChecking', () => {
   it('should throw an error if `accountNumber` is missing', () => {
     try {
-      new Assert().UkModulusChecking().validate();
+      new Assert.UkModulusChecking().validate();
 
       should.fail();
     } catch (e) {
@@ -34,7 +35,7 @@ describe('UkModulusChecking', () => {
 
   it('should throw an error if `sortCode` is missing', () => {
     try {
-      new Assert().UkModulusChecking().validate({ accountNumber: '' });
+      new Assert.UkModulusChecking().validate({ accountNumber: '' });
 
       should.fail();
     } catch (e) {
@@ -46,7 +47,7 @@ describe('UkModulusChecking', () => {
 
   it('should throw an error if `accountNumber` or `sortCode` are invalid', () => {
     try {
-      new Assert().UkModulusChecking().validate({ accountNumber: '15764273', sortCode: '938063' });
+      new Assert.UkModulusChecking().validate({ accountNumber: '15764273', sortCode: '938063' });
 
       should.fail();
     } catch (e) {
@@ -57,6 +58,6 @@ describe('UkModulusChecking', () => {
   });
 
   it('should accept a valid `accountNumber` and `sortCode`', () => {
-    new Assert().UkModulusChecking().validate({ accountNumber: '66374958', sortCode: '089999' });
+    new Assert.UkModulusChecking().validate({ accountNumber: '66374958', sortCode: '089999' });
   });
 });

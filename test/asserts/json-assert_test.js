@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('JsonAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Json().validate(choice);
+        new Assert.Json().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +37,7 @@ describe('JsonAssert', () => {
 
   it('should expose `assert` equal to `Json`', () => {
     try {
-      new Assert().Json().validate([]);
+      new Assert.Json().validate([]);
 
       should.fail();
     } catch (e) {
@@ -53,7 +54,7 @@ describe('JsonAssert', () => {
       Boolean(true),
       Number(10)
     ].forEach(choice => {
-      new Assert().Json().validate(choice);
+      new Assert.Json().validate(choice);
     });
   });
 });

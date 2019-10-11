@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('UuidAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Uuid().validate(choice);
+        new Assert.Uuid().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -41,7 +42,7 @@ describe('UuidAssert', () => {
 
     versions.forEach(version => {
       try {
-        new Assert().Uuid(version);
+        new Assert.Uuid(version);
 
         should.fail();
       } catch (e) {
@@ -52,7 +53,7 @@ describe('UuidAssert', () => {
 
   it('should expose `assert` equal to `Uuid`', () => {
     try {
-      new Assert().Uuid().validate('foo');
+      new Assert.Uuid().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -62,7 +63,7 @@ describe('UuidAssert', () => {
 
   it('should expose `version` on the violation', () => {
     try {
-      new Assert().Uuid(5).validate('foo');
+      new Assert.Uuid(5).validate('foo');
 
       should.fail();
     } catch (e) {
@@ -71,14 +72,14 @@ describe('UuidAssert', () => {
   });
 
   it('should accept a v3 uuid', () => {
-    new Assert().Uuid(3).validate('6fa459ea-ee8a-3ca4-894e-db77e160355e');
+    new Assert.Uuid(3).validate('6fa459ea-ee8a-3ca4-894e-db77e160355e');
   });
 
   it('should accept a v4 uuid', () => {
-    new Assert().Uuid(4).validate('17dd5a7a-637c-436e-bb8a-5398f7ac0a76');
+    new Assert.Uuid(4).validate('17dd5a7a-637c-436e-bb8a-5398f7ac0a76');
   });
 
   it('should accept a v5 uuid', () => {
-    new Assert().Uuid(5).validate('74738ff5-5367-5958-9aee-98fffdcd1876');
+    new Assert.Uuid(5).validate('74738ff5-5367-5958-9aee-98fffdcd1876');
   });
 });

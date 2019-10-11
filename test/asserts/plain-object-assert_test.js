@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('PlainObjectAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().PlainObject().validate(choice);
+        new Assert.PlainObject().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -36,7 +37,7 @@ describe('PlainObjectAssert', () => {
 
   it('should expose `assert` equal to `PlainObject`', () => {
     try {
-      new Assert().PlainObject().validate('FOO');
+      new Assert.PlainObject().validate('FOO');
 
       should.fail();
     } catch (e) {
@@ -45,6 +46,6 @@ describe('PlainObjectAssert', () => {
   });
 
   it('should accept a plain object', () => {
-    new Assert().PlainObject().validate({ foo: 'bar' });
+    new Assert.PlainObject().validate({ foo: 'bar' });
   });
 });

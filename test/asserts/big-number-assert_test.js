@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -27,7 +28,7 @@ describe('BigNumberAssert', () => {
 
         choices.forEach(choice => {
           try {
-            new Assert().BigNumber(option).validate(choice);
+            new Assert.BigNumber(option).validate(choice);
 
             should.fail();
           } catch (e) {
@@ -38,7 +39,7 @@ describe('BigNumberAssert', () => {
 
       it('should expose `assert` equal to `BigNumber`', () => {
         try {
-          new Assert().BigNumber(option).validate();
+          new Assert.BigNumber(option).validate();
 
           should.fail();
         } catch (e) {
@@ -54,14 +55,14 @@ describe('BigNumberAssert', () => {
         ];
 
         choices.forEach(choice => {
-          new Assert().BigNumber(option).validate(choice);
+          new Assert.BigNumber(option).validate(choice);
         });
       });
 
       if (!option || option.validateSignificantDigits === true) {
         it('should throw an error if a number has more than 15 significant digits', () => {
           try {
-            new Assert().BigNumber(option).validate(1.011111111111111111111111111111111111111111);
+            new Assert.BigNumber(option).validate(1.011111111111111111111111111111111111111111);
 
             should.fail();
           } catch (e) {
@@ -81,7 +82,7 @@ describe('BigNumberAssert', () => {
           ];
 
           choices.forEach(choice => {
-            new Assert().BigNumber({ validateSignificantDigits: false }).validate(choice);
+            new Assert.BigNumber({ validateSignificantDigits: false }).validate(choice);
           });
         });
       }

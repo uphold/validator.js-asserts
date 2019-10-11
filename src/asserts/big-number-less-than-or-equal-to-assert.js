@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -5,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumberAssert = require('./big-number-assert');
-
 
 /**
  * Export `BigNumberLessThanOrEqualToAssert`.
@@ -36,7 +36,7 @@ module.exports = function bigNumberLessThanOrEqualToAssert(threshold, { validate
     throw new Error('A threshold value is required.');
   }
 
-  new Assert().BigNumber({ validateSignificantDigits }).validate(threshold);
+  new Assert.BigNumber({ validateSignificantDigits }).validate(threshold);
 
   this.threshold = new BigNumber(threshold);
 
@@ -45,7 +45,7 @@ module.exports = function bigNumberLessThanOrEqualToAssert(threshold, { validate
    */
 
   this.validate = value => {
-    new Assert().BigNumber({ validateSignificantDigits }).validate(value);
+    new Assert.BigNumber({ validateSignificantDigits }).validate(value);
 
     try {
       const number = new BigNumber(value);

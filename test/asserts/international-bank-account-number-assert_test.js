@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().InternationalBankAccountNumber().validate(choice);
+        new Assert.InternationalBankAccountNumber().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
   it('should throw an error if the input value is not a valid iban', () => {
     try {
-      new Assert().InternationalBankAccountNumber().validate('foobar');
+      new Assert.InternationalBankAccountNumber().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('InternationalBankAccountNumberAssert', () => {
 
   it('should expose `assert` equal to `InternationalBankAccountNumber`', () => {
     try {
-      new Assert().InternationalBankAccountNumber().validate(123);
+      new Assert.InternationalBankAccountNumber().validate(123);
 
       should.fail();
     } catch (e) {
@@ -57,6 +58,6 @@ describe('InternationalBankAccountNumberAssert', () => {
   });
 
   it('should accept a valid iban', () => {
-    new Assert().InternationalBankAccountNumber().validate('BE68539007547034');
+    new Assert.InternationalBankAccountNumber().validate('BE68539007547034');
   });
 });

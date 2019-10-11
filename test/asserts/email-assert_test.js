@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('EmailAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().Email().validate(choice);
+        new Assert.Email().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -38,7 +39,7 @@ describe('EmailAssert', () => {
 
   it('should throw an error if email is a string but is out of boundaries', () => {
     try {
-      new Assert().Email().validate(`${'-'.repeat(247)}@bar.com`);
+      new Assert.Email().validate(`${'-'.repeat(247)}@bar.com`);
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('EmailAssert', () => {
 
   it('should expose `assert` equal to `Email`', () => {
     try {
-      new Assert().Email().validate('foo');
+      new Assert.Email().validate('foo');
 
       should.fail();
     } catch (e) {
@@ -62,7 +63,7 @@ describe('EmailAssert', () => {
       'føø@båz.com',
       'foo+bar@baz.com'
     ].forEach(choice => {
-      new Assert().Email().validate(choice);
+      new Assert.Email().validate(choice);
     });
   });
 });

@@ -1,3 +1,4 @@
+'use strict';
 
 /**
  * Module dependencies.
@@ -25,7 +26,7 @@ describe('CreditCardAssert', () => {
 
     choices.forEach(choice => {
       try {
-        new Assert().CreditCard().validate(choice);
+        new Assert.CreditCard().validate(choice);
 
         should.fail();
       } catch (e) {
@@ -37,7 +38,7 @@ describe('CreditCardAssert', () => {
 
   it('should throw an error if the input value is not a valid card number', () => {
     try {
-      new Assert().CreditCard().validate('foobar');
+      new Assert.CreditCard().validate('foobar');
 
       should.fail();
     } catch (e) {
@@ -48,7 +49,7 @@ describe('CreditCardAssert', () => {
 
   it('should expose `assert` equal to `CreditCard`', () => {
     try {
-      new Assert().CreditCard().validate(123);
+      new Assert.CreditCard().validate(123);
 
       should.fail();
     } catch (e) {
@@ -57,10 +58,10 @@ describe('CreditCardAssert', () => {
   });
 
   it('should accept a valid credit card number as string', () => {
-    new Assert().CreditCard().validate('4111111111111111');
+    new Assert.CreditCard().validate('4111111111111111');
   });
 
   it('should accept a valid credit card number', () => {
-    new Assert().CreditCard().validate(4111111111111111);
+    new Assert.CreditCard().validate(4111111111111111);
   });
 });
