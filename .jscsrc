@@ -1,6 +1,0 @@
-disallowDanglingUnderscores: false
-
-preset: seegno
-
-requireCamelCaseOrUpperCaseIdentifiers: false
-requirePaddingNewlinesBeforeKeywords: false

@@ -37,7 +37,7 @@
   "scripts": {
     "changelog": "github_changelog_generator --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
     "cover": "babel-node node_modules/.bin/isparta cover --report html _mocha -- $npm_package_options_mocha",
-    "lint": "eslint src test && jscs src test",
+    "lint": "eslint src test",
     "prepublish": "npm run transpile",
     "test": "NODE_ENV=test mocha $npm_package_options_mocha",
     "transpile": "rm -rf dist/* && babel src --out-dir dist",
@@ -64,8 +64,6 @@
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "isparta": "^4.0.0",
-    "jscs": "^3.0.3",
-    "jscs-config-seegno": "^2.0.0",
     "mocha": "^2.3.4",
     "moment": "^2.13.0",
     "should": "^8.3.1",
