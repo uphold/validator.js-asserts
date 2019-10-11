@@ -3,14 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
-import { isString } from 'lodash';
+const { Violation } = require('validator.js');
 
 /**
  * Export `DateAssert`.
  */
 
-export default function dateAssert({ format } = {}) {
+module.exports = function dateAssert({ format } = {}) {
   /**
    * Class name.
    */

@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+const { Violation } = require('validator.js');
 
 /**
  * Export `CreditCardAssert`.
  */
 
-export default function creditCardAssert() {
+module.exports = function creditCardAssert() {
   /**
    * Optional peer dependencies.
    */

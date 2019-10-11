@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import DateAssert from '../../src/asserts/date-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const DateAssert = require('../../src/asserts/date-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `DateAssert`.

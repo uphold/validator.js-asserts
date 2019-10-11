@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-import BigNumber from 'bignumber.js';
-import BigNumberGreaterThanOrEqualToAssert from '../../src/asserts/big-number-greater-than-or-equal-to-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const BigNumber = require('bignumber.js');
+const BigNumberGreaterThanOrEqualToAssert = require('../../src/asserts/big-number-greater-than-or-equal-to-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `BigNumberGreaterThanOrEqualToAssert`.

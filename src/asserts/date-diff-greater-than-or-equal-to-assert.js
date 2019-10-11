@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
-import { assign } from 'lodash';
+const { Violation } = require('validator.js');
+const { assign } = require('lodash');
 
 /**
  * Export `DateDiffGreaterThanOrEqualToAssert`.
  */
 
-export default function dateDiffGreaterThanOrEqualToAssert(threshold, options) {
+module.exports = function dateDiffGreaterThanOrEqualToAssert(threshold, options) {
   /**
    * Optional peer dependencies.
    */

@@ -3,13 +3,13 @@
 * Module dependencies.
 */
 
-import { Validator, Violation, Assert as is } from 'validator.js';
+const { Assert: is, Validator, Violation } = require('validator.js');
 
 /**
  * Export `EmailAssert`.
  */
 
-export default function emailAssert() {
+module.exports = function emailAssert() {
   /**
    * Optional peer dependencies.
    */

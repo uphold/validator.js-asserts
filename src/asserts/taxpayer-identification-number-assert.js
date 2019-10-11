@@ -4,13 +4,13 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Export `TaxpayerIdentificationNumberAssert`.
  */
 
-export default function() {
+module.exports = function taxpayerIdentificationNumberAssert() {
   /**
    * Optional peer dependency.
    */

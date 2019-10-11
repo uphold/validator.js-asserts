@@ -3,14 +3,14 @@
 * Module dependencies.
 */
 
-import { Validator, Violation } from 'validator.js';
-import { forEach, has } from 'lodash';
+const { Validator, Violation } = require('validator.js');
+const { forEach, has } = require('lodash');
 
 /**
  * Export `UriAssert`.
  */
 
-export default function uriAssert(constraints) {
+module.exports = function uriAssert(constraints) {
   /**
    * Optional peer dependencies.
    */

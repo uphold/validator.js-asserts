@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+const { Violation } = require('validator.js');
 
 /**
  * Export `JsonAssert`.
  */
 
-export default function jsonAssert() {
+module.exports = function jsonAssert() {
   /**
    * Class name.
    */

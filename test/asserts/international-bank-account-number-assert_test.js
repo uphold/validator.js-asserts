@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import InternationalBankAccountNumberAssert from '../../src/asserts/international-bank-account-number-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const InternationalBankAccountNumberAssert = require('../../src/asserts/international-bank-account-number-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `InternationalBankAccountNumberAssert`.

@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import net from 'net';
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
+const net = require('net');
 
 /**
  * Export `IpAssert`.
  */
 
-export default function ipAssert() {
+module.exports = function ipAssert() {
   /**
    * Class name
    */

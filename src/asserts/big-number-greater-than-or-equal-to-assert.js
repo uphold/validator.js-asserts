@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import BigNumberAssert from './big-number-assert';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const { Assert: BaseAssert, Violation } = require('validator.js');
+const BigNumberAssert = require('./big-number-assert');
 
 /**
  * Export `BigNumberGreaterThanOrEqualToAssert`.
  */
 
-export default function bigNumberGreaterThanOrEqualToAssert(threshold, { validateSignificantDigits = true } = {}) {
+module.exports = function bigNumberGreaterThanOrEqualToAssert(threshold, { validateSignificantDigits = true } = {}) {
   /**
    * Optional peer dependencies.
    */

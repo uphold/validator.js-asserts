@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import AbaRoutingNumberAssert from '../../src/asserts/aba-routing-number-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const AbaRoutingNumberAssert = require('../../src/asserts/aba-routing-number-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `AbaRoutingNumberAssert`.

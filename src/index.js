@@ -3,46 +3,46 @@
  * Module dependencies.
  */
 
-import AbaRoutingNumber from './asserts/aba-routing-number-assert.js';
-import BankIdentifierCode from './asserts/bank-identifier-code-assert.js';
-import BigNumber from './asserts/big-number-assert.js';
-import BigNumberEqualTo from './asserts/big-number-equal-to-assert.js';
-import BigNumberGreaterThan from './asserts/big-number-greater-than-assert.js';
-import BigNumberGreaterThanOrEqualTo from './asserts/big-number-greater-than-or-equal-to-assert.js';
-import BigNumberLessThan from './asserts/big-number-less-than-assert.js';
-import BigNumberLessThanOrEqualTo from './asserts/big-number-less-than-or-equal-to-assert.js';
-import Boolean from './asserts/boolean-assert.js';
-import CreditCard from './asserts/credit-card-assert.js';
-import Date from './asserts/date-assert.js';
-import DateDiffGreaterThan from './asserts/date-diff-greater-than-assert.js';
-import DateDiffGreaterThanOrEqualTo from './asserts/date-diff-greater-than-or-equal-to-assert.js';
-import DateDiffLessThan from './asserts/date-diff-less-than-assert.js';
-import DateDiffLessThanOrEqualTo from './asserts/date-diff-less-than-or-equal-to-assert.js';
-import Email from './asserts/email-assert.js';
-import EqualKeys from './asserts/equal-keys-assert.js';
-import Hash from './asserts/hash-assert.js';
-import Integer from './asserts/integer-assert.js';
-import InternationalBankAccountNumber from './asserts/international-bank-account-number-assert.js';
-import Ip from './asserts/ip-assert.js';
-import Iso3166Country from './asserts/iso-3166-country-assert.js';
-import Json from './asserts/json-assert.js';
-import NotEmpty from './asserts/not-empty-assert.js';
-import NullOrDate from './asserts/null-or-date-assert.js';
-import NullOrString from './asserts/null-or-string-assert.js';
-import Phone from './asserts/phone-assert.js';
-import PlainObject from './asserts/plain-object-assert.js';
-import TaxpayerIdentificationNumber from './asserts/taxpayer-identification-number-assert.js';
-import UkModulusChecking from './asserts/uk-modulus-checking-assert.js';
-import Uri from './asserts/uri-assert.js';
-import UsSubdivision from './asserts/us-subdivision-assert.js';
-import UsZipCode from './asserts/us-zip-code-assert.js';
-import Uuid from './asserts/uuid-assert.js';
+const AbaRoutingNumber = require('./asserts/aba-routing-number-assert.js');
+const BankIdentifierCode = require('./asserts/bank-identifier-code-assert.js');
+const BigNumber = require('./asserts/big-number-assert.js');
+const BigNumberEqualTo = require('./asserts/big-number-equal-to-assert.js');
+const BigNumberGreaterThan = require('./asserts/big-number-greater-than-assert.js');
+const BigNumberGreaterThanOrEqualTo = require('./asserts/big-number-greater-than-or-equal-to-assert.js');
+const BigNumberLessThan = require('./asserts/big-number-less-than-assert.js');
+const BigNumberLessThanOrEqualTo = require('./asserts/big-number-less-than-or-equal-to-assert.js');
+const Boolean = require('./asserts/boolean-assert.js');
+const CreditCard = require('./asserts/credit-card-assert.js');
+const Date = require('./asserts/date-assert.js');
+const DateDiffGreaterThan = require('./asserts/date-diff-greater-than-assert.js');
+const DateDiffGreaterThanOrEqualTo = require('./asserts/date-diff-greater-than-or-equal-to-assert.js');
+const DateDiffLessThan = require('./asserts/date-diff-less-than-assert.js');
+const DateDiffLessThanOrEqualTo = require('./asserts/date-diff-less-than-or-equal-to-assert.js');
+const Email = require('./asserts/email-assert.js');
+const EqualKeys = require('./asserts/equal-keys-assert.js');
+const Hash = require('./asserts/hash-assert.js');
+const Integer = require('./asserts/integer-assert.js');
+const InternationalBankAccountNumber = require('./asserts/international-bank-account-number-assert.js');
+const Ip = require('./asserts/ip-assert.js');
+const Iso3166Country = require('./asserts/iso-3166-country-assert.js');
+const Json = require('./asserts/json-assert.js');
+const NotEmpty = require('./asserts/not-empty-assert.js');
+const NullOrDate = require('./asserts/null-or-date-assert.js');
+const NullOrString = require('./asserts/null-or-string-assert.js');
+const Phone = require('./asserts/phone-assert.js');
+const PlainObject = require('./asserts/plain-object-assert.js');
+const TaxpayerIdentificationNumber = require('./asserts/taxpayer-identification-number-assert.js');
+const UkModulusChecking = require('./asserts/uk-modulus-checking-assert.js');
+const Uri = require('./asserts/uri-assert.js');
+const UsSubdivision = require('./asserts/us-subdivision-assert.js');
+const UsZipCode = require('./asserts/us-zip-code-assert.js');
+const Uuid = require('./asserts/uuid-assert.js');
 
 /**
  * Module dependencies.
  */
 
-export default {
+module.exports = {
   AbaRoutingNumber,
   BankIdentifierCode,
   BigNumber,

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import UkModulusCheckingAssert from '../../src/asserts/uk-modulus-checking-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const UkModulusCheckingAssert = require('../../src/asserts/uk-modulus-checking-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UkModulusCheckingAssert`.

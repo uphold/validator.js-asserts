@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
-import { chain, difference, intersection } from 'lodash';
+const { Validator, Violation } = require('validator.js');
+const { chain, difference, intersection } = require('lodash');
 
 /**
  * List of subdivisions.
@@ -27,7 +27,7 @@ const keys = Object.keys(subdivisions);
  * Export `UsSubdivisionAssert`.
  */
 
-export default function usSubdivisionAssert({ categories: categories = keys, alpha2Only: alpha2Only = false } = {}) {
+module.exports = function usSubdivisionAssert({ categories: categories = keys, alpha2Only: alpha2Only = false } = {}) {
   /**
    * Class name.
    */

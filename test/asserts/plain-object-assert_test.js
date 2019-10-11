@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import PlainObjectAssert from '../../src/asserts/plain-object-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const PlainObjectAssert = require('../../src/asserts/plain-object-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `PlainObjectAssert`.

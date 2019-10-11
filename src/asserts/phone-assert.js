@@ -4,13 +4,13 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Export `Phone`.
  */
 
-export default function phoneAssert({ countryCode } = {}) {
+module.exports = function phoneAssert({ countryCode } = {}) {
   /**
    * Peer dependency `google-libphonenumber`.
    */

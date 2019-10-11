@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import JsonAssert from '../../src/asserts/json-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const JsonAssert = require('../../src/asserts/json-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `JsonAssert`.

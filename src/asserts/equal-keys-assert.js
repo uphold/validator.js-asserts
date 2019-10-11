@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
-import { difference, intersection, isArray, isPlainObject } from 'lodash';
+const { Violation } = require('validator.js');
+const { difference, intersection, isArray, isPlainObject } = require('lodash');
 
 /**
  * Export `EqualKeysAssert`.
  */
 
-export default function equalKeysAssert(...keys) {
+module.exports = function equalKeysAssert(...keys) {
   /**
    * Class name.
    */

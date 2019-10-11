@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import NullOrDateAssert from '../../src/asserts/null-or-date-assert';
-import should from 'should';
-import { Assert as BaseAssert, Violation } from 'validator.js';
+const NullOrDateAssert = require('../../src/asserts/null-or-date-assert');
+const should = require('should');
+const { Assert: BaseAssert, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `NullOrDateAssert`.

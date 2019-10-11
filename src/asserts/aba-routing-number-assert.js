@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Export `AbaRoutingNumberAssert`.
  */
 
-export default function abaRoutingNumberAssert() {
+module.exports = function abaRoutingNumberAssert() {
   /**
    * Optional peer dependencies.
    */

@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-import UuidAssert from '../../src/asserts/uuid-assert';
-import should from 'should';
-import { Assert as BaseAssert, Validator, Violation } from 'validator.js';
+const UuidAssert = require('../../src/asserts/uuid-assert');
+const should = require('should');
+const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 
 /**
  * Extend `Assert` with `UuidAssert`.

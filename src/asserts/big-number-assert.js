@@ -3,13 +3,13 @@
  * Module dependencies.
  */
 
-import { Violation } from 'validator.js';
+const { Violation } = require('validator.js');
 
 /**
  * Export `BigNumberAssert`.
  */
 
-export default function bigNumberAssert({ validateSignificantDigits = true } = {}) {
+module.exports = function bigNumberAssert({ validateSignificantDigits = true } = {}) {
   /**
    * Optional peer dependencies.
    */

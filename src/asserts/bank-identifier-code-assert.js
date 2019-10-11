@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import { Validator, Violation } from 'validator.js';
+const { Validator, Violation } = require('validator.js');
 
 /**
  * Bic regex.
@@ -15,7 +15,7 @@ const bic = /^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$/i;
  * Export `BankIdentifierCodeAssert`.
  */
 
-export default function bankIdentifierCodeAssert() {
+module.exports = function bankIdentifierCodeAssert() {
   /**
    * Class name.
    */
