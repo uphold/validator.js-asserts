@@ -42,7 +42,7 @@
     "version": "npm run changelog --future-release=$npm_package_version && git add -A CHANGELOG.md"
   },
   "dependencies": {
-    "lodash": "^4.8.2",
+    "lodash": "^4.17.15",
     "validator.js": "^2.0.0"
   },
   "devDependencies": {
