@@ -2,6 +2,19 @@
   "name": "validator.js-asserts",
   "version": "4.0.2",
   "description": "A set of extra asserts for validator.js.",
+  "keywords": [
+    "asserts",
+    "extra",
+    "extras",
+    "set",
+    "validator.js"
+  ],
+  "homepage": "https://uphold.github.io/validator.js-asserts/",
+  "bugs": "https://github.com/uphold/validator.js-asserts/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uphold/validator.js-asserts"
+  },
   "license": "MIT",
   "contributors": [
     {
@@ -17,20 +30,7 @@
       "email": "tiago.ribeiro@gmail.com"
     }
   ],
-  "homepage": "https://uphold.github.io/validator.js-asserts/",
-  "bugs": "https://github.com/uphold/validator.js-asserts/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uphold/validator.js-asserts"
-  },
   "main": "./src/index.js",
-  "keywords": [
-    "validator.js",
-    "asserts",
-    "extra",
-    "extras",
-    "set"
-  ],
   "scripts": {
     "changelog": "github_changelog_generator --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
     "coverage": "yarn test --coverage",
@@ -60,6 +60,9 @@
     "urijs": "^1.17.1",
     "validator": "^5.2.0"
   },
+  "engines": {
+    "node": ">=8"
+  },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
     "bignumber.js": ">=7 <9",
@@ -72,8 +75,5 @@
     "uk-modulus-checking": "0.0.2",
     "urijs": ">=1 <2",
     "validator": ">=3 <6"
-  },
-  "engines": {
-    "node": ">=8"
   }
 }
