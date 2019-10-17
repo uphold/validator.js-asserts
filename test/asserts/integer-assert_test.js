@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const IntegerAssert = require('../../src/asserts/integer-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `IntegerAssert`.
@@ -28,9 +27,9 @@ describe('IntegerAssert', () => {
       try {
         Assert.integer().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
+        expect(e).toBeInstanceOf(Violation);
       }
     });
   });
@@ -39,9 +38,9 @@ describe('IntegerAssert', () => {
     try {
       Assert.integer().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Integer');
+      expect(e.show().assert).toBe('Integer');
     }
   });
 

@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UsZipCodeAssert = require('../../src/asserts/us-zip-code-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `UsZipCodeAssert`.
@@ -28,11 +27,10 @@ describe('UsZipCodeAssert', () => {
       try {
         Assert.usZipCode().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -44,10 +42,10 @@ describe('UsZipCodeAssert', () => {
       try {
         Assert.usZipCode().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.show().assert.should.equal('UsZipCode');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.show().assert).toBe('UsZipCode');
       }
     });
   });

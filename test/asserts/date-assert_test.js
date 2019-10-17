@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const DateAssert = require('../../src/asserts/date-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `DateAssert`.
@@ -28,10 +27,10 @@ describe('DateAssert', () => {
       try {
         Assert.date().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_date_or_a_string');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_date_or_a_string');
       }
     });
   });
@@ -40,10 +39,10 @@ describe('DateAssert', () => {
     try {
       Assert.date({ format: 'YYYY-MM-DD' }).validate('20003112');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('Date');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('Date');
     }
   });
 
@@ -51,10 +50,10 @@ describe('DateAssert', () => {
     try {
       Assert.date({ format: 'YYYY-MM-DD' }).validate('2000.12.30');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('Date');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('Date');
     }
   });
 
@@ -62,9 +61,9 @@ describe('DateAssert', () => {
     try {
       Assert.date().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Date');
+      expect(e.show().assert).toBe('Date');
     }
   });
 

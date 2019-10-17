@@ -7,7 +7,6 @@
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumber = require('bignumber.js');
 const BigNumberGreaterThanAssert = require('../../src/asserts/big-number-greater-than-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `BigNumberGreaterThanAssert`.
@@ -26,9 +25,9 @@ describe('BigNumberGreaterThanAssert', () => {
     try {
       Assert.bigNumberGreaterThan();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('A threshold value is required.');
+      expect(e.message).toBe('A threshold value is required.');
     }
   });
 
@@ -40,10 +39,10 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan({}, option);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e).toBeInstanceOf(Violation);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -54,9 +53,9 @@ describe('BigNumberGreaterThanAssert', () => {
           try {
             Assert.bigNumberGreaterThan(10, option).validate(choice);
 
-            should.fail();
+            fail();
           } catch (e) {
-            e.should.be.instanceOf(Violation);
+            expect(e).toBeInstanceOf(Violation);
           }
         });
       });
@@ -65,9 +64,9 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan(10, option).validate(10);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
+          expect(e).toBeInstanceOf(Violation);
         }
       });
 
@@ -75,9 +74,9 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan(10, option).validate(9.99999999);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
+          expect(e).toBeInstanceOf(Violation);
         }
       });
 
@@ -85,9 +84,9 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan(1, option).validate(0.1);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().assert.should.equal('BigNumberGreaterThan');
+          expect(e.show().assert).toBe('BigNumberGreaterThan');
         }
       });
 
@@ -95,9 +94,9 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan(10, option).validate({});
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -105,9 +104,9 @@ describe('BigNumberGreaterThanAssert', () => {
         try {
           Assert.bigNumberGreaterThan(10, option).validate(0.1);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.threshold.should.equal('10');
+          expect(e.show().violation.threshold).toBe('10');
         }
       });
 

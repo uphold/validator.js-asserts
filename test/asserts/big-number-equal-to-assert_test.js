@@ -7,7 +7,6 @@
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumber = require('bignumber.js');
 const BigNumberEqualToAssert = require('../../src/asserts/big-number-equal-to-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `BigNumberEqualToAssert`.
@@ -26,9 +25,9 @@ describe('BigNumberEqualToAssert', () => {
     try {
       Assert.bigNumberEqualTo();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('A value is required.');
+      expect(e.message).toBe('A value is required.');
     }
   });
 
@@ -40,10 +39,10 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo({}, option);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e).toBeInstanceOf(Violation);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -54,9 +53,9 @@ describe('BigNumberEqualToAssert', () => {
           try {
             Assert.bigNumberEqualTo(10, option).validate(choice);
 
-            should.fail();
+            fail();
           } catch (e) {
-            e.should.be.instanceOf(Violation);
+            expect(e).toBeInstanceOf(Violation);
           }
         });
       });
@@ -65,9 +64,9 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo(10, option).validate(12);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
+          expect(e).toBeInstanceOf(Violation);
         }
       });
 
@@ -75,9 +74,9 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo(10, option).validate(9);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
+          expect(e).toBeInstanceOf(Violation);
         }
       });
 
@@ -85,9 +84,9 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo(1, option).validate(0.1);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().assert.should.equal('BigNumberEqualTo');
+          expect(e.show().assert).toBe('BigNumberEqualTo');
         }
       });
 
@@ -95,9 +94,9 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo(10, option).validate({});
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -105,9 +104,9 @@ describe('BigNumberEqualToAssert', () => {
         try {
           Assert.bigNumberEqualTo(10, option).validate(0.1);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.value.should.equal('10');
+          expect(e.show().violation.value).toBe('10');
         }
       });
 

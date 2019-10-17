@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const IpAssert = require('../../src/asserts/ip-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `IpAssert`.
@@ -28,11 +27,10 @@ describe('IpAssert', () => {
       try {
         Assert.ip().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -41,10 +39,10 @@ describe('IpAssert', () => {
     try {
       Assert.ip().validate('FOO');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.value.should.equal('FOO');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.value).toBe('FOO');
     }
   });
 
@@ -52,9 +50,9 @@ describe('IpAssert', () => {
     try {
       Assert.ip().validate(123);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Ip');
+      expect(e.show().assert).toBe('Ip');
     }
   });
 

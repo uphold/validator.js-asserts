@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumberAssert = require('../../src/asserts/big-number-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `BigNumberAssert`.
@@ -32,9 +31,9 @@ describe('BigNumberAssert', () => {
           try {
             Assert.bigNumber(option).validate(choice);
 
-            should.fail();
+            fail();
           } catch (e) {
-            e.should.be.instanceOf(Violation);
+            expect(e).toBeInstanceOf(Violation);
           }
         });
       });
@@ -43,9 +42,9 @@ describe('BigNumberAssert', () => {
         try {
           Assert.bigNumber(option).validate();
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().assert.should.equal('BigNumber');
+          expect(e.show().assert).toBe('BigNumber');
         }
       });
 
@@ -62,11 +61,11 @@ describe('BigNumberAssert', () => {
           try {
             Assert.bigNumber(option).validate(1.011111111111111111111111111111111111111111);
 
-            should.fail();
+            fail();
           } catch (e) {
-            e.should.be.instanceOf(Violation);
-            e.show().assert.should.equal('BigNumber');
-            e.show().violation.message.should.equal(
+            expect(e).toBeInstanceOf(Violation);
+            expect(e.show().assert).toBe('BigNumber');
+            expect(e.show().violation.message).toBe(
               '[BigNumber Error] Number primitive has more than 15 significant digits: 1.011111111111111'
             );
           }

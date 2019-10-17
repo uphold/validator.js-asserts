@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const UkModulusCheckingAssert = require('../../src/asserts/uk-modulus-checking-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `UkModulusCheckingAssert`.
@@ -25,11 +24,11 @@ describe('UkModulusChecking', () => {
     try {
       Assert.ukModulusChecking().validate();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('UkModulusChecking');
-      e.show().violation.should.eql({ accountNumber: 'must_be_a_string' });
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('UkModulusChecking');
+      expect(e.show().violation).toEqual({ accountNumber: 'must_be_a_string' });
     }
   });
 
@@ -37,11 +36,11 @@ describe('UkModulusChecking', () => {
     try {
       Assert.ukModulusChecking().validate({ accountNumber: '' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('UkModulusChecking');
-      e.show().violation.should.eql({ sortCode: 'must_be_a_string' });
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('UkModulusChecking');
+      expect(e.show().violation).toEqual({ sortCode: 'must_be_a_string' });
     }
   });
 
@@ -49,11 +48,11 @@ describe('UkModulusChecking', () => {
     try {
       Assert.ukModulusChecking().validate({ accountNumber: '15764273', sortCode: '938063' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('UkModulusChecking');
-      e.value.should.have.keys('accountNumber', 'sortCode');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('UkModulusChecking');
+      expect(Object.keys(e.value)).toMatchObject(['accountNumber', 'sortCode']);
     }
   });
 

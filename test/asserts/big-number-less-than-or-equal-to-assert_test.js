@@ -7,7 +7,6 @@
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumber = require('bignumber.js');
 const BigNumberLessThanOrEqualToAssert = require('../../src/asserts/big-number-less-than-or-equal-to-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `BigNumberLessThanOrEqualToAssert`.
@@ -26,9 +25,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
     try {
       Assert.bigNumberLessThanOrEqualTo();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('A threshold value is required.');
+      expect(e.message).toBe('A threshold value is required.');
     }
   });
 
@@ -40,10 +39,10 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
         try {
           Assert.bigNumberLessThanOrEqualTo({}, option);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e).toBeInstanceOf(Violation);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -54,9 +53,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
           try {
             Assert.bigNumberLessThanOrEqualTo(10, option).validate(choice);
 
-            should.fail();
+            fail();
           } catch (e) {
-            e.should.be.instanceOf(Violation);
+            expect(e).toBeInstanceOf(Violation);
           }
         });
       });
@@ -65,9 +64,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
         try {
           Assert.bigNumberLessThanOrEqualTo(10, option).validate(10.0000000001);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.should.be.instanceOf(Violation);
+          expect(e).toBeInstanceOf(Violation);
         }
       });
 
@@ -75,9 +74,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
         try {
           Assert.bigNumberLessThanOrEqualTo(10, option).validate(10.01);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().assert.should.equal('BigNumberLessThanOrEqualTo');
+          expect(e.show().assert).toBe('BigNumberLessThanOrEqualTo');
         }
       });
 
@@ -85,9 +84,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
         try {
           Assert.bigNumberLessThanOrEqualTo(10, option).validate({});
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.message.should.match(/Not a number/);
+          expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
 
@@ -95,9 +94,9 @@ describe('BigNumberLessThanOrEqualToAssert', () => {
         try {
           Assert.bigNumberLessThanOrEqualTo(10, option).validate(10.01);
 
-          should.fail();
+          fail();
         } catch (e) {
-          e.show().violation.threshold.should.equal('10');
+          expect(e.show().violation.threshold).toBe('10');
         }
       });
 

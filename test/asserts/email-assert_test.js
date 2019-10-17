@@ -7,7 +7,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const EmailAssert = require('../../src/asserts/email-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `EmailAssert`.
@@ -32,11 +31,10 @@ describe('EmailAssert', () => {
       try {
         Assert.prototype.Email().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -45,9 +43,9 @@ describe('EmailAssert', () => {
     try {
       Assert.prototype.Email().validate(`${'-'.repeat(248)}@bar.com`);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -55,9 +53,9 @@ describe('EmailAssert', () => {
     try {
       Assert.prototype.Email().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Email');
+      expect(e.show().assert).toBe('Email');
     }
   });
 

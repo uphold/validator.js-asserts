@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BooleanAssert = require('../../src/asserts/boolean-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `BooleanAssert`.
@@ -28,10 +27,10 @@ describe('BooleanAssert', () => {
       try {
         Assert.boolean().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_boolean');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_boolean');
       }
     });
   });
@@ -40,9 +39,9 @@ describe('BooleanAssert', () => {
     try {
       Assert.boolean().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Boolean');
+      expect(e.show().assert).toBe('Boolean');
     }
   });
 

@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const CreditCardAssert = require('../../src/asserts/credit-card-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `CreditCardAssert`.
@@ -28,10 +27,10 @@ describe('CreditCardAssert', () => {
       try {
         Assert.creditCard().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_string_or_a_number');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_string_or_a_number');
       }
     });
   });
@@ -40,10 +39,10 @@ describe('CreditCardAssert', () => {
     try {
       Assert.creditCard().validate('foobar');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.value.should.equal('foobar');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.value).toBe('foobar');
     }
   });
 
@@ -51,9 +50,9 @@ describe('CreditCardAssert', () => {
     try {
       Assert.creditCard().validate(123);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('CreditCard');
+      expect(e.show().assert).toBe('CreditCard');
     }
   });
 
