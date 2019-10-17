@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const NullOrStringAssert = require('../../src/asserts/null-or-string-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `NullOrStringAssert`.
@@ -28,10 +27,10 @@ describe('NullOrStringAssert', () => {
       try {
         Assert.nullOrString().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_null_or_a_string');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_null_or_a_string');
       }
     });
   });
@@ -40,10 +39,10 @@ describe('NullOrStringAssert', () => {
     try {
       Assert.nullOrString({ min: 10 }).validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.violation.should.eql({ min: 10 });
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.violation).toEqual({ min: 10 });
     }
   });
 
@@ -51,9 +50,9 @@ describe('NullOrStringAssert', () => {
     try {
       Assert.nullOrString().validate({});
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('NullOrString');
+      expect(e.show().assert).toBe('NullOrString');
     }
   });
 
@@ -61,9 +60,9 @@ describe('NullOrStringAssert', () => {
     try {
       Assert.nullOrString({ min: 5 }).validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.min.should.equal(5);
+      expect(e.show().violation.min).toBe(5);
     }
   });
 
@@ -71,10 +70,10 @@ describe('NullOrStringAssert', () => {
     try {
       Assert.nullOrString({ max: 2, min: 1 }).validate('foobar');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.assert.min.should.equal(1);
-      e.assert.max.should.equal(2);
+      expect(e.assert.min).toBe(1);
+      expect(e.assert.max).toBe(2);
     }
   });
 

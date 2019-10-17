@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const EqualKeysAssert = require('../../src/asserts/equal-keys-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `EqualKeysAssert`.
@@ -28,10 +27,10 @@ describe('EqualKeysAssert', () => {
       try {
         Assert.equalKeys(['foo', 'bar']).validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_plain_object');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_plain_object');
       }
     });
   });
@@ -40,9 +39,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -50,9 +49,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys(['foo']).validate({});
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['foo']);
+      expect(e.show().violation.difference).toEqual(['foo']);
     }
   });
 
@@ -60,9 +59,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys().validate({ foo: 'oof' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['foo']);
+      expect(e.show().violation.difference).toEqual(['foo']);
     }
   });
 
@@ -70,9 +69,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys('foo', 'bar').validate({ foo: 'oof' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['bar']);
+      expect(e.show().violation.difference).toEqual(['bar']);
     }
   });
 
@@ -80,9 +79,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys('bar').validate({ foo: 'oof' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['foo']);
+      expect(e.show().violation.difference).toEqual(['foo']);
     }
   });
 
@@ -90,9 +89,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys(['foo']).validate(123);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('EqualKeys');
+      expect(e.show().assert).toBe('EqualKeys');
     }
   });
 
@@ -100,9 +99,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['bar']);
+      expect(e.show().violation.difference).toEqual(['bar']);
     }
   });
 
@@ -110,9 +109,9 @@ describe('EqualKeysAssert', () => {
     try {
       Assert.equalKeys(['foo', 'biz']).validate({ foo: 'qux' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.difference.should.eql(['biz']);
+      expect(e.show().violation.difference).toEqual(['biz']);
     }
   });
 

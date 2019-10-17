@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UsSubdivisionAssert = require('../../src/asserts/us-subdivision-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `UsSubdivisionAssert`.
@@ -28,11 +27,10 @@ describe('UsSubdivisionAssert', () => {
       try {
         Assert.usSubdivision().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -41,9 +39,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision().validate('FOO');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -51,9 +49,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision({ categories: ['foo', 'districts'] });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('Unsupported categories "foo" given');
+      expect(e.message).toBe('Unsupported categories "foo" given');
     }
   });
 
@@ -61,9 +59,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision({ alpha2Only: true }).validate('US-CA');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('UsSubdivision');
+      expect(e.show().assert).toBe('UsSubdivision');
     }
   });
 
@@ -71,9 +69,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision().validate('FOO');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('UsSubdivision');
+      expect(e.show().assert).toBe('UsSubdivision');
     }
   });
 
@@ -81,9 +79,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision({ categories: ['districts'] }).validate('AS');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('UsSubdivision');
+      expect(e.show().assert).toBe('UsSubdivision');
     }
   });
 
@@ -91,9 +89,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision({ categories: ['outlying'] }).validate('DC');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('UsSubdivision');
+      expect(e.show().assert).toBe('UsSubdivision');
     }
   });
 
@@ -101,9 +99,9 @@ describe('UsSubdivisionAssert', () => {
     try {
       Assert.usSubdivision({ categories: ['states'] }).validate('AS');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('UsSubdivision');
+      expect(e.show().assert).toBe('UsSubdivision');
     }
   });
 

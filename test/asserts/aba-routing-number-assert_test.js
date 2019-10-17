@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const AbaRoutingNumberAssert = require('../../src/asserts/aba-routing-number-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `AbaRoutingNumberAssert`.
@@ -26,10 +25,10 @@ describe('AbaRoutingNumberAssert', () => {
       try {
         Assert.abaRoutingNumber().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_string');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_string');
       }
     });
   });
@@ -38,10 +37,10 @@ describe('AbaRoutingNumberAssert', () => {
     try {
       Assert.abaRoutingNumber().validate('foobar');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().value.should.equal('foobar');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().value).toBe('foobar');
     }
   });
 
@@ -49,9 +48,9 @@ describe('AbaRoutingNumberAssert', () => {
     try {
       Assert.abaRoutingNumber().validate(123);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('AbaRoutingNumber');
+      expect(e.show().assert).toBe('AbaRoutingNumber');
     }
   });
 

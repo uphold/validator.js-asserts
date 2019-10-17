@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const NullOrDateAssert = require('../../src/asserts/null-or-date-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `NullOrDateAssert`.
@@ -28,10 +27,10 @@ describe('NullOrDateAssert', () => {
       try {
         Assert.nullOrDate().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_null_or_a_date');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_null_or_a_date');
       }
     });
   });
@@ -40,10 +39,10 @@ describe('NullOrDateAssert', () => {
     try {
       Assert.nullOrDate().validate('2015-99-01');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().value.should.equal('2015-99-01');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().value).toBe('2015-99-01');
     }
   });
 
@@ -51,9 +50,9 @@ describe('NullOrDateAssert', () => {
     try {
       Assert.nullOrDate().validate({});
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('NullOrDate');
+      expect(e.show().assert).toBe('NullOrDate');
     }
   });
 

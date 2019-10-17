@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UuidAssert = require('../../src/asserts/uuid-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `UuidAssert`.
@@ -28,11 +27,10 @@ describe('UuidAssert', () => {
       try {
         Assert.uuid().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -44,9 +42,9 @@ describe('UuidAssert', () => {
       try {
         Assert.uuid(version);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.message.should.equal('UUID version specified is not supported.');
+        expect(e.message).toBe('UUID version specified is not supported.');
       }
     });
   });
@@ -55,9 +53,9 @@ describe('UuidAssert', () => {
     try {
       Assert.uuid().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Uuid');
+      expect(e.show().assert).toBe('Uuid');
     }
   });
 
@@ -65,9 +63,9 @@ describe('UuidAssert', () => {
     try {
       Assert.uuid(5).validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.version.should.equal(5);
+      expect(e.show().violation.version).toBe(5);
     }
   });
 

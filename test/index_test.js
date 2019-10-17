@@ -12,41 +12,46 @@ const asserts = require('../src');
 
 describe('validator.js-asserts', () => {
   it('should export all asserts', () => {
-    Object.keys(asserts).should.eql([
-      'AbaRoutingNumber',
-      'BankIdentifierCode',
-      'BigNumber',
-      'BigNumberEqualTo',
-      'BigNumberGreaterThan',
-      'BigNumberGreaterThanOrEqualTo',
-      'BigNumberLessThan',
-      'BigNumberLessThanOrEqualTo',
-      'Boolean',
-      'CreditCard',
-      'Date',
-      'DateDiffGreaterThan',
-      'DateDiffGreaterThanOrEqualTo',
-      'DateDiffLessThan',
-      'DateDiffLessThanOrEqualTo',
-      'Email',
-      'EqualKeys',
-      'Hash',
-      'Integer',
-      'InternationalBankAccountNumber',
-      'Ip',
-      'Iso3166Country',
-      'Json',
-      'NotEmpty',
-      'NullOrDate',
-      'NullOrString',
-      'Phone',
-      'PlainObject',
-      'TaxpayerIdentificationNumber',
-      'UkModulusChecking',
-      'Uri',
-      'UsSubdivision',
-      'UsZipCode',
-      'Uuid'
-    ]);
+    const assertNames = Object.keys(asserts);
+
+    expect(assertNames).toHaveLength(34);
+    expect(assertNames).toEqual(
+      expect.arrayContaining([
+        'AbaRoutingNumber',
+        'BankIdentifierCode',
+        'BigNumber',
+        'BigNumberEqualTo',
+        'BigNumberGreaterThan',
+        'BigNumberGreaterThanOrEqualTo',
+        'BigNumberLessThan',
+        'BigNumberLessThanOrEqualTo',
+        'Boolean',
+        'CreditCard',
+        'Date',
+        'DateDiffGreaterThan',
+        'DateDiffGreaterThanOrEqualTo',
+        'DateDiffLessThan',
+        'DateDiffLessThanOrEqualTo',
+        'Email',
+        'EqualKeys',
+        'Hash',
+        'Integer',
+        'InternationalBankAccountNumber',
+        'Ip',
+        'Iso3166Country',
+        'Json',
+        'NotEmpty',
+        'NullOrDate',
+        'NullOrString',
+        'Phone',
+        'PlainObject',
+        'TaxpayerIdentificationNumber',
+        'UkModulusChecking',
+        'Uri',
+        'UsSubdivision',
+        'UsZipCode',
+        'Uuid'
+      ])
+    );
   });
 });

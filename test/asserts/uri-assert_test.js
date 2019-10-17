@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const UriAssert = require('../../src/asserts/uri-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `UriAssert`.
@@ -25,10 +24,10 @@ describe('UriAssert', () => {
     try {
       Assert.uri({ foo: 'bar' });
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Error);
-      e.message.should.equal('Invalid constraint "foo=bar"');
+      expect(e).toBeInstanceOf(Error);
+      expect(e.message).toBe('Invalid constraint "foo=bar"');
     }
   });
 
@@ -39,11 +38,10 @@ describe('UriAssert', () => {
       try {
         Assert.uri().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -52,9 +50,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri().validate(`foo-${'-'.repeat(246)}-bar`);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -62,9 +60,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri().validate('foobar.com');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -72,9 +70,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri({ protocol: 'http' }).validate(`https://${'-'.repeat(246)}@bar.com`);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -82,9 +80,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri({ is: 'ip' }).validate('https://foobar.com');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 
@@ -92,9 +90,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri({ protocol: 'http' }).validate('https://foobar.com');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.constraints.should.eql({ protocol: 'http' });
+      expect(e.show().violation.constraints).toEqual({ protocol: 'http' });
     }
   });
 
@@ -102,9 +100,9 @@ describe('UriAssert', () => {
     try {
       Assert.uri().validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Uri');
+      expect(e.show().assert).toBe('Uri');
     }
   });
 

@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const PhoneAssert = require('../../src/asserts/phone-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `Phone`.
@@ -26,10 +25,10 @@ describe('Phone', () => {
       try {
         Assert.phone({ countryCode: 'US' }).validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_string');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_string');
       }
     });
   });
@@ -38,10 +37,10 @@ describe('Phone', () => {
     try {
       Assert.phone().validate('+35191234567890');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('Phone');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('Phone');
     }
   });
 
@@ -49,10 +48,10 @@ describe('Phone', () => {
     try {
       Assert.phone({ countryCode: 'US' }).validate('912345578');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().assert.should.equal('Phone');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().assert).toBe('Phone');
     }
   });
 

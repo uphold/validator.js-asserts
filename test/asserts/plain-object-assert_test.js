@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const PlainObjectAssert = require('../../src/asserts/plain-object-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `PlainObjectAssert`.
@@ -28,9 +27,9 @@ describe('PlainObjectAssert', () => {
       try {
         Assert.plainObject().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
+        expect(e).toBeInstanceOf(Violation);
       }
     });
   });
@@ -39,9 +38,9 @@ describe('PlainObjectAssert', () => {
     try {
       Assert.plainObject().validate('FOO');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('PlainObject');
+      expect(e.show().assert).toBe('PlainObject');
     }
   });
 

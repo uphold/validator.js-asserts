@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const JsonAssert = require('../../src/asserts/json-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `JsonAssert`.
@@ -28,9 +27,9 @@ describe('JsonAssert', () => {
       try {
         Assert.json().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
+        expect(e).toBeInstanceOf(Violation);
       }
     });
   });
@@ -39,9 +38,9 @@ describe('JsonAssert', () => {
     try {
       Assert.json().validate([]);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('JSON');
+      expect(e.show().assert).toBe('JSON');
     }
   });
 

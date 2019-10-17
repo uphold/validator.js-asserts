@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const HashAssert = require('../../src/asserts/hash-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `HashAssert`.
@@ -25,9 +24,9 @@ describe('HashAssert', () => {
     try {
       Assert.hash();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('An algorithm is required.');
+      expect(e.message).toBe('An algorithm is required.');
     }
   });
 
@@ -38,9 +37,9 @@ describe('HashAssert', () => {
       try {
         Assert.hash(algorithm);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.message.should.equal('The algorithm specified is not supported.');
+        expect(e.message).toBe('The algorithm specified is not supported.');
       }
     });
   });
@@ -52,11 +51,10 @@ describe('HashAssert', () => {
       try {
         Assert.hash('sha512').validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -65,9 +63,9 @@ describe('HashAssert', () => {
     try {
       Assert.hash('sha1').validate(123);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Hash');
+      expect(e.show().assert).toBe('Hash');
     }
   });
 
@@ -75,9 +73,9 @@ describe('HashAssert', () => {
     try {
       Assert.hash('sha1').validate('foo');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().violation.algorithm.should.equal('sha1');
+      expect(e.show().violation.algorithm).toBe('sha1');
     }
   });
 

@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
 const Iso3166CountryAssert = require('../../src/asserts/iso-3166-country-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `Iso3166CountryAssert`.
@@ -28,11 +27,10 @@ describe('Iso3166CountryAssert', () => {
       try {
         Assert.iso3166Country().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-
-        e.violation.value.should.equal(Validator.errorCode.must_be_a_string);
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
       }
     });
   });
@@ -41,10 +39,10 @@ describe('Iso3166CountryAssert', () => {
     try {
       Assert.iso3166Country().validate('FOO');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.value.should.equal('FOO');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.value).toBe('FOO');
     }
   });
 
@@ -52,9 +50,9 @@ describe('Iso3166CountryAssert', () => {
     try {
       Assert.iso3166Country().validate([]);
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('Iso3166Country');
+      expect(e.show().assert).toBe('Iso3166Country');
     }
   });
 

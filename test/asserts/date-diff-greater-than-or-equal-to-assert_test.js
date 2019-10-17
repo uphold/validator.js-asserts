@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const DateDiffGreaterThanOrEqualToAssert = require('../../src/asserts/date-diff-greater-than-or-equal-to-assert');
-const should = require('should');
 const sinon = require('sinon');
 
 /**
@@ -26,34 +25,34 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
     try {
       Assert.dateDiffGreaterThanOrEqualTo();
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.message.should.equal('A threshold value is required.');
+      expect(e.message).toBe('A threshold value is required.');
     }
   });
 
   it('should have a default option `absolute` of `false`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(1);
 
-    assert.options.absolute.should.be.false();
+    expect(assert.options.absolute).toBe(false);
   });
 
   it('should have a default option `asFloat` of `false`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(1);
 
-    assert.options.asFloat.should.be.false();
+    expect(assert.options.asFloat).toBe(false);
   });
 
   it('should have a default option `fromDate` of `null`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(1);
 
-    (assert.options.fromDate === null).should.be.true();
+    expect(assert.options.fromDate).toBeNull();
   });
 
   it('should have a default option `unit` of `milliseconds`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(1);
 
-    assert.options.unit.should.equal('milliseconds');
+    expect(assert.options.unit).toBe('milliseconds');
   });
 
   it('should throw an error if the input value is not a date', () => {
@@ -63,10 +62,10 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
       try {
         Assert.dateDiffGreaterThanOrEqualTo(10).validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
-        e.violation.value.should.equal('must_be_a_date_or_a_string');
+        expect(e).toBeInstanceOf(Violation);
+        expect(e.violation.value).toBe('must_be_a_date_or_a_string');
       }
     });
   });
@@ -75,10 +74,10 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
     try {
       Assert.dateDiffGreaterThanOrEqualTo(10).validate('2015-99-01');
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().value.should.equal('2015-99-01');
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().value).toBe('2015-99-01');
     }
   });
 
@@ -88,10 +87,10 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
     try {
       Assert.dateDiffGreaterThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1970-01-01'));
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().violation.threshold.should.not.equal(e.show().violation.diff);
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().violation.threshold).not.toBe(e.show().violation.diff);
     }
 
     clock.restore();
@@ -103,10 +102,10 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
         new Date('1970-01-01 10:00:00Z')
       );
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().violation.threshold.should.not.equal(e.show().violation.diff);
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().violation.threshold).not.toBe(e.show().violation.diff);
     }
   });
 
@@ -116,9 +115,9 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
     try {
       Assert.dateDiffGreaterThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1970-01-01'));
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('DateDiffGreaterThanOrEqualTo');
+      expect(e.show().assert).toBe('DateDiffGreaterThanOrEqualTo');
     }
 
     clock.restore();
@@ -130,10 +129,17 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
     try {
       Assert.dateDiffGreaterThanOrEqualTo(24 * 60 * 60 * 1000).validate(new Date('1970-01-01'));
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().violation.should.have.keys('absolute', 'asFloat', 'diff', 'fromDate', 'threshold', 'unit');
+      expect(e).toBeInstanceOf(Violation);
+      expect(Object.keys(e.show().violation)).toMatchObject([
+        'absolute',
+        'asFloat',
+        'diff',
+        'fromDate',
+        'threshold',
+        'unit'
+      ]);
     }
 
     clock.restore();
@@ -142,19 +148,19 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
   it('should accept option `asFloat`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(0, { asFloat: true });
 
-    assert.options.asFloat.should.be.true();
+    expect(assert.options.asFloat).toBe(true);
   });
 
   it('should accept option `fromDate`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(0, { fromDate: new Date('1970-01-01') });
 
-    assert.options.fromDate.should.eql(new Date('1970-01-01'));
+    expect(assert.options.fromDate).toEqual(new Date('1970-01-01'));
   });
 
   it('should accept option `unit`', () => {
     const assert = Assert.dateDiffGreaterThanOrEqualTo(24, { unit: 'hours' });
 
-    assert.options.unit.should.equal('hours');
+    expect(assert.options.unit).toBe('hours');
   });
 
   it('should use the `asFloat` option supplied', () => {
@@ -165,10 +171,10 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
         unit: 'minutes'
       }).validate(new Date('1970-01-01 10:04:51Z'));
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
-      e.show().violation.diff.should.equal(-4.85);
+      expect(e).toBeInstanceOf(Violation);
+      expect(e.show().violation.diff).toBe(-4.85);
     }
   });
 
@@ -179,9 +185,9 @@ describe('DateDiffGreaterThanOrEqualToAssert', () => {
         unit: 'seconds'
       }).validate(new Date('1970-01-01 10:00:05Z'));
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.should.be.instanceOf(Violation);
+      expect(e).toBeInstanceOf(Violation);
     }
   });
 

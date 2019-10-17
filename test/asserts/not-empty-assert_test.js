@@ -6,7 +6,6 @@
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const NotEmptyAssert = require('../../src/asserts/not-empty-assert');
-const should = require('should');
 
 /**
  * Extend `Assert` with `NotEmptyAssert`.
@@ -28,9 +27,9 @@ describe('NotEmptyAssert', () => {
       try {
         Assert.notEmpty().validate(choice);
 
-        should.fail();
+        fail();
       } catch (e) {
-        e.should.be.instanceOf(Violation);
+        expect(e).toBeInstanceOf(Violation);
       }
     });
   });
@@ -39,9 +38,9 @@ describe('NotEmptyAssert', () => {
     try {
       Assert.notEmpty().validate({});
 
-      should.fail();
+      fail();
     } catch (e) {
-      e.show().assert.should.equal('NotEmpty');
+      expect(e.show().assert).toBe('NotEmpty');
     }
   });
 
