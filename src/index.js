@@ -13,6 +13,7 @@ const BigNumberGreaterThanOrEqualTo = require('./asserts/big-number-greater-than
 const BigNumberLessThan = require('./asserts/big-number-less-than-assert.js');
 const BigNumberLessThanOrEqualTo = require('./asserts/big-number-less-than-or-equal-to-assert.js');
 const Boolean = require('./asserts/boolean-assert.js');
+const Callback = require('./asserts/callback-assert');
 const CreditCard = require('./asserts/credit-card-assert.js');
 const Date = require('./asserts/date-assert.js');
 const DateDiffGreaterThan = require('./asserts/date-diff-greater-than-assert.js');
@@ -53,6 +54,7 @@ module.exports = {
   BigNumberLessThan,
   BigNumberLessThanOrEqualTo,
   Boolean,
+  Callback,
   CreditCard,
   Date,
   DateDiffGreaterThan,

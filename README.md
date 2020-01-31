@@ -29,6 +29,7 @@ The following set of extra asserts are provided by this package:
 - [BigNumberLessThan](#bignumberlessthan) (requires `bignumber.js`)
 - [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
 - [Boolean](#boolean)
+- [Callback](#callback) (requires `callback`)
 - [CreditCard](#creditcard) (requires `creditcard`)
 - [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
@@ -96,6 +97,13 @@ Tests if a `BigNumber` is less than or equal to a given threshold.
 
 ### Boolean
 Tests if the value is a boolean.
+
+### Callback
+Allows you to add custom rules by giving a callback function and a custom class.
+
+#### Arguments
+- `callback` (required) - the callback function.
+- `customClass` (optional) - the name of the class.
 
 ### CreditCard
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
