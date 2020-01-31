@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.1.2](https://github.com/uphold/validator.js-asserts/tree/v3.1.2) (2020-01-31)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.1...v3.1.2)
+
+**Merged pull requests:**
+
+- Change node support to be above v8 and update travis build file [\#184](https://github.com/uphold/validator.js-asserts/pull/184) ([cristianooliveira](https://github.com/cristianooliveira))
+- Bump validator.js and add yarn.lock [\#183](https://github.com/uphold/validator.js-asserts/pull/183) ([cristianooliveira](https://github.com/cristianooliveira))
+
 ## [v3.1.0](https://github.com/seegno/validator.js-asserts/tree/v3.1.0) (2016-10-20)
 [Full Changelog](https://github.com/seegno/validator.js-asserts/compare/v3.0.2...v3.1.0)
 
@@ -188,4 +196,3 @@
 
 - Expose min and max in `NullOrString` [\#2](https://github.com/seegno/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/seegno/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
-
