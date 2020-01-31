@@ -12,6 +12,7 @@ import BigNumberGreaterThanOrEqualTo from './asserts/big-number-greater-than-or-
 import BigNumberLessThan from './asserts/big-number-less-than-assert.js';
 import BigNumberLessThanOrEqualTo from './asserts/big-number-less-than-or-equal-to-assert.js';
 import Boolean from './asserts/boolean-assert.js';
+import Callback from './asserts/callback-assert';
 import CreditCard from './asserts/credit-card-assert.js';
 import Date from './asserts/date-assert.js';
 import DateDiffGreaterThan from './asserts/date-diff-greater-than-assert.js';
@@ -52,6 +53,7 @@ export default {
   BigNumberLessThan,
   BigNumberLessThanOrEqualTo,
   Boolean,
+  Callback,
   CreditCard,
   Date,
   DateDiffGreaterThan,

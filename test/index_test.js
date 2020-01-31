@@ -21,6 +21,7 @@ describe('validator.js-asserts', () => {
       'BigNumberLessThan',
       'BigNumberLessThanOrEqualTo',
       'Boolean',
+      'Callback',
       'CreditCard',
       'Date',
       'DateDiffGreaterThan',
