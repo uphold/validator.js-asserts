@@ -89,6 +89,6 @@
     "validator": ">=3 <6"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   }
 }
