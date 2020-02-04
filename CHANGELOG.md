@@ -1,5 +1,12 @@
 # Changelog
 
+## [v3.2.0](https://github.com/uphold/validator.js-asserts/tree/v3.2.0) (2020-02-04)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.2...v3.2.0)
+
+**Implemented enhancements:**
+
+- Add callback assert [\#185](https://github.com/uphold/validator.js-asserts/pull/185) ([cristianooliveira](https://github.com/cristianooliveira))
+
 ## [v3.1.2](https://github.com/uphold/validator.js-asserts/tree/v3.1.2) (2020-01-31)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.1...v3.1.2)
 

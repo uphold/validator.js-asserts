@@ -40,6 +40,10 @@ var _booleanAssert = require('./asserts/boolean-assert.js');
 
 var _booleanAssert2 = _interopRequireDefault(_booleanAssert);
 
+var _callbackAssert = require('./asserts/callback-assert');
+
+var _callbackAssert2 = _interopRequireDefault(_callbackAssert);
+
 var _creditCardAssert = require('./asserts/credit-card-assert.js');
 
 var _creditCardAssert2 = _interopRequireDefault(_creditCardAssert);
@@ -146,10 +150,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Module dependencies.
  */
 
-/**
- * Module dependencies.
- */
-
 exports.default = {
   AbaRoutingNumber: _abaRoutingNumberAssert2.default,
   BankIdentifierCode: _bankIdentifierCodeAssert2.default,
@@ -160,6 +160,7 @@ exports.default = {
   BigNumberLessThan: _bigNumberLessThanAssert2.default,
   BigNumberLessThanOrEqualTo: _bigNumberLessThanOrEqualToAssert2.default,
   Boolean: _booleanAssert2.default,
+  Callback: _callbackAssert2.default,
   CreditCard: _creditCardAssert2.default,
   Date: _dateAssert2.default,
   DateDiffGreaterThan: _dateDiffGreaterThanAssert2.default,
@@ -186,4 +187,8 @@ exports.default = {
   UsZipCode: _usZipCodeAssert2.default,
   Uuid: _uuidAssert2.default
 };
+/**
+ * Module dependencies.
+ */
+
 module.exports = exports['default'];
