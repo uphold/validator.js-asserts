@@ -1,6 +1,6 @@
 {
   "name": "validator.js-asserts",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "A set of extra asserts for validator.js.",
   "keywords": [
     "asserts",
