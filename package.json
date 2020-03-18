@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "abavalidator": "^2.0.1",
-    "bignumber.js": "^8.0.2",
+    "bignumber.js": "^9.0.0",
     "creditcard": "^0.1.2",
     "eslint": "^6.5.1",
     "eslint-config-uphold": "^1.0.1",
@@ -65,7 +65,7 @@
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
-    "bignumber.js": ">=7 <9",
+    "bignumber.js": ">=7 <=9.0.0",
     "creditcard": ">=0.0.1 <1.0.0",
     "google-libphonenumber": ">=1 <4",
     "iban": ">=0.0.6 <1.0.0",

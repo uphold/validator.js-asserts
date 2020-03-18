@@ -90,12 +90,13 @@ describe('BigNumberGreaterThanAssert', () => {
         }
       });
 
-      it('should expose `message` on the violation if the input value is not a number', () => {
+      it('should expose `assert` equal to `BigNumberGreaterThan` and `message` on the violation if the input value is not a number', () => {
         try {
           Assert.bigNumberGreaterThan(10, option).validate({});
 
           fail();
         } catch (e) {
+          expect(e.show().assert).toBe('BigNumberGreaterThan');
           expect(e.show().violation.message).toMatch(/Not a number/);
         }
       });
