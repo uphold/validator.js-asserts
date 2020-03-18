@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+const _ = require('lodash');
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumberAssert = require('./big-number-assert');
 
@@ -45,9 +46,9 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
    */
 
   this.validate = value => {
-    Assert.bigNumber({ validateSignificantDigits }).validate(value);
-
     try {
+      Assert.bigNumber({ validateSignificantDigits }).validate(value);
+
       const number = new BigNumber(value);
 
       if (!number.isEqualTo(this.value)) {
@@ -55,9 +56,10 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
       }
     } catch (e) {
       const context = { value: this.value.toString() };
+      const message = e.message || _.get(e, 'violation.message');
 
-      if (e.message.startsWith('[BigNumber Error]')) {
-        context.message = e.message;
+      if (message && message.startsWith('[BigNumber Error]')) {
+        context.message = message;
       }
 
       throw new Violation(this, value, context);
