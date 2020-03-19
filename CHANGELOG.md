@@ -1,12 +1,41 @@
 # Changelog
 
+## [v6.0.0](https://github.com/uphold/validator.js-asserts/tree/v6.0.0) (2020-03-19)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v5.0.0...v6.0.0)
+
+**Implemented enhancements:**
+
+- Update BigNumber@9.0.0 [\#189](https://github.com/uphold/validator.js-asserts/pull/189) ([afsampaio](https://github.com/afsampaio))
+
 ## [v5.0.0](https://github.com/uphold/validator.js-asserts/tree/v5.0.0) (2020-03-02)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/3.2.0...v5.0.0)
 
 **Merged pull requests:**
 
 - Bump validator.js [\#187](https://github.com/uphold/validator.js-asserts/pull/187) ([cristianooliveira](https://github.com/cristianooliveira))
+
+## [3.2.0](https://github.com/uphold/validator.js-asserts/tree/3.2.0) (2020-02-04)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.2...3.2.0)
+
+**Implemented enhancements:**
+
+- Add callback assert [\#185](https://github.com/uphold/validator.js-asserts/pull/185) ([cristianooliveira](https://github.com/cristianooliveira))
+
+**Merged pull requests:**
+
+- Add callback assert [\#186](https://github.com/uphold/validator.js-asserts/pull/186) ([cristianooliveira](https://github.com/cristianooliveira))
+
+## [v3.1.2](https://github.com/uphold/validator.js-asserts/tree/v3.1.2) (2020-01-31)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.1...v3.1.2)
+
+**Merged pull requests:**
+
+- Change node support to be above v8 and update travis build file [\#184](https://github.com/uphold/validator.js-asserts/pull/184) ([cristianooliveira](https://github.com/cristianooliveira))
+- Bump validator.js and add yarn.lock [\#183](https://github.com/uphold/validator.js-asserts/pull/183) ([cristianooliveira](https://github.com/cristianooliveira))
 - Bump dependencies [\#182](https://github.com/uphold/validator.js-asserts/pull/182) ([Americas](https://github.com/Americas))
+
+## [v3.1.1](https://github.com/uphold/validator.js-asserts/tree/v3.1.1) (2019-10-08)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.2...v3.1.1)
 
 ## [v4.0.2](https://github.com/uphold/validator.js-asserts/tree/v4.0.2) (2019-10-08)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.1...v4.0.2)
@@ -232,3 +261,4 @@
 
 - Expose min and max in `NullOrString` [\#2](https://github.com/uphold/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/uphold/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
+
