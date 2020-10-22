@@ -16,15 +16,19 @@ module.exports = function(fn, customClass) {
    * Class name.
    */
 
-  this.__class__ = customClass || 'Callback';
-
-  if (!_.isFunction(fn)) {
-    throw new Error('Callback must be instantiated with a function');
+  if (_.isNil(customClass)) {
+    throw new Error('Callback must be instantiated with a custom class');
   }
+
+  this.__class__ = customClass;
 
   /**
    * Fn.
    */
+
+  if (!_.isFunction(fn)) {
+    throw new Error('Callback must be instantiated with a function');
+  }
 
   this.fn = fn;
 
