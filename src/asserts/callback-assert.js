@@ -8,6 +8,12 @@ const _ = require('lodash');
 const { Violation } = require('validator.js');
 
 /**
+ * Constants.
+ */
+
+const expression = /^[a-zA-Z]+$/;
+
+/**
  * Export `CallbackAssert`.
  */
 
@@ -16,8 +22,8 @@ module.exports = function(fn, customClass) {
    * Class name.
    */
 
-  if (_.isNil(customClass)) {
-    throw new Error('Callback must be instantiated with a custom class');
+  if (!_.isString(customClass) || !expression.test(customClass)) {
+    throw new Error('Callback must be instantiated with a valid custom class name');
   }
 
   this.__class__ = customClass;
