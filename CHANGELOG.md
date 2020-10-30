@@ -1,5 +1,14 @@
 # Changelog
 
+## [v7.0.0](https://github.com/uphold/validator.js-asserts/tree/v7.0.0) (2020-10-30)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v6.0.0...v7.0.0)
+
+**Merged pull requests:**
+
+- Improve custom class validation [\#196](https://github.com/uphold/validator.js-asserts/pull/196) ([afsampaio](https://github.com/afsampaio))
+- Update README with new callback usage [\#195](https://github.com/uphold/validator.js-asserts/pull/195) ([diogotorres97](https://github.com/diogotorres97))
+- Improve callback assert to ensure an error class [\#194](https://github.com/uphold/validator.js-asserts/pull/194) ([diogotorres97](https://github.com/diogotorres97))
+
 ## [v6.0.0](https://github.com/uphold/validator.js-asserts/tree/v6.0.0) (2020-03-19)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v5.0.0...v6.0.0)
 
@@ -261,4 +270,3 @@
 
 - Expose min and max in `NullOrString` [\#2](https://github.com/uphold/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/uphold/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
-
