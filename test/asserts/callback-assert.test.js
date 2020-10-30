@@ -20,20 +20,22 @@ const Assert = BaseAssert.extend({
  */
 
 describe('CallbackAssert', () => {
-  it('should fail if `customClass` is missing', () => {
+  it('should throw an error if `customClass` is missing', () => {
     try {
       Assert.callback(value => value === 'foobiz').validate('foobar');
     } catch (e) {
-      expect(e.message).toEqual('Callback must be instantiated with a custom class');
+      expect(e.message).toEqual('Callback must be instantiated with a valid custom class name');
     }
   });
 
-  it('should fail if `customClass` is `null`', () => {
-    try {
-      Assert.callback(value => value === 'foobiz', null).validate('foobar');
-    } catch (e) {
-      expect(e.message).toEqual('Callback must be instantiated with a custom class');
-    }
+  it('should throw an error if `customClass` is invalid', () => {
+    ['foo bar', 'foo 1', '1', '{}', 1].forEach(customClass => {
+      try {
+        Assert.callback(value => value === 'foobiz', customClass).validate('foobar');
+      } catch (e) {
+        expect(e.message).toEqual('Callback must be instantiated with a valid custom class name');
+      }
+    });
   });
 
   it('should throw an error if `value` is missing', () => {
