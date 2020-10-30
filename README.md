@@ -267,7 +267,8 @@ $ npm test
 ## Release
 
 ```sh
-npm version [<newversion> | major | minor | patch] -m "Release %s"
+yarn release [<newversion>|major|minor|patch]
+git push origin master --tags
 ```
 
 ## License
