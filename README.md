@@ -103,7 +103,7 @@ Allows you to add custom rules by giving a callback function and a custom class.
 
 #### Arguments
 - `callback` (required) - the callback function.
-- `customClass` (optional) - the name of the class.
+- `customClass` (required) - the name of the class.
 
 ### CreditCard
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
