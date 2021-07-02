@@ -46,6 +46,7 @@ The following set of extra asserts are provided by this package:
 - [Json](#json)
 - [NotEmpty](#notempty)
 - [NullOrDate](#nullordate)
+- [NullOrBoolean](#nullorboolean)
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
@@ -190,6 +191,9 @@ Tests if the value is valid json.
 
 ### NotEmpty
 Tests if the value is not an empty (empty object, empty array, empty string, etc).
+
+### NullOrBoolean
+Tests if the value is a `null` or `boolean`.
 
 ### NullOrString
 Tests if the value is a `null` or `string`, optionally within some boundaries.
