@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.1.0](https://github.com/uphold/validator.js-asserts/tree/v7.1.0) (2021-07-02)
+[Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v7.0.0...v7.1.0)
+
+**Merged pull requests:**
+
+- Bump lodash@4.17.21 [\#208](https://github.com/uphold/validator.js-asserts/pull/208) ([diogotorres97](https://github.com/diogotorres97))
+- Add `nullOrBoolean` assert [\#207](https://github.com/uphold/validator.js-asserts/pull/207) ([diogotorres97](https://github.com/diogotorres97))
+
 ## [v7.0.0](https://github.com/uphold/validator.js-asserts/tree/v7.0.0) (2020-10-30)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v6.0.0...v7.0.0)
 
@@ -14,7 +22,7 @@
 
 **Implemented enhancements:**
 
-- Update BigNumber@9.0.0 [\#189](https://github.com/uphold/validator.js-asserts/pull/189) ([afsampaio](https://github.com/afsampaio))
+- Update bignumber.js@9.0.0 [\#189](https://github.com/uphold/validator.js-asserts/pull/189) ([afsampaio](https://github.com/afsampaio))
 
 ## [v5.0.0](https://github.com/uphold/validator.js-asserts/tree/v5.0.0) (2020-03-02)
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/3.2.0...v5.0.0)
@@ -210,7 +218,6 @@
 **Merged pull requests:**
 
 - Update all dependencies 🌴 [\#27](https://github.com/uphold/validator.js-asserts/pull/27) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
-- Add missing comment to credit card test [\#26](https://github.com/uphold/validator.js-asserts/pull/26) ([nunofgs](https://github.com/nunofgs))
 - Add Bank Identifier Code assert [\#24](https://github.com/uphold/validator.js-asserts/pull/24) ([nunofgs](https://github.com/nunofgs))
 - Add International Bank Account Number assert [\#23](https://github.com/uphold/validator.js-asserts/pull/23) ([nunofgs](https://github.com/nunofgs))
 
@@ -242,6 +249,7 @@
 
 **Merged pull requests:**
 
+- Add missing comment to credit card test [\#26](https://github.com/uphold/validator.js-asserts/pull/26) ([nunofgs](https://github.com/nunofgs))
 - Use travis container infrastructure [\#14](https://github.com/uphold/validator.js-asserts/pull/14) ([ruimarinho](https://github.com/ruimarinho))
 - Replace ISO 3166-1 country assert source [\#13](https://github.com/uphold/validator.js-asserts/pull/13) ([ruimarinho](https://github.com/ruimarinho))
 - Add URI assert [\#12](https://github.com/uphold/validator.js-asserts/pull/12) ([nunofgs](https://github.com/nunofgs))
@@ -270,3 +278,4 @@
 
 - Expose min and max in `NullOrString` [\#2](https://github.com/uphold/validator.js-asserts/pull/2) ([fixe](https://github.com/fixe))
 - Add `Email` assert [\#1](https://github.com/uphold/validator.js-asserts/pull/1) ([fixe](https://github.com/fixe))
+
