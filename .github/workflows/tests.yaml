@@ -1,0 +1,19 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '14', '16', '18' ]
+
+    container:
+      image: node:${{ matrix.node }}-alpine
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: yarn install --frozen-lockfile
+    - run: yarn lint
+    - run: yarn test
