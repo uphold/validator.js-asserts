@@ -46,22 +46,22 @@
     "abavalidator": "^2.0.1",
     "bignumber.js": "^9.0.0",
     "creditcard": "^0.1.2",
-    "eslint": "^6.5.1",
+    "eslint": "^6.8.0",
     "eslint-config-uphold": "^1.0.1",
     "google-libphonenumber": "^1.0.18",
     "iban": "0.0.6",
     "isoc": "0.0.1",
-    "jest": "^24.9.0",
+    "jest": "^27.3.1",
     "moment": "^2.13.0",
     "prettier": "^1.18.2",
     "sinon": "^1.15.4",
     "tin-validator": "^1.0.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
-    "validator": "^5.2.0"
+    "validator": "^13.7.0"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
