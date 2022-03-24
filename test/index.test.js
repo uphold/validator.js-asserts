@@ -14,7 +14,7 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', () => {
     const assertNames = Object.keys(asserts);
 
-    expect(assertNames).toHaveLength(36);
+    expect(assertNames).toHaveLength(37);
     expect(assertNames).toEqual(
       expect.arrayContaining([
         'AbaRoutingNumber',
@@ -27,6 +27,7 @@ describe('validator.js-asserts', () => {
         'BigNumberLessThanOrEqualTo',
         'Boolean',
         'Callback',
+        'CpfNumber',
         'CreditCard',
         'Date',
         'DateDiffGreaterThan',
