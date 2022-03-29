@@ -1096,11 +1096,6 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
-cpf@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/cpf/-/cpf-2.0.1.tgz#7979eb33f0a14e8217292944311faaba82cb7f02"
-  integrity sha512-YpRbrpjQCDkZgMUOLxLfme8wE8X56fHXOGMGDsYA48f7UrjaCHU0TP8d+CKmxvNVjBDVtHiCUiBw8vfstdslbw==
-
 creditcard@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/creditcard/-/creditcard-0.1.2.tgz"
@@ -2499,9 +2494,9 @@ nise@^5.1.0:
     path-to-regexp "^1.7.0"
 
 node-fetch@^2.6.1:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
-  integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
   dependencies:
     whatwg-url "^5.0.0"
 
