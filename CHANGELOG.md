@@ -1,5 +1,8 @@
 # Changelog
 
+## [7.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.0) (2022-03-29)
+- Add CPF taxpayer identification number assert [\#223](https://github.com/uphold/validator.js-asserts/pull/223) ([acostalima](https://github.com/acostalima))
+
 ## [7.2.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.2.0) (2021-11-16)
 - Add uphold-scripts@0.5.0 [\#210](https://github.com/uphold/validator.js-asserts/pull/210) ([diogotorres97](https://github.com/diogotorres97))
 - Updates dev dependencies [\#218](https://github.com/uphold/validator.js-asserts/pull/218) ([JerrySievert](https://github.com/JerrySievert))
