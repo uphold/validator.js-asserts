@@ -1096,11 +1096,6 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
-cpf@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/cpf/-/cpf-2.0.1.tgz#7979eb33f0a14e8217292944311faaba82cb7f02"
-  integrity sha512-YpRbrpjQCDkZgMUOLxLfme8wE8X56fHXOGMGDsYA48f7UrjaCHU0TP8d+CKmxvNVjBDVtHiCUiBw8vfstdslbw==
-
 creditcard@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/creditcard/-/creditcard-0.1.2.tgz"
@@ -2468,9 +2463,9 @@ minimatch@^3.0.4:
     brace-expansion "^1.1.7"
 
 minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 moment@^2.29.1:
   version "2.29.1"
