@@ -29,7 +29,7 @@ describe('CallbackAssert', () => {
   });
 
   it('should throw an error if `customClass` is invalid', () => {
-    ['foo bar', 'foo 1', '1', '{}', 1].forEach(customClass => {
+    ['foo bar', 'foo 1', '%', '{}'].forEach(customClass => {
       try {
         Assert.callback(value => value === 'foobiz', customClass).validate('foobar');
       } catch (e) {
