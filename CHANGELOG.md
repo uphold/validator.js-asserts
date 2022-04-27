@@ -1,5 +1,8 @@
 # Changelog
 
+## [7.3.1](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.1) (2022-04-27)
+- Add support for numbers to be in callback assert custom class [\#228](https://github.com/uphold/validator.js-asserts/pull/228) ([justinweathersby](https://github.com/justinweathersby))
+
 ## [7.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.0) (2022-03-29)
 - Add CPF taxpayer identification number assert [\#223](https://github.com/uphold/validator.js-asserts/pull/223) ([acostalima](https://github.com/acostalima))
 
