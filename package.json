@@ -45,6 +45,7 @@
   "devDependencies": {
     "abavalidator": "^2.0.1",
     "bignumber.js": "^9.0.0",
+    "cpf": "^2.0.1",
     "creditcard": "^0.1.2",
     "google-libphonenumber": "^1.0.18",
     "iban": "0.0.6",
