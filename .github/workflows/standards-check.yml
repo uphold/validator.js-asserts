@@ -1,0 +1,24 @@
+name: Standards Check
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - id: checkout-standards-check-action
+      uses: actions/checkout@v3
+      with:
+        repository: uphold/standards-check-action
+        ref: v1
+        token: ${{ secrets.ACTIONS_CHECKOUT_TOKEN_GITHUB }}
+        persist-credentials: false
+        path: ./.github/actions/standards-check-action
+
+    - if: steps.checkout-standards-check-action.conclusion == 'success'
+      uses: ./.github/actions/standards-check-action
+      with:
+        auto-labelling: false
