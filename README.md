@@ -46,8 +46,9 @@ The following set of extra asserts are provided by this package:
 - [Iso3166Country](#iso3166country) (requires `isoc`)
 - [Json](#json)
 - [NotEmpty](#notempty)
-- [NullOrDate](#nullordate)
 - [NullOrBoolean](#nullorboolean)
+- [NullOrDate](#nullordate)
+- [NullOrNumber](#nullornumber)
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
@@ -198,6 +199,12 @@ Tests if the value is not an empty (empty object, empty array, empty string, etc
 
 ### NullOrBoolean
 Tests if the value is a `null` or `boolean`.
+
+### NullOrDate
+Tests if the value is a `null` or a valid date.
+
+### NullOrNumber
+Tests if the value is a `null` or a valid number.
 
 ### NullOrString
 Tests if the value is a `null` or `string`, optionally within some boundaries.

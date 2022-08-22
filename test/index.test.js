@@ -14,7 +14,7 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', () => {
     const assertNames = Object.keys(asserts);
 
-    expect(assertNames).toHaveLength(37);
+    expect(assertNames).toHaveLength(38);
     expect(assertNames).toEqual(
       expect.arrayContaining([
         'AbaRoutingNumber',
@@ -45,6 +45,7 @@ describe('validator.js-asserts', () => {
         'NotEmpty',
         'NullOrBoolean',
         'NullOrDate',
+        'NullOrNumber',
         'NullOrString',
         'Phone',
         'PlainObject',
