@@ -97,4 +97,12 @@ describe('CallbackAssert', () => {
       Assert.callback(value => value === 'foobar', 'CustomClass').validate('foobar');
     });
   });
+
+  it('should expose `assert` equal to `Custom_Class1`', ({ assert }) => {
+    try {
+      Assert.callback(value => value === 'foobiz', 'Custom_Class1').validate('foobar');
+    } catch (e) {
+      assert.equal(e.show().assert, 'Custom_Class1');
+    }
+  });
 });

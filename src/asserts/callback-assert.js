@@ -11,7 +11,7 @@ const _ = require('lodash');
  * Constants.
  */
 
-const expression = /^[a-zA-Z\d]+$/;
+const expression = /^[a-zA-Z\d_]+$/;
 
 /**
  * Export `CallbackAssert`.
