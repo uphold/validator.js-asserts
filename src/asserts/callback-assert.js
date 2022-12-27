@@ -11,7 +11,7 @@ const { Violation } = require('validator.js');
  * Constants.
  */
 
-const expression = /^[a-zA-Z\d]+$/;
+const expression = /^[a-zA-Z\d_]+$/;
 
 /**
  * Export `CallbackAssert`.
