@@ -49,6 +49,7 @@ The following set of extra asserts are provided by this package:
 - [NullOrDate](#nullordate)
 - [NullOrBoolean](#nullorboolean)
 - [NullOrString](#nullorstring)
+- [NullOrUri](#nulloruri)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
 - [TaxpayerIdentificationNumber](#taxpayeridentificationnumber) (_TIN_, requires `tin-validator`)
@@ -201,6 +202,9 @@ Tests if the value is a `null` or `boolean`.
 
 ### NullOrString
 Tests if the value is a `null` or `string`, optionally within some boundaries.
+
+### NullOrUri
+Tests if the value is a `null` or `uri`.
 
 #### Arguments
 - `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
