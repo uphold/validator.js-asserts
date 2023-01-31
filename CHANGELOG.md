@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.4.0) (2023-01-31)
+- Add `NullOrAssert` [\#149](https://github.com/uphold/validator.js-asserts/pull/149) ([rplopes](https://github.com/rplopes))
+- Add github actions CI [\#219](https://github.com/uphold/validator.js-asserts/pull/219) ([diogotorres97](https://github.com/diogotorres97))
+
 ## [7.3.1](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.1) (2022-04-27)
 - Add support for numbers to be in callback assert custom class [\#228](https://github.com/uphold/validator.js-asserts/pull/228) ([justinweathersby](https://github.com/justinweathersby))
 
