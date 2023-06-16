@@ -14,9 +14,10 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', () => {
     const assertNames = Object.keys(asserts);
 
-    expect(assertNames).toHaveLength(38);
+    expect(assertNames).toHaveLength(39);
     expect(assertNames).toEqual(
       expect.arrayContaining([
+        'AbaAccountNumber',
         'AbaRoutingNumber',
         'BankIdentifierCode',
         'BigNumber',
