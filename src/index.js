@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+const AbaAccountNumber = require('./asserts/aba-account-number-assert');
 const AbaRoutingNumber = require('./asserts/aba-routing-number-assert.js');
 const BankIdentifierCode = require('./asserts/bank-identifier-code-assert.js');
 const BigNumber = require('./asserts/big-number-assert.js');
@@ -48,6 +49,7 @@ const Uuid = require('./asserts/uuid-assert.js');
  */
 
 module.exports = {
+  AbaAccountNumber,
   AbaRoutingNumber,
   BankIdentifierCode,
   BigNumber,

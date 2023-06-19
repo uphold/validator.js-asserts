@@ -16,7 +16,7 @@ const Assert = BaseAssert.extend({
 });
 
 /**
- * Test `RoutingNumberAssert`.
+ * Test `AbaRoutingNumberAssert`.
  */
 
 describe('AbaRoutingNumberAssert', () => {
