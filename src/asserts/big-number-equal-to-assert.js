@@ -28,8 +28,6 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
     throw new Error('BigNumber is not installed');
   }
 
-  BigNumber.DEBUG = !!validateSignificantDigits;
-
   /**
    * Extend `Assert` with `BigNumberAssert`.
    */
@@ -55,7 +53,11 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
    */
 
   this.validate = value => {
+    const bigNumberDebug = BigNumber.DEBUG;
+
     try {
+      BigNumber.DEBUG = !!validateSignificantDigits;
+
       Assert.bigNumber({ validateSignificantDigits }).validate(value);
 
       const number = new BigNumber(value);
@@ -72,6 +74,8 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
       }
 
       throw new Violation(this, value, context);
+    } finally {
+      BigNumber.DEBUG = bigNumberDebug;
     }
 
     return true;
