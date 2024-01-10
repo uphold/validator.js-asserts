@@ -26,8 +26,6 @@ module.exports = function bigNumberAssert({ validateSignificantDigits = true } =
     throw new Error('BigNumber is not installed');
   }
 
-  BigNumber.DEBUG = !!validateSignificantDigits;
-
   /**
    * Class name.
    */
@@ -39,7 +37,11 @@ module.exports = function bigNumberAssert({ validateSignificantDigits = true } =
    */
 
   this.validate = value => {
+    const bigNumberDebug = BigNumber.DEBUG;
+
     try {
+      BigNumber.DEBUG = !!validateSignificantDigits;
+
       const number = new BigNumber(value);
 
       if (Number.isNaN(number.toNumber())) {
@@ -51,6 +53,8 @@ module.exports = function bigNumberAssert({ validateSignificantDigits = true } =
       }
 
       throw new Violation(this, value);
+    } finally {
+      BigNumber.DEBUG = bigNumberDebug;
     }
 
     return true;
