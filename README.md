@@ -32,6 +32,7 @@ The following set of extra asserts are provided by this package:
 - [Callback](#callback) (requires `callback`)
 - [CpfNumber](#cpfnumber) (requires `cpf`)
 - [CreditCard](#creditcard) (requires `creditcard`)
+- [CurpNumber](#curpnumber) (requires `curp`)
 - [Date](#date) (requires `moment` for format validation only)
 - [DateDiffGreaterThan](#datediffgreaterthan) (requires `moment`)
 - [DateDiffGreaterThanOrEqualTo](#datediffgreaterthanorequalto) (requires `moment`)
@@ -113,6 +114,9 @@ Tests if the value is valid CPF number.
 
 ### CreditCard
 Tests if the value is a valid credit card number using the Luhn10 algorithm.
+
+### CurpNumber
+Tests if the value is valid CURP number.
 
 ### Date
 Tests if the value is a valid date.

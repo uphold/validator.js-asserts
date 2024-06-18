@@ -1141,6 +1141,11 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
+curp@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/curp/-/curp-1.2.3.tgz#8db13da2d64073df1da9c1f94e673e829df28d32"
+  integrity sha512-o/NZE+1A1y77orlN8kBRa4+yG4m1owVI9V2KzEpHDV1z2k90rPCHuECYmXLyW4bcYOHdTf36EJuz6KWLn/hyKg==
+
 data-urls@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/data-urls/-/data-urls-2.0.0.tgz"
