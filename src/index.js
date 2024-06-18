@@ -16,6 +16,7 @@ const Boolean = require('./asserts/boolean-assert.js');
 const Callback = require('./asserts/callback-assert');
 const CpfNumber = require('./asserts/cpf-number-assert');
 const CreditCard = require('./asserts/credit-card-assert.js');
+const CurpNumber = require('./asserts/curp-number-assert.js');
 const Date = require('./asserts/date-assert.js');
 const DateDiffGreaterThan = require('./asserts/date-diff-greater-than-assert.js');
 const DateDiffGreaterThanOrEqualTo = require('./asserts/date-diff-greater-than-or-equal-to-assert.js');
@@ -60,6 +61,7 @@ module.exports = {
   Callback,
   CpfNumber,
   CreditCard,
+  CurpNumber,
   Date,
   DateDiffGreaterThan,
   DateDiffGreaterThanOrEqualTo,
