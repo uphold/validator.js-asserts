@@ -1,5 +1,12 @@
 # Changelog
 
+## [v8.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.0.0) (2024-07-02)
+- Fix github release action [\#248](https://github.com/uphold/validator.js-asserts/pull/248) ([satazor](https://github.com/satazor))
+- Lock release-it@17.0.1 [\#249](https://github.com/uphold/validator.js-asserts/pull/249) ([franciscocardoso](https://github.com/franciscocardoso))
+- Fix release process instructions [\#247](https://github.com/uphold/validator.js-asserts/pull/247) ([franciscocardoso](https://github.com/franciscocardoso))
+- Add GitHub release workflow [\#246](https://github.com/uphold/validator.js-asserts/pull/246) ([franciscocardoso](https://github.com/franciscocardoso))
+- Add CURP assert [\#245](https://github.com/uphold/validator.js-asserts/pull/245) ([Prado](https://github.com/Prado))
+
 ## [7.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.4.0) (2023-01-31)
 - Add `NullOrAssert` [\#149](https://github.com/uphold/validator.js-asserts/pull/149) ([rplopes](https://github.com/rplopes))
 - Add github actions CI [\#219](https://github.com/uphold/validator.js-asserts/pull/219) ([diogotorres97](https://github.com/diogotorres97))
