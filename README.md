@@ -287,11 +287,9 @@ if (true === violation) {
 $ npm test
 ```
 
-## Release
+## Release process
 
-```sh
-npm version [<newversion> | major | minor | patch] -m "Release %s"
-```
+The release of a version is automated via the [release](https://github.com/uphold/validator-js.asserts/.github/workflows/release.yaml) GitHub workflow. Run it by clicking the "Run workflow" button.
 
 ## License
 MIT

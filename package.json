@@ -32,17 +32,17 @@
   ],
   "main": "./src/index.js",
   "scripts": {
-    "changelog": "uphold-scripts changelog $npm_package_version",
-    "lint": "uphold-scripts lint",
-    "release": "uphold-scripts release",
-    "test": "uphold-scripts test --coverage",
-    "version": "uphold-scripts version"
+    "lint": "uphold-scripts lint .",
+    "release": "release-it",
+    "test": "uphold-scripts test"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "validator.js": "^2.0.0"
   },
   "devDependencies": {
+    "@uphold/github-changelog-generator": "^3.4.0",
+    "release-it": "^17.0.1",
     "abavalidator": "^2.0.1",
     "bignumber.js": "^9.0.0",
     "cpf": "^2.0.1",
@@ -60,7 +60,7 @@
     "validator": "^13.7.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
@@ -76,5 +76,8 @@
     "uk-modulus-checking": "0.0.2",
     "urijs": ">=1 <2",
     "validator": ">=3 <6"
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
