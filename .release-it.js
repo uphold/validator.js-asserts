@@ -3,6 +3,7 @@ module.exports = {
     changelog: 'echo "## Changelog\n\n$(npx @uphold/github-changelog-generator -f unreleased | tail -n +4 -f)"',
     commitMessage: 'Release ${version}',
     requireBranch: 'master',
+    requireCleanWorkingDir: false,
     requireCommits: true,
     tagName: 'v${version}'
   },
