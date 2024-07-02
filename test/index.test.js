@@ -17,6 +17,7 @@ describe('validator.js-asserts', () => {
     expect(assertNames).toHaveLength(39);
     expect(assertNames).toEqual(
       expect.arrayContaining([
+        'AbaAccountNumber',
         'AbaRoutingNumber',
         'BankIdentifierCode',
         'BigNumber',
