@@ -289,7 +289,7 @@ $ npm test
 
 ## Release process
 
-The release of a version is automated via the [release](https://github.com/uphold/validator-js.asserts/.github/workflows/release.yaml) GitHub workflow. Run it by clicking the "Run workflow" button.
+The release of a version is automated via the [release](https://github.com/uphold/validator.js-asserts/actions/workflows/release.yaml) GitHub workflow. Run it by clicking the "Run workflow" button.
 
 ## License
 MIT
