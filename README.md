@@ -53,6 +53,7 @@ The following set of extra asserts are provided by this package:
 - [NullOrString](#nullorstring)
 - [Phone](#phone) (requires `google-libphonenumber`)
 - [PlainObject](#plainobject)
+- [RfcNumber](#rfcnumber) (requires `validate-rfc`)
 - [TaxpayerIdentificationNumber](#taxpayeridentificationnumber) (_TIN_, requires `tin-validator`)
 - [UkModulusChecking](#ukmoduluschecking) (requires `uk-modulus-checking`)
 - [Uri](#uri) (requires `urijs`)
@@ -221,6 +222,9 @@ Tests if the phone is valid and optionally if it belongs to the given country. T
 
 ### PlainObject
 Tests if the value is a plain object.
+
+### RfcNumber
+Tests if the value is a valid RFC number.
 
 ### TaxpayerIdentificationNumber
 Tests if the value is a valid Taxpayer Identification Number (_TIN_) as defined by the [U.S. IRS](http://www.irs.gov/Individuals/International-Taxpayers/Taxpayer-Identification-Numbers-TIN).

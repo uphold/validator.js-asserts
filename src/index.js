@@ -37,6 +37,7 @@ const NullOrDate = require('./asserts/null-or-date-assert.js');
 const NullOrString = require('./asserts/null-or-string-assert.js');
 const Phone = require('./asserts/phone-assert.js');
 const PlainObject = require('./asserts/plain-object-assert.js');
+const RfcNumber = require('./asserts/rfc-number-assert.js');
 const TaxpayerIdentificationNumber = require('./asserts/taxpayer-identification-number-assert.js');
 const UkModulusChecking = require('./asserts/uk-modulus-checking-assert.js');
 const Uri = require('./asserts/uri-assert.js');
@@ -82,6 +83,7 @@ module.exports = {
   NullOrString,
   Phone,
   PlainObject,
+  RfcNumber,
   TaxpayerIdentificationNumber,
   UkModulusChecking,
   Uri,
