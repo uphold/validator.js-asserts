@@ -48,7 +48,7 @@
     "cpf": "^2.0.1",
     "creditcard": "^0.1.2",
     "curp": "^1.2.3",
-    "google-libphonenumber": "^1.0.18",
+    "google-libphonenumber": "^3.2.35",
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "moment": "^2.29.1",
