@@ -4812,6 +4812,11 @@ v8-to-istanbul@^8.1.0:
     convert-source-map "^1.6.0"
     source-map "^0.7.3"
 
+validate-rfc@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/validate-rfc/-/validate-rfc-2.0.3.tgz#fc91a02ab0d7f513a25ed4f53d9d6a69a38ad04f"
+  integrity sha512-WS7CyAz/sfzx6DryOPZvprqz7uxHcQh1yhzDunNX1vidSmprfN7Og66VRpCyU21U82Vzkof5/bOIOKan3dEXLA==
+
 validator.js@^2.0.0:
   version "2.0.4"
   resolved "https://registry.npmjs.org/validator.js/-/validator.js-2.0.4.tgz"
