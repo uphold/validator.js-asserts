@@ -1,5 +1,8 @@
 # Changelog
 
+## [v8.1.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.1.0) (2024-07-08)
+- Add RFC assert [\#251](https://github.com/uphold/validator.js-asserts/pull/251) ([Prado](https://github.com/Prado))
+
 ## [v8.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.0.0) (2024-07-02)
 - Fix github release action [\#248](https://github.com/uphold/validator.js-asserts/pull/248) ([satazor](https://github.com/satazor))
 - Lock release-it@17.0.1 [\#249](https://github.com/uphold/validator.js-asserts/pull/249) ([franciscocardoso](https://github.com/franciscocardoso))
