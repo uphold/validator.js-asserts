@@ -1,5 +1,8 @@
 # Changelog
 
+## [v8.2.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.2.0) (2024-07-08)
+- Bump google-libphonenumber@3.2.35 [\#250](https://github.com/uphold/validator.js-asserts/pull/250) ([rbrtribeiro](https://github.com/rbrtribeiro))
+
 ## [v8.1.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.1.0) (2024-07-08)
 - Add RFC assert [\#251](https://github.com/uphold/validator.js-asserts/pull/251) ([Prado](https://github.com/Prado))
 
