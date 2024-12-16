@@ -30,6 +30,7 @@ The following set of extra asserts are provided by this package:
 - [BigNumberLessThanOrEqualTo](#bignumberlessthanorequalto) (requires `bignumber.js`)
 - [Boolean](#boolean)
 - [Callback](#callback) (requires `callback`)
+- [CaZipCode](#cazipcode)
 - [CpfNumber](#cpfnumber) (requires `cpf`)
 - [CreditCard](#creditcard) (requires `creditcard`)
 - [CurpNumber](#curpnumber) (requires `curp`)
@@ -109,6 +110,10 @@ Allows you to add custom rules by giving a callback function and a custom class.
 #### Arguments
 - `callback` (required) - the callback function.
 - `customClass` (required) - the name of the class.
+
+### CaZipCode
+Tests if the value is valid Canada zip code.
+We only allow initial characters from the list on the [site](https://www.canadapost-postescanada.ca/cpc/en/support/articles/addressing-guidelines/postal-codes.page).
 
 ### CpfNumber
 Tests if the value is valid CPF number.

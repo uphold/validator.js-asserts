@@ -14,6 +14,7 @@ const BigNumberLessThan = require('./asserts/big-number-less-than-assert.js');
 const BigNumberLessThanOrEqualTo = require('./asserts/big-number-less-than-or-equal-to-assert.js');
 const Boolean = require('./asserts/boolean-assert.js');
 const Callback = require('./asserts/callback-assert');
+const CaZipCode = require('./asserts/ca-zip-code-assert.js');
 const CpfNumber = require('./asserts/cpf-number-assert');
 const CreditCard = require('./asserts/credit-card-assert.js');
 const CurpNumber = require('./asserts/curp-number-assert.js');
@@ -59,6 +60,7 @@ module.exports = {
   BigNumberLessThan,
   BigNumberLessThanOrEqualTo,
   Boolean,
+  CaZipCode,
   Callback,
   CpfNumber,
   CreditCard,
