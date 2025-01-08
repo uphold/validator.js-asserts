@@ -59,8 +59,29 @@ describe('EmailAssert', () => {
     }
   });
 
+  it('should throw an error on invalid emails', () => {
+    ['foo@.com', 'føø@båz.', 'foo+bar@baz_foo.com'].forEach(choice => {
+      try {
+        Assert.prototype.Email().validate(choice);
+
+        fail();
+      } catch (e) {
+        expect(e.show().assert).toBe('Email');
+      }
+    });
+  });
+
   it('should accept valid emails', () => {
-    ['foo@bar.com', 'føø@båz.com', 'foo+bar@baz.com'].forEach(choice => {
+    [
+      'foo@bar.com',
+      'foo@bar.com.123.deleted',
+      'føø@båz.com',
+      'føø@båz.com.123.deleted',
+      'foo+.@baz.com.123.deleted',
+      'foo+bar@com.12345.deleted',
+      'foo+bar@baz.com',
+      'foo+bar@baz.com.12345.deleted'
+    ].forEach(choice => {
       Assert.prototype.Email().validate(choice);
     });
   });
