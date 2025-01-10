@@ -1,5 +1,8 @@
 # Changelog
 
+## [v8.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.3.0) (2025-01-10)
+- Bypass email validation for deleted emails [\#254](https://github.com/uphold/validator.js-asserts/pull/254) ([Megamind51](https://github.com/Megamind51))
+
 ## [v8.2.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.2.0) (2024-07-08)
 - Bump google-libphonenumber@3.2.35 [\#250](https://github.com/uphold/validator.js-asserts/pull/250) ([rbrtribeiro](https://github.com/rbrtribeiro))
 
