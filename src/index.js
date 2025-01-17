@@ -45,6 +45,7 @@ const Uri = require('./asserts/uri-assert.js');
 const UsSubdivision = require('./asserts/us-subdivision-assert.js');
 const UsZipCode = require('./asserts/us-zip-code-assert.js');
 const Uuid = require('./asserts/uuid-assert.js');
+const ZipCode = require('./asserts/zip-code-assert.js');
 
 /**
  * Export asserts.
@@ -91,5 +92,6 @@ module.exports = {
   Uri,
   UsSubdivision,
   UsZipCode,
-  Uuid
+  Uuid,
+  ZipCode
 };

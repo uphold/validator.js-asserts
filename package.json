@@ -41,7 +41,9 @@
     "validator.js": "^2.0.0"
   },
   "devDependencies": {
+    "@uphold/countries": "https://github.com/uphold/countries#v5.1.0",
     "@uphold/github-changelog-generator": "^3.4.0",
+    "@uphold/zip-codes": "https://github.com/uphold/zip-codes#v1.0.0",
     "release-it": "^17.0.1",
     "abavalidator": "^2.0.1",
     "bignumber.js": "^9.0.0",
@@ -64,6 +66,8 @@
     "node": ">=18"
   },
   "optionalPeerDependencies": {
+    "@uphold/countries": "https://github.com/uphold/countries#v5.1.0",
+    "@uphold/zip-codes": "https://github.com/uphold/zip-codes#v1.0.0",
     "abavalidator": ">=2 <3",
     "bignumber.js": ">=7 <=9.0.0",
     "cpf": "^2.0.1",

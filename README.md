@@ -61,6 +61,7 @@ The following set of extra asserts are provided by this package:
 - [UsSubdivision](#ussubdivision)
 - [UsZipCode](#uszipcode)
 - [Uuid](#uuid)
+- [ZipCode](#zipcode) (requires `@uphold/countries` and `@uphold/zip-codes`)
 
 ### AbaRoutingNumber
 Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
@@ -258,6 +259,14 @@ Tests if the value is a valid uuid.
 
 #### Arguments
 - `version` (optional) - the version to test the uuid for. Supported version are `3`, `4` and `5`. Defaults to test for `all` three if omitted.
+
+### ZipCode
+Tests if the value is a valid zip code.
+This validator also checks if the country is a valid country from our codebase and validates if this zip code is valid based on country state (only checks countries on [zip-codes repository](https://github.com/uphold/zip-codes)).
+
+#### Arguments
+- `country` (required) - the country which zip code is from.
+- `state`   (optional) - the state which zip code is from.
 
 ## Usage
 The following is an example for the extra ip assert:
