@@ -1,5 +1,8 @@
 # Changelog
 
+## [v8.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.4.0) (2025-01-22)
+- Add Canada zip code assert [\#253](https://github.com/uphold/validator.js-asserts/pull/253) ([Megamind51](https://github.com/Megamind51))
+
 ## [v8.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.3.0) (2025-01-10)
 - Bypass email validation for deleted emails [\#254](https://github.com/uphold/validator.js-asserts/pull/254) ([Megamind51](https://github.com/Megamind51))
 
