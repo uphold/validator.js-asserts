@@ -32,7 +32,7 @@
   ],
   "main": "./src/index.js",
   "scripts": {
-    "lint": "uphold-scripts lint .",
+    "lint": "eslint",
     "release": "release-it",
     "test": "uphold-scripts test"
   },
@@ -42,16 +42,19 @@
   },
   "devDependencies": {
     "@uphold/github-changelog-generator": "^3.4.0",
-    "release-it": "^17.0.1",
     "abavalidator": "^2.0.1",
     "bignumber.js": "^9.0.0",
     "cpf": "^2.0.1",
     "creditcard": "^0.1.2",
     "curp": "^1.2.3",
+    "eslint": "~9.28.0",
+    "eslint-config-uphold": "^6.5.2",
     "google-libphonenumber": "^3.2.35",
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "moment": "^2.29.1",
+    "prettier": "^3.5.3",
+    "release-it": "^17.0.1",
     "sinon": "^11.1.1",
     "tin-validator": "^1.0.0",
     "uk-modulus-checking": "0.0.3",
@@ -61,7 +64,7 @@
     "validator": "^13.7.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
