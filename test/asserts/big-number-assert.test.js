@@ -59,6 +59,7 @@ describe('BigNumberAssert', () => {
       if (!option || option.validateSignificantDigits === true) {
         it('should throw an error if a number has more than 15 significant digits', () => {
           try {
+            // eslint-disable-next-line no-loss-of-precision
             Assert.bigNumber(option).validate(1.011111111111111111111111111111111111111111);
 
             fail();
@@ -75,6 +76,7 @@ describe('BigNumberAssert', () => {
           const choices = [
             1.01,
             1.0111111111,
+            // eslint-disable-next-line no-loss-of-precision
             1.011111111111111111111111111111111111111111,
             '1.0111111111',
             '1.011111111111111111111111111111111111111111'

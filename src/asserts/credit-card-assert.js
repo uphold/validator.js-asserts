@@ -13,9 +13,8 @@ let creditcard;
 
 try {
   creditcard = require('creditcard');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `CreditCardAssert`.

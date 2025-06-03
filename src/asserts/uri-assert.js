@@ -14,9 +14,8 @@ let URI;
 
 try {
   URI = require('urijs');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `UriAssert`.

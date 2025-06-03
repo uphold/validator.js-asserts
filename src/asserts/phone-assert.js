@@ -13,9 +13,8 @@ let PhoneNumberUtil;
 
 try {
   ({ PhoneNumberUtil } = require('google-libphonenumber'));
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `Phone`.

@@ -11,9 +11,9 @@ let validator;
  * Deleted email regex.
  *
  * The email should contain the following pattern:
- * .+@.+\.any-number\.deleted
+ * - `.+@.+\.any-number\.deleted`.
  *
- * example: a@foo.com.123.deleted
+ * @example `a@foo.com.123.deleted`
  */
 
 const deletedUserEmailRegex = /.+@.+\.\d+\.deleted$/;
@@ -24,9 +24,8 @@ const deletedUserEmailRegex = /.+@.+\.\d+\.deleted$/;
 
 try {
   validator = require('validator');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `EmailAssert`.

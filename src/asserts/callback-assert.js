@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const _ = require('lodash');
 const { Violation } = require('validator.js');
+const _ = require('lodash');
 
 /**
  * Constants.

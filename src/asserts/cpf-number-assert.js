@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const _ = require('lodash');
 const { Validator, Violation } = require('validator.js');
+const _ = require('lodash');
 let cpf;
 
 /**
@@ -14,9 +14,8 @@ let cpf;
 
 try {
   cpf = require('cpf');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `CpfNumber`.

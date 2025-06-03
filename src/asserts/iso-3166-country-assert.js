@@ -14,9 +14,8 @@ let countries;
 
 try {
   countries = require('isoc');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `Iso3166CountryAssert`.
