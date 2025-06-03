@@ -31,6 +31,14 @@
     }
   ],
   "main": "./src/index.js",
+  "types": "./src/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/types/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    }
+  },
   "scripts": {
     "lint": "eslint",
     "release": "release-it",
