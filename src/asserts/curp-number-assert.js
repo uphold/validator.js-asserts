@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const _ = require('lodash');
 const { Validator, Violation } = require('validator.js');
+const _ = require('lodash');
 let curp;
 
 /**
@@ -14,9 +14,8 @@ let curp;
 
 try {
   curp = require('curp');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `CurpNumber`.

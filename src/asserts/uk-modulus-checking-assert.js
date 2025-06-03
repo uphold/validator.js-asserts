@@ -13,9 +13,8 @@ let UkModulusChecking;
 
 try {
   UkModulusChecking = require('uk-modulus-checking');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `UkModulusCheckingAssert`.

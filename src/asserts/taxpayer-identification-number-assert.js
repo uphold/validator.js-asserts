@@ -13,9 +13,8 @@ let tin;
 
 try {
   tin = require('tin-validator');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `TaxpayerIdentificationNumberAssert`.

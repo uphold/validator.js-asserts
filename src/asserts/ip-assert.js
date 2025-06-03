@@ -13,7 +13,7 @@ const net = require('net');
 
 module.exports = function ipAssert() {
   /**
-   * Class name
+   * Class name.
    */
 
   this.__class__ = 'Ip';

@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-const _ = require('lodash');
 const { Assert: BaseAssert, Violation } = require('validator.js');
 const BigNumberAssert = require('./big-number-assert');
+const _ = require('lodash');
 let BigNumber;
 
 /**
@@ -15,9 +15,8 @@ let BigNumber;
 
 try {
   BigNumber = require('bignumber.js');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `BigNumberLessThanOrEqualToAssert`.

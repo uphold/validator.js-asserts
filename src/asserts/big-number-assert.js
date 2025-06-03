@@ -13,9 +13,8 @@ let BigNumber;
 
 try {
   BigNumber = require('bignumber.js');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `BigNumberAssert`.

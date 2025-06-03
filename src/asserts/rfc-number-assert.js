@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const _ = require('lodash');
 const { Validator, Violation } = require('validator.js');
+const _ = require('lodash');
 let validateRfc;
 
 /**
@@ -14,9 +14,8 @@ let validateRfc;
 
 try {
   validateRfc = require('validate-rfc');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `RfcNumber`.

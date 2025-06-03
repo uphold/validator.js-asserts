@@ -13,9 +13,8 @@ let abaValidator;
 
 try {
   abaValidator = require('abavalidator');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `AbaRoutingNumberAssert`.

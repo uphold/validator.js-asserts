@@ -14,9 +14,8 @@ let moment;
 
 try {
   moment = require('moment');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `DateDiffLessThanAssert`.

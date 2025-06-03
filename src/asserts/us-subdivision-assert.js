@@ -74,7 +74,7 @@ const keys = Object.keys(subdivisions);
  * Export `UsSubdivisionAssert`.
  */
 
-module.exports = function usSubdivisionAssert({ categories: categories = keys, alpha2Only: alpha2Only = false } = {}) {
+module.exports = function usSubdivisionAssert({ alpha2Only: alpha2Only = false, categories: categories = keys } = {}) {
   /**
    * Class name.
    */

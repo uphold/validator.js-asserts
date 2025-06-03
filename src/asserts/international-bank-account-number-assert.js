@@ -13,9 +13,8 @@ let iban;
 
 try {
   iban = require('iban');
-} catch (e) {
   // eslint-disable-next-line no-empty
-}
+} catch {}
 
 /**
  * Export `InternationalBankAccountNumberAssert`.
