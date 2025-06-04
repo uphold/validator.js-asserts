@@ -44,32 +44,32 @@
   },
   "devDependencies": {
     "@fastify/pre-commit": "^2.2.0",
-    "@uphold/github-changelog-generator": "^3.4.0",
-    "abavalidator": "^2.0.1",
-    "bignumber.js": "^9.0.0",
+    "@uphold/github-changelog-generator": "^4.0.2",
+    "abavalidator": "^2.0.2",
+    "bignumber.js": "^9.3.0",
     "cpf": "^2.0.1",
-    "creditcard": "^0.1.2",
-    "curp": "^1.2.3",
+    "creditcard": "^0.1.3",
+    "curp": "^1.3.1",
     "eslint": "~9.28.0",
     "eslint-config-uphold": "^6.5.2",
-    "google-libphonenumber": "^3.2.35",
+    "google-libphonenumber": "^3.2.41",
     "iban": "0.0.6",
     "isoc": "0.0.1",
-    "moment": "^2.29.1",
+    "moment": "^2.30.1",
     "prettier": "^3.5.3",
-    "release-it": "^17.0.1",
-    "tin-validator": "^1.0.0",
+    "release-it": "^19.0.3",
+    "tin-validator": "^1.1.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
     "validate-rfc": "^2.0.3",
-    "validator": "^13.7.0"
+    "validator": "^13.15.15"
   },
   "engines": {
     "node": ">=20"
   },
   "optionalPeerDependencies": {
     "abavalidator": ">=2 <3",
-    "bignumber.js": ">=7 <=9.0.0",
+    "bignumber.js": ">=7 <=9.3.0",
     "cpf": "^2.0.1",
     "creditcard": ">=0.0.1 <1.0.0",
     "curp": "^1.2.3",
@@ -81,7 +81,7 @@
     "uk-modulus-checking": "0.0.2",
     "urijs": ">=1 <2",
     "validate-rfc": "^2.0.3",
-    "validator": ">=3 <6"
+    "validator": ">=3 <14"
   },
   "pre-commit": [
     "lint"
