@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const DateAssert = require('../../src/asserts/date-assert');
+const { describe, it } = require('node:test');
+const DateAssert = require('../../src/asserts/date-assert.js');
 
 /**
  * Extend `Assert` with `DateAssert`.
@@ -20,62 +21,68 @@ const Assert = BaseAssert.extend({
  */
 
 describe('DateAssert', () => {
-  it('should throw an error if the input value is not a string or a date', () => {
+  it('should throw an error if the input value is not a string or a date', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.date().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_date_or_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_date_or_a_string');
       }
     });
   });
 
-  it('should throw an error if value is not correctly formatted', () => {
+  it('should throw an error if value is not correctly formatted', ({ assert }) => {
     try {
       Assert.date({ format: 'YYYY-MM-DD' }).validate('20003112');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toBe('Date');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'Date');
     }
   });
 
-  it('should throw an error if value does not pass strict validation', () => {
+  it('should throw an error if value does not pass strict validation', ({ assert }) => {
     try {
       Assert.date({ format: 'YYYY-MM-DD' }).validate('2000.12.30');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toBe('Date');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'Date');
     }
   });
 
-  it('should expose `assert` equal to `Date`', () => {
+  it('should expose `assert` equal to `Date`', ({ assert }) => {
     try {
       Assert.date().validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Date');
+      assert.equal(e.show().assert, 'Date');
     }
   });
 
-  it('should accept a `Date`', () => {
-    Assert.date().validate(new Date());
+  it('should accept a `Date`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.date().validate(new Date());
+    });
   });
 
-  it('should accept a correctly formatted date', () => {
-    Assert.date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
+  it('should accept a correctly formatted date', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.date({ format: 'YYYY-MM-DD' }).validate('2000-12-30');
+    });
   });
 
-  it('should accept a `string`', () => {
-    Assert.date().validate('2014-10-16');
+  it('should accept a `string`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.date().validate('2014-10-16');
+    });
   });
 });

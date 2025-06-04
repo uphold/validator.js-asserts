@@ -5,8 +5,9 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
+const { describe, it } = require('node:test');
 const BigNumber = require('bignumber.js');
-const BigNumberLessThanAssert = require('../../src/asserts/big-number-less-than-assert');
+const BigNumberLessThanAssert = require('../../src/asserts/big-number-less-than-assert.js');
 
 /**
  * Extend `Assert` with `BigNumberLessThanAssert`.
@@ -21,13 +22,13 @@ const Assert = BaseAssert.extend({
  */
 
 describe('BigNumberLessThanAssert', () => {
-  it('should throw an error if `threshold` is missing', () => {
+  it('should throw an error if `threshold` is missing', ({ assert }) => {
     try {
       Assert.bigNumberLessThan();
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.message).toBe('A threshold value is required.');
+      assert.equal(e.message, 'A threshold value is required.');
     }
   });
 
@@ -35,88 +36,94 @@ describe('BigNumberLessThanAssert', () => {
     describe(`with option '${
       option ? `{ validateSignificantDigits: ${option.validateSignificantDigits} }` : undefined
     }'`, () => {
-      it('should throw an error if `threshold` is not a number', () => {
+      it('should throw an error if `threshold` is not a number', ({ assert }) => {
         try {
           Assert.bigNumberLessThan({}, option);
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e).toBeInstanceOf(Violation);
-          expect(e.show().violation.message).toMatch(/Not a number/);
+          assert.ok(e instanceof Violation);
+          assert.match(e.show().violation.message, /Not a number/);
         }
       });
 
-      it('should throw an error if the input value is not a number', () => {
+      it('should throw an error if the input value is not a number', ({ assert }) => {
         const choices = [[], {}, ''];
 
         choices.forEach(choice => {
           try {
             Assert.bigNumberLessThan(10, option).validate(choice);
 
-            fail();
+            assert.fail();
           } catch (e) {
-            expect(e).toBeInstanceOf(Violation);
+            assert.ok(e instanceof Violation);
           }
         });
       });
 
-      it('should throw an error if the input number is equal to threshold', () => {
+      it('should throw an error if the input number is equal to threshold', ({ assert }) => {
         try {
           Assert.bigNumberLessThan(10, option).validate(10);
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e).toBeInstanceOf(Violation);
+          assert.ok(e instanceof Violation);
         }
       });
 
-      it('should throw an error if the input number is greater than the threshold', () => {
+      it('should throw an error if the input number is greater than the threshold', ({ assert }) => {
         try {
           Assert.bigNumberLessThan(10, option).validate(10.01);
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e).toBeInstanceOf(Violation);
+          assert.ok(e instanceof Violation);
         }
       });
 
-      it('should expose `assert` equal to `BigNumberLessThan`', () => {
+      it('should expose `assert` equal to `BigNumberLessThan`', ({ assert }) => {
         try {
           Assert.bigNumberLessThan(10, option).validate(10.01);
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e.show().assert).toBe('BigNumberLessThan');
+          assert.equal(e.show().assert, 'BigNumberLessThan');
         }
       });
 
-      it('should expose `assert` equal to `BigNumberLessThan` and `message` on the violation if the input value is not a number', () => {
+      it('should expose `assert` equal to `BigNumberLessThan` and `message` on the violation if the input value is not a number', ({
+        assert
+      }) => {
         try {
           Assert.bigNumberLessThan(10, option).validate({});
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e.show().assert).toBe('BigNumberLessThan');
-          expect(e.show().violation.message).toMatch(/Not a number/);
+          assert.equal(e.show().assert, 'BigNumberLessThan');
+          assert.match(e.show().violation.message, /Not a number/);
         }
       });
 
-      it('should expose `threshold` on the violation', () => {
+      it('should expose `threshold` on the violation', ({ assert }) => {
         try {
           Assert.bigNumberLessThan(10, option).validate(10.01);
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e.show().violation.threshold).toBe('10');
+          assert.equal(e.show().violation.threshold, '10');
         }
       });
 
-      it('should accept a big number as a `threshold` value', () => {
-        Assert.bigNumberLessThan(new BigNumber(10), option).validate(9.99999999);
+      it('should accept a big number as a `threshold` value', ({ assert }) => {
+        assert.doesNotThrow(() => {
+          Assert.bigNumberLessThan(new BigNumber(10), option).validate(9.99999999);
+        });
       });
 
-      it('should accept a number that is less than threshold', () => {
-        Assert.bigNumberLessThan(10, option).validate(9.99999999);
+      it('should accept a number that is less than threshold', ({ assert }) => {
+        assert.doesNotThrow(() => {
+          Assert.bigNumberLessThan(10, option).validate(9.99999999);
+        });
       });
     });
   });

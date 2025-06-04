@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
-const Iso3166CountryAssert = require('../../src/asserts/iso-3166-country-assert');
+const { describe, it } = require('node:test');
+const Iso3166CountryAssert = require('../../src/asserts/iso-3166-country-assert.js');
 
 /**
  * Extend `Assert` with `Iso3166CountryAssert`.
@@ -20,55 +21,63 @@ const Assert = BaseAssert.extend({
  */
 
 describe('Iso3166CountryAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.iso3166Country().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, Validator.errorCode.must_be_a_string);
       }
     });
   });
 
-  it('should throw an error if country is invalid', () => {
+  it('should throw an error if country is invalid', ({ assert }) => {
     try {
       Assert.iso3166Country().validate('FOO');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.value).toBe('FOO');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, 'FOO');
     }
   });
 
-  it('should expose `assert` equal to `Iso3166Country`', () => {
+  it('should expose `assert` equal to `Iso3166Country`', ({ assert }) => {
     try {
       Assert.iso3166Country().validate([]);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Iso3166Country');
+      assert.equal(e.show().assert, 'Iso3166Country');
     }
   });
 
-  it('should accept an ISO 3166-1 alpha-3 code', () => {
-    Assert.iso3166Country().validate('PRT');
+  it('should accept an ISO 3166-1 alpha-3 code', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.iso3166Country().validate('PRT');
+    });
   });
 
-  it('should accept an ISO 3166-1 alpha-2 code', () => {
-    Assert.iso3166Country().validate('PT');
+  it('should accept an ISO 3166-1 alpha-2 code', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.iso3166Country().validate('PT');
+    });
   });
 
-  it('should accept an ISO 3166-1 country name in short format', () => {
-    Assert.iso3166Country().validate('Portugal');
+  it('should accept an ISO 3166-1 country name in short format', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.iso3166Country().validate('Portugal');
+    });
   });
 
-  it('should accept an ISO 3166-1 country name in uppercase format', () => {
-    Assert.iso3166Country().validate('PORTUGAL');
+  it('should accept an ISO 3166-1 country name in uppercase format', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.iso3166Country().validate('PORTUGAL');
+    });
   });
 });

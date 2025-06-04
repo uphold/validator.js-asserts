@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const EqualKeysAssert = require('../../src/asserts/equal-keys-assert');
+const { describe, it } = require('node:test');
+const EqualKeysAssert = require('../../src/asserts/equal-keys-assert.js');
 
 /**
  * Extend `Assert` with `EqualKeysAssert`.
@@ -20,106 +21,110 @@ const Assert = BaseAssert.extend({
  */
 
 describe('EqualKeysAssert', () => {
-  it('should throw an error if the input value is not a plain object', () => {
+  it('should throw an error if the input value is not a plain object', ({ assert }) => {
     const choices = [[], '', 123];
 
     choices.forEach(choice => {
       try {
         Assert.equalKeys(['foo', 'bar']).validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_plain_object');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_plain_object');
       }
     });
   });
 
-  it('should throw an error if the object does not have the expected keys', () => {
+  it('should throw an error if the object does not have the expected keys', ({ assert }) => {
     try {
       Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
+      assert.ok(e instanceof Violation);
     }
   });
 
-  it('should throw an error if the object is empty', () => {
+  it('should throw an error if the object is empty', ({ assert }) => {
     try {
       Assert.equalKeys(['foo']).validate({});
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['foo']);
+      assert.deepEqual(e.show().violation.difference, ['foo']);
     }
   });
 
-  it('should allow `keys` to be `undefined`', () => {
+  it('should allow `keys` to be `undefined`', ({ assert }) => {
     try {
       Assert.equalKeys().validate({ foo: 'oof' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['foo']);
+      assert.deepEqual(e.show().violation.difference, ['foo']);
     }
   });
 
-  it('should allow `keys` to be defined as multiple arguments', () => {
+  it('should allow `keys` to be defined as multiple arguments', ({ assert }) => {
     try {
       Assert.equalKeys('foo', 'bar').validate({ foo: 'oof' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['bar']);
+      assert.deepEqual(e.show().violation.difference, ['bar']);
     }
   });
 
-  it('should allow `keys` to be defined as a single string argument', () => {
+  it('should allow `keys` to be defined as a single string argument', ({ assert }) => {
     try {
       Assert.equalKeys('bar').validate({ foo: 'oof' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['foo']);
+      assert.deepEqual(e.show().violation.difference, ['foo']);
     }
   });
 
-  it('should expose `assert` equal to `EqualKeys`', () => {
+  it('should expose `assert` equal to `EqualKeys`', ({ assert }) => {
     try {
       Assert.equalKeys(['foo']).validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('EqualKeys');
+      assert.equal(e.show().assert, 'EqualKeys');
     }
   });
 
-  it('should expose `difference` on the violation if object has extra keys', () => {
+  it('should expose `difference` on the violation if object has extra keys', ({ assert }) => {
     try {
       Assert.equalKeys(['foo']).validate({ bar: 'biz', foo: 'qux' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['bar']);
+      assert.deepEqual(e.show().violation.difference, ['bar']);
     }
   });
 
-  it('should expose `difference` on the violation if object has missing keys', () => {
+  it('should expose `difference` on the violation if object has missing keys', ({ assert }) => {
     try {
       Assert.equalKeys(['foo', 'biz']).validate({ foo: 'qux' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.difference).toEqual(['biz']);
+      assert.deepEqual(e.show().violation.difference, ['biz']);
     }
   });
 
-  it('should accept an empty object with no keys expected', () => {
-    Assert.equalKeys().validate({});
+  it('should accept an empty object with no keys expected', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.equalKeys().validate({});
+    });
   });
 
-  it('should accept an object with expected keys', () => {
-    Assert.equalKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
+  it('should accept an object with expected keys', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.equalKeys(['foo', 'bar']).validate({ bar: 'biz', foo: 'qux' });
+    });
   });
 });

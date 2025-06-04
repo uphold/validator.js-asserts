@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
-const IpAssert = require('../../src/asserts/ip-assert');
+const { describe, it } = require('node:test');
+const IpAssert = require('../../src/asserts/ip-assert.js');
 
 /**
  * Extend `Assert` with `IpAssert`.
@@ -20,45 +21,47 @@ const Assert = BaseAssert.extend({
  */
 
 describe('IpAssert', () => {
-  it('should throw an error if the input value is not a valid string', () => {
+  it('should throw an error if the input value is not a valid string', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.ip().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, Validator.errorCode.must_be_a_string);
       }
     });
   });
 
-  it('should throw an error if the ip is invalid', () => {
+  it('should throw an error if the ip is invalid', ({ assert }) => {
     try {
       Assert.ip().validate('FOO');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.value).toBe('FOO');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, 'FOO');
     }
   });
 
-  it('should expose `assert` equal to `Ip`', () => {
+  it('should expose `assert` equal to `Ip`', ({ assert }) => {
     try {
       Assert.ip().validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Ip');
+      assert.equal(e.show().assert, 'Ip');
     }
   });
 
-  it('should accept valid ips', () => {
+  it('should accept valid ips', ({ assert }) => {
     ['1.3.3.7', '::1'].forEach(choice => {
-      Assert.ip().validate(choice);
+      assert.doesNotThrow(() => {
+        Assert.ip().validate(choice);
+      });
     });
   });
 });

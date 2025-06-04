@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const BooleanAssert = require('../../src/asserts/boolean-assert');
+const { describe, it } = require('node:test');
+const BooleanAssert = require('../../src/asserts/boolean-assert.js');
 
 /**
  * Extend `Assert` with `BooleanAssert`.
@@ -20,36 +21,40 @@ const Assert = BaseAssert.extend({
  */
 
 describe('BooleanAssert', () => {
-  it('should throw an error if the input value is not a boolean', () => {
+  it('should throw an error if the input value is not a boolean', ({ assert }) => {
     const choices = [[], {}, 123, new Boolean(true), 'foo']; // eslint-disable-line no-new-wrappers
 
     choices.forEach(choice => {
       try {
         Assert.boolean().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_boolean');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_boolean');
       }
     });
   });
 
-  it('should expose `assert` equal to `Boolean`', () => {
+  it('should expose `assert` equal to `Boolean`', ({ assert }) => {
     try {
       Assert.boolean().validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Boolean');
+      assert.equal(e.show().assert, 'Boolean');
     }
   });
 
-  it('should accept a `true` boolean value', () => {
-    Assert.boolean().validate(true);
+  it('should accept a `true` boolean value', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.boolean().validate(true);
+    });
   });
 
-  it('should accept a `false` boolean value', () => {
-    Assert.boolean().validate(false);
+  it('should accept a `false` boolean value', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.boolean().validate(false);
+    });
   });
 });

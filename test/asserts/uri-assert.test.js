@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Validator, Violation } = require('validator.js');
-const UriAssert = require('../../src/asserts/uri-assert');
+const { describe, it } = require('node:test');
+const UriAssert = require('../../src/asserts/uri-assert.js');
 
 /**
  * Extend `Assert` with `UriAssert`.
@@ -20,98 +21,100 @@ const Assert = BaseAssert.extend({
  */
 
 describe('UriAssert', () => {
-  it('should throw an error if the constraint is invalid', () => {
+  it('should throw an error if the constraint is invalid', ({ assert }) => {
     try {
       Assert.uri({ foo: 'bar' });
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e.message).toBe('Invalid constraint "foo=bar"');
+      assert.ok(e instanceof Error);
+      assert.equal(e.message, 'Invalid constraint "foo=bar"');
     }
   });
 
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.uri().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe(Validator.errorCode.must_be_a_string);
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, Validator.errorCode.must_be_a_string);
       }
     });
   });
 
-  it('should throw an error if the uri does not contain a `hostname`', () => {
+  it('should throw an error if the uri does not contain a `hostname`', ({ assert }) => {
     try {
       Assert.uri().validate(`foo-${'-'.repeat(246)}-bar`);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
+      assert.ok(e instanceof Violation);
     }
   });
 
-  it('should throw an error if the uri does not contain a `protocol`', () => {
+  it('should throw an error if the uri does not contain a `protocol`', ({ assert }) => {
     try {
       Assert.uri().validate('foobar.com');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
+      assert.ok(e instanceof Violation);
     }
   });
 
-  it('should throw an error if the uri does not match the constraints', () => {
+  it('should throw an error if the uri does not match the constraints', ({ assert }) => {
     try {
       Assert.uri({ protocol: 'http' }).validate(`https://${'-'.repeat(246)}@bar.com`);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
+      assert.ok(e instanceof Violation);
     }
   });
 
-  it('should throw an error if the uri does not match the `is` constraint', () => {
+  it('should throw an error if the uri does not match the `is` constraint', ({ assert }) => {
     try {
       Assert.uri({ is: 'ip' }).validate('https://foobar.com');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
+      assert.ok(e instanceof Violation);
     }
   });
 
-  it('should expose `constraints` on the violation', () => {
+  it('should expose `constraints` on the violation', ({ assert }) => {
     try {
       Assert.uri({ protocol: 'http' }).validate('https://foobar.com');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.constraints).toEqual({ protocol: 'http' });
+      assert.deepEqual(e.show().violation.constraints, { protocol: 'http' });
     }
   });
 
-  it('should expose `assert` equal to `Uri`', () => {
+  it('should expose `assert` equal to `Uri`', ({ assert }) => {
     try {
       Assert.uri().validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Uri');
+      assert.equal(e.show().assert, 'Uri');
     }
   });
 
-  it('should accept an uri that matches the constraints', () => {
-    Assert.uri({ is: 'domain' }).validate('https://foobar.com');
-    Assert.uri({ protocol: 'https' }).validate('https://foobar.com');
+  it('should accept an uri that matches the constraints', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.uri({ is: 'domain' }).validate('https://foobar.com');
+      Assert.uri({ protocol: 'https' }).validate('https://foobar.com');
+    });
   });
 
-  it('should accept valid uris', () => {
+  it('should accept valid uris', ({ assert }) => {
     [
       'http://foobar.com',
       'http://føøbåz.com',
@@ -120,7 +123,9 @@ describe('UriAssert', () => {
       'ftp://foobar.com',
       'biz://foobar.com'
     ].forEach(choice => {
-      Assert.uri().validate(choice);
+      assert.doesNotThrow(() => {
+        Assert.uri().validate(choice);
+      });
     });
   });
 });

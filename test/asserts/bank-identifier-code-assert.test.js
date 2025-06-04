@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const BankIdentifierCodeAssert = require('../../src/asserts/bank-identifier-code-assert');
+const { describe, it } = require('node:test');
+const BankIdentifierCodeAssert = require('../../src/asserts/bank-identifier-code-assert.js');
 
 /**
  * Extend `Assert` with `BankIdentifierCodeAssert`.
@@ -20,56 +21,62 @@ const Assert = BaseAssert.extend({
  */
 
 describe('BankIdentifierCodeAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     const choices = [[], {}];
 
     choices.forEach(choice => {
       try {
         Assert.bankIdentifierCode().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_string');
       }
     });
   });
 
-  it('should expose `assert` equal to `BankIdentifierCode`', () => {
+  it('should expose `assert` equal to `BankIdentifierCode`', ({ assert }) => {
     try {
       Assert.bankIdentifierCode().validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('BankIdentifierCode');
+      assert.equal(e.show().assert, 'BankIdentifierCode');
     }
   });
 
-  it('should throw an error if the input value is not a valid bic', () => {
+  it('should throw an error if the input value is not a valid bic', ({ assert }) => {
     try {
       Assert.bankIdentifierCode().validate('BICOLETO');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.value).toBe('BICOLETO');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, 'BICOLETO');
     }
   });
 
-  it('should accept a valid bic without branch code', () => {
-    Assert.bankIdentifierCode().validate('FOOBARBI');
+  it('should accept a valid bic without branch code', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.bankIdentifierCode().validate('FOOBARBI');
+    });
   });
 
-  it('should accept a valid bic with branch code', () => {
-    Assert.bankIdentifierCode().validate('FOOBARBIXXX');
+  it('should accept a valid bic with branch code', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.bankIdentifierCode().validate('FOOBARBIXXX');
+    });
   });
 
-  it('should be case-insensitive', () => {
-    Assert.bankIdentifierCode().validate('FOOBARBI');
-    Assert.bankIdentifierCode().validate('FooBarBI');
-    Assert.bankIdentifierCode().validate('foobarbi');
-    Assert.bankIdentifierCode().validate('FOOBARBIXXX');
-    Assert.bankIdentifierCode().validate('FooBarBIXXX');
-    Assert.bankIdentifierCode().validate('foobarbixxx');
+  it('should be case-insensitive', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.bankIdentifierCode().validate('FOOBARBI');
+      Assert.bankIdentifierCode().validate('FooBarBI');
+      Assert.bankIdentifierCode().validate('foobarbi');
+      Assert.bankIdentifierCode().validate('FOOBARBIXXX');
+      Assert.bankIdentifierCode().validate('FooBarBIXXX');
+      Assert.bankIdentifierCode().validate('foobarbixxx');
+    });
   });
 });

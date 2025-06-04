@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const NullOrDateAssert = require('../../src/asserts/null-or-date-assert');
+const { describe, it } = require('node:test');
+const NullOrDateAssert = require('../../src/asserts/null-or-date-assert.js');
 
 /**
  * Extend `Assert` with `NullOrDateAssert`.
@@ -20,51 +21,57 @@ const Assert = BaseAssert.extend({
  */
 
 describe('NullOrDateAssert', () => {
-  it('should throw an error if the input value is not a `null` or a date', () => {
+  it('should throw an error if the input value is not a `null` or a date', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.nullOrDate().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_null_or_a_date');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_null_or_a_date');
       }
     });
   });
 
-  it('should throw an error if the input value is not a valid date', () => {
+  it('should throw an error if the input value is not a valid date', ({ assert }) => {
     try {
       Assert.nullOrDate().validate('2015-99-01');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().value).toBe('2015-99-01');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().value, '2015-99-01');
     }
   });
 
-  it('should expose `assert` equal to `NullOrDate`', () => {
+  it('should expose `assert` equal to `NullOrDate`', ({ assert }) => {
     try {
       Assert.nullOrDate().validate({});
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('NullOrDate');
+      assert.equal(e.show().assert, 'NullOrDate');
     }
   });
 
-  it('should accept `null`', () => {
-    Assert.nullOrDate().validate(null);
+  it('should accept `null`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrDate().validate(null);
+    });
   });
 
-  it('should accept a date', () => {
-    Assert.nullOrDate().validate(new Date());
+  it('should accept a date', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrDate().validate(new Date());
+    });
   });
 
-  it('should accept a string', () => {
-    Assert.nullOrDate().validate('2014-10-16');
+  it('should accept a string', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrDate().validate('2014-10-16');
+    });
   });
 });

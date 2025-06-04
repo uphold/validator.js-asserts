@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const IntegerAssert = require('../../src/asserts/integer-assert');
+const { describe, it } = require('node:test');
+const IntegerAssert = require('../../src/asserts/integer-assert.js');
 
 /**
  * Extend `Assert` with `IntegerAssert`.
@@ -20,31 +21,33 @@ const Assert = BaseAssert.extend({
  */
 
 describe('IntegerAssert', () => {
-  it('should throw an error if the input value is not a number', () => {
+  it('should throw an error if the input value is not a number', ({ assert }) => {
     const choices = [{}, 'foo', '', [], 1.01, '2'];
 
     choices.forEach(choice => {
       try {
         Assert.integer().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
+        assert.ok(e instanceof Violation);
       }
     });
   });
 
-  it('should expose `assert` equal to `Integer`', () => {
+  it('should expose `assert` equal to `Integer`', ({ assert }) => {
     try {
       Assert.integer().validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('Integer');
+      assert.equal(e.show().assert, 'Integer');
     }
   });
 
-  it('should accept an integer', () => {
-    Assert.integer().validate(1);
+  it('should accept an integer', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.integer().validate(1);
+    });
   });
 });

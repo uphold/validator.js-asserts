@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const InternationalBankAccountNumberAssert = require('../../src/asserts/international-bank-account-number-assert');
+const { describe, it } = require('node:test');
+const InternationalBankAccountNumberAssert = require('../../src/asserts/international-bank-account-number-assert.js');
 
 /**
  * Extend `Assert` with `InternationalBankAccountNumberAssert`.
@@ -20,43 +21,45 @@ const Assert = BaseAssert.extend({
  */
 
 describe('InternationalBankAccountNumberAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     const choices = [[], {}];
 
     choices.forEach(choice => {
       try {
         Assert.internationalBankAccountNumber().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_string');
       }
     });
   });
 
-  it('should throw an error if the input value is not a valid iban', () => {
+  it('should throw an error if the input value is not a valid iban', ({ assert }) => {
     try {
       Assert.internationalBankAccountNumber().validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.value).toBe('foobar');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, 'foobar');
     }
   });
 
-  it('should expose `assert` equal to `InternationalBankAccountNumber`', () => {
+  it('should expose `assert` equal to `InternationalBankAccountNumber`', ({ assert }) => {
     try {
       Assert.internationalBankAccountNumber().validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('InternationalBankAccountNumber');
+      assert.equal(e.show().assert, 'InternationalBankAccountNumber');
     }
   });
 
-  it('should accept a valid iban', () => {
-    Assert.internationalBankAccountNumber().validate('BE68539007547034');
+  it('should accept a valid iban', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.internationalBankAccountNumber().validate('BE68539007547034');
+    });
   });
 });

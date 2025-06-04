@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const AbaRoutingNumberAssert = require('../../src/asserts/aba-routing-number-assert');
+const { describe, it } = require('node:test');
+const AbaRoutingNumberAssert = require('../../src/asserts/aba-routing-number-assert.js');
 
 /**
  * Extend `Assert` with `AbaRoutingNumberAssert`.
@@ -20,37 +21,37 @@ const Assert = BaseAssert.extend({
  */
 
 describe('AbaRoutingNumberAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     [{}, []].forEach(choice => {
       try {
         Assert.abaRoutingNumber().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_string');
       }
     });
   });
 
-  it('should throw an error if the input value is not a valid ABA routing number', () => {
+  it('should throw an error if the input value is not a valid ABA routing number', ({ assert }) => {
     try {
       Assert.abaRoutingNumber().validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().value).toBe('foobar');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().value, 'foobar');
     }
   });
 
-  it('should expose `assert` equal to `AbaRoutingNumber`', () => {
+  it('should expose `assert` equal to `AbaRoutingNumber`', ({ assert }) => {
     try {
       Assert.abaRoutingNumber().validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('AbaRoutingNumber');
+      assert.equal(e.show().assert, 'AbaRoutingNumber');
     }
   });
 
