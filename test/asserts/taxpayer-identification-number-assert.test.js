@@ -68,13 +68,13 @@ describe('TaxpayerIdentificationNumberAssert', () => {
 
   it('should accept a valid `tin`', ({ assert }) => {
     assert.doesNotThrow(() => {
-      Assert.taxpayerIdentificationNumber().validate('123456789');
+      Assert.taxpayerIdentificationNumber().validate('900700000');
     });
   });
 
   it('should accept a correctly formatted `tin`', ({ assert }) => {
     assert.doesNotThrow(() => {
-      Assert.taxpayerIdentificationNumber().validate('123-45-6789');
+      Assert.taxpayerIdentificationNumber().validate('900-70-0000');
     });
   });
 });
