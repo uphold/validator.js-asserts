@@ -194,6 +194,9 @@ export interface ValidatorJSAsserts {
   /** Valid US ZIP code. */
   usZipCode(): AssertInstance;
 
-  /** Valid `UUID` (version 3, 4, or 5). */
-  uuid(version?: 3 | 4 | 5): AssertInstance;
+  /**
+   * Valid `UUID`.
+   * @param [version] - UUID version `3`, `4`, `5`, `7`, `max` or `nil`. Defaults to `all` if omitted.
+   */
+  uuid(version?: '3' | '4' | '5' | '7' | 'max' | 'nil'): AssertInstance;
 }
