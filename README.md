@@ -317,13 +317,13 @@ Tests if the value is a valid US subdivision or not. By default, codes in the sh
 
 Tests if the value is a valid US zip code.
 
-### Uuid
+### UUID
 
 Tests if the value is a valid `UUID`.
 
 #### Arguments
 
-- `version` (optional) - the version to test the `UUID` for. Supported versions are `3`, `4` and `5`. Defaults to test for `all` three if omitted.
+- `version` (optional) - the version to test the `UUID` for. Supported versions are `3`, `4`, `5`, `7`, `max`, and `nil`. Defaults to test for `all` if omitted.
 
 ## Usage
 
