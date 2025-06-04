@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const BigNumberAssert = require('../../src/asserts/big-number-assert');
+const { describe, it } = require('node:test');
+const BigNumberAssert = require('../../src/asserts/big-number-assert.js');
 
 /**
  * Extend `Assert` with `BigNumberAssert`.
@@ -24,27 +25,27 @@ describe('BigNumberAssert', () => {
     describe(`with option '${
       option ? `{ validateSignificantDigits: ${option.validateSignificantDigits} }` : undefined
     }'`, () => {
-      it('should throw an error if the input value is not a big number', () => {
+      it('should throw an error if the input value is not a big number', ({ assert }) => {
         const choices = [[], {}, ''];
 
         choices.forEach(choice => {
           try {
             Assert.bigNumber(option).validate(choice);
 
-            fail();
+            assert.fail();
           } catch (e) {
-            expect(e).toBeInstanceOf(Violation);
+            assert.ok(e instanceof Violation);
           }
         });
       });
 
-      it('should expose `assert` equal to `BigNumber`', () => {
+      it('should expose `assert` equal to `BigNumber`', ({ assert }) => {
         try {
           Assert.bigNumber(option).validate();
 
-          fail();
+          assert.fail();
         } catch (e) {
-          expect(e.show().assert).toBe('BigNumber');
+          assert.equal(e.show().assert, 'BigNumber');
         }
       });
 
@@ -57,16 +58,17 @@ describe('BigNumberAssert', () => {
       });
 
       if (!option || option.validateSignificantDigits === true) {
-        it('should throw an error if a number has more than 15 significant digits', () => {
+        it('should throw an error if a number has more than 15 significant digits', ({ assert }) => {
           try {
             // eslint-disable-next-line no-loss-of-precision
             Assert.bigNumber(option).validate(1.011111111111111111111111111111111111111111);
 
-            fail();
+            assert.fail();
           } catch (e) {
-            expect(e).toBeInstanceOf(Violation);
-            expect(e.show().assert).toBe('BigNumber');
-            expect(e.show().violation.message).toBe(
+            assert.ok(e instanceof Violation);
+            assert.equal(e.show().assert, 'BigNumber');
+            assert.equal(
+              e.show().violation.message,
               '[BigNumber Error] Number primitive has more than 15 significant digits: 1.011111111111111'
             );
           }

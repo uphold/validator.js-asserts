@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const NullOrStringAssert = require('../../src/asserts/null-or-string-assert');
+const { describe, it } = require('node:test');
+const NullOrStringAssert = require('../../src/asserts/null-or-string-assert.js');
 
 /**
  * Extend `Assert` with `NullOrStringAssert`.
@@ -20,72 +21,78 @@ const Assert = BaseAssert.extend({
  */
 
 describe('NullOrStringAssert', () => {
-  it('should throw an error if the input value is not a `null` or a string', () => {
+  it('should throw an error if the input value is not a `null` or a string', ({ assert }) => {
     const choices = [[], {}, 123];
 
     choices.forEach(choice => {
       try {
         Assert.nullOrString().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_null_or_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_null_or_a_string');
       }
     });
   });
 
-  it('should throw an error if input is a string but is out of boundaries', () => {
+  it('should throw an error if input is a string but is out of boundaries', ({ assert }) => {
     try {
       Assert.nullOrString({ min: 10 }).validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.violation).toEqual({ min: 10 });
+      assert.ok(e instanceof Violation);
+      assert.deepEqual(e.violation, { min: 10 });
     }
   });
 
-  it('should expose `assert` equal to `NullOrString`', () => {
+  it('should expose `assert` equal to `NullOrString`', ({ assert }) => {
     try {
       Assert.nullOrString().validate({});
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('NullOrString');
+      assert.equal(e.show().assert, 'NullOrString');
     }
   });
 
-  it('should expose `min` or `max` on the violation if testing boundaries of a string', () => {
+  it('should expose `min` or `max` on the violation if testing boundaries of a string', ({ assert }) => {
     try {
       Assert.nullOrString({ min: 5 }).validate('foo');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().violation.min).toBe(5);
+      assert.equal(e.show().violation.min, 5);
     }
   });
 
-  it('should expose `min` or `max` on the `assert` if testing boundaries of a string', () => {
+  it('should expose `min` or `max` on the `assert` if testing boundaries of a string', ({ assert }) => {
     try {
       Assert.nullOrString({ max: 2, min: 1 }).validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.assert.min).toBe(1);
-      expect(e.assert.max).toBe(2);
+      assert.equal(e.assert.min, 1);
+      assert.equal(e.assert.max, 2);
     }
   });
 
-  it('should accept `null`', () => {
-    Assert.nullOrString().validate(null);
+  it('should accept `null`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrString().validate(null);
+    });
   });
 
-  it('should accept a string within boundaries', () => {
-    Assert.nullOrString({ max: 10 }).validate('foo');
+  it('should accept a string within boundaries', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrString({ max: 10 }).validate('foo');
+    });
   });
 
-  it('should accept a string', () => {
-    Assert.nullOrString().validate('foo');
+  it('should accept a string', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOrString().validate('foo');
+    });
   });
 });

@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const RfcNumberAssert = require('../../src/asserts/rfc-number-assert');
+const { describe, it } = require('node:test');
+const RfcNumberAssert = require('../../src/asserts/rfc-number-assert.js');
 
 /**
  * Extend `Assert` with `RfcNumberAssert`.
@@ -20,32 +21,34 @@ const Assert = BaseAssert.extend({
  */
 
 describe('RfcNumberAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     try {
       Assert.rfcNumber().validate();
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toBe('RfcNumber');
-      expect(e.value).toBeUndefined();
-      expect(e.violation.value).toBe('must_be_a_string');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'RfcNumber');
+      assert.ok(e.value === undefined);
+      assert.equal(e.violation.value, 'must_be_a_string');
     }
   });
 
-  it('should throw an error if `rfc` is invalid', () => {
+  it('should throw an error if `rfc` is invalid', ({ assert }) => {
     try {
       Assert.rfcNumber().validate('123');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.value).toBe('123');
-      expect(e.violation.value).toBe('must_be_a_valid_rfc_number');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, '123');
+      assert.equal(e.violation.value, 'must_be_a_valid_rfc_number');
     }
   });
 
-  it('should accept a valid `rfc`', () => {
-    Assert.rfcNumber().validate('mhtr93041179a');
+  it('should accept a valid `rfc`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.rfcNumber().validate('mhtr93041179a');
+    });
   });
 });

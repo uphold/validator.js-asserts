@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const PlainObjectAssert = require('../../src/asserts/plain-object-assert');
+const { describe, it } = require('node:test');
+const PlainObjectAssert = require('../../src/asserts/plain-object-assert.js');
 
 /**
  * Extend `Assert` with `PlainObjectAssert`.
@@ -20,31 +21,33 @@ const Assert = BaseAssert.extend({
  */
 
 describe('PlainObjectAssert', () => {
-  it('should throw an error if the input value is not a plain object', () => {
+  it('should throw an error if the input value is not a plain object', ({ assert }) => {
     const choices = [[], 123];
 
     choices.forEach(choice => {
       try {
         Assert.plainObject().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
+        assert.ok(e instanceof Violation);
       }
     });
   });
 
-  it('should expose `assert` equal to `PlainObject`', () => {
+  it('should expose `assert` equal to `PlainObject`', ({ assert }) => {
     try {
       Assert.plainObject().validate('FOO');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('PlainObject');
+      assert.equal(e.show().assert, 'PlainObject');
     }
   });
 
-  it('should accept a plain object', () => {
-    Assert.plainObject().validate({ foo: 'bar' });
+  it('should accept a plain object', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.plainObject().validate({ foo: 'bar' });
+    });
   });
 });

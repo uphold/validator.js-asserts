@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const TaxpayerIdentificationNumberAssert = require('../../src/asserts/taxpayer-identification-number-assert');
+const { describe, it } = require('node:test');
+const TaxpayerIdentificationNumberAssert = require('../../src/asserts/taxpayer-identification-number-assert.js');
 
 /**
  * Extend `Assert` with `TaxpayerIdentificationNumberAssert`.
@@ -20,56 +21,60 @@ const Assert = BaseAssert.extend({
  */
 
 describe('TaxpayerIdentificationNumberAssert', () => {
-  it('should throw an error if the input value is not a string', () => {
+  it('should throw an error if the input value is not a string', ({ assert }) => {
     [{}, []].forEach(choice => {
       try {
         Assert.taxpayerIdentificationNumber().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
-        expect(e.violation.value).toBe('must_be_a_string');
+        assert.ok(e instanceof Violation);
+        assert.equal(e.violation.value, 'must_be_a_string');
       }
     });
   });
 
-  it('should throw an error if the input value is not a valid `tin`', () => {
+  it('should throw an error if the input value is not a valid `tin`', ({ assert }) => {
     try {
       Assert.taxpayerIdentificationNumber().validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().value).toBe('foobar');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().value, 'foobar');
     }
   });
 
-  it('should throw an error if the input value is not a correctly formatted `tin`', () => {
+  it('should throw an error if the input value is not a correctly formatted `tin`', ({ assert }) => {
     try {
       Assert.taxpayerIdentificationNumber().validate('1-2-3456 789');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().value).toBe('1-2-3456 789');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().value, '1-2-3456 789');
     }
   });
 
-  it('should expose `assert` equal to `TaxpayerIdentificationNumber`', () => {
+  it('should expose `assert` equal to `TaxpayerIdentificationNumber`', ({ assert }) => {
     try {
       Assert.taxpayerIdentificationNumber().validate('1-2-3456 789');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('TaxpayerIdentificationNumber');
+      assert.equal(e.show().assert, 'TaxpayerIdentificationNumber');
     }
   });
 
-  it('should accept a valid `tin`', () => {
-    Assert.taxpayerIdentificationNumber().validate('123456789');
+  it('should accept a valid `tin`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.taxpayerIdentificationNumber().validate('123456789');
+    });
   });
 
-  it('should accept a correctly formatted `tin`', () => {
-    Assert.taxpayerIdentificationNumber().validate('123-45-6789');
+  it('should accept a correctly formatted `tin`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.taxpayerIdentificationNumber().validate('123-45-6789');
+    });
   });
 });

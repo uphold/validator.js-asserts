@@ -5,8 +5,9 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const NullOrAssert = require('../../src/asserts/null-or-assert');
-const UuidAssert = require('../../src/asserts/uuid-assert');
+const { describe, it } = require('node:test');
+const NullOrAssert = require('../../src/asserts/null-or-assert.js');
+const UuidAssert = require('../../src/asserts/uuid-assert.js');
 
 /**
  * Extend `Assert` with `NullOrAssert`.
@@ -22,79 +23,83 @@ const Assert = BaseAssert.extend({
  */
 
 describe('NullOrAssert', () => {
-  it('should throw an error if the specified assert is missing', () => {
+  it('should throw an error if the specified assert is missing', ({ assert }) => {
     try {
       Assert.nullOr('foo').validate();
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e.message).toBe('Assert must be an object.');
+      assert.ok(e instanceof Error);
+      assert.equal(e.message, 'Assert must be an object.');
     }
   });
 
-  it('should throw an error if the specified assert is not valid', () => {
+  it('should throw an error if the specified assert is not valid', ({ assert }) => {
     try {
       Assert.nullOr('foo').validate('bar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e.message).toBe('Assert must be an object.');
+      assert.ok(e instanceof Error);
+      assert.equal(e.message, 'Assert must be an object.');
     }
   });
 
-  it('should throw an error if the specified assert has no `validate` function', () => {
+  it('should throw an error if the specified assert has no `validate` function', ({ assert }) => {
     try {
       Assert.nullOr({}).validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e.message).toBe('Assert must have a validate function.');
+      assert.ok(e instanceof Error);
+      assert.equal(e.message, 'Assert must have a validate function.');
     }
   });
 
-  it('should throw an error if the specified assert has a `validate` property that is not a function', () => {
+  it('should throw an error if the specified assert has a `validate` property that is not a function', ({ assert }) => {
     try {
       Assert.nullOr({ validate: true }).validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e.message).toBe('Assert must have a validate function.');
+      assert.ok(e instanceof Error);
+      assert.equal(e.message, 'Assert must have a validate function.');
     }
   });
 
-  it('should throw an error if the value is not null and is not valid for the specified assert', () => {
+  it('should throw an error if the value is not null and is not valid for the specified assert', ({ assert }) => {
     try {
       Assert.nullOr(Assert.string()).validate(123);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toBe('IsString');
-      expect(e.violation.value).toBe('must_be_a_string');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'IsString');
+      assert.equal(e.violation.value, 'must_be_a_string');
     }
   });
 
-  it('should include the arguments of the specified assert', () => {
+  it('should include the arguments of the specified assert', ({ assert }) => {
     try {
       Assert.nullOr(Assert.uuid(4)).validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e).toBeInstanceOf(Object);
-      expect(e.show().assert).toBe('Uuid');
-      expect(e.violation.version).toBe(4);
+      assert.ok(e instanceof Object);
+      assert.equal(e.show().assert, 'Uuid');
+      assert.equal(e.violation.version, 4);
     }
   });
 
-  it('should accept a null value', () => {
-    Assert.nullOr(Assert.string()).validate(null);
+  it('should accept a null value', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOr(Assert.string()).validate(null);
+    });
   });
 
-  it('should accept a value that is valid for the specified assert', () => {
-    Assert.nullOr(Assert.string()).validate('foobar');
+  it('should accept a value that is valid for the specified assert', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.nullOr(Assert.string()).validate('foobar');
+    });
   });
 });

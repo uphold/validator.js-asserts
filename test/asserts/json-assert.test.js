@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const JsonAssert = require('../../src/asserts/json-assert');
+const { describe, it } = require('node:test');
+const JsonAssert = require('../../src/asserts/json-assert.js');
 
 /**
  * Extend `Assert` with `JsonAssert`.
@@ -20,33 +21,35 @@ const Assert = BaseAssert.extend({
  */
 
 describe('JsonAssert', () => {
-  it('should throw an error if the input value is not valid JSON', () => {
+  it('should throw an error if the input value is not valid JSON', ({ assert }) => {
     const choices = [[], '["foo":"bar"}'];
 
     choices.forEach(choice => {
       try {
         Assert.json().validate(choice);
 
-        fail();
+        assert.fail();
       } catch (e) {
-        expect(e).toBeInstanceOf(Violation);
+        assert.ok(e instanceof Violation);
       }
     });
   });
 
-  it('should expose `assert` equal to `Json`', () => {
+  it('should expose `assert` equal to `Json`', ({ assert }) => {
     try {
       Assert.json().validate([]);
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.show().assert).toBe('JSON');
+      assert.equal(e.show().assert, 'JSON');
     }
   });
 
-  it('should accept valid JSON strings', () => {
+  it('should accept valid JSON strings', ({ assert }) => {
     ['"foo"', '10', '{"foo":"bar"}', 123, Boolean(true), Number(10)].forEach(choice => {
-      Assert.json().validate(choice);
+      assert.doesNotThrow(() => {
+        Assert.json().validate(choice);
+      });
     });
   });
 });

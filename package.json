@@ -34,7 +34,9 @@
   "scripts": {
     "lint": "eslint",
     "release": "release-it",
-    "test": "uphold-scripts test"
+    "test": "node --test",
+    "test:coverage": "NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage",
+    "test:watch": "node --test --watch"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -55,7 +57,6 @@
     "moment": "^2.29.1",
     "prettier": "^3.5.3",
     "release-it": "^17.0.1",
-    "sinon": "^11.1.1",
     "tin-validator": "^1.0.0",
     "uk-modulus-checking": "0.0.3",
     "uphold-scripts": "^0.5.0",

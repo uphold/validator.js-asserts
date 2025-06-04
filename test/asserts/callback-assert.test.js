@@ -5,7 +5,8 @@
  */
 
 const { Assert: BaseAssert, Violation } = require('validator.js');
-const CallbackAssert = require('../../src/asserts/callback-assert');
+const { describe, it } = require('node:test');
+const CallbackAssert = require('../../src/asserts/callback-assert.js');
 
 /**
  * Extend `Assert` with `CallbackAssert`.
@@ -20,78 +21,80 @@ const Assert = BaseAssert.extend({
  */
 
 describe('CallbackAssert', () => {
-  it('should throw an error if `customClass` is missing', () => {
+  it('should throw an error if `customClass` is missing', ({ assert }) => {
     try {
       Assert.callback(value => value === 'foobiz').validate('foobar');
     } catch (e) {
-      expect(e.message).toEqual('Callback must be instantiated with a valid custom class name');
+      assert.equal(e.message, 'Callback must be instantiated with a valid custom class name');
     }
   });
 
-  it('should throw an error if `customClass` is invalid', () => {
+  it('should throw an error if `customClass` is invalid', ({ assert }) => {
     ['foo bar', 'foo 1', '%', '{}'].forEach(customClass => {
       try {
         Assert.callback(value => value === 'foobiz', customClass).validate('foobar');
       } catch (e) {
-        expect(e.message).toEqual('Callback must be instantiated with a valid custom class name');
+        assert.equal(e.message, 'Callback must be instantiated with a valid custom class name');
       }
     });
   });
 
-  it('should throw an error if `value` is missing', () => {
+  it('should throw an error if `value` is missing', ({ assert }) => {
     try {
       Assert.callback(null, 'CustomClass').validate();
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.message).toEqual('Callback must be instantiated with a function');
+      assert.equal(e.message, 'Callback must be instantiated with a function');
     }
   });
 
-  it('should throw an error if `value` is not a function', () => {
+  it('should throw an error if `value` is not a function', ({ assert }) => {
     try {
       Assert.callback(null, 'CustomClass').validate('foobar');
 
-      fail();
+      assert.fail();
     } catch (e) {
-      expect(e.message).toEqual('Callback must be instantiated with a function');
+      assert.equal(e.message, 'Callback must be instantiated with a function');
     }
   });
 
-  it('should throw an error if the given function is invalid', () => {
+  it('should throw an error if the given function is invalid', ({ assert }) => {
     try {
       // eslint-disable-next-line no-undef
       Assert.callback(() => thisFunctionDoesNotExist(), 'CustomClass').validate('foobar');
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toEqual('CustomClass');
-      expect(e.show().value).toEqual('foobar');
-      expect(e.show().violation).not.toBeUndefined();
-      expect(e.show().violation.error).toBeInstanceOf(ReferenceError);
-      expect(e.show().violation.error.message).toEqual('thisFunctionDoesNotExist is not defined');
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'CustomClass');
+      assert.equal(e.show().value, 'foobar');
+      assert.ok(e.show().violation !== undefined);
+      assert.ok(e.show().violation.error instanceof ReferenceError);
+      assert.equal(e.show().violation.error.message, 'thisFunctionDoesNotExist is not defined');
     }
   });
 
-  it('should throw an error if the callback function returns `false`', () => {
+  it('should throw an error if the callback function returns `false`', ({ assert }) => {
     try {
       Assert.callback(value => value === 'foobiz', 'CustomClass').validate('foobar');
     } catch (e) {
-      expect(e).toBeInstanceOf(Violation);
-      expect(e.show().assert).toEqual('CustomClass');
-      expect(e.show().value).toEqual('foobar');
-      expect(e.show().violation.result).toBeFalsy();
+      assert.ok(e instanceof Violation);
+      assert.equal(e.show().assert, 'CustomClass');
+      assert.equal(e.show().value, 'foobar');
+      assert.ok(!e.show().violation.result);
     }
   });
 
-  it('should expose `assert` equal to `CustomClass`', () => {
+  it('should expose `assert` equal to `CustomClass`', ({ assert }) => {
     try {
       Assert.callback(value => value === 'foobiz', 'CustomClass').validate('foobar');
     } catch (e) {
-      expect(e.show().assert).toEqual('CustomClass');
+      assert.equal(e.show().assert, 'CustomClass');
     }
   });
 
-  it('should not throw an error if the callback function returns `true`', () => {
-    Assert.callback(value => value === 'foobar', 'CustomClass').validate('foobar');
+  it('should not throw an error if the callback function returns `true`', ({ assert }) => {
+    assert.doesNotThrow(() => {
+      Assert.callback(value => value === 'foobar', 'CustomClass').validate('foobar');
+    });
   });
 });
