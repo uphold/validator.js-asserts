@@ -1,5 +1,16 @@
 # Changelog
 
+## [v9.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v9.0.0) (2025-07-01)
+
+- Add type declarations [\#259](https://github.com/uphold/validator.js-asserts/pull/259) ([risantos](https://github.com/risantos))
+- Improve `README` [\#265](https://github.com/uphold/validator.js-asserts/pull/265) ([risantos](https://github.com/risantos))
+- Fix `peerDependencies` [\#263](https://github.com/uphold/validator.js-asserts/pull/263) ([risantos](https://github.com/risantos))
+- Update dev dependencies to fix vulnerabilities [\#262](https://github.com/uphold/validator.js-asserts/pull/262) ([risantos](https://github.com/risantos))
+- Replace `uphold-scripts` with `@fastify/pre-commit` [\#261](https://github.com/uphold/validator.js-asserts/pull/261) ([risantos](https://github.com/risantos))
+- Replace `jest` and `sinon` with `node:test` [\#260](https://github.com/uphold/validator.js-asserts/pull/260) ([risantos](https://github.com/risantos))
+- Update `ESLint` configuration and lint files [\#257](https://github.com/uphold/validator.js-asserts/pull/257) ([risantos](https://github.com/risantos))
+- Add `CODEOWNERS` [\#258](https://github.com/uphold/validator.js-asserts/pull/258) ([risantos](https://github.com/risantos))
+
 ## [v8.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.4.0) (2025-01-22)
 - Add Canada zip code assert [\#253](https://github.com/uphold/validator.js-asserts/pull/253) ([Megamind51](https://github.com/Megamind51))
 
