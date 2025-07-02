@@ -132,8 +132,8 @@ Allows you to add custom rules by giving a callback function and a custom class.
 
 #### Arguments
 
-- `callback` (required) - the callback function.
-- `customClass` (required) - the name of the class.
+- `callback` (required) - the callback function, that must return `true` if the value is valid.
+- `customClass` (required) - the name of the class, which must match the pattern `/^[a-zA-Z\d]+$/`.
 
 ### CaZipCode
 
@@ -331,7 +331,9 @@ The following is an example for the extra IP assert:
 
 ```js
 const Validator = require('validator.js').Validator;
-const is = require('validator.js').Assert.extend(require('validator.js-asserts'));
+const is = require('validator.js').Assert.extend(
+  require('validator.js-asserts')
+);
 const validator = new Validator();
 
 // Validate IP `1.3.3.7`.

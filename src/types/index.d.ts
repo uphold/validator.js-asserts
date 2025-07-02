@@ -60,7 +60,18 @@ export interface ValidatorJSAsserts {
   /** Valid Canadian ZIP code (postal code). */
   caZipCode(): AssertInstance;
 
-  /** Run a custom callback function, passing a custom class name. */
+  /**
+   * Run a custom callback function, passing a custom class name.
+   * @param fn - Callback function that receives the value to validate, which should return `true` if valid.
+   * @param customClass - Custom class name to use for the assert. Must match the pattern `/^[a-zA-Z\d]+$/`.
+   * @example
+   * ```js
+   * is.callback(
+   *   (value) => typeof value === 'string' && value.length > 0,
+   *   'NonEmptyString'
+   * );
+   * ```
+   */
   callback(fn: (value: unknown) => boolean, customClass: string): AssertInstance;
 
   /** Valid Brazilian CPF number. @requires cpf */
