@@ -27,8 +27,6 @@ module.exports = function bigNumberLessThan(threshold, { validateSignificantDigi
     throw new Error('BigNumber is not installed');
   }
 
-  BigNumber.DEBUG = !!validateSignificantDigits;
-
   /**
    * Extend `Assert` with `BigNumberAssert`.
    */
@@ -54,7 +52,11 @@ module.exports = function bigNumberLessThan(threshold, { validateSignificantDigi
    */
 
   this.validate = value => {
+    const bigNumberDebug = BigNumber.DEBUG;
+
     try {
+      BigNumber.DEBUG = !!validateSignificantDigits;
+
       Assert.bigNumber({ validateSignificantDigits }).validate(value);
 
       const number = new BigNumber(value);
@@ -71,6 +73,8 @@ module.exports = function bigNumberLessThan(threshold, { validateSignificantDigi
       }
 
       throw new Violation(this, value, context);
+    } finally {
+      BigNumber.DEBUG = bigNumberDebug;
     }
 
     return true;
