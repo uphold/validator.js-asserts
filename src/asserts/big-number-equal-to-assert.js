@@ -27,8 +27,6 @@ module.exports = function bigNumberEqualToAssert(value, { validateSignificantDig
     throw new Error('BigNumber is not installed');
   }
 
-  BigNumber.DEBUG = !!validateSignificantDigits;
-
   /**
    * Extend `Assert` with `BigNumberAssert`.
    */
