@@ -27,8 +27,6 @@ module.exports = function bigNumberGreaterThanAssert(threshold, { validateSignif
     throw new Error('BigNumber is not installed');
   }
 
-  BigNumber.DEBUG = !!validateSignificantDigits;
-
   /**
    * Extend `Assert` with `BigNumberAssert`.
    */

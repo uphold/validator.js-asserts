@@ -91,4 +91,36 @@ describe('BigNumberAssert', () => {
       }
     });
   });
+
+  it('should restore the original BigNumber.DEBUG value after validation', ({ assert }) => {
+    const BigNumber = require('bignumber.js');
+
+    BigNumber.DEBUG = false;
+
+    Assert.bigNumber({ validateSignificantDigits: true }).validate('1.01');
+
+    assert.equal(BigNumber.DEBUG, false);
+
+    BigNumber.DEBUG = true;
+
+    Assert.bigNumber({ validateSignificantDigits: false }).validate('1.01');
+
+    assert.equal(BigNumber.DEBUG, true);
+  });
+
+  it('should restore the original BigNumber.DEBUG value even when validation fails', ({ assert }) => {
+    const BigNumber = require('bignumber.js');
+
+    BigNumber.DEBUG = false;
+
+    try {
+      Assert.bigNumber({ validateSignificantDigits: true }).validate('invalid');
+
+      assert.fail();
+    } catch (e) {
+      assert.ok(e instanceof Violation);
+    }
+
+    assert.equal(BigNumber.DEBUG, false);
+  });
 });
