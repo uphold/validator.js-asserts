@@ -1,5 +1,10 @@
 # Changelog
 
+## [v10.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v10.0.0) (2025-11-19)
+
+- Restore original `BigNumber.DEBUG` value after the asserts [\#270](https://github.com/uphold/validator.js-asserts/pull/270) ([goncalvesnelson](https://github.com/goncalvesnelson))
+- Update UUID assert to include `v7`, `max`, and `nil` [\#264](https://github.com/uphold/validator.js-asserts/pull/264) ([risantos](https://github.com/risantos))
+
 ## [v9.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v9.0.0) (2025-07-01)
 
 - Add type declarations [\#259](https://github.com/uphold/validator.js-asserts/pull/259) ([risantos](https://github.com/risantos))
