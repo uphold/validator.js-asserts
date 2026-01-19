@@ -47,29 +47,29 @@
     "test:watch": "node --test --watch"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
-    "@fastify/pre-commit": "^2.2.0",
+    "@fastify/pre-commit": "^2.2.1",
     "@uphold/github-changelog-generator": "^4.0.2",
     "abavalidator": "^2.0.2",
-    "bignumber.js": "^9.3.0",
+    "bignumber.js": "^9.3.1",
     "cpf": "^2.0.1",
     "creditcard": "^0.1.3",
     "curp": "^1.3.1",
-    "eslint": "~9.28.0",
-    "eslint-config-uphold": "^6.5.2",
-    "google-libphonenumber": "^3.2.41",
+    "eslint": "~9.39.2",
+    "eslint-config-uphold": "^6.9.0",
+    "google-libphonenumber": "^3.2.43",
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "moment": "^2.30.1",
-    "prettier": "^3.5.3",
-    "release-it": "^19.2.3",
+    "prettier": "^3.8.0",
+    "release-it": "^19.2.4",
     "tin-validator": "^1.1.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
     "validate-rfc": "^2.0.3",
-    "validator": "^13.15.15",
+    "validator": "^13.15.26",
     "validator.js": "^2.0.0"
   },
   "peerDependencies": {
