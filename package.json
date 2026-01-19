@@ -40,42 +40,42 @@
     }
   },
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint --cache --cache-strategy content",
     "release": "release-it",
     "test": "node --test",
     "test:coverage": "NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage",
     "test:watch": "node --test --watch"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.18.1"
   },
   "devDependencies": {
-    "@fastify/pre-commit": "^2.2.0",
+    "@fastify/pre-commit": "^2.2.1",
     "@randyd45/curp-validation": "1.0.4",
     "@uphold/github-changelog-generator": "^4.0.2",
     "abavalidator": "^3.1.2",
-    "bignumber.js": "^9.3.0",
+    "bignumber.js": "^9.3.1",
     "cpf": "^2.0.1",
     "creditcard": "^0.1.3",
-    "eslint": "~9.28.0",
-    "eslint-config-uphold": "^6.5.2",
-    "google-libphonenumber": "^3.2.41",
+    "eslint": "~10.6.0",
+    "eslint-config-uphold": "^7.0.0",
+    "google-libphonenumber": "^3.2.46",
     "iban": "0.0.6",
     "isoc": "0.0.1",
     "moment": "^2.30.1",
-    "prettier": "^3.5.3",
+    "prettier": "^3.9.6",
     "release-it": "^21.0.2",
     "tin-validator": "^1.1.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
     "validate-rfc": "^2.0.3",
-    "validator": "^13.15.15",
+    "validator": "^13.15.35",
     "validator.js": "^2.0.0"
   },
   "peerDependencies": {
     "@randyd45/curp-validation": "1.0.4",
     "abavalidator": "^2.0.0",
-    "bignumber.js": ">=7 || <=9.3.0",
+    "bignumber.js": ">=7 || <=9.3.1",
     "cpf": "^2.0.1",
     "creditcard": ">=0.0.1 <1.0.0",
     "google-libphonenumber": ">=1 <4",

@@ -4,14 +4,14 @@
  * Module dependencies.
  */
 
-const { defineConfig } = require('eslint/config');
-const uphold = require('eslint-config-uphold');
+import { defineConfig } from 'eslint/config';
+import uphold from 'eslint-config-uphold';
 
 /**
  * `ESLint` configuration.
  */
 
-module.exports = defineConfig([
+export default defineConfig([
   uphold,
   {
     files: ['src/asserts/*.js'],

@@ -5,7 +5,7 @@
  */
 
 const { Validator, Violation } = require('validator.js');
-const net = require('net');
+const net = require('node:net');
 
 /**
  * Export `IpAssert`.
