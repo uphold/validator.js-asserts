@@ -64,13 +64,13 @@
     "isoc": "0.0.1",
     "moment": "^2.30.1",
     "prettier": "^3.5.3",
-    "release-it": "^19.0.3",
+    "release-it": "^19.2.3",
     "tin-validator": "^1.1.0",
     "uk-modulus-checking": "0.0.3",
     "urijs": "^1.17.1",
     "validate-rfc": "^2.0.3",
-    "validator.js": "^2.0.0",
-    "validator": "^13.15.15"
+    "validator": "^13.15.15",
+    "validator.js": "^2.0.0"
   },
   "peerDependencies": {
     "abavalidator": "^2.0.0",
@@ -86,8 +86,8 @@
     "uk-modulus-checking": "^0.0.2",
     "urijs": "^1.0.0",
     "validate-rfc": "^2.0.3",
-    "validator.js": "^2.0.0",
-    "validator": ">=3 <14"
+    "validator": ">=3 <14",
+    "validator.js": "^2.0.0"
   },
   "peerDependenciesMeta": {
     "abavalidator": {
