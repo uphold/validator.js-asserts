@@ -1,26 +1,159 @@
 /**
- * The instance‐side of an Assert (no static factory methods).
- * All core “is.X()” methods and custom asserts produce this.
+ * Type declarations for `validator.js-asserts`.
+ *
+ * Provides 41 additional assert factories for use with the `validator.js` library.
+ * Each assert is a constructor function that configures `this.__class__` and
+ * `this.validate()`, then returns `this`.
+ *
+ * @example Basic usage with `validator.js`:
+ * ```ts
+ * import { Assert } from 'validator.js';
+ * import asserts from 'validator.js-asserts';
+ *
+ * const is = Assert.extend(asserts);
+ * is.uuid('4').validate('550e8400-e29b-41d4-a716-446655440000'); // true
+ * ```
+ *
+ * @example With `@uphold/validator.js`:
+ * ```ts
+ * import validator from '@uphold/validator.js';
+ *
+ * const { is, validate } = validator({ ValidationError });
+ * validate(data, { id: is.uuid('4') });
+ * ```
+ *
+ * @module validator.js-asserts
  */
-interface AssertInstance {
-  /** Returns `true` if the value passes, otherwise returns a Violation/object. */
-  check(value: unknown, group?: string | string[], context?: unknown): true | any;
-  /** Throws on failure; returns `true` if the value passes. */
+
+/**
+ * A simplified Violation object produced by `validator.js` when an assert's
+ * `validate()` method throws.
+ *
+ * The full `Violation` class is defined in `validator.js`. This interface
+ * represents the common shape relevant to assert consumers and is used as
+ * the failure branch of `check()`.
+ */
+export interface DefaultViolation {
+  /** Always `'Violation'` — runtime class identifier. */
+  readonly __class__: 'Violation';
+  /** The assert instance that produced this violation. */
+  assert: DefaultAssertInstance;
+  /** The value that failed validation. */
+  value: unknown;
+  /** Optional structured details about the failure (shape varies by assert). */
+  violation?: Record<string, unknown>;
+  /** Returns a plain-object summary: `{ assert, value, violation? }`. */
+  show(): { assert: string; value: unknown; violation?: Record<string, unknown> };
+}
+
+/**
+ * The instance-side of an Assert (no static factory methods).
+ *
+ * All assert factories produce objects with this shape. At runtime, every
+ * assert has `__class__`, `__parentClass__`, and `groups` properties set
+ * by the `validator.js` Assert base class.
+ *
+ * Use `CustomAssertThis<ClassName>` when authoring your own asserts —
+ * it provides a writable `__class__` for the factory function body.
+ */
+export interface DefaultAssertInstance {
+  /** The assert's class name (e.g., `'Uuid'`, `'Integer'`). Set by each assert factory. */
+  readonly __class__: string;
+
+  /** Always `'Assert'` — the parent class identifier. */
+  readonly __parentClass__: 'Assert';
+
+  /** Validation groups this assert belongs to. Empty array = responds to the `'Default'` group. */
+  groups: string[];
+
+  /**
+   * Returns `true` if the value passes, or a `DefaultViolation` on failure.
+   * Does not throw — catches the violation internally.
+   */
+  check(value: unknown, group?: string | string[], context?: unknown): true | DefaultViolation;
+
+  /**
+   * Validates the value. Returns `true` on success.
+   * Throws a `Violation` on failure.
+   */
   validate(value: unknown, group?: string | string[], context?: unknown): true;
-  /** Does this assert apply to the given validation group(s)? */
+
+  /**
+   * Returns `true` if this assert should run for the given validation group(s).
+   *
+   * - If a group is specified and this assert is not in that group → `false`.
+   * - If no group is specified and this assert has explicit groups → `false`.
+   * - Otherwise → `true`.
+   */
   requiresValidation(group?: string | string[]): boolean;
-  /** Is this assert assigned to the given group? */
+
+  /**
+   * Checks whether this assert belongs to the given group.
+   * All asserts respond to the `'Any'` group.
+   * Asserts with no explicit groups respond to the `'Default'` group.
+   */
   hasGroup(group: string | string[]): boolean;
-  /** Is this assert in any of the provided groups? */
+
+  /** Returns `true` if this assert belongs to at least one of the provided groups. */
   hasOneOf(groups: string[]): boolean;
-  /** Does this assert belong to at least one group? */
+
+  /** Returns `true` if this assert has been assigned to one or more groups. */
   hasGroups(): boolean;
 }
 
 /**
- * Core `validator.js-asserts` methods (lower-cased).
+ * Helper type for typing the `this` context inside a custom assert factory.
+ *
+ * Unlike `DefaultAssertInstance`, the `__class__` property is writable,
+ * allowing assignment inside the factory function body.
+ *
+ * @template ClassName - The assert's `__class__` string (e.g., `'MyAssert'`).
+ *
+ * @example
+ * ```ts
+ * import type { CustomAssertThis } from 'validator.js-asserts';
+ *
+ * function MyAssert(this: CustomAssertThis<'MyAssert'>, threshold: number) {
+ *   this.__class__ = 'MyAssert';
+ *   this.validate = (value: unknown) => { return true; };
+ *   return this;
+ * }
+ * ```
  */
-export interface ValidatorJSAsserts {
+export type CustomAssertThis<ClassName extends string = string> = Omit<DefaultAssertInstance, '__class__'> & {
+  __class__: ClassName;
+};
+
+/**
+ * Type for a raw assert constructor function as used in `Assert.extend()`.
+ *
+ * @template ClassName - The `__class__` string the assert sets.
+ * @template Args - The constructor parameter types.
+ *
+ * @example
+ * ```ts
+ * import type { AssertFactory } from 'validator.js-asserts';
+ *
+ * const MyAssert: AssertFactory<'MyAssert', [threshold: number]> = function (threshold) {
+ *   this.__class__ = 'MyAssert';
+ *   this.validate = (value: unknown) => { return true; };
+ *   return this;
+ * };
+ * ```
+ */
+export type AssertFactory<ClassName extends string = string, Args extends unknown[] = unknown[]> = (
+  this: CustomAssertThis<ClassName>,
+  ...args: Args
+) => CustomAssertThis<ClassName>;
+
+/**
+ * All `validator.js-asserts` assert factories, exposed as camelCase methods.
+ *
+ * @template AssertInstance - The return type for all assert methods.
+ *   Defaults to `DefaultAssertInstance`. When used with `@uphold/validator.js`,
+ *   a richer `AssertInstance` (with typed `Violation`) is passed in.
+ */
+export interface ValidatorJSAsserts<AssertInstance = DefaultAssertInstance> {
   /**
    * Valid ABA (American Bankers Association) Routing Number used in ACH payments.
    * @requires abavalidator
@@ -200,3 +333,5 @@ export interface ValidatorJSAsserts {
    */
   uuid(version?: '3' | '4' | '5' | '7' | 'max' | 'nil'): AssertInstance;
 }
+
+export * from '../index';
