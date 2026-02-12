@@ -27,6 +27,9 @@ export interface ValidatorJSAsserts {
    */
   abaRoutingNumber(): AssertInstance;
 
+  /** Value matches one or more of the provided constraint sets. */
+  anyOf(...constraintSets: Array<{ [key: string]: AssertInstance | Array<AssertInstance> }>): AssertInstance;
+
   /** Valid BIC (Bank Identifier Code) used for international wire transfers. */
   bankIdentifierCode(): AssertInstance;
 
