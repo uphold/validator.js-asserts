@@ -15,7 +15,7 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', ({ assert }) => {
     const assertNames = Object.keys(asserts);
 
-    assert.equal(assertNames.length, 41);
+    assert.equal(assertNames.length, 42);
     assert.deepEqual(assertNames, [
       'AbaRoutingNumber',
       'BankIdentifierCode',
@@ -49,6 +49,7 @@ describe('validator.js-asserts', () => {
       'NullOrBoolean',
       'NullOrDate',
       'NullOrString',
+      'OneOf',
       'Phone',
       'PlainObject',
       'RfcNumber',
