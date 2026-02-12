@@ -50,6 +50,7 @@ describe('validator.js-asserts', () => {
       'NullOrBoolean',
       'NullOrDate',
       'NullOrString',
+      'OneOf',
       'Phone',
       'PlainObject',
       'RfcNumber',

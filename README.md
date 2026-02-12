@@ -61,6 +61,7 @@ The following set of extra asserts are provided by this package:
 | [NullOrBoolean](#nullorboolean)                                                 |                                                      |
 | [NullOrDate](#nullordate)                                                       |                                                      |
 | [NullOrString](#nullorstring)                                                   |                                                      |
+| [OneOf](#oneof)                                                                 |                                                      |
 | [Phone](#phone)                                                                 | [`google-libphonenumber`][google-libphonenumber-url] |
 | [PlainObject](#plainobject)                                                     |                                                      |
 | [RfcNumber](#rfcnumber)                                                         | [`validate-rfc`][validate-rfc-url]                   |
@@ -284,6 +285,14 @@ Tests if the value is a `null` or `string`, optionally within some boundaries.
 #### Arguments
 
 - `boundaries` (optional) - `max` and/or `min` boundaries to test the string for.
+
+### OneOf
+
+Tests if the value matches exactly one of the provided assert sets. Throws a violation if the value matches none or more than one assert set.
+
+#### Arguments
+
+- `...constraintSets` (required) - two or more constraint sets to test the value against. Each constraint set must be a plain object mapping field names to arrays of constraints.
 
 ### Phone
 
