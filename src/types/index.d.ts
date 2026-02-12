@@ -18,6 +18,12 @@ interface AssertInstance {
 }
 
 /**
+ * Constraint set.
+ */
+
+export type ConstraintSet = AssertInstance | Array<AssertInstance> | { [key: string]: ConstraintSet };
+
+/**
  * Core `validator.js-asserts` methods (lower-cased).
  */
 export interface ValidatorJSAsserts {
@@ -26,6 +32,9 @@ export interface ValidatorJSAsserts {
    * @requires abavalidator
    */
   abaRoutingNumber(): AssertInstance;
+
+  /** Value matches one or more of the provided constraint sets. */
+  anyOf(...constraintSets: Array<ConstraintSet>): AssertInstance;
 
   /** Valid BIC (Bank Identifier Code) used for international wire transfers. */
   bankIdentifierCode(): AssertInstance;

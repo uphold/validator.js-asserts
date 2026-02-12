@@ -29,6 +29,7 @@ The following set of extra asserts are provided by this package:
 | Assert                                                                          | Peer Dependency                                      |
 | :------------------------------------------------------------------------------ | :--------------------------------------------------- |
 | [AbaRoutingNumber](#abaroutingnumber)                                           | [`abavalidator`][abavalidator-url]                   |
+| [AnyOf](#anyof)                                                                 |                                                      |
 | [BankIdentifierCode](#bankidentifiercode-bic) (_BIC_)                           |                                                      |
 | [BigNumber](#bignumber)                                                         | [`bignumber.js`][bignumber-url]                      |
 | [BigNumberEqualTo](#bignumberequalto)                                           | [`bignumber.js`][bignumber-url]                      |
@@ -73,6 +74,14 @@ The following set of extra asserts are provided by this package:
 ### AbaRoutingNumber
 
 Tests if the value is a valid [ABA Routing Number](http://www.accuity.com/PageFiles/255/ROUTING_NUMBER_POLICY.pdf).
+
+### AnyOf
+
+Tests if the value matches at least one of the provided constraint sets. Throws a violation if the value matches none of the constraint sets.
+
+#### Arguments
+
+- `...constraintSets` (required) - two or more constraint sets to test the value against. Each constraint set can be a plain object mapping field names to arrays of asserts, an assert instance, or an array of assert instances (all of which must pass).
 
 ### BankIdentifierCode (_BIC_)
 
