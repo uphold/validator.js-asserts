@@ -57,8 +57,8 @@ The following set of extra asserts are provided by this package:
 | [Json](#json)                                                                   |                                                      |
 | [NotEmpty](#notempty)                                                           |                                                      |
 | [NullOr](#nullor)                                                               |                                                      |
-| [NullOrDate](#nullordate)                                                       |                                                      |
 | [NullOrBoolean](#nullorboolean)                                                 |                                                      |
+| [NullOrDate](#nullordate)                                                       |                                                      |
 | [NullOrString](#nullorstring)                                                   |                                                      |
 | [Phone](#phone)                                                                 | [`google-libphonenumber`][google-libphonenumber-url] |
 | [PlainObject](#plainobject)                                                     |                                                      |
@@ -263,6 +263,10 @@ Tests if the value is a `null` or validates against the assert received as an ar
 ### NullOrBoolean
 
 Tests if the value is a `null` or `boolean`.
+
+### NullOrDate
+
+Tests if the value is a `null`, a `Date`, or a string parseable by `Date.parse()`.
 
 ### NullOrString
 
