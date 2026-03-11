@@ -170,6 +170,9 @@ export interface ValidatorJSAsserts {
   /** Value is null or a string (length within `[min, max]`). */
   nullOrString(boundaries?: { min?: number; max?: number }): AssertInstance;
 
+  /** Value matches at least one of the provided constraint sets. */
+  oneOf(...constraintSets: Record<string, AssertInstance[]>[]): AssertInstance;
+
   /** Valid phone number (optionally by country code). @requires google-libphonenumber */
   phone(options?: { countryCode?: string }): AssertInstance;
 
