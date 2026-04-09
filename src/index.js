@@ -5,6 +5,7 @@
  */
 
 const AbaRoutingNumber = require('./asserts/aba-routing-number-assert.js');
+const AnyOf = require('./asserts/any-of-assert.js');
 const BankIdentifierCode = require('./asserts/bank-identifier-code-assert.js');
 const BigNumber = require('./asserts/big-number-assert.js');
 const BigNumberEqualTo = require('./asserts/big-number-equal-to-assert.js');
@@ -52,6 +53,7 @@ const Uuid = require('./asserts/uuid-assert.js');
 
 module.exports = {
   AbaRoutingNumber,
+  AnyOf,
   BankIdentifierCode,
   BigNumber,
   BigNumberEqualTo,
