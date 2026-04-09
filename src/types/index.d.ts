@@ -18,6 +18,12 @@ interface AssertInstance {
 }
 
 /**
+ * Constraint set.
+ */
+
+export type ConstraintSet = AssertInstance | Array<AssertInstance> | { [key: string]: Array<AssertInstance> };
+
+/**
  * Core `validator.js-asserts` methods (lower-cased).
  */
 export interface ValidatorJSAsserts {
@@ -169,6 +175,9 @@ export interface ValidatorJSAsserts {
 
   /** Value is null or a string (length within `[min, max]`). */
   nullOrString(boundaries?: { min?: number; max?: number }): AssertInstance;
+
+  /** Value matches exactly one of the provided constraint sets. */
+  oneOf(...constraintSets: Array<ConstraintSet>): AssertInstance;
 
   /** Valid phone number (optionally by country code). @requires google-libphonenumber */
   phone(options?: { countryCode?: string }): AssertInstance;
