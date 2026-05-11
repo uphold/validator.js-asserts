@@ -15,7 +15,7 @@ describe('validator.js-asserts', () => {
   it('should export all asserts', ({ assert }) => {
     const assertNames = Object.keys(asserts);
 
-    assert.equal(assertNames.length, 42);
+    assert.equal(assertNames.length, 43);
     assert.deepEqual(assertNames, [
       'AbaRoutingNumber',
       'AnyOf',
