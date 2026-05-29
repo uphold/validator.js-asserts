@@ -629,6 +629,11 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.2.7.tgz#eb5014dfd0b03e7f3ba2eeeff506eed89b028058"
   integrity sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==
 
+"@randyd45/curp-validation@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@randyd45/curp-validation/-/curp-validation-1.0.4.tgz#61212285894f772821ef1685fd22514150896839"
+  integrity sha512-UcmKskORce983tbpoS9bUESBUIYRjBPZ9bWPpY5S2fkXX0ImkVKCzSvWaqIfS6DPphmNtHyF+ifT9srqzs0EvA==
+
 "@stylistic/eslint-plugin@^4.4.0":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-4.4.1.tgz#410ac332887fb3d61cad1df4e6b55ae35d87c632"
@@ -1011,11 +1016,6 @@ cross-spawn@^7.0.3, cross-spawn@^7.0.6:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
-
-curp@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/curp/-/curp-1.3.1.tgz#6b944d490f5fcd1b60cf59951235b2c075737f9b"
-  integrity sha512-DoUGrXK7qe6qnSgumTGa9yULrMJy/1Npsgt0LkGkjWXfL/xVyJPcAQgyEJpNaJQjOlCvdEZWJ2K9vNlTmYrHHw==
 
 data-uri-to-buffer@^6.0.2:
   version "6.0.2"
