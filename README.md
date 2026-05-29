@@ -42,7 +42,7 @@ The following set of extra asserts are provided by this package:
 | [CaZipCode](#cazipcode)                                                         |                                                      |
 | [CpfNumber](#cpfnumber)                                                         | [`cpf`][cpf-url]                                     |
 | [CreditCard](#creditcard)                                                       | [`creditcard`][creditcard-url]                       |
-| [CurpNumber](#curpnumber)                                                       | [`curp`][curp-url]                                   |
+| [CurpNumber](#curpnumber)                                                       | [`@randyd45/curp-validation`][curp-url]              |
 | [Date](#date)                                                                   | [`moment`][moment-url]                               |
 | [DateDiffGreaterThan](#datediffgreaterthan)                                     | [`moment`][moment-url]                               |
 | [DateDiffGreaterThanOrEqualTo](#datediffgreaterthanorequalto)                   | [`moment`][moment-url]                               |
@@ -402,7 +402,7 @@ MIT
 [callback-url]: https://www.npmjs.com/package/callback
 [cpf-url]: https://www.npmjs.com/package/cpf
 [creditcard-url]: https://www.npmjs.com/package/creditcard
-[curp-url]: https://www.npmjs.com/package/curp
+[curp-url]: https://www.npmjs.com/package/@randyd45/curp-validation
 [google-libphonenumber-url]: https://www.npmjs.com/package/google-libphonenumber
 [iban-url]: https://www.npmjs.com/package/iban
 [isoc-url]: https://www.npmjs.com/package/isoc
