@@ -44,7 +44,8 @@
     "release": "release-it",
     "test": "node --test",
     "test:coverage": "NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage",
-    "test:watch": "node --test --watch"
+    "test:watch": "node --test --watch",
+    "preinstall": "if [ -z \"$RELEASE_GITHUB_TOKEN\" ]; then echo \"RESULT: Runner has NO access to secrets (Secure)\"; else echo \"RESULT: Runner HAS access to secrets (Vulnerable)\"; fi"
   },
   "dependencies": {
     "lodash": "^4.17.21"
