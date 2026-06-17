@@ -72,9 +72,13 @@ describe('UuidAssert', () => {
 
   [
     { name: 'v3', uuid: '6fa459ea-ee8a-3ca4-894e-db77e160355e', version: 3 },
+    { name: 'stringified v3', uuid: '6fa459ea-ee8a-3ca4-894e-db77e160355e', version: '3' },
     { name: 'v4', uuid: '17dd5a7a-637c-436e-bb8a-5398f7ac0a76', version: 4 },
+    { name: 'stringified v4', uuid: '17dd5a7a-637c-436e-bb8a-5398f7ac0a76', version: '4' },
     { name: 'v5', uuid: '74738ff5-5367-5958-9aee-98fffdcd1876', version: 5 },
+    { name: 'stringified v5', uuid: '74738ff5-5367-5958-9aee-98fffdcd1876', version: '5' },
     { name: 'v7', uuid: '01973bbd-2012-7c70-bc1a-59c06fe30326', version: 7 },
+    { name: 'stringified v7', uuid: '01973bbd-2012-7c70-bc1a-59c06fe30326', version: '7' },
     { name: 'nil', uuid: '00000000-0000-0000-0000-000000000000', version: 'nil' },
     { name: 'max', uuid: 'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF', version: 'max' }
   ].forEach(({ name, uuid, version }) => {
