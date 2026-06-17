@@ -202,7 +202,7 @@ export interface ValidatorJSAsserts {
 
   /**
    * Valid `UUID`.
-   * @param [version] - UUID version `3`, `4`, `5`, `7`, `max` or `nil`. Defaults to `all` if omitted.
+   * @param [version] - UUID version 3, 4, 5, 7, `3`, `4`, `5`, `7`, `max` or `nil`. Defaults to `all` if omitted.
    */
-  uuid(version?: '3' | '4' | '5' | '7' | 'max' | 'nil'): AssertInstance;
+  uuid(version?: 3 | 4 | 5 | 7 | '3' | '4' | '5' | '7' | 'max' | 'nil'): AssertInstance;
 }
