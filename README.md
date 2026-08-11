@@ -387,7 +387,12 @@ npm test
 
 ## Release process
 
-The release of a version is automated via the [release](https://github.com/uphold/validator.js-asserts/actions/workflows/release.yaml) GitHub workflow. Run it by clicking the "Run workflow" button.
+Releasing is a two-step process:
+
+1. A release commit is pushed, via Pull Request (or an admin running `release-it` locally).
+2. Once merged, a release must be created and pushed for that release commit. Upon pushing this tag, the [release](https://github.com/uphold/validator.js-asserts/actions/workflows/release.yaml) workflow will generate the GitHub release and publish the package to NPM.
+
+The workflow can also be triggered manually with a specific tag via manual dispatch.
 
 ## License
 
