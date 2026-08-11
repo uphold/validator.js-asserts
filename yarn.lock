@@ -2449,10 +2449,9 @@ type-fest@^2.5.1:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
-uk-modulus-checking@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/uk-modulus-checking/-/uk-modulus-checking-0.0.3.tgz"
-  integrity sha1-IyfmwCY2a2jbsySy/sGCsMDeG6k=
+"uk-modulus-checking@github:uphold/uk-modulus-checking#6d471ba5d5e8ab136aa0e70ea20321438c611d4d":
+  version "0.1.4"
+  resolved "https://codeload.github.com/uphold/uk-modulus-checking/tar.gz/6d471ba5d5e8ab136aa0e70ea20321438c611d4d"
 
 undici@7.29.0:
   version "7.29.0"
