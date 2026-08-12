@@ -134,7 +134,13 @@
     }
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24"
+    }
   },
   "optionalPeerDependencies": {
     "@randyd45/curp-validation": "1.0.4",
