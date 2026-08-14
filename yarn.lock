@@ -721,10 +721,10 @@
     look-it-up "^2.1.0"
     moment "^2.29.1"
 
-abavalidator@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/abavalidator/-/abavalidator-2.0.2.tgz#781b2344ac44ea384369e96d68d58b95c569a83d"
-  integrity sha512-EAYV4O1h5Aku8GFY+NwmkmzP0EHw84ugDP3aFmWMTU93Twbr213sdCPoTNTNJbGDhym6xgVRcLHmnqEfmwfCAw==
+abavalidator@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/abavalidator/-/abavalidator-3.1.2.tgz#e718cf222f9dfbd8d320d03828bb58134e9b636d"
+  integrity sha512-bWtFNjbpBrsaX9+4hdqQ6vuVaAhHuw8pQr2681GiZu+a7Qlb16xADlxXgv1BoJSH+NGQzDJP8FkXxp8OyOFu9A==
 
 acorn-jsx@^5.2.0, acorn-jsx@^5.3.2:
   version "5.3.2"
