@@ -46,6 +46,18 @@ describe('CurpNumberAssert', () => {
     }
   });
 
+  it('should throw an error if the check digit of `curp` is invalid', ({ assert }) => {
+    try {
+      Assert.curpNumber().validate('LOOA531113HTCPBN08');
+
+      assert.fail();
+    } catch (e) {
+      assert.ok(e instanceof Violation);
+      assert.equal(e.value, 'LOOA531113HTCPBN08');
+      assert.equal(e.violation.value, 'must_be_a_valid_curp_number');
+    }
+  });
+
   it('should accept a valid `curp`', ({ assert }) => {
     assert.doesNotThrow(() => {
       Assert.curpNumber().validate('LOOA531113HTCPBN07');

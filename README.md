@@ -42,7 +42,7 @@ The following set of extra asserts are provided by this package:
 | [CaZipCode](#cazipcode)                                                         |                                                      |
 | [CpfNumber](#cpfnumber)                                                         | [`cpf`][cpf-url]                                     |
 | [CreditCard](#creditcard)                                                       | [`creditcard`][creditcard-url]                       |
-| [CurpNumber](#curpnumber)                                                       | [`@randyd45/curp-validation`][curp-url]              |
+| [CurpNumber](#curpnumber)                                                       | [`validate-curp`][validate-curp-url]                 |
 | [Date](#date)                                                                   | [`moment`][moment-url]                               |
 | [DateDiffGreaterThan](#datediffgreaterthan)                                     | [`moment`][moment-url]                               |
 | [DateDiffGreaterThanOrEqualTo](#datediffgreaterthanorequalto)                   | [`moment`][moment-url]                               |
@@ -407,7 +407,6 @@ MIT
 [callback-url]: https://www.npmjs.com/package/callback
 [cpf-url]: https://www.npmjs.com/package/cpf
 [creditcard-url]: https://www.npmjs.com/package/creditcard
-[curp-url]: https://www.npmjs.com/package/@randyd45/curp-validation
 [google-libphonenumber-url]: https://www.npmjs.com/package/google-libphonenumber
 [iban-url]: https://www.npmjs.com/package/iban
 [isoc-url]: https://www.npmjs.com/package/isoc
@@ -415,5 +414,6 @@ MIT
 [tin-validator-url]: https://www.npmjs.com/package/tin-validator
 [uk-modulus-checking-url]: https://www.npmjs.com/package/uk-modulus-checking
 [urijs-url]: https://www.npmjs.com/package/urijs
+[validate-curp-url]: https://www.npmjs.com/package/validate-curp
 [validate-rfc-url]: https://www.npmjs.com/package/validate-rfc
 [validator-url]: https://www.npmjs.com/package/validator

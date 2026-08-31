@@ -6,14 +6,14 @@
 
 const { Validator, Violation } = require('validator.js');
 const _ = require('lodash');
-let CURP;
+let validateCurp;
 
 /**
  * Optional peer dependencies.
  */
 
 try {
-  ({ CURP } = require('@randyd45/curp-validation'));
+  validateCurp = require('validate-curp');
   // eslint-disable-next-line no-empty
 } catch {}
 
@@ -22,8 +22,8 @@ try {
  */
 
 module.exports = function curpNumberAssert() {
-  if (!CURP) {
-    throw new Error('@randyd45/curp-validation is not installed');
+  if (!validateCurp) {
+    throw new Error('validate-curp is not installed');
   }
 
   /**
@@ -41,7 +41,7 @@ module.exports = function curpNumberAssert() {
       throw new Violation(this, value, { value: Validator.errorCode.must_be_a_string });
     }
 
-    if (!new CURP(value).isFormatValid()) {
+    if (!validateCurp(value).isValid) {
       throw new Violation(this, value, { value: 'must_be_a_valid_curp_number' });
     }
 
