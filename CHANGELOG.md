@@ -1,5 +1,23 @@
 # Changelog
 
+## [v11.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v11.0.0) (2026-05-29)
+
+- Remove `@uphold/payments-backend-codeowners` from CODEOWNERS [\#268](https://github.com/uphold/validator.js-asserts/pull/268) ([acostalima](https://github.com/acostalima))
+- Fix rebase issue [\#286](https://github.com/uphold/validator.js-asserts/pull/286) ([josecarlosbrandao](https://github.com/josecarlosbrandao))
+
+## [v10.1.0](https://github.com/uphold/validator.js-asserts/releases/tag/v10.1.0) (2026-05-11)
+
+- Fix rebase issue [\#286](https://github.com/uphold/validator.js-asserts/pull/286) ([josecarlosbrandao](https://github.com/josecarlosbrandao))
+- Add `OneOf` assert [\#275](https://github.com/uphold/validator.js-asserts/pull/275) ([josecarlosbrandao](https://github.com/josecarlosbrandao))
+- Add `AnyOf` assert [\#276](https://github.com/uphold/validator.js-asserts/pull/276) ([josecarlosbrandao](https://github.com/josecarlosbrandao))
+- Bump basic-ftp from 5.2.0 to 5.2.1 [\#283](https://github.com/uphold/validator.js-asserts/pull/283) ([dependabot](https://github.com/apps/dependabot))
+- Bump defu from 6.1.4 to 6.1.6 [\#281](https://github.com/uphold/validator.js-asserts/pull/281) ([dependabot](https://github.com/apps/dependabot))
+- Add support for underscores to be in callback assert custom class [\#233](https://github.com/uphold/validator.js-asserts/pull/233) ([Kamefrede](https://github.com/Kamefrede))
+- Bump basic-ftp from 5.0.5 to 5.2.0 [\#279](https://github.com/uphold/validator.js-asserts/pull/279) ([dependabot](https://github.com/apps/dependabot))
+- Bump lodash from 4.17.21 to 4.17.23 [\#274](https://github.com/uphold/validator.js-asserts/pull/274) ([dependabot](https://github.com/apps/dependabot))
+- Fix `NullOrDate` in `README` [\#278](https://github.com/uphold/validator.js-asserts/pull/278) ([josecarlosbrandao](https://github.com/josecarlosbrandao))
+- Update `release` workflow to use trusted publishing [\#273](https://github.com/uphold/validator.js-asserts/pull/273) ([risantos](https://github.com/risantos))
+
 ## [v10.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v10.0.0) (2025-11-19)
 
 - Restore original `BigNumber.DEBUG` value after the asserts [\#270](https://github.com/uphold/validator.js-asserts/pull/270) ([goncalvesnelson](https://github.com/goncalvesnelson))
@@ -17,18 +35,23 @@
 - Add `CODEOWNERS` [\#258](https://github.com/uphold/validator.js-asserts/pull/258) ([risantos](https://github.com/risantos))
 
 ## [v8.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.4.0) (2025-01-22)
+
 - Add Canada zip code assert [\#253](https://github.com/uphold/validator.js-asserts/pull/253) ([Megamind51](https://github.com/Megamind51))
 
 ## [v8.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.3.0) (2025-01-10)
+
 - Bypass email validation for deleted emails [\#254](https://github.com/uphold/validator.js-asserts/pull/254) ([Megamind51](https://github.com/Megamind51))
 
 ## [v8.2.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.2.0) (2024-07-08)
+
 - Bump google-libphonenumber@3.2.35 [\#250](https://github.com/uphold/validator.js-asserts/pull/250) ([rbrtribeiro](https://github.com/rbrtribeiro))
 
 ## [v8.1.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.1.0) (2024-07-08)
+
 - Add RFC assert [\#251](https://github.com/uphold/validator.js-asserts/pull/251) ([Prado](https://github.com/Prado))
 
 ## [v8.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v8.0.0) (2024-07-02)
+
 - Fix github release action [\#248](https://github.com/uphold/validator.js-asserts/pull/248) ([satazor](https://github.com/satazor))
 - Lock release-it@17.0.1 [\#249](https://github.com/uphold/validator.js-asserts/pull/249) ([franciscocardoso](https://github.com/franciscocardoso))
 - Fix release process instructions [\#247](https://github.com/uphold/validator.js-asserts/pull/247) ([franciscocardoso](https://github.com/franciscocardoso))
@@ -36,21 +59,26 @@
 - Add CURP assert [\#245](https://github.com/uphold/validator.js-asserts/pull/245) ([Prado](https://github.com/Prado))
 
 ## [7.4.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.4.0) (2023-01-31)
+
 - Add `NullOrAssert` [\#149](https://github.com/uphold/validator.js-asserts/pull/149) ([rplopes](https://github.com/rplopes))
 - Add github actions CI [\#219](https://github.com/uphold/validator.js-asserts/pull/219) ([diogotorres97](https://github.com/diogotorres97))
 
 ## [7.3.1](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.1) (2022-04-27)
+
 - Add support for numbers to be in callback assert custom class [\#228](https://github.com/uphold/validator.js-asserts/pull/228) ([justinweathersby](https://github.com/justinweathersby))
 
 ## [7.3.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.3.0) (2022-03-29)
+
 - Add CPF taxpayer identification number assert [\#223](https://github.com/uphold/validator.js-asserts/pull/223) ([acostalima](https://github.com/acostalima))
 
 ## [7.2.0](https://github.com/uphold/validator.js-asserts/releases/tag/v7.2.0) (2021-11-16)
+
 - Add uphold-scripts@0.5.0 [\#210](https://github.com/uphold/validator.js-asserts/pull/210) ([diogotorres97](https://github.com/diogotorres97))
 - Updates dev dependencies [\#218](https://github.com/uphold/validator.js-asserts/pull/218) ([JerrySievert](https://github.com/JerrySievert))
 - Improve optional dependency performance [\#200](https://github.com/uphold/validator.js-asserts/pull/200) ([nunofgs](https://github.com/nunofgs))
 
 ## [v7.1.0](https://github.com/uphold/validator.js-asserts/tree/v7.1.0) (2021-07-02)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v7.0.0...v7.1.0)
 
 **Merged pull requests:**
@@ -59,6 +87,7 @@
 - Add `nullOrBoolean` assert [\#207](https://github.com/uphold/validator.js-asserts/pull/207) ([diogotorres97](https://github.com/diogotorres97))
 
 ## [v7.0.0](https://github.com/uphold/validator.js-asserts/tree/v7.0.0) (2020-10-30)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v6.0.0...v7.0.0)
 
 **Merged pull requests:**
@@ -68,6 +97,7 @@
 - Improve callback assert to ensure an error class [\#194](https://github.com/uphold/validator.js-asserts/pull/194) ([diogotorres97](https://github.com/diogotorres97))
 
 ## [v6.0.0](https://github.com/uphold/validator.js-asserts/tree/v6.0.0) (2020-03-19)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v5.0.0...v6.0.0)
 
 **Implemented enhancements:**
@@ -75,6 +105,7 @@
 - Update bignumber.js@9.0.0 [\#189](https://github.com/uphold/validator.js-asserts/pull/189) ([afsampaio](https://github.com/afsampaio))
 
 ## [v5.0.0](https://github.com/uphold/validator.js-asserts/tree/v5.0.0) (2020-03-02)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/3.2.0...v5.0.0)
 
 **Merged pull requests:**
@@ -82,6 +113,7 @@
 - Bump validator.js [\#187](https://github.com/uphold/validator.js-asserts/pull/187) ([cristianooliveira](https://github.com/cristianooliveira))
 
 ## [3.2.0](https://github.com/uphold/validator.js-asserts/tree/3.2.0) (2020-02-04)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.2...3.2.0)
 
 **Implemented enhancements:**
@@ -93,6 +125,7 @@
 - Add callback assert [\#186](https://github.com/uphold/validator.js-asserts/pull/186) ([cristianooliveira](https://github.com/cristianooliveira))
 
 ## [v3.1.2](https://github.com/uphold/validator.js-asserts/tree/v3.1.2) (2020-01-31)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.1...v3.1.2)
 
 **Merged pull requests:**
@@ -102,9 +135,11 @@
 - Bump dependencies [\#182](https://github.com/uphold/validator.js-asserts/pull/182) ([Americas](https://github.com/Americas))
 
 ## [v3.1.1](https://github.com/uphold/validator.js-asserts/tree/v3.1.1) (2019-10-08)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.2...v3.1.1)
 
 ## [v4.0.2](https://github.com/uphold/validator.js-asserts/tree/v4.0.2) (2019-10-08)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.1...v4.0.2)
 
 **Fixed bugs:**
@@ -116,6 +151,7 @@
 - Add MIT license [\#179](https://github.com/uphold/validator.js-asserts/pull/179) ([zangetsouu](https://github.com/zangetsouu))
 
 ## [v4.0.1](https://github.com/uphold/validator.js-asserts/tree/v4.0.1) (2019-06-05)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v4.0.0...v4.0.1)
 
 **Fixed bugs:**
@@ -127,6 +163,7 @@
 - Fix date tests on node 10 [\#178](https://github.com/uphold/validator.js-asserts/pull/178) ([rplopes](https://github.com/rplopes))
 
 ## [v4.0.0](https://github.com/uphold/validator.js-asserts/tree/v4.0.0) (2019-02-18)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.1.0...v4.0.0)
 
 **Implemented enhancements:**
@@ -141,6 +178,7 @@
 - Update README to include new asserts [\#165](https://github.com/uphold/validator.js-asserts/pull/165) ([kurayama](https://github.com/kurayama))
 
 ## [v3.1.0](https://github.com/uphold/validator.js-asserts/tree/v3.1.0) (2016-10-20)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.2...v3.1.0)
 
 **Implemented enhancements:**
@@ -148,6 +186,7 @@
 - New date asserts [\#164](https://github.com/uphold/validator.js-asserts/pull/164) ([kurayama](https://github.com/kurayama))
 
 ## [v3.0.2](https://github.com/uphold/validator.js-asserts/tree/v3.0.2) (2016-10-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.1...v3.0.2)
 
 **Closed issues:**
@@ -159,6 +198,7 @@
 - Allow custom date formats [\#150](https://github.com/uphold/validator.js-asserts/pull/150) ([kurayama](https://github.com/kurayama))
 
 ## [v3.0.1](https://github.com/uphold/validator.js-asserts/tree/v3.0.1) (2016-08-04)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v3.0.0...v3.0.1)
 
 **Implemented enhancements:**
@@ -166,6 +206,7 @@
 - Add `BigNumberEqualTo` assert [\#117](https://github.com/uphold/validator.js-asserts/pull/117) ([nunofgs](https://github.com/nunofgs))
 
 ## [v3.0.0](https://github.com/uphold/validator.js-asserts/tree/v3.0.0) (2016-05-13)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.3.1...v3.0.0)
 
 **Implemented enhancements:**
@@ -173,6 +214,7 @@
 - Update validator.js@2.0.0 [\#110](https://github.com/uphold/validator.js-asserts/pull/110) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.3.1](https://github.com/uphold/validator.js-asserts/tree/v2.3.1) (2016-04-29)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.3.0...v2.3.1)
 
 **Merged pull requests:**
@@ -181,6 +223,7 @@
 - Update dependencies [\#103](https://github.com/uphold/validator.js-asserts/pull/103) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.3.0](https://github.com/uphold/validator.js-asserts/tree/v2.3.0) (2016-04-14)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.2.0...v2.3.0)
 
 **Implemented enhancements:**
@@ -188,6 +231,7 @@
 - Add Taxpayer Identification Number assert [\#66](https://github.com/uphold/validator.js-asserts/pull/66) ([nunofgs](https://github.com/nunofgs))
 
 ## [v2.2.0](https://github.com/uphold/validator.js-asserts/tree/v2.2.0) (2016-04-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.1.0...v2.2.0)
 
 **Implemented enhancements:**
@@ -199,6 +243,7 @@
 - Add UkModulusChecking assert [\#79](https://github.com/uphold/validator.js-asserts/pull/79) ([franciscocardoso](https://github.com/franciscocardoso))
 
 ## [v2.1.0](https://github.com/uphold/validator.js-asserts/tree/v2.1.0) (2016-04-10)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.2...v2.1.0)
 
 **Merged pull requests:**
@@ -207,6 +252,7 @@
 - Add format option to date assert [\#95](https://github.com/uphold/validator.js-asserts/pull/95) ([franciscocardoso](https://github.com/franciscocardoso))
 
 ## [v2.0.2](https://github.com/uphold/validator.js-asserts/tree/v2.0.2) (2016-04-06)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.1...v2.0.2)
 
 **Implemented enhancements:**
@@ -220,6 +266,7 @@
 - Remove jscs inline camel case rules [\#65](https://github.com/uphold/validator.js-asserts/pull/65) ([nunofgs](https://github.com/nunofgs))
 
 ## [v2.0.1](https://github.com/uphold/validator.js-asserts/tree/v2.0.1) (2016-01-26)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v2.0.0...v2.0.1)
 
 **Fixed bugs:**
@@ -231,6 +278,7 @@
 - Add module exports [\#64](https://github.com/uphold/validator.js-asserts/pull/64) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v2.0.0](https://github.com/uphold/validator.js-asserts/tree/v2.0.0) (2016-01-21)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v1.1.0...v2.0.0)
 
 **Implemented enhancements:**
@@ -263,6 +311,7 @@
 - iban@0.0.6 breaks build 🚨 [\#39](https://github.com/uphold/validator.js-asserts/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v1.1.0](https://github.com/uphold/validator.js-asserts/tree/v1.1.0) (2015-10-16)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v1.0.0...v1.1.0)
 
 **Merged pull requests:**
@@ -272,6 +321,7 @@
 - Add International Bank Account Number assert [\#23](https://github.com/uphold/validator.js-asserts/pull/23) ([nunofgs](https://github.com/nunofgs))
 
 ## [v1.0.0](https://github.com/uphold/validator.js-asserts/tree/v1.0.0) (2015-08-11)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.7...v1.0.0)
 
 **Merged pull requests:**
@@ -280,6 +330,7 @@
 - Move dependencies to peer dependencies [\#19](https://github.com/uphold/validator.js-asserts/pull/19) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.7](https://github.com/uphold/validator.js-asserts/tree/v0.0.7) (2015-05-25)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.6...v0.0.7)
 
 **Merged pull requests:**
@@ -287,6 +338,7 @@
 - Add null or date assert [\#17](https://github.com/uphold/validator.js-asserts/pull/17) ([nunofgs](https://github.com/nunofgs))
 
 ## [v0.0.6](https://github.com/uphold/validator.js-asserts/tree/v0.0.6) (2015-05-25)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.5...v0.0.6)
 
 **Merged pull requests:**
@@ -295,6 +347,7 @@
 - Add documentation for uri assert [\#15](https://github.com/uphold/validator.js-asserts/pull/15) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.5](https://github.com/uphold/validator.js-asserts/tree/v0.0.5) (2015-05-24)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.4...v0.0.5)
 
 **Merged pull requests:**
@@ -305,6 +358,7 @@
 - Add URI assert [\#12](https://github.com/uphold/validator.js-asserts/pull/12) ([nunofgs](https://github.com/nunofgs))
 
 ## [v0.0.4](https://github.com/uphold/validator.js-asserts/tree/v0.0.4) (2015-01-16)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.3...v0.0.4)
 
 **Merged pull requests:**
@@ -312,6 +366,7 @@
 - Update bignumber.js version [\#7](https://github.com/uphold/validator.js-asserts/pull/7) ([fixe](https://github.com/fixe))
 
 ## [v0.0.3](https://github.com/uphold/validator.js-asserts/tree/v0.0.3) (2014-12-01)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.2...v0.0.3)
 
 **Merged pull requests:**
@@ -322,6 +377,7 @@
 - Add date diff less and greater than asserts [\#3](https://github.com/uphold/validator.js-asserts/pull/3) ([ruimarinho](https://github.com/ruimarinho))
 
 ## [v0.0.2](https://github.com/uphold/validator.js-asserts/tree/v0.0.2) (2014-11-26)
+
 [Full Changelog](https://github.com/uphold/validator.js-asserts/compare/v0.0.1...v0.0.2)
 
 **Merged pull requests:**

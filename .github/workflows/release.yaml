@@ -60,9 +60,11 @@ jobs:
 
     - name: Check for existing npm release
       id: npmRelease
+      env:
+        TAG: ${{ steps.resolve-version-tag.outputs.tag }}
       run: |
         NAME=$(node -p "require('./package.json').name")
-        VERSION=$(node -p "require('./package.json').version")
+        VERSION=${TAG#v}
         if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
           echo "$NAME@$VERSION is already published, skipping"
           echo "exists=true" >> "$GITHUB_OUTPUT"
@@ -71,11 +73,15 @@ jobs:
         fi
 
     - name: Install dependencies
+      # Yarn errors on the ${NODE_AUTH_TOKEN} placeholder setup-node writes to .npmrc; publishing relies on OIDC instead.
+      env:
+        NODE_AUTH_TOKEN: unused
       run: yarn install --frozen-lockfile
 
     - name: Generate release
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        TAG: ${{ steps.resolve-version-tag.outputs.tag }}
       run: |
         GITHUB_RELEASE_ARG=--github.release
         NPM_PUBLISH_ARG=--npm.publish
@@ -83,4 +89,5 @@ jobs:
         [[ "${{ steps.check-github-release.outputs.exists }}" == 'true' ]] && GITHUB_RELEASE_ARG=--no-github.release
         [[ "${{ steps.npmRelease.outputs.exists }}" == 'true' ]] && NPM_PUBLISH_ARG=--no-npm.publish
 
-        npx release-it --no-increment --no-git "$GITHUB_RELEASE_ARG" "$NPM_PUBLISH_ARG"
+        # Use the tag's version explicitly, since package.json at this commit isn't guaranteed to match it.
+        npx release-it "${TAG#v}" --no-git "$GITHUB_RELEASE_ARG" "$NPM_PUBLISH_ARG"
