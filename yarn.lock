@@ -407,11 +407,6 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.3.6.tgz#3569708bd4be4d8870ba32bf1c456dac81600d97"
   integrity sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==
 
-"@randyd45/curp-validation@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@randyd45/curp-validation/-/curp-validation-1.0.4.tgz#61212285894f772821ef1685fd22514150896839"
-  integrity sha512-UcmKskORce983tbpoS9bUESBUIYRjBPZ9bWPpY5S2fkXX0ImkVKCzSvWaqIfS6DPphmNtHyF+ifT9srqzs0EvA==
-
 "@sindresorhus/base62@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/base62/-/base62-1.0.0.tgz#c47c42410e5212e4fa4657670e118ddfba39acd6"
@@ -1937,6 +1932,11 @@ url-join@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-5.0.0.tgz#c2f1e5cbd95fa91082a93b58a1f42fecb4bdbcf1"
   integrity sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==
+
+validate-curp@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/validate-curp/-/validate-curp-1.0.0.tgz#bd087155d01b5e046032d31a179926d3c74ad1d4"
+  integrity sha512-jk+mGpPMW9jNz6N901t3p9YDyfOk3Yq2va2TAU2L7h40w5VzJopytG/uDrZ5EFGa+IXEqrhZ2LXj3XDA6pHQoQ==
 
 validate-rfc@^2.0.3:
   version "2.0.3"

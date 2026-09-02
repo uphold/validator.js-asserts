@@ -74,7 +74,7 @@ export interface ValidatorJSAsserts {
 
   /**
    * Valid Mexican CURP number.
-    * @requires @randyd45/curp-validation
+   * @requires validate-curp
    */
   curpNumber(): AssertInstance;
 
