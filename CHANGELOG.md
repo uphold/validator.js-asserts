@@ -1,5 +1,16 @@
 # Changelog
 
+## [v11.0.1](https://github.com/uphold/validator.js-asserts/releases/tag/v11.0.1) (2026-09-07)
+
+- Bump `uk-modulus-checking` from `0.0.3` to `0.1.5` [\#292](https://github.com/uphold/validator.js-asserts/pull/292) ([pedropiloto](https://github.com/pedropiloto))
+- Update all dependencies to fix vulnerabilities [\#277](https://github.com/uphold/validator.js-asserts/pull/277) ([risantos](https://github.com/risantos))
+- Bump lodash from 4.17.23 to 4.18.1 [\#282](https://github.com/uphold/validator.js-asserts/pull/282) ([dependabot](https://github.com/apps/dependabot))
+- Bump @babel/core from 7.27.4 to 7.29.7 [\#290](https://github.com/uphold/validator.js-asserts/pull/290) ([dependabot](https://github.com/apps/dependabot))
+- Bump js-yaml from 4.1.0 to 4.3.1 [\#291](https://github.com/uphold/validator.js-asserts/pull/291) ([dependabot](https://github.com/apps/dependabot))
+- Upgrade `abavalidator` from `^2.0.2` to `^3.1.2` [\#294](https://github.com/uphold/validator.js-asserts/pull/294) ([francescouph](https://github.com/francescouph))
+- Update release workflow and drop Node v20 support [\#293](https://github.com/uphold/validator.js-asserts/pull/293) ([risantos](https://github.com/risantos))
+- Update UUID parameter types in ValidatorJSAsserts interface [\#288](https://github.com/uphold/validator.js-asserts/pull/288) ([jorgegoncalves99](https://github.com/jorgegoncalves99))
+
 ## [v10.0.0](https://github.com/uphold/validator.js-asserts/releases/tag/v10.0.0) (2025-11-19)
 
 - Restore original `BigNumber.DEBUG` value after the asserts [\#270](https://github.com/uphold/validator.js-asserts/pull/270) ([goncalvesnelson](https://github.com/goncalvesnelson))
