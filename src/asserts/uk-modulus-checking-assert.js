@@ -35,7 +35,18 @@ module.exports = function ukModulusCheckingAssert() {
    * Validation algorithm.
    */
 
-  this.validate = ({ accountNumber, sortCode } = {}) => {
+  this.validate = value => {
+    // A default parameter only applies to `undefined`, so `validate(null)` used to reach the
+    // destructuring pattern and threw `TypeError: Cannot destructure property 'accountNumber' of
+    // '(intermediate value)' as it is null`. `Assert.check()` swallows any throw and returns it as
+    // the failure value, so a nullable body field produced a TypeError instead of a
+    // `must_be_a_string` violation, turning a 400-class input error into a 500.
+    if (value === null || typeof value !== 'object') {
+      throw new Violation(this, value, { accountNumber: Validator.errorCode.must_be_a_string });
+    }
+
+    const { accountNumber, sortCode } = value;
+
     if (typeof accountNumber !== 'string') {
       throw new Violation(this, accountNumber, { accountNumber: Validator.errorCode.must_be_a_string });
     }
