@@ -8,10 +8,15 @@ const { Validator, Violation } = require('validator.js');
 
 /**
  * Hash algorithm regular expression mapping.
+ *
+ * A hex digest is case-insensitive by definition, and `sha256`/`sha512` already accepted upper
+ * case. `sha1` did not, so the same commit SHA written in the conventional upper-case form was
+ * rejected while its lower-case twin was accepted. Git prints object IDs in upper case, which
+ * makes the inconsistency easy to hit.
  */
 
 const hash = {
-  sha1: /^[a-f0-9]{40}$/,
+  sha1: /^[A-Fa-f0-9]{40}$/,
   sha256: /^[A-Fa-f0-9]{64}$/,
   sha512: /^[A-Fa-f0-9]{128}$/
 };
@@ -31,7 +36,7 @@ module.exports = function hashAssert(algorithm) {
     throw new Error('An algorithm is required.');
   }
 
-  if (!(algorithm in hash)) {
+  if (!Object.prototype.hasOwnProperty.call(hash, algorithm)) {
     throw new Error('The algorithm specified is not supported.');
   }
 
