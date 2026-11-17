@@ -73,7 +73,7 @@
     "validator.js": "^2.0.0"
   },
   "peerDependencies": {
-    "abavalidator": "^2.0.0",
+    "abavalidator": "^2.0.0 || ^3.0.0",
     "bignumber.js": ">=7 || <=9.3.1",
     "cpf": "^2.0.1",
     "creditcard": ">=0.0.1 <1.0.0",
@@ -82,7 +82,7 @@
     "isoc": ">=0.0.1 <1.0.0",
     "moment": "^2.0.0",
     "tin-validator": "^1.0.0",
-    "uk-modulus-checking": "^0.0.2",
+    "uk-modulus-checking": ">=0.0.2 <0.2.0",
     "urijs": "^1.0.0",
     "validate-curp": "^1.0.0",
     "validate-rfc": "^2.0.3",
